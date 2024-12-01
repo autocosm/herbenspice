@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://trusted-site.com; script-src 'self' https://trusted-scripts.com;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
   <title>Herbenspice Design System</title>
   <!--<link rel="canonical" href="https://herbenspice.com/">-->
 
   <!-- SWAP WHEN GOING LIVE -->
   <meta name="robots" content="noindex">
-  <!--<meta name="robots" content="index, follow">-->
+  <!--
+  <meta name="robots" content="index, follow">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  -->
 
   <!-- Favicon -->
   <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="imgs/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
 
   <!-- Open Graph -->
@@ -25,11 +31,20 @@
   <meta property="og:site_name" content="Herbenspice Design System">
   <meta property="og:locale" content="en_US">
 
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Herbenspice Design System">
+  <meta name="twitter:description" content="Herbenspice is a lightweight, accessible design system built by Michael Crowe.">
+  <meta name="twitter:image" content="https://herbenspice.com/imgs/herbenspice-logo.png">
+  <!--<meta name="twitter:creator" content="@YourTwitterHandle">-->
+
   <!-- SEO -->
   <meta name="description" content="Herbenspice is a personal design system and portfolio project by Michael Crowe, focusing on accessibility, semantic HTML, and lightweight front-end development.">
   <meta name="author" content="Michael Crowe">
   <meta name="subject" content="Semantic, accessible, and lightweight design system for HTML, CSS, and JavaScript projects.">
   <meta name="classification" content="Web Design and Development">
+  <meta name="keywords" content="Herbenspice, design system, UI/UX, semantic HTML, CSS variables, accessibility-first, lightweight front-end">
+
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -50,9 +65,40 @@
     }
   </script>
 
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    
+
+<!--<header></header>-->
+<main>
+  <section id="homeReadme">
+    <div class="container">
+      <h1>Herbenspice</h1>
+      <p>
+        Herbenspice is a semantic design system for vanilla front-end code built by a UI/UX designer. It aims to bootstrap web projects with minimal tooling, leveraging the power of the browser.
+      </p>
+      <h2>Semantic paradigm</h2>
+      <p>
+        Imperative utility-first CSS frameworks like Tailwind CSS are popular for rapid prototyping, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
+      </p>
+      <h2>Lightweight with no build tools</h2>
+      <p>
+        Intended for HTML, CSS, and JavaScript, Herbenspice uses CSS variables for design tokens, requiring no build tools. It's lightweight and easy to integrate into existing projects, no matter what tools or frameworks you're using.
+      </p>
+      <h2>Accessibility-first</h2>
+      <p>
+        Herbenspice is built with accessibility in mind. It uses semantic HTML elements and ARIA attributes to ensure that all users can access and interact with your content.
+      </p>
+      <br><hr><br>
+      <p>
+        Herbenspice is the personal design system and portfolio project of Michael Crowe, a digital product manager with a background in technical documentation, UI/UX design, and front-end development.
+      </p>
+    </div>
+  </section>
+</main>
+<!--<footer></footer>-->
+
 </body>
 </html>
