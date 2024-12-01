@@ -1,0 +1,233 @@
+@charset "utf-8";
+/*
+  ******************************************
+  COLOR LIBRARY v2.2 by Michael Crowe
+  for Herbenspice design system
+
+  Colorspace: okLCh by Björn Ottosson
+  Hues: apple, green, emerald, cyan, blue, indigo,
+        violet, magenta, pink, red, orange, yellow
+  Grades: 00(near-white), 05, 10,20...90, 95, 99(near-black)
+  Saturations:  Dull(d), Pastel(p), Normal,
+                Bold(b), Vivid(v), Extreme(x)
+  ********************************************
+*/
+
+:root {
+ /* APPLE : okLab h° 112.589422 ---------------- */
+  --apple-99d:#111110;--apple-99p:#11120e;--apple-99:#111209;--apple-99b:#121200;--apple-99v:#131100;--apple-99x:#100d00;
+  --apple-95d:#1b1c19;--apple-95p:#1b1c16;--apple-95:#1b1d0e;--apple-95b:#1c1d00;--apple-95v:#1d1c00;--apple-95x:#181700;
+  --apple-90d:#262723;--apple-90p:#26271e;--apple-90:#272813;--apple-90b:#272900;--apple-90v:#282800;--apple-90x:#242100;
+  --apple-80d:#363732;--apple-80p:#37382b;--apple-80:#37391b;--apple-80b:#383a00;--apple-80v:#393900;--apple-80x:#343100;
+  --apple-70d:#4b4c44;--apple-70p:#4b4d3c;--apple-70:#4b4e28;--apple-70b:#4c4f00;--apple-70v:#4d4e00;--apple-70x:#4a4500;
+  --apple-60d:#606158;--apple-60p:#60634e;--apple-60:#616535;--apple-60b:#626600;--apple-60v:#646600;--apple-60x:#5f5d00;
+  --apple-50d:#77796e;--apple-50p:#787a62;--apple-50:#787c46;--apple-50b:#7a7f00;--apple-50v:#7b7e00;--apple-50x:#767600;
+  --apple-40d:#929488;--apple-40p:#92957a;--apple-40:#93985b;--apple-40b:#959b00;--apple-40v:#969b00;--apple-40x:#929400;
+  --apple-30d:#a9ab9e;--apple-30p:#a9ac91;--apple-30:#aaaf73;--apple-30b:#abb238;--apple-30v:#acb300;--apple-30x:#a9ae00;
+  --apple-20d:#c3c5b9;--apple-20p:#c3c6ad;--apple-20:#c4c991;--apple-20b:#c5cc64;--apple-20v:#c6ce00;--apple-20x:#c4cc00;
+  --apple-10d:#dddfd4;--apple-10p:#dde0c9;--apple-10:#dde3b1;--apple-10b:#dee68f;--apple-10v:#dfe76a;--apple-10x:#dee800;
+  --apple-05d:#edeee6;--apple-05p:#edefdd;--apple-05:#edf1ca;--apple-05b:#edf4b2;--apple-05v:#edf5a3;--apple-05x:#ecf677;
+  --apple-00d:#fcfcf8;--apple-00p:#fcfdf2;--apple-00:#fcfee8;--apple-00b:#fcffdb;--apple-00v:#fbffd4;--apple-00x:#fcffae;
+
+ /* GREEN : okLab h° 144.974438 ---------------- */
+  --green-99d:#101210;--green-99p:#0f120f;--green-99:#0d130d;--green-99b:#061408;--green-99v:#001500;--green-99x:#001400;
+  --green-95d:#1a1c1a;--green-95p:#181d18;--green-95:#131e14;--green-95b:#08210c;--green-95v:#002200;--green-95x:#001e00;
+  --green-90d:#242724;--green-90p:#222922;--green-90:#1b2b1c;--green-90b:#0b2e10;--green-90v:#003000;--green-90x:#002c00;
+  --green-80d:#343834;--green-80p:#303a30;--green-80:#273d27;--green-80b:#104118;--green-80v:#004400;--green-80x:#004100;
+  --green-70d:#474d47;--green-70p:#424f42;--green-70:#375337;--green-70b:#1d5924;--green-70v:#005d00;--green-70x:#005b00;
+  --green-60d:#5c635c;--green-60p:#566656;--green-60:#476b48;--green-60b:#297230;--green-60v:#007800;--green-60x:#007600;
+  --green-50d:#727a72;--green-50p:#6b7e6b;--green-50:#5a845b;--green-50b:#3a8c41;--green-50v:#009300;--green-50x:#009100;
+  --green-40d:#8c968c;--green-40p:#849984;--green-40:#72a173;--green-40b:#50aa56;--green-40v:#00b223;--green-40x:#00b100;
+  --green-30d:#a3aca3;--green-30p:#9bb09b;--green-30:#89b78a;--green-30b:#6bc16f;--green-30v:#38c94b;--green-30x:#00cc00;
+  --green-20d:#bec6bd;--green-20p:#b6cab6;--green-20:#a6d1a6;--green-20b:#8cda8e;--green-20v:#6ae272;--green-20x:#1fe942;
+  --green-10d:#d8e0d8;--green-10p:#d2e3d1;--green-10:#c4eac3;--green-10b:#aff2b0;--green-10v:#9af89e;--green-10x:#66ff72;
+  --green-05d:#e9efe8;--green-05p:#e3f2e3;--green-05:#d8f7d8;--green-05b:#cafdca;--green-05v:#c1ffc2;--green-05x:#a6ffa9;
+  --green-00d:#f9fdf9;--green-00p:#f6fef6;--green-00:#f0fff0;--green-00b:#e9ffe9;--green-00v:#e4ffe4;--green-00x:#cdffce;
+
+ /* EMERALD : okLab h° 177.711454 ---------------- */
+  --emerald-99d:#101211;--emerald-99p:#0e1211;--emerald-99:#081411;--emerald-99b:#001511;--emerald-99v:#001610;--emerald-99x:#00150d;
+  --emerald-95d:#191c1b;--emerald-95p:#151d1b;--emerald-95:#0b1f1b;--emerald-95b:#00221b;--emerald-95v:#00241a;--emerald-95x:#002115;
+  --emerald-90d:#232826;--emerald-90p:#1e2926;--emerald-90:#0e2c26;--emerald-90b:#003026;--emerald-90v:#003225;--emerald-90x:#002f1f;
+  --emerald-80d:#323836;--emerald-80p:#2a3a36;--emerald-80:#153e36;--emerald-80b:#004436;--emerald-80v:#004835;--emerald-80x:#00462e;
+  --emerald-70d:#444d4b;--emerald-70p:#3b504b;--emerald-70:#21554b;--emerald-70b:#005c4a;--emerald-70v:#006149;--emerald-70x:#006241;
+  --emerald-60d:#586360;--emerald-60p:#4d6760;--emerald-60:#2d6d60;--emerald-60b:#007660;--emerald-60v:#007d5f;--emerald-60x:#007e56;
+  --emerald-50d:#6e7b77;--emerald-50p:#617f77;--emerald-50:#3e8777;--emerald-50b:#009177;--emerald-50v:#009a76;--emerald-50x:#009a6d;
+  --emerald-40d:#889692;--emerald-40p:#799b92;--emerald-40:#54a492;--emerald-40b:#00af92;--emerald-40v:#00b991;--emerald-40x:#00bb89;
+  --emerald-30d:#9fada9;--emerald-30p:#90b2a9;--emerald-30:#6dbba9;--emerald-30b:#00c6a9;--emerald-30v:#00d0a8;--emerald-30x:#00d6a1;
+  --emerald-20d:#bac7c3;--emerald-20p:#acccc3;--emerald-20:#8dd4c3;--emerald-20b:#4edfc3;--emerald-20v:#00e9c2;--emerald-20x:#00f3bd;
+  --emerald-10d:#d5e1dd;--emerald-10p:#c9e5dd;--emerald-10:#b0ecdd;--emerald-10b:#85f6dd;--emerald-10v:#4cfedd;--emerald-10x:#00ffd9;
+  --emerald-05d:#e6efed;--emerald-05p:#ddf3ed;--emerald-05:#c9f9ed;--emerald-05b:#aeffed;--emerald-05v:#9cffec;--emerald-05x:#61ffea;
+  --emerald-00d:#f8fdfc;--emerald-00p:#f3fffc;--emerald-00:#e8fffc;--emerald-00b:#dbfffb;--emerald-00v:#d4fffb;--emerald-00x:#a8fffb;
+
+ /* CYAN : okLab h° 207.925247 ---------------- */
+  --cyan-99d:#101212;--cyan-99p:#0d1213;--cyan-99:#071315;--cyan-99b:#001418;--cyan-99v:#00151c;--cyan-99x:#001221;
+  --cyan-95d:#191c1d;--cyan-95p:#151d1e;--cyan-95:#081f22;--cyan-95b:#002127;--cyan-95v:#00212c;--cyan-95x:#001d2d;
+  --cyan-90d:#232728;--cyan-90p:#1d292b;--cyan-90:#0a2b2f;--cyan-90b:#002e36;--cyan-90v:#002f3e;--cyan-90x:#002a42;
+  --cyan-80d:#313839;--cyan-80p:#293a3c;--cyan-80:#0e3d43;--cyan-80b:#00414d;--cyan-80v:#004358;--cyan-80x:#003e61;
+  --cyan-70d:#444d4e;--cyan-70p:#3a4f52;--cyan-70:#1b535b;--cyan-70b:#005868;--cyan-70v:#005c76;--cyan-70x:#005885;
+  --cyan-60d:#586365;--cyan-60p:#4b666a;--cyan-60:#266b75;--cyan-60b:#007285;--cyan-60v:#007697;--cyan-60x:#0073a5;
+  --cyan-50d:#6d7a7d;--cyan-50p:#5f7e83;--cyan-50:#36848f;--cyan-50b:#008ca2;--cyan-50v:#0092b7;--cyan-50x:#008fc2;
+  --cyan-40d:#879698;--cyan-40p:#779a9f;--cyan-40:#4ca1ae;--cyan-40b:#00aac2;--cyan-40v:#00b1d8;--cyan-40x:#00afe4;
+  --cyan-30d:#9eacaf;--cyan-30p:#8eb1b6;--cyan-30:#66b8c4;--cyan-30b:#00c1d8;--cyan-30v:#00c8ed;--cyan-30x:#00cbff;
+  --cyan-20d:#b9c7c9;--cyan-20p:#aacbd0;--cyan-20:#88d2dd;--cyan-20b:#3adbf0;--cyan-20v:#00e2ff;--cyan-20x:#00e8ff;
+  --cyan-10d:#d4e0e2;--cyan-10p:#c7e4e8;--cyan-10:#abeaf4;--cyan-10b:#7bf2ff;--cyan-10v:#2ef9ff;--cyan-10x:#00ffff;
+  --cyan-05d:#e5eff1;--cyan-05p:#dbf2f5;--cyan-05:#c6f7ff;--cyan-05b:#a8feff;--cyan-05v:#93ffff;--cyan-05x:#4dffff;
+  --cyan-00d:#f7fdfe;--cyan-00p:#f2ffff;--cyan-00:#e6ffff;--cyan-00b:#d8ffff;--cyan-00v:#d0ffff;--cyan-00x:#9fffff;
+
+ /* BLUE : okLab h° 241.0024697 ---------------- */
+  --blue-99d:#101113;--blue-99p:#0e1214;--blue-99:#0a1218;--blue-99b:#00121d;--blue-99v:#001124;--blue-99x:#000032;
+  --blue-95d:#191c1e;--blue-95p:#161c21;--blue-95:#0f1d26;--blue-95b:#001d2f;--blue-95v:#001b3a;--blue-95x:#001240;
+  --blue-90d:#23272a;--blue-90p:#1f282e;--blue-90:#152836;--blue-90b:#002942;--blue-90v:#002651;--blue-90x:#001b5d;
+  --blue-80d:#32373b;--blue-80p:#2d3841;--blue-80:#1e394d;--blue-80b:#003a5e;--blue-80v:#003772;--blue-80x:#002889;
+  --blue-70d:#454c51;--blue-70p:#3e4d58;--blue-70:#2c4f67;--blue-70b:#004f7d;--blue-70v:#004c97;--blue-70x:#003bba;
+  --blue-60d:#5a6268;--blue-60p:#516371;--blue-60:#3b6584;--blue-60b:#0067a0;--blue-60v:#0063c1;--blue-60x:#0054e3;
+  --blue-50d:#707980;--blue-50p:#657b8b;--blue-50:#4c7da1;--blue-50b:#007fc1;--blue-50v:#007ce7;--blue-50x:#0070ff;
+  --blue-40d:#89949d;--blue-40p:#7e96a9;--blue-40:#6299c2;--blue-40b:#189ce5;--blue-40v:#009aff;--blue-40x:#0090ff;
+  --blue-30d:#a0abb3;--blue-30p:#94adc0;--blue-30:#7ab0d9;--blue-30b:#45b3fc;--blue-30v:#00b3ff;--blue-30x:#00abff;
+  --blue-20d:#bbc5cd;--blue-20p:#b0c7d9;--blue-20:#98cbf1;--blue-20b:#6fceff;--blue-20v:#22cfff;--blue-20x:#00cbff;
+  --blue-10d:#d6dfe6;--blue-10p:#cce1f1;--blue-10:#b8e4ff;--blue-10b:#99e7ff;--blue-10v:#77e9ff;--blue-10x:#00e9ff;
+  --blue-05d:#e7eef4;--blue-05p:#dfeffc;--blue-05:#cff2ff;--blue-05b:#baf5ff;--blue-05v:#acf6ff;--blue-05x:#84f8ff;
+  --blue-00d:#f8fcff;--blue-00p:#f4fdff;--blue-00:#ebffff;--blue-00b:#e0ffff;--blue-00v:#daffff;--blue-00x:#b8ffff;
+
+ /* INDIGO : okLab h° 275.9539458 ---------------- */
+  --indigo-99d:#111113;--indigo-99p:#101115;--indigo-99:#0f1118;--indigo-99b:#0e101e;--indigo-99v:#0d0b26;--indigo-99x:#0d0036;
+  --indigo-95d:#1b1b1e;--indigo-95p:#1a1b21;--indigo-95:#181a27;--indigo-95b:#161831;--indigo-95v:#14123d;--indigo-95x:#110045;
+  --indigo-90d:#25262a;--indigo-90p:#24262f;--indigo-90:#222537;--indigo-90b:#1f2245;--indigo-90v:#1c1a55;--indigo-90x:#190063;
+  --indigo-80d:#35363c;--indigo-80p:#333642;--indigo-80:#30344f;--indigo-80b:#2c3062;--indigo-80v:#282578;--indigo-80x:#240092;
+  --indigo-70d:#494a51;--indigo-70p:#474a5a;--indigo-70:#42486a;--indigo-70b:#3d4382;--indigo-70v:#38379f;--indigo-70x:#3200c7;
+  --indigo-60d:#5e6069;--indigo-60p:#5b5f73;--indigo-60:#565d88;--indigo-60b:#4f57a6;--indigo-60v:#4949ca;--indigo-60x:#4127f1;
+  --indigo-50d:#757781;--indigo-50p:#71768e;--indigo-50:#6b74a6;--indigo-50b:#636dc8;--indigo-50v:#5b5ff2;--indigo-50x:#5147ff;
+  --indigo-40d:#8f929e;--indigo-40p:#8c91ab;--indigo-40:#848ec7;--indigo-40b:#7b88ed;--indigo-40v:#727bff;--indigo-40x:#6768ff;
+  --indigo-30d:#a6a9b4;--indigo-30p:#a2a8c2;--indigo-30:#9ba5de;--indigo-30b:#91a0ff;--indigo-30v:#8896ff;--indigo-30x:#7b82ff;
+  --indigo-20d:#c0c3ce;--indigo-20p:#bdc2db;--indigo-20:#b6c0f6;--indigo-20b:#adbcff;--indigo-20v:#a3b5ff;--indigo-20x:#95a4ff;
+  --indigo-10d:#dbdde7;--indigo-10p:#d8dcf3;--indigo-10:#d1dbff;--indigo-10b:#c9d8ff;--indigo-10v:#c2d4ff;--indigo-10x:#b2c7ff;
+  --indigo-05d:#ebecf4;--indigo-05p:#e8ecfe;--indigo-05:#e3ebff;--indigo-05b:#dde9ff;--indigo-05v:#d9e7ff;--indigo-05x:#cee1ff;
+  --indigo-00d:#fafbff;--indigo-00p:#f9fbff;--indigo-00:#f6fbff;--indigo-00b:#f2faff;--indigo-00v:#f0f9ff;--indigo-00x:#e6f6ff;
+
+ /* VIOLET : okLab h° 295.5694219 ---------------- */
+  --violet-99d:#111113;--violet-99p:#111114;--violet-99:#121018;--violet-99b:#130e1d;--violet-99v:#130824;--violet-99x:#140031;
+  --violet-95d:#1b1b1e;--violet-95p:#1c1a20;--violet-95:#1c1926;--violet-95b:#1e162f;--violet-95v:#1f0c39;--violet-95x:#1d003f;
+  --violet-90d:#27262a;--violet-90p:#27252e;--violet-90:#282336;--violet-90b:#2a1e42;--violet-90v:#2b1350;--violet-90x:#29005b;
+  --violet-80d:#37363b;--violet-80p:#373441;--violet-80:#39314c;--violet-80b:#3b2b5d;--violet-80v:#3e1c71;--violet-80x:#3d0086;
+  --violet-70d:#4b4a51;--violet-70p:#4c4858;--violet-70:#4d4467;--violet-70b:#503d7c;--violet-70v:#542c95;--violet-70x:#5500b7;
+  --violet-60d:#615f68;--violet-60p:#625d71;--violet-60:#645884;--violet-60b:#674f9e;--violet-60v:#6c3bbe;--violet-60x:#6c00df;
+  --violet-50d:#787680;--violet-50p:#79748b;--violet-50:#7b6ea1;--violet-50b:#7f64c0;--violet-50v:#854fe4;--violet-50x:#8330ff;
+  --violet-40d:#93919c;--violet-40p:#948ea9;--violet-40:#9688c1;--violet-40b:#9b7de4;--violet-40v:#a06aff;--violet-40x:#9e52ff;
+  --violet-30d:#aaa7b3;--violet-30p:#aba5c0;--violet-30:#ad9fd8;--violet-30b:#b195fa;--violet-30v:#b686ff;--violet-30x:#b66cff;
+  --violet-20d:#c4c2cd;--violet-20p:#c5bfd9;--violet-20:#c7baf0;--violet-20b:#cbb2ff;--violet-20v:#cea6ff;--violet-20x:#d08fff;
+  --violet-10d:#dedce6;--violet-10p:#dfdaf0;--violet-10:#e0d6ff;--violet-10b:#e3cfff;--violet-10v:#e5c8ff;--violet-10x:#e9b4ff;
+  --violet-05d:#edecf4;--violet-05p:#eeeafc;--violet-05:#efe7ff;--violet-05b:#f1e2ff;--violet-05v:#f2dfff;--violet-05x:#f4d5ff;
+  --violet-00d:#fcfbff;--violet-00p:#fcfaff;--violet-00:#fdf8ff;--violet-00b:#fef6ff;--violet-00v:#fdf4ff;--violet-00x:#ffedff;
+
+ /* MAGENTA : okLab h° 326.974438 ---------------- */
+  --magenta-99d:#121112;--magenta-99p:#131013;--magenta-99:#150f15;--magenta-99b:#180c18;--magenta-99v:#1b001b;--magenta-99x:#1d0021;
+  --magenta-95d:#1d1a1d;--magenta-95p:#1e191e;--magenta-95:#221722;--magenta-95b:#261227;--magenta-95v:#2b002c;--magenta-95x:#2a002d;
+  --magenta-90d:#282528;--magenta-90p:#2b242b;--magenta-90:#2f202f;--magenta-90b:#361936;--magenta-90v:#3c003e;--magenta-90x:#3d0041;
+  --magenta-80d:#393539;--magenta-80p:#3d333d;--magenta-80:#432e43;--magenta-80b:#4c244d;--magenta-80v:#550858;--magenta-80x:#5a005f;
+  --magenta-70d:#4e494e;--magenta-70p:#534653;--magenta-70:#5b405b;--magenta-70b:#673467;--magenta-70v:#731975;--magenta-70x:#7c0083;
+  --magenta-60d:#655e65;--magenta-60p:#6b5a6a;--magenta-60:#755375;--magenta-60b:#844485;--magenta-60v:#932696;--magenta-60x:#9d00a3;
+  --magenta-50d:#7d747d;--magenta-50p:#847083;--magenta-50:#906790;--magenta-50b:#a157a2;--magenta-50v:#b339b6;--magenta-50x:#bb00c1;
+  --magenta-40d:#998f98;--magenta-40p:#a08a9f;--magenta-40:#ae80ae;--magenta-40b:#c16fc2;--magenta-40v:#d553d8;--magenta-40x:#de32e3;
+  --magenta-30d:#afa6af;--magenta-30p:#b7a1b6;--magenta-30:#c697c5;--magenta-30b:#d987d8;--magenta-30v:#eb71ed;--magenta-30x:#fc4eff;
+  --magenta-20d:#c9c0c9;--magenta-20p:#d1bcd0;--magenta-20:#dfb3de;--magenta-20b:#f1a5f0;--magenta-20v:#ff93ff;--magenta-20x:#ff74ff;
+  --magenta-10d:#e3dae2;--magenta-10p:#e9d7e8;--magenta-10:#f6cff5;--magenta-10b:#ffc4ff;--magenta-10v:#ffb8ff;--magenta-10x:#ff9cff;
+  --magenta-05d:#f1eaf1;--magenta-05p:#f6e8f6;--magenta-05:#ffe1ff;--magenta-05b:#ffdaff;--magenta-05v:#ffd4ff;--magenta-05x:#ffc5ff;
+  --magenta-00d:#fefafe;--magenta-00p:#fff9ff;--magenta-00:#fff5ff;--magenta-00b:#fff1ff;--magenta-00v:#ffeeff;--magenta-00x:#ffe2ff;
+
+ /* PINK : okLab h° 359.731454 ---------------- */
+  --pink-99d:#131111;--pink-99p:#141011;--pink-99:#170e11;--pink-99b:#1b0a11;--pink-99v:#200010;--pink-99x:#25000c;
+  --pink-95d:#1e1a1b;--pink-95p:#20191b;--pink-95:#25161b;--pink-95b:#2c101b;--pink-95v:#330019;--pink-95x:#340014;
+  --pink-90d:#2a2526;--pink-90p:#2d2326;--pink-90:#341f26;--pink-90b:#3e1625;--pink-90v:#470024;--pink-90x:#4b001d;
+  --pink-80d:#3b3536;--pink-80p:#403236;--pink-80:#4a2c36;--pink-80b:#572035;--pink-80v:#650033;--pink-80x:#6f002b;
+  --pink-70d:#51484a;--pink-70p:#58454a;--pink-70:#643d4a;--pink-70b:#752e49;--pink-70v:#870046;--pink-70x:#98003d;
+  --pink-60d:#685d60;--pink-60p:#715960;--pink-60:#81505f;--pink-60b:#963e5e;--pink-60v:#ac005b;--pink-60x:#be0052;
+  --pink-50d:#807477;--pink-50p:#8b6f77;--pink-50:#9d6476;--pink-50b:#b65075;--pink-50v:#d02372;--pink-50x:#e10069;
+  --pink-40d:#9c8e92;--pink-40p:#a88992;--pink-40:#be7d91;--pink-40b:#da678f;--pink-40v:#f6418c;--pink-40x:#ff0084;
+  --pink-30d:#b3a5a9;--pink-30p:#bfa0a8;--pink-30:#d594a7;--pink-30b:#f280a6;--pink-30v:#ff64a3;--pink-30x:#ff349c;
+  --pink-20d:#cdc0c3;--pink-20p:#d8bbc3;--pink-20:#eeb0c2;--pink-20b:#ff9fc0;--pink-20v:#ff89be;--pink-20x:#ff62b8;
+  --pink-10d:#e6dadd;--pink-10p:#f0d6dd;--pink-10:#ffccdc;--pink-10b:#ffbfdb;--pink-10v:#ffb1d9;--pink-10x:#ff8fd4;
+  --pink-05d:#f4eaec;--pink-05p:#fce7ec;--pink-05:#ffdfec;--pink-05b:#ffd6eb;--pink-05v:#ffd0ea;--pink-05x:#ffbde7;
+  --pink-00d:#fffafb;--pink-00p:#fff8fb;--pink-00:#fff4fb;--pink-00b:#ffeffa;--pink-00v:#ffecfa;--pink-00x:#ffddf9;
+
+ /* RED : okLab h° 30.965247 ---------------- */
+  --red-99d:#131110;--red-99p:#14100f;--red-99:#170f0d;--red-99b:#1c0b09;--red-99v:#210000;--red-99x:#280000;
+  --red-95d:#1e1a1a;--red-95p:#211918;--red-95:#261714;--red-95b:#2d110d;--red-95v:#350000;--red-95x:#3a0000;
+  --red-90d:#2a2524;--red-90p:#2e2422;--red-90:#35201c;--red-90b:#3f1712;--red-90v:#4a0000;--red-90x:#4f0000;
+  --red-80d:#3b3534;--red-80p:#413330;--red-80:#4c2d28;--red-80b:#5a211a;--red-80v:#690000;--red-80x:#750000;
+  --red-70d:#514947;--red-70p:#584642;--red-70:#663f38;--red-70b:#793126;--red-70v:#8c0000;--red-70x:#a10000;
+  --red-60d:#685e5c;--red-60p:#725a56;--red-60:#835249;--red-60b:#9a4033;--red-60v:#b30c00;--red-60x:#c80000;
+  --red-50d:#817472;--red-50p:#8c706b;--red-50:#a0665c;--red-50b:#bb5343;--red-50v:#d82913;--red-50x:#eb0000;
+  --red-40d:#9d8f8c;--red-40p:#aa8a84;--red-40:#c17f73;--red-40b:#df6b59;--red-40v:#ff4730;--red-40x:#ff0e00;
+  --red-30d:#b4a6a3;--red-30p:#c1a19b;--red-30:#d8968a;--red-30b:#f78471;--red-30v:#ff6951;--red-30x:#ff3a20;
+  --red-20d:#cec0bd;--red-20p:#dabcb6;--red-20:#f1b2a6;--red-20b:#ffa290;--red-20v:#ff8e76;--red-20x:#ff684c;
+  --red-10d:#e6dad8;--red-10p:#f1d7d1;--red-10:#ffcec4;--red-10b:#ffc2b1;--red-10v:#ffb59f;--red-10x:#ff9577;
+  --red-05d:#f4eae8;--red-05p:#fde7e3;--red-05:#ffe1d8;--red-05b:#ffd8cb;--red-05v:#ffd3c2;--red-05x:#ffc2aa;
+  --red-00d:#fffaf9;--red-00p:#fff9f6;--red-00:#fff5f0;--red-00b:#fff1e9;--red-00v:#ffeee4;--red-00x:#ffe0ce;
+
+ /* ORANGE : okLab h° 60.0024697 ---------------- */
+  --orange-99d:#121110;--orange-99p:#14110e;--orange-99:#160f0a;--orange-99b:#1a0d00;--orange-99v:#1f0600;--orange-99x:#240000;
+  --orange-95d:#1d1b19;--orange-95p:#201a16;--orange-95:#24180e;--orange-95b:#2b1400;--orange-95v:#310900;--orange-95x:#320000;
+  --orange-90d:#292623;--orange-90p:#2d251f;--orange-90:#332214;--orange-90b:#3c1d00;--orange-90v:#450e00;--orange-90x:#490000;
+  --orange-80d:#3b3632;--orange-80p:#3f342b;--orange-80:#48311d;--orange-80b:#552900;--orange-80v:#621600;--orange-80x:#6c0000;
+  --orange-70d:#504945;--orange-70p:#56483c;--orange-70:#62432a;--orange-70b:#723a00;--orange-70v:#832600;--orange-70x:#940000;
+  --orange-60d:#675f59;--orange-60p:#6f5d4f;--orange-60:#7d5738;--orange-60b:#914c00;--orange-60v:#a73400;--orange-60x:#b90000;
+  --orange-50d:#7f766e;--orange-50p:#887363;--orange-50:#996d48;--orange-50b:#b16000;--orange-50v:#ca4800;--orange-50x:#da2200;
+  --orange-40d:#9b9088;--orange-40p:#a58d7b;--orange-40:#b9865d;--orange-40b:#d37918;--orange-40v:#ef6200;--orange-40x:#ff4700;
+  --orange-30d:#b2a79f;--orange-30p:#bca492;--orange-30:#d09d75;--orange-30b:#eb9141;--orange-30v:#ff7f00;--orange-30x:#ff6100;
+  --orange-20d:#ccc1ba;--orange-20p:#d6bfad;--orange-20:#e9b993;--orange-20b:#ffae69;--orange-20v:#ffa122;--orange-20x:#ff8600;
+  --orange-10d:#e5dcd5;--orange-10p:#eed9ca;--orange-10:#ffd4b3;--orange-10b:#ffcc92;--orange-10v:#ffc470;--orange-10x:#ffad00;
+  --orange-05d:#f3ebe6;--orange-05p:#faeadd;--orange-05:#ffe6cb;--orange-05b:#ffe0b4;--orange-05v:#ffdca6;--orange-05x:#ffd17c;
+  --orange-00d:#fffbf8;--orange-00p:#fffaf3;--orange-00:#fff8e9;--orange-00b:#fff5dc;--orange-00v:#fff3d6;--orange-00x:#ffeab1;
+
+ /* YELLOW : okLab h° 91.1609458 ---------------- */
+  --yellow-99d:#121110;--yellow-99p:#12110e;--yellow-99:#141108;--yellow-99b:#161000;--yellow-99v:#180e00;--yellow-99x:#1b0000;
+  --yellow-95d:#1c1b19;--yellow-95p:#1d1b15;--yellow-95:#201b0c;--yellow-95b:#231a00;--yellow-95v:#271600;--yellow-95x:#260e00;
+  --yellow-90d:#282623;--yellow-90p:#29261d;--yellow-90:#2d2611;--yellow-90b:#322400;--yellow-90v:#372000;--yellow-90x:#371400;
+  --yellow-80d:#383631;--yellow-80p:#3b362a;--yellow-80:#403618;--yellow-80b:#473300;--yellow-80v:#4e2e00;--yellow-80x:#511e00;
+  --yellow-70d:#4d4b44;--yellow-70p:#504b3a;--yellow-70:#564a24;--yellow-70b:#604700;--yellow-70v:#694000;--yellow-70x:#712d00;
+  --yellow-60d:#636058;--yellow-60p:#67604c;--yellow-60:#6f5f30;--yellow-60b:#7b5c00;--yellow-60v:#875400;--yellow-60x:#8e4200;
+  --yellow-50d:#7b776d;--yellow-50p:#7f7760;--yellow-50:#897640;--yellow-50b:#967200;--yellow-50v:#a46a00;--yellow-50x:#aa5b00;
+  --yellow-40d:#969287;--yellow-40p:#9b9278;--yellow-40:#a69155;--yellow-40b:#b48d00;--yellow-40v:#c48600;--yellow-40x:#cb7800;
+  --yellow-30d:#ada99d;--yellow-30p:#b2a98e;--yellow-30:#bca86d;--yellow-30b:#cba522;--yellow-30v:#da9f00;--yellow-30x:#e69100;
+  --yellow-20d:#c7c3b8;--yellow-20p:#ccc3aa;--yellow-20:#d6c28c;--yellow-20b:#e3c058;--yellow-20v:#f1bc00;--yellow-20x:#ffb100;
+  --yellow-10d:#e1ddd4;--yellow-10p:#e5ddc7;--yellow-10:#eeddad;--yellow-10b:#f9db86;--yellow-10v:#ffd95b;--yellow-10x:#ffd000;
+  --yellow-05d:#efede5;--yellow-05p:#f3eddb;--yellow-05:#faecc6;--yellow-05b:#ffecac;--yellow-05v:#ffeb9b;--yellow-05x:#ffe769;
+  --yellow-00d:#fdfcf7;--yellow-00p:#fffcf2;--yellow-00:#fffce6;--yellow-00b:#fffbd8;--yellow-00v:#fffbd1;--yellow-00x:#fffaa6;
+
+ /*  Range  */
+  --pal-black: #0f0f0f;  /* Blackest black allowed  */
+  --pal-white: #fcfcfc;  /* Whitest white allowed */
+  --pal-base:  #efefef;  /* Gamma control tone for value scale */
+
+ /*  Neutrals  */
+  --neutral-99:#111111;--gray-99:#0e0e10; /* L:0.1345   */ --blackest: var(--gray-99);
+  --neutral-95:#1b1b1b;--gray-95:#1b1d1f; /* L:0.1896   */ --blacker: var(--gray-95);
+  --neutral-90:#262626;--gray-90:#2b2d30; /* L:0.2443   */ --black: var(--gray-90);
+  --neutral-80:#373737;--gray-80:#3a3e41; /* L:0.317279 */ --blackish: var(--gray-80);
+  --neutral-70:#4b4b4b;--gray-70:#4d5256; /* L:0.40113  */ 
+  --neutral-60:#606060;--gray-60:#61686c; /* L:0.484981 */ 
+  --neutral-50:#777777;--gray-50:#767e83; /* L:0.568832 */ 
+  --neutral-40:#929292;--gray-40:#8e959a; /* L:0.661683 */ 
+  --neutral-30:#a9a9a9;--gray-30:#a7adb2; /* L:0.736534 */ 
+  --neutral-20:#c3c3c3;--gray-20:#c0c6cb; /* L:0.82039  */ --whiteish: var(--gray-20);
+  --neutral-10:#dddddd;--gray-10:#d2d8dc; /* L:0.9      */ --white: var(--gray-10);
+  --neutral-07:#e5e5e5;--gray-07:#dce1e4; /* L:0.921826 */
+  --neutral-05:#ededed;--gray-05:#e6eaed; /* L:0.946162 */ --whiter: var(--gray-05);
+  --neutral-02:#f4f4f4;--gray-02:#eff3f5; /* L:0.968587 */
+  --neutral-00:#fcfcfc;--gray-00:#f9fcfe; /* L:0.99     */ --whitest: var(--gray-00);
+
+ /*  Tones  */
+  --cool-99:#101112;--warm-99:#121110;--night-99:#111112;
+  --cool-95:#1a1c1d;--warm-95:#1c1b19;--night-95:#1b1b1d;
+  --cool-90:#242729;--warm-90:#272623;--night-90:#262629;
+  --cool-80:#34373a;--warm-80:#383733;--night-80:#36363a;
+  --cool-70:#474b4f;--warm-70:#4c4b46;--night-70:#4a4a4f;
+  --cool-60:#5c6166;--warm-60:#62605b;--night-60:#5f6066;
+  --cool-50:#72797d;--warm-50:#7a7771;--night-50:#76777e;
+  --cool-40:#8d9499;--warm-40:#95928b;--night-40:#90929a;
+  --cool-30:#a3aab0;--warm-30:#aca9a1;--night-30:#a7a9b1;
+  --cool-20:#bdc5ca;--warm-20:#c6c3bc;--night-20:#c1c3cb;
+  --cool-10:#d8dee3;--warm-10:#e0ddd6;--night-10:#dcdde4;
+  --cool-05:#e8eef2;--warm-05:#efede6;--night-05:#ebecf3;
+  --cool-00:#f9fcff;--warm-00:#fdfcf8;--night-00:#fbfbff;
+}
