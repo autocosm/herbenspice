@@ -14,7 +14,7 @@
   scroll-behavior: smooth;
   /*
   FONT-SIZE =========================== */
-  --base-scale: 125%; /* 20px */
+  --base-scale: 125%;
   font-size: var(--base-scale);
 
   --font-size-xxs: 0.675rem;
@@ -373,7 +373,7 @@ h4:not([class]) {
   padding: 0.5em 0 0.375em;
   font-size: var(--font-size-heading-4);
   line-height: calc(var(--heading-leading) + 0.05);
-  font-weight: 700;
+  font-weight: 800;
 }
 .hed-5,
 h5:not([class]) {
@@ -685,6 +685,33 @@ input[type=reset] * + * {
 
 textarea.no-resize {
   resize: none;
+}
+
+
+/*  TABLES
+--------------------------------*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1rem 0;
+}
+
+table th {
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  background-color: var(--gray-07);
+  color: var(--black);
+  padding: var(--space-xxs) var(--space-s);
+  border-bottom: 2px solid var(--gray-10);
+  vertical-align: top;
+  text-align: left;
+}
+table td {
+  padding: var(--space-xs) var(--space-s);
+  border-bottom: 2px solid var(--gray-20);
+  vertical-align: top;
 }
 
 
