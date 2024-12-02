@@ -3,18 +3,18 @@
 @import url("colors.css");
 @import url("fonts.css");
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 
 /*  GLOBAL TOKENS
 --------------------------------*/
-
 :root {
   overflow: scroll;
   scroll-behavior: smooth;
+  
   /*
   FONT-SIZE =========================== */
-  --base-scale: 125%;
+  --base-scale: 112.5%;
   font-size: var(--base-scale);
 
   --font-size-xxs: 0.675rem;
@@ -24,15 +24,15 @@
   --font-size-l: 1.25rem;
   --font-size-xl: 1.5rem;
   --font-size-xxl: 2.25rem;
-  --font-size-xxxl: 3rem;
+  --font-size-xxxl: 3.25rem;
   --font-size-xxxxl: 4.5rem;
   
-  --font-size-heading-1: 2.5rem;
-  --font-size-heading-2: 1.75rem;
-  --font-size-heading-3: 1.5rem;
-  --font-size-heading-4: 1.25rem;
-  --font-size-heading-5: 1.175rem;
-  --font-size-heading-6: 1.1rem;
+  --font-size-heading-1: 2.875rem;
+  --font-size-heading-2: 2.125rem;
+  --font-size-heading-3: 1.875rem;
+  --font-size-heading-4: 1.5rem;
+  --font-size-heading-5: 1.25rem;
+  --font-size-heading-6: 1.125rem;
   
   /*
   FONTS ===========================
@@ -43,8 +43,7 @@
     --font-fallback-serif: Constantia, 'Lucida Bright', 'Lucida Serif', Lucida, 'DejaVu Serif', 'Liberation Serif', Georgia;
     --font-stack-serif: var(--font-serif, var(--font-fallback-serif, serif));
 
-    /* SANS | Montserrat https://fonts.google.com/specimen/Montserrat */
-    /* --font-sans: 'Montserrat'; */
+    /* SANS | TypeType TTNorms Pro */
     --font-sans: 'TTNorms';
     --font-fallback-sans: -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Ubuntu, Roboto, Arial;
     --font-stack-sans: var(--font-sans, var(--font-fallback-sans, sans-serif));
@@ -137,7 +136,7 @@
     
     /* Inline styles */
     --link-normal: var(--blue-50b);   --link-hover: var(--cyan-30v);
-    --code-dark: var(--gray-70);      --code-light: var(--yellow-10v);
+    --code-dark: var(--night-70);     --code-light: var(--apple-10x);
     --del-dark: var(--red-60);        --del-light: var(--red-05);
     --ins-dark: var(--green-60);      --ins-light: var(--green-05);
     --mark-dark: var(--red-95);       --mark-light: var(--yellow-10v);
@@ -165,7 +164,6 @@
   --container-large: min(100%, 1200px);
   --container-medium: min(100%, 1064px);
   --container-small: min(100%, 800px);
-
 
   /* Spacing settings */
   --field__y-gutter: var(--space-xxs);
@@ -346,7 +344,7 @@ h1:not([class]) {
   padding: 0.375em 0;
   font-size: var(--font-size-heading-1);
   line-height: calc(var(--heading-leading) - 0.2);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: calc(var(--heading-tracking) - 0.02em);
 }
 .hed-2,
@@ -420,9 +418,8 @@ h6:not([class]) {
 }
 
 
-/*  UTILITIES
+/*  LAYOUTS
 --------------------------------*/
-
 .container {
   width: var(--container-medium);
   margin: 0 auto;
@@ -441,6 +438,20 @@ article .container,
   padding: 0 var(--section__x-padding);
 }
 
+/* .stack establishes a vertical flex container */
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.stack > * {
+  margin-block: 0;
+}
+.stack > * + * {
+  margin-block-start: 1.25rem;
+}
+
+/* .row establishes a horizontal flex container */
 .row {
   display: flex;
   flex-direction: row;
@@ -448,6 +459,42 @@ article .container,
 }
 .row.reverse {
   flex-direction: row-reverse;
+}
+
+/* .box is a visible generic container, used to group
+  contents as a single child of a .stack or .row */
+.box {
+  padding: var(--card__padding-large);
+  border-radius: var(--corners-round);
+  border: var(--space-xxs) var(--gray-30) solid;
+  --color-light: var(--whiter);
+  --color-dark: var(--blacker);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+.box * {
+  color: inherit;
+}
+.box.invert {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+/* .switcher is a responsive flex row that wraps children to the
+  next row when space runs out, "switching" to a column */
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  --switcher-xy-threshold: 30rem;
+}
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--switcher-xy-threshold) - 100%) * 999);
+}
+.switcher > :nth-last-child(n+5),
+.switcher > :nth-last-child(n+5) ~ * {
+  flex-basis: 100%;
 }
 
 .col-sticky {
@@ -469,13 +516,11 @@ article .container,
   height: calc(var(--font-size-xxxl) + 0.5rem);
 }
 
-.nobr {
-  white-space: nowrap;
-}
 
-.hide {
-  display: none !important;
-}
+/*  UTILITIES
+--------------------------------*/
+.nobr { white-space: nowrap; }
+.hide { display: none !important; }
 
 /* Visible to screen-readers, hidden on screen */
 .sr-only {
@@ -493,7 +538,6 @@ article .container,
 
 /*  SECTIONS
 --------------------------------*/
-
 main > section,
 main > article {
   padding: 1em 0;
@@ -502,7 +546,6 @@ main > article {
 
 /*  BUTTONS
 --------------------------------*/
-
 .button {
   display: inline-block;
 }
@@ -610,7 +653,6 @@ input[type=reset] * + * {
 
 /*  FIELDS
 --------------------------------*/
-
 :is(
   input[type="text"],
   input[type="email"],
@@ -690,7 +732,6 @@ textarea.no-resize {
 
 /*  TABLES
 --------------------------------*/
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -714,19 +755,19 @@ table td {
   vertical-align: top;
 }
 
-table.nested {
+table.spec {
   font-size: var(--font-size-s);
   margin: 0;
   border: none;
 }
-table.nested td {
+table.spec td {
   padding: var(--space-hair) var(--space-xs);
   border: none;
 }
-table.nested tr:nth-child(odd) {
+table.spec tr:nth-child(odd) {
   background-color: var(--gray-02);
 }
-table.nested tr > td:first-child {
+table.spec tr > td:first-child {
   font-weight: 600;
   width: 9rem;
 }
@@ -734,7 +775,6 @@ table.nested tr > td:first-child {
 
 /*  BREAKPOINTS
 --------------------------------*/
-
 /*
   Smaller:
   @media screen and (max-width: 991px) {}
