@@ -714,6 +714,23 @@ table td {
   vertical-align: top;
 }
 
+table.nested {
+  font-size: var(--font-size-s);
+  margin: 0;
+  border: none;
+}
+table.nested td {
+  padding: var(--space-hair) var(--space-xs);
+  border: none;
+}
+table.nested tr:nth-child(odd) {
+  background-color: var(--gray-02);
+}
+table.nested tr > td:first-child {
+  font-weight: 600;
+  width: 9rem;
+}
+
 
 /*  BREAKPOINTS
 --------------------------------*/
