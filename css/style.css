@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-@import "./color-library.css";
+@import url("colors.css");
+@import url("fonts.css");
+
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 
@@ -12,7 +14,7 @@
   scroll-behavior: smooth;
   /*
   FONT-SIZE =========================== */
-  --base-scale: 100%;
+  --base-scale: 125%; /* 20px */
   font-size: var(--base-scale);
 
   --font-size-xxs: 0.675rem;
@@ -42,7 +44,8 @@
     --font-stack-serif: var(--font-serif, var(--font-fallback-serif, serif));
 
     /* SANS | Montserrat https://fonts.google.com/specimen/Montserrat */
-    --font-sans: 'Montserrat';
+    /* --font-sans: 'Montserrat'; */
+    --font-sans: 'TTNorms';
     --font-fallback-sans: -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Ubuntu, Roboto, Arial;
     --font-stack-sans: var(--font-sans, var(--font-fallback-sans, sans-serif));
   
@@ -250,11 +253,11 @@ kbd, code, samp, pre {
   letter-spacing: var(--text-tracking-tight);
 }
 kbd, pre {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-s);
   line-height: 1.025;
 }
 code, samp {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-s);
   font-weight: 400;
   line-height: 1;
   margin-inline: 0.05em;
@@ -298,7 +301,7 @@ ins {
 }
 
 small, sup {
-  font-size: var(--font-size-x-small);
+  font-size: var(--font-size-xs);
 }
 sub, sup {
   line-height: 0;
@@ -309,7 +312,7 @@ sup {
   top: -.5em;
 }
 sub {
-  font-size: var(--font-size-xx-small);  
+  font-size: var(--font-size-xxs);  
   bottom: -.25em;
 }
 
@@ -330,7 +333,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--blackest);
   margin: 0.5em 0 0;
   padding: 0.375em 0;
-  font-size: var(--font-size-xxx-large);
+  font-size: var(--font-size-xxxl);
   line-height: calc(var(--heading-leading) - 0.2);
   font-weight: 700;
   letter-spacing: calc(var(--heading-tracking) - 0.025em);
@@ -409,7 +412,7 @@ h6:not([class]) {
 
 .hed-0 + .dek {
   color: var(--blacker);
-  font-size: var(--font-size-x-large);
+  font-size: var(--font-size-xl);
   line-height: calc(var(--heading-leading) - 0.05);
   font-weight: 600;
   letter-spacing: calc(var(--heading-tracking) - 0.01em);
@@ -449,7 +452,7 @@ article .container,
 
 .col-sticky {
   position: sticky;
-  /*top: calc(var(--font-size-xxx-large) + 0.75rem);*/
+  /*top: calc(var(--font-size-xxxl) + 0.75rem);*/
   top: 8rem;
 }
 
@@ -463,7 +466,7 @@ article .container,
 /* Use fixed-height div for vertical space
   without having to change parent padding */
 .breaker {
-  height: calc(var(--font-size-xxx-large) + 0.5rem);
+  height: calc(var(--font-size-xxxl) + 0.5rem);
 }
 
 .nobr {
@@ -515,7 +518,7 @@ main > article {
   --button__color-white: var(--whiter);
   --button__color-hover: var(--yellow-40v);
   font-family: inherit;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-s);
   font-weight: 600;
   letter-spacing: var(--text-tracking-tight);
   padding: var(--space-xs) var(--space-m);
@@ -625,7 +628,7 @@ input[type=reset] * + * {
   select
 ) {
   font-family: var(--text-font);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-s);
   line-height: 1.4;
   padding: var(--textbox__y-padding) var(--textbox__x-padding);
   border-radius: var(--corners-dull);

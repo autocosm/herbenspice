@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+/* TTNorms 100 THIN */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../fonts/ttnorms-100.ttf');
+}
+
+/* TTNorms 200 EXTRA LIGHT */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../fonts/ttnorms-200.ttf');
+}
+
+/* TTNorms 300 LIGHT */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/ttnorms-300.ttf');
+}
+
+/* TTNorms 400 REGULAR */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ttnorms-400.ttf');
+}
+
+/* TTNorms 500 MEDIUM */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/ttnorms-500.ttf');
+}
+
+/* TTNorms 600 SEMI BOLD */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/ttnorms-600.ttf');
+}
+
+/* TTNorms 700 BOLD */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/ttnorms-700.ttf');
+}
+
+/* TTNorms 800 EXTRA BOLD */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/ttnorms-800.ttf');
+}
+
+/* TTNorms 900 BLACK */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/ttnorms-900.ttf');
+}
+
+/* TTNorms 100 THIN ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../fonts/ttnorms-100ital.ttf');
+}
+
+/* TTNorms 200 EXTRA LIGHT ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../fonts/ttnorms-200ital.ttf');
+}
+
+/* TTNorms 300 LIGHT ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/ttnorms-300ital.ttf');
+}
+
+/* TTNorms 400 REGULAR ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ttnorms-400ital.ttf');
+}
+
+/* TTNorms 500 MEDIUM ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/ttnorms-500ital.ttf');
+}
+
+/* TTNorms 600 SEMI BOLD ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/ttnorms-600ital.ttf');
+}
+
+/* TTNorms 700 BOLD ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/ttnorms-700ital.ttf');
+}
+
+/* TTNorms 800 EXTRA BOLD ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/ttnorms-800ital.ttf');
+}
+
+/* TTNorms 900 BLACK ITALIC */
+@font-face {
+  font-family: 'TTNorms';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/ttnorms-900ital.ttf');
+}
+
+:root {
+  --font-sans: 'TTNorms';
+}
