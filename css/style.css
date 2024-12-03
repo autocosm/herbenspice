@@ -8,6 +8,7 @@
 
 /*  GLOBAL TOKENS
 --------------------------------*/
+
 :root {
   overflow: scroll;
   scroll-behavior: smooth;
@@ -27,16 +28,15 @@
   --font-size-xxxl: 3.25rem;
   --font-size-xxxxl: 4.5rem;
   
-  --font-size-heading-1: 2.875rem;
-  --font-size-heading-2: 2.125rem;
-  --font-size-heading-3: 1.875rem;
+  --font-size-heading-1: 2.75rem;
+  --font-size-heading-2: 2rem;
+  --font-size-heading-3: 1.75rem;
   --font-size-heading-4: 1.5rem;
   --font-size-heading-5: 1.25rem;
   --font-size-heading-6: 1.125rem;
   
   /*
-  FONTS ===========================
-    All fonts are open license available on Google Fonts. */
+  FONTS =========================== */
     
     /* SERIF | Newsreader https://fonts.google.com/specimen/Newsreader */
     --font-serif: 'Newsreader';
@@ -73,10 +73,10 @@
   /*
   COLORS =========================== */
     /* Brand colors */
-    --brand-black: #000000;
+    /*--brand-black: #000000;
     --brand-red: #d32f2f;
     --brand-volt: #ceff00;
-    --brand-indigo: #3b4cc0;
+    --brand-indigo: #3b4cc0;*/
     
     /* Shadows */
     --shadow-default: 0 2px 6px 0 rgb(0 41 77 / 7%);
@@ -187,6 +187,7 @@
 
 /*  TAGS & ATTRIBUTES
 --------------------------------*/
+
 body {
   text-align: left;
   list-style-type: disc;
@@ -317,6 +318,7 @@ sub {
 
 /*  HEADINGS
 --------------------------------*/
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   line-height: var(--heading-leading);
@@ -349,7 +351,7 @@ h1:not([class]) {
 }
 .hed-2,
 h2:not([class]) {
-  margin: 0.5em 0 0;
+  margin: 0.625em 0 0;
   padding: 0.375em 0;
   font-size: var(--font-size-heading-2);
   line-height: calc(var(--heading-leading) - 0.1);
@@ -371,35 +373,36 @@ h4:not([class]) {
   padding: 0.5em 0 0.375em;
   font-size: var(--font-size-heading-4);
   line-height: calc(var(--heading-leading) + 0.05);
-  font-weight: 800;
+  font-weight: 700;
 }
 .hed-5,
 h5:not([class]) {
   margin: 0;
-  padding: 0.625em 0;
+  padding: 0.5em 0 0.375em;
   font-size: var(--font-size-heading-5);
-  line-height: calc(var(--heading-leading) + 0.1);
+  line-height: var(--heading-leading);
   font-weight: 800;
 }
 .hed-6,
 h6:not([class]) {
   margin: 0;
-  padding: 0.625em 0 0.5em;
+  padding: 0.5em 0 0.25em;
   font-size: var(--font-size-heading-6);
-  line-height: calc(var(--heading-leading) + 0.15);
+  line-height: var(--heading-leading);
   font-weight: 800;
 }
 
 
 /*  SUB-HEADINGS & HGROUPS
 --------------------------------*/
+
+/* Adds an overline before the heading */
 .eyebrow {
   margin-bottom: 0;
   color: var(--blue-60d);
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .eyebrow + .hed-1,
 .eyebrow + h1:not([class]),
 .eyebrow + .hed-2,
@@ -408,6 +411,7 @@ h6:not([class]) {
   padding-top: 0.125em;
 }
 
+/* Sub-head of a .hed-0 jumbo heading */
 .hed-0 + .dek {
   color: var(--blacker);
   font-size: var(--font-size-xl);
@@ -420,6 +424,7 @@ h6:not([class]) {
 
 /*  LAYOUTS
 --------------------------------*/
+
 .container {
   width: var(--container-medium);
   margin: 0 auto;
@@ -448,7 +453,7 @@ article .container,
   margin-block: 0;
 }
 .stack > * + * {
-  margin-block-start: 1.25rem;
+  margin-block-start: var(--space-l);
 }
 
 /* .row establishes a horizontal flex container */
@@ -465,15 +470,12 @@ article .container,
   contents as a single child of a .stack or .row */
 .box {
   padding: var(--card__padding-large);
-  border-radius: var(--corners-round);
+  border-radius: var(--corners-default);
   border: var(--space-xxs) var(--gray-30) solid;
-  --color-light: var(--whiter);
+  --color-light: var(--whitest);
   --color-dark: var(--blacker);
   color: var(--color-dark);
   background-color: var(--color-light);
-}
-.box * {
-  color: inherit;
 }
 .box.invert {
   color: var(--color-light);
@@ -497,12 +499,6 @@ article .container,
   flex-basis: 100%;
 }
 
-.col-sticky {
-  position: sticky;
-  /*top: calc(var(--font-size-xxxl) + 0.75rem);*/
-  top: 8rem;
-}
-
 /* Flex child will grow and push siblings
   outward, e.g. logo and menu in header */
 .expander {
@@ -516,9 +512,28 @@ article .container,
   height: calc(var(--font-size-xxxl) + 0.5rem);
 }
 
+/* Sticks column to top of viewport, e.g. the image/video
+  column of a Media component with long vertical scroll */
+.col-sticky {
+  position: sticky;
+  top: calc(var(--font-size-xxxl) + var(--space-l));
+  /*top: 8rem;*/
+}
+
 
 /*  UTILITIES
 --------------------------------*/
+
+.gap-y\:0 { margin-block: 0; }
+.gap-y\:s { margin-block: var(--space-xs); }
+.gap-y\:m { margin-block: var(--space-m); }
+.gap-y\:l { margin-block: var(--space-xl); }
+
+.gap-below\:0 { margin-block-end: 0; }
+.gap-below\:s { margin-block-end: var(--space-xs); }
+.gap-below\:m { margin-block-end: var(--space-xm); }
+.gap-below\:l { margin-block-end: var(--space-xl); }
+
 .nobr { white-space: nowrap; }
 .hide { display: none !important; }
 
@@ -538,14 +553,19 @@ article .container,
 
 /*  SECTIONS
 --------------------------------*/
+
+/* <section> and <article> are document semantics;
+  apply spacing styles to their .container children */
 main > section,
 main > article {
-  padding: 1em 0;
+  margin: 0;
+  padding: 0;
 }
 
 
 /*  BUTTONS
 --------------------------------*/
+
 .button {
   display: inline-block;
 }
@@ -574,6 +594,7 @@ main > article {
   box-shadow: none;
 }
 
+/* Flavors */
 .brand {
   --button__color-dark: var(--blue-60);
   --button__color-light: var(--blue-10d);
@@ -593,6 +614,7 @@ main > article {
   --button__color-hover: var(--red-40b);
 }
 
+/* Ranks */
 .primary {
   color: var(--button__color-white);
   background-color: var(--button__color-dark);
@@ -653,6 +675,7 @@ input[type=reset] * + * {
 
 /*  FIELDS
 --------------------------------*/
+
 :is(
   input[type="text"],
   input[type="email"],
@@ -732,6 +755,7 @@ textarea.no-resize {
 
 /*  TABLES
 --------------------------------*/
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -755,6 +779,7 @@ table td {
   vertical-align: top;
 }
 
+/* .spec is a simple table of key-value pairs */
 table.spec {
   font-size: var(--font-size-s);
   margin: 0;
@@ -775,6 +800,7 @@ table.spec tr > td:first-child {
 
 /*  BREAKPOINTS
 --------------------------------*/
+
 /*
   Smaller:
   @media screen and (max-width: 991px) {}

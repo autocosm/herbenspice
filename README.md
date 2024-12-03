@@ -1,14 +1,16 @@
 # Herbenspice
-Herbenspice is a semantic design system for vanilla front-end code built by a UI/UX designer. It aims to bootstrap web projects with minimal tooling, leveraging the power of the browser.
+Herbenspice is a semantic design system for vanilla front-end code built by a UI/UX designer. It aims to bootstrap lightweight web projects, documentation environments, and rapid prototypes with minimal tooling, leveraging the power of the browser with opinionated design sense and built-in accessibility.
+
+[sandbox.html](sandbox.html)
 
 ### Semantic paradigm
-Imperative utility-first CSS frameworks like Tailwind CSS are popular for rapid prototyping, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
+Imperative utility-first CSS frameworks like Tailwind CSS are popular with developers working without a designer or the constraints of consistency, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
 
 ### Lightweight with no build tools
-Intended for HTML, CSS, and JavaScript, Herbenspice uses CSS variables for design tokens, requiring no build tools. It's lightweight and easy to integrate into existing projects, no matter what tools or frameworks you're using.
+Intended for vanilla HTML, CSS, and JavaScript, Herbenspice uses CSS variables for design tokens, requiring no build tools. It's lightweight and easy to integrate into existing projects, no matter what tools or frameworks you're using.
 
 ### Accessibility-first
-Herbenspice is built with accessibility in mind. It uses semantic HTML elements and ARIA attributes to ensure that all users can access and interact with your content.
+Herbenspice offers a solid foundation for accessible design. It uses semantic HTML elements and ARIA attributes to ensure that all users can access and interact with your content.
 
 ---
 <br>

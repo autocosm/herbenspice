@@ -72,6 +72,7 @@
 <body>
 
 <!--<header></header>-->
+
 <main>
   <section class="spec-docs">
     <div class="container">
@@ -79,291 +80,48 @@
       <p>
         Headings are used to create a hierarchy of content on a page. They should be used to organize content and make it easier for users to scan and understand the information on the page.
       </p>
+      
+      <h2>Default styling for h1-h6</h2>
       <p>
-        The styles for headings apply to the HTML elements <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>. There are also explicit classes to create the default <em>styling</em> for each heading level, such as <code>.hed-1</code> for <code>&lt;h1&gt;</code>. This is useful for cases where you need an arbitrary style for a heading or other text that does not semantically match the heading level.
+        The styles for headings apply to the HTML elements <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>.
       </p>
-
-      <div class="stack spec-group">
-        
-        <div class="specimen-card switcher" id="specH0">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>.hed-0</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-0">Jumbo heading</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <p>
-              Intended for the primary hero section on the main page. Can optionally be the page's <code>&lt;h1&gt;</code>.
-            </p>
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0.5em 0 0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.375em 0</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>3.25rem ~ 52px/65px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>0.95</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>700</td>
-                </tr>
-                <tr>
-                  <td>letter-spacing</td>
-                  <td>-0.055em</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="specimen-card switcher" id="specH1">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h1&gt;</code>; <code>.hed-1</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-1">Heading 1</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0.5em 0 0.375em</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.375em 0</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>2.875rem ~ 46px/57.5px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>0.95</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>600</td>
-                </tr>
-                <tr>
-                  <td>letter-spacing</td>
-                  <td>-0.05em</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        <div class="specimen-card switcher id="specH2">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h2&gt;</code>; <code>.hed-2</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-2">Heading 2</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0.5em 0 0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.375em 0</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>2.125rem ~ 34px/42.5px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>1.05</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>700</td>
-                </tr>
-                <tr>
-                  <td>letter-spacing</td>
-                  <td>-0.045em</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="specimen-card switcher id="specH3">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h3&gt;</code>; <code>.hed-3</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-3">Heading 3</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.5em 0</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>1.875rem ~ 30px/37.5px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>1.2</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>700</td>
-                </tr>
-                <tr>
-                  <td>letter-spacing</td>
-                  <td>-0.04em</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="specimen-card switcher id="specH4">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h4&gt;</code>; <code>.hed-4</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-4">Heading 4</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.5em 0 0.375em</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>1.5rem ~ 24px/30px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>1.2</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>800</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="specimen-card switcher id="specH5">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h5&gt;</code>; <code>.hed-5</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-5">Heading 5</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.625em 0</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>1.25rem ~ 20px/25px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>1.25</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>800</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="specimen-card switcher id="specH6">
-          <div class="specimen-wrapper">
-            <div class="specimen-label">
-              <code>&lt;h6&gt;</code>; <code>.hed-6</code>
-            </div>
-            <div class="specimen-sample">
-              <span class="hed-6">Heading 6</span>
-            </div>
-          </div>
-          <div class="spec-wrapper">
-            <table class="spec">
-              <tbody>
-                <tr>
-                  <td>margin</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>padding</td>
-                  <td>0.625em 0 0.5em</td>
-                </tr>
-                <tr>
-                  <td>font-size</td>
-                  <td>1.125rem ~ 18px/22.5px</td>
-                </tr>
-                <tr>
-                  <td>line-height</td>
-                  <td>1.3</td>
-                </tr>
-                <tr>
-                  <td>font-weight</td>
-                  <td>800</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+      <div class="box gap-below:m">
+        <h1 class="hed-1">Heading 1</h1>
+        <p>
+          This is the default styling applied to an <code>&lt;h1&gt;</code> element, of which there is always only one per HTML page. (To achieve this styling on any other element, apply the class <code>.hed-1</code>.)
+        </p>
+        <h2 class="hed-2">Heading 2</h2>
+        <p>
+          This is the default styling applied to an <code>&lt;h2&gt;</code> element, which is used to create the main sections of a page or divisions of text content. (To achieve this styling on any other element, apply the class <code>.hed-2</code>.)
+        </p>
+        <h3 class="hed-3">Heading 3</h3>
+        <p>
+          This is the default styling applied to an <code>&lt;h3&gt;</code> element, which is used to create subsections of a page or divisions of text content. This is often the lowest level of heading used in a page. (To achieve this styling on any other element, apply the class <code>.hed-3</code>.)
+        </p>
+        <h4 class="hed-4">Heading 4</h4>
+        <p>
+          This is the default styling applied to an <code>&lt;h4&gt;</code> element, which is used to for further divisions of text content. (To achieve this styling on any other element, apply the class <code>.hed-4</code>.) This styling is often used for subdued divisions within running text that do not require a full section break.
+        </p>
+        <h5 class="hed-5">Heading 5</h5>
+        <p>
+          This is the default styling applied to an <code>&lt;h5&gt;</code> element, which is used for minor divisions of text content. (To achieve this styling on any other element, apply the class <code>.hed-5</code>.) This styling might be used to define area groups of a UI container, for example.
+        <h6 class="hed-6">Heading 6</h6>
+        <p>
+          This is the default styling applied to an <code>&lt;h6&gt;</code> element, which is used for the smallest divisions of text content. (To achieve this styling on any other element, apply the class <code>.hed-6</code>.)
+        </p>
       </div>
+
+      <h2>Custom styling for headings</h2>
+      <p>
+        There are also explicit classes to create the default <em>styling</em> for each heading level, such as <code>.hed-1</code> for <code>&lt;h1&gt;</code>. This is useful for cases where you need an arbitrary style for a heading or other text that does not semantically match the heading level.
+      </p>
+      <div class="box gap-below:m">
+        <h1 class="hed-0">Heading 0</h1>
+        <p>
+          The custom class <code>.hed-0</code> is used to create a jumbo heading that is larger than the default <code>&lt;h1&gt;</code> element. This can be useful for creating a dominant hero section, such as on a Home page, or other prominent heading on a page. It can be applied to any element.
+        </p>
+      </div>
+
     </div>
   </section>
   
@@ -371,19 +129,19 @@
     <div class="container">
       <h1 class="hed-0">Herbenspice</h1>
       <p>
-        Herbenspice is a semantic design system for vanilla front-end code built by a UI/UX designer. It aims to bootstrap web projects with minimal tooling, leveraging the power of the browser.
+        Herbenspice is a semantic design system for vanilla front-end code built by a UI/UX designer. It aims to bootstrap lightweight web projects, documentation environments, and rapid prototypes with minimal tooling, leveraging the power of the browser with opinionated design sense and built-in accessibility.
       </p>
       <h2>Semantic paradigm</h2>
       <p>
-        Imperative utility-first CSS frameworks like Tailwind CSS are popular for rapid prototyping, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
+        Imperative utility-first CSS frameworks like Tailwind CSS are popular with developers working without a designer or the constraints of consistency, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
       </p>
       <h2>Lightweight with no build tools</h2>
       <p>
-        Intended for HTML, CSS, and JavaScript, Herbenspice uses CSS variables for design tokens, requiring no build tools. It's lightweight and easy to integrate into existing projects, no matter what tools or frameworks you're using.
+        Intended for vanilla HTML, CSS, and JavaScript, Herbenspice uses CSS variables for design tokens, requiring no build tools. It's lightweight and easy to integrate into existing projects, no matter what tools or frameworks you're using.
       </p>
       <h2>Accessibility-first</h2>
       <p>
-        Herbenspice is built with accessibility in mind. It uses semantic HTML elements and ARIA attributes to ensure that all users can access and interact with your content.
+        Herbenspice offers a solid foundation for accessible design. It uses semantic HTML elements and ARIA attributes to ensure that all users can access and interact with your content.
       </p>
       <br><hr><br>
       <p>
@@ -392,6 +150,7 @@
     </div>
   </section>
 </main>
+
 <!--<footer></footer>-->
 
 </body>
