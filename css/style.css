@@ -24,12 +24,12 @@
   --font-size-m: 1rem;
   --font-size-l: 1.25rem;
   --font-size-xl: 1.5rem;
-  --font-size-xxl: 2.25rem;
-  --font-size-xxxl: 3.25rem;
-  --font-size-xxxxl: 4.5rem;
+  --font-size-xxl: 2.125rem;
+  --font-size-xxxl: 3rem;
+  --font-size-xxxxl: 4rem;
   
   --font-size-heading-1: 2.75rem;
-  --font-size-heading-2: 2rem;
+  --font-size-heading-2: 2.125rem;
   --font-size-heading-3: 1.75rem;
   --font-size-heading-4: 1.5rem;
   --font-size-heading-5: 1.25rem;
@@ -174,7 +174,7 @@
   --card__padding-small: var(--space-m);
   --card__padding-large: var(--space-l);
   --paragraph__before: var(--space-xxs);
-  --paragraph__after: var(--space-m);
+  --paragraph__after: var(--space-l);
   --section__x-padding: var(--space-l);
   --section__y-padding: var(--space-s);
   
@@ -256,11 +256,11 @@ kbd, pre {
   line-height: 1.025;
 }
 code, samp {
-  font-size: var(--font-size-s);
+  font-size: 0.875em;
   font-weight: 400;
   line-height: 1;
-  margin-inline: 0.05em;
-  padding: 0.1em 0.25em;
+  margin-inline: 0.1em;
+  padding: 0.05em 0.25em;
   border-radius: var(--corners-dull);
   position: relative;
   bottom: 0.075em;
@@ -351,8 +351,8 @@ h1:not([class]) {
 }
 .hed-2,
 h2:not([class]) {
-  margin: 0.625em 0 0;
-  padding: 0.375em 0;
+  margin: 0.625em 0 0.25em;
+  padding: 0.5em 0 0.375em;
   font-size: var(--font-size-heading-2);
   line-height: calc(var(--heading-leading) - 0.1);
   font-weight: 700;
@@ -524,15 +524,25 @@ article .container,
 /*  UTILITIES
 --------------------------------*/
 
+.size\:xxs { font-size: var(--font-size-xxs); }
+.size\:xs { font-size: var(--font-size-xs); }
+.size\:s { font-size: var(--font-size-s); }
+.size\:m { font-size: var(--font-size-m); }
+.size\:l { font-size: var(--font-size-l); }
+.size\:xl { font-size: var(--font-size-xl); }
+.size\:xxl { font-size: var(--font-size-xxl); }
+.size\:xxxl { font-size: var(--font-size-xxxl); }
+.size\:xxxxl { font-size: var(--font-size-xxxxl); }
+
 .gap-y\:0 { margin-block: 0; }
-.gap-y\:s { margin-block: var(--space-xs); }
-.gap-y\:m { margin-block: var(--space-m); }
-.gap-y\:l { margin-block: var(--space-xl); }
+.gap-y\:s { margin-block: var(--space-m); }
+.gap-y\:m { margin-block: var(--space-xl); }
+.gap-y\:l { margin-block: var(--space-xxl); }
 
 .gap-below\:0 { margin-block-end: 0; }
-.gap-below\:s { margin-block-end: var(--space-xs); }
-.gap-below\:m { margin-block-end: var(--space-xm); }
-.gap-below\:l { margin-block-end: var(--space-xl); }
+.gap-below\:s { margin-block-end: var(--space-m); }
+.gap-below\:m { margin-block-end: var(--space-xl); }
+.gap-below\:l { margin-block-end: var(--space-xxl); }
 
 .nobr { white-space: nowrap; }
 .hide { display: none !important; }

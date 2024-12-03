@@ -76,14 +76,62 @@
 <main>
   <section class="spec-docs">
     <div class="container">
-      <h1>Headings</h1>
+      <h1>Text styles</h1>
+      <p>
+        Text is a fundamental part of any web page. It is used to communicate information to users, provide instructions, and create a visual hierarchy on the page. The default text styles in Herbenspice are designed to be simple, clean, and easy to read. They are based on a modular scale and use a combination of font sizes, line heights, and letter spacings to create a harmonious typographic system.
+      </p>
+      <p>
+        CSS frameworks have often used various resets and normalizations to remove default browser styles and create a consistent starting point for styling text. Herbenspice builds upon the default styles provided by the browser and enhancing them with custom styles. This approach helps to create a more consistent experience across different browsers and devices while still allowing for customization and flexibility.
+      </p>
+      
+      <h2>Body text</h2>
+      
+      <h3>Size</h3>
+      <p>
+        The default body text style in Herbenspice is designed to be easy to read and comfortable for long-form content. From the CSS variable token <code>--base-scale: 112.5%</code> (18px for Normal text), everything is scaled to make the text larger and more readable without being too large or overwhelming. Relative size units <em>rem</em> and <em>em</em> ensure that text scales proportionally with the base font size. This makes it easy to adjust the size of text across the entire page by changing the base font size in the <code>:root</code> element.
+      </p>
+      <p>
+        There are utility class for setting the size of <em>body text</em> using T-shirt sizes from <code>.size:xxs</code> to <code>.size:xxxxl</code>. These classes can be applied to any element to set the text size. These are mainly for special display text or adjustments to body text, not headings.
+      </p>
+      <div class="box gap-below:m">
+        <p class="size:xxs">
+          <code>.size:xxs</code> (0.675rem) is the smallest allowed text size. It should rarely be used.
+        </p>
+        <p class="size:xs">
+          <code>.size:xs</code> (0.75rem) is the second smallest text size in Herbenspice. It is used for fine print, legal disclaimers, and other text that is not the primary focus of the page.
+        </p>
+        <p class="size:s">
+          <code>.size:s</code> (0.875rem) is a small text size in Herbenspice. It is used for captions, footnotes, labels, and other text that is less important than the main content on the page.
+        </p>
+        <p class="size:m">
+          <code>.size:m</code> (1rem) is the default text size in Herbenspice. It is used for body text, paragraphs, and other main content on the page.
+        </p>
+        <p class="size:l">
+          <code>.size:l</code> (1.25rem) is a large body text size in Herbenspice. It is used for text that needs to stand out from the main content on the page.
+        </p>
+        <p class="size:xl">
+          <code>.size:xl</code> is 1.5rem
+        </p>
+        <p class="size:xxl">
+          <code>.size:xxl</code> is 2.125rem
+        </p>
+        <p class="size:xxxl">
+          <code>.size:xxxl</code> is 3rem
+        </p>
+        <p class="size:xxxxl">
+          <code>.size:xxxxl</code> is 4rem
+        </p>
+      </div>
+
+
+      <h2>Headings</h2>
       <p>
         Headings are used to create a hierarchy of content on a page. They should be used to organize content and make it easier for users to scan and understand the information on the page.
       </p>
       
-      <h2>Default styling for h1-h6</h2>
+      <h3>Default styling for Headings 1–6</h3>
       <p>
-        The styles for headings apply to the HTML elements <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>.
+        The styles for headings apply to the HTML elements <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>. There are also explicit classes to create the default styling for each heading level, such as <code>.hed-1</code> for <code>&lt;h1&gt;</code>. This is useful for cases where you need an arbitrary style for a heading or other text that does not semantically match the heading level.
       </p>
       <div class="box gap-below:m">
         <h1 class="hed-1">Heading 1</h1>
@@ -111,9 +159,9 @@
         </p>
       </div>
 
-      <h2>Custom styling for headings</h2>
+      <h3>Custom styling for headings</h3>
       <p>
-        There are also explicit classes to create the default <em>styling</em> for each heading level, such as <code>.hed-1</code> for <code>&lt;h1&gt;</code>. This is useful for cases where you need an arbitrary style for a heading or other text that does not semantically match the heading level.
+        In addition to the default styling for headings, there are custom classes that can be applied to any element to create a unique heading style. These classes are useful for creating special headings that stand out from the rest of the content on a page.
       </p>
       <div class="box gap-below:m">
         <h1 class="hed-0">Heading 0</h1>
