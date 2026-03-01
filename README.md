@@ -3,6 +3,8 @@ Herbenspice is a semantic design system for vanilla front-end code built by a UI
 
 [sandbox.html](sandbox.html)
 
+[dsw.html](dsw.html)
+
 ### Semantic paradigm
 Imperative utility-first CSS frameworks like Tailwind CSS are popular with developers working without a designer or the constraints of consistency, but they can lead to bloated, unmaintainable code and a lack of semantic meaning.
 
