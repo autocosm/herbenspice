@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Specimen</title>
+  <style>
+/* ─── Layer declarations ─────────────────────────────────────────── */
+@layer reset, tokens, elements, layout, objects, qualities, roles, states, utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+/* ─── Reset ──────────────────────────────────────────────────────── */
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; tab-size: 4; }
+  body { line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  img, video { max-width: 100%; height: auto; display: block; }
+  input, button, textarea, select { font: inherit; }
+  p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+  [hidden] { display: none !important; }
+  button { cursor: pointer; border: none; background: none; }
+  a { color: inherit; }
+  ul, ol { list-style: none; }
+}
+
+/* ─── Tokens ─────────────────────────────────────────────────────── */
+@layer tokens {
+  :root {
+    --blue-00:oklch(100% 0 264);--blue-05:oklch(97% .012 264);--blue-10:oklch(93% .032 264);--blue-20:oklch(86% .062 264);--blue-30:oklch(76% .100 264);--blue-40:oklch(64% .145 264);--blue-50:oklch(54% .178 264);--blue-60:oklch(46% .186 264);--blue-70:oklch(38% .168 264);--blue-80:oklch(30% .130 264);--blue-90:oklch(22% .090 264);--blue-95:oklch(15% .055 264);--blue-99:oklch(8% .020 264);
+    --green-00:oklch(100% 0 145);--green-05:oklch(97% .012 145);--green-10:oklch(93% .032 145);--green-20:oklch(86% .062 145);--green-30:oklch(76% .100 145);--green-40:oklch(64% .145 145);--green-50:oklch(54% .178 145);--green-60:oklch(46% .186 145);--green-70:oklch(38% .168 145);--green-80:oklch(30% .130 145);--green-90:oklch(22% .090 145);--green-95:oklch(15% .055 145);--green-99:oklch(8% .020 145);
+    --amber-00:oklch(100% 0 75);--amber-05:oklch(97% .012 75);--amber-10:oklch(93% .032 75);--amber-20:oklch(86% .062 75);--amber-30:oklch(76% .100 75);--amber-40:oklch(64% .145 75);--amber-50:oklch(54% .178 75);--amber-60:oklch(46% .186 75);--amber-70:oklch(38% .168 75);--amber-80:oklch(30% .130 75);--amber-90:oklch(22% .090 75);--amber-95:oklch(15% .055 75);--amber-99:oklch(8% .020 75);
+    --red-00:oklch(100% 0 28);--red-05:oklch(97% .012 28);--red-10:oklch(93% .032 28);--red-20:oklch(86% .062 28);--red-30:oklch(76% .100 28);--red-40:oklch(64% .145 28);--red-50:oklch(54% .178 28);--red-60:oklch(46% .186 28);--red-70:oklch(38% .168 28);--red-80:oklch(30% .130 28);--red-90:oklch(22% .090 28);--red-95:oklch(15% .055 28);--red-99:oklch(8% .020 28);
+    --teal-00:oklch(100% 0 195);--teal-05:oklch(97% .012 195);--teal-10:oklch(93% .032 195);--teal-20:oklch(86% .062 195);--teal-30:oklch(76% .100 195);--teal-40:oklch(64% .145 195);--teal-50:oklch(54% .178 195);--teal-60:oklch(46% .186 195);--teal-70:oklch(38% .168 195);--teal-80:oklch(30% .130 195);--teal-90:oklch(22% .090 195);--teal-95:oklch(15% .055 195);--teal-99:oklch(8% .020 195);
+    --neutral-00:oklch(100% 0 0);--neutral-05:oklch(98% .003 245);--neutral-10:oklch(95% .004 245);--neutral-20:oklch(90% .006 245);--neutral-30:oklch(82% .007 245);--neutral-40:oklch(70% .008 245);--neutral-50:oklch(57% .009 245);--neutral-60:oklch(45% .009 245);--neutral-70:oklch(34% .008 245);--neutral-80:oklch(24% .007 245);--neutral-90:oklch(16% .006 245);--neutral-95:oklch(10% .004 245);--neutral-99:oklch(6% .003 245);
+
+    --color-bg-default:var(--neutral-05);--color-bg-subtle:var(--neutral-10);--color-bg-overlay:oklch(0% 0 0/.50);
+    --color-surface-default:var(--neutral-00);--color-surface-sunken:var(--neutral-10);--color-surface-code:var(--neutral-10);--color-surface-overlay-hover:oklch(0% 0 0/.04);--color-surface-overlay-press:oklch(0% 0 0/.08);
+    --color-text-primary:var(--neutral-90);--color-text-secondary:var(--neutral-60);--color-text-tertiary:var(--neutral-50);--color-text-placeholder:var(--neutral-40);--color-text-disabled:var(--neutral-40);--color-text-link:var(--blue-70);--color-text-link-hover:var(--blue-90);--color-text-inverse:var(--neutral-00);--color-text-on-action:var(--neutral-00);
+    --color-border-default:var(--neutral-20);--color-border-strong:var(--neutral-30);--color-border-input:var(--neutral-30);--color-border-input-focus:var(--blue-50);--color-border-destructive:var(--red-60);
+    --color-action-default:var(--blue-60);--color-action-hover:var(--blue-70);--color-action-active:var(--blue-80);--color-action-subtle:var(--blue-05);--color-action-text:var(--blue-70);--color-on-action:var(--neutral-00);
+    --color-success-default:var(--green-60);--color-success-subtle:var(--green-10);--color-success-text:var(--green-70);--color-success-border:var(--green-20);
+    --color-warning-default:var(--amber-60);--color-warning-subtle:var(--amber-10);--color-warning-text:var(--amber-80);--color-warning-border:var(--amber-20);
+    --color-destructive-default:var(--red-60);--color-destructive-subtle:var(--red-10);--color-destructive-text:var(--red-70);--color-destructive-border:var(--red-20);--color-on-destructive:var(--neutral-00);
+    --color-info-default:var(--teal-60);--color-info-subtle:var(--teal-10);--color-info-text:var(--teal-70);--color-info-border:var(--teal-20);
+    --elevation-xs:0 1px 2px oklch(10% 0 0/.06);--elevation-sm:0 1px 3px oklch(10% 0 0/.08),0 1px 2px oklch(10% 0 0/.06);--elevation-md:0 4px 6px oklch(10% 0 0/.07),0 2px 4px oklch(10% 0 0/.06);--elevation-lg:0 10px 15px oklch(10% 0 0/.08),0 4px 6px oklch(10% 0 0/.05);--elevation-xl:0 20px 25px oklch(10% 0 0/.10),0 8px 10px oklch(10% 0 0/.06);--elevation-sticky:0 1px 4px oklch(10% 0 0/.10);
+    --font-display:'DM Serif Display',Georgia,serif;--font-body:'Instrument Sans',system-ui,sans-serif;--font-mono:'DM Mono','Fira Code',monospace;
+    --text-xs:.6875rem;--text-sm:.8125rem;--text-base:.9375rem;--text-md:1.0625rem;--text-lg:1.25rem;--text-xl:1.5rem;--text-xxl:1.875rem;--text-xxxl:2.25rem;--text-xxxxl:2.875rem;--text-xxxxxl:3.75rem;
+    --leading-tight:1.20;--leading-snug:1.35;--leading-normal:1.55;--leading-relaxed:1.70;
+    --weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+    --tracking-tight:-0.025em;--tracking-normal:0;--tracking-wide:0.025em;--tracking-wider:0.06em;--tracking-widest:0.12em;
+    --measure-prose:62ch;--measure-tight:45ch;
+    --font-feature-default:"kern" 1,"liga" 1,"calt" 1;--font-feature-tabular:"tnum" 1,"kern" 1;--font-feature-mono:"kern" 0,"liga" 0;
+    --space-px:1px;--space-2:.125rem;--space-4:.25rem;--space-6:.375rem;--space-8:.5rem;--space-10:.625rem;--space-12:.75rem;--space-16:1rem;--space-20:1.25rem;--space-24:1.5rem;--space-28:1.75rem;--space-32:2rem;--space-40:2.5rem;--space-48:3rem;--space-56:3.5rem;--space-64:4rem;--space-80:5rem;--space-96:6rem;--space-128:8rem;
+    --space-stack-tight:var(--space-12);--space-stack-default:var(--space-24);--space-stack-loose:var(--space-40);--space-stack-section:var(--space-64);--space-inline-tight:var(--space-8);--space-inline-default:var(--space-16);
+    --space-component-padding-xs:var(--space-4) var(--space-8);--space-component-padding-sm:var(--space-6) var(--space-12);--space-component-padding-md:var(--space-10) var(--space-20);--space-component-padding-lg:var(--space-16) var(--space-24);--space-component-padding-xl:var(--space-20) var(--space-32);
+    --radius-none:0;--radius-xs:.125rem;--radius-sm:.25rem;--radius-md:.375rem;--radius-lg:.625rem;--radius-xl:1rem;--radius-full:9999px;--radius-button:var(--radius-md);--radius-card:var(--radius-lg);--radius-input:var(--radius-md);--radius-badge:var(--radius-full);--radius-dialog:var(--radius-xl);
+    --icon-xs:.75rem;--icon-sm:1rem;--icon-md:1.25rem;--icon-lg:1.5rem;--icon-xl:2rem;
+    --control-height-xs:1.5rem;--control-height-sm:2rem;--control-height-md:2.5rem;--control-height-lg:3rem;--control-height-xl:3.5rem;
+    --duration-instant:50ms;--duration-fast:100ms;--duration-normal:200ms;--duration-deliberate:300ms;--duration-slow:500ms;
+    --ease-standard:cubic-bezier(.4,0,.2,1);--ease-enter:cubic-bezier(0,0,.2,1);--ease-exit:cubic-bezier(.4,0,1,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+    --transition-color:background-color var(--duration-normal) var(--ease-standard),color var(--duration-normal) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard);--transition-shadow:box-shadow var(--duration-normal) var(--ease-standard);--transition-transform:transform var(--duration-normal) var(--ease-standard);--transition-opacity:opacity var(--duration-normal) var(--ease-standard);
+    --focus-ring-shadow:0 0 0 3px oklch(54% .178 264/.30);--focus-ring-shadow-destructive:0 0 0 3px oklch(46% .186 28/.30);
+    --border-thin:1px;--border-default:1px;--border-thick:2px;
+    --opacity-disabled:.45;--opacity-subtle:.60;--opacity-muted:.80;
+    --layer-base:0;--layer-raised:10;--layer-dropdown:100;--layer-sticky:200;--layer-overlay:300;--layer-modal:400;--layer-toast:500;--layer-tooltip:600;
+    --container-sm:36rem;--container-md:48rem;--container-lg:64rem;--container-xl:80rem;--container-xxl:96rem;
+    --ratio-square:1/1;--ratio-video:16/9;--ratio-portrait:3/4;--ratio-photo:4/3;--ratio-wide:21/9;
+    --sidebar-width:16rem;--sidebar-width-collapsed:3.5rem;--header-height:3.5rem;
+  }
+  [data-theme="dark"] {
+    --color-bg-default:var(--neutral-95);--color-bg-subtle:var(--neutral-90);--color-surface-default:var(--neutral-90);--color-surface-sunken:var(--neutral-95);--color-surface-code:var(--neutral-80);--color-surface-overlay-hover:oklch(100% 0 0/.05);--color-surface-overlay-press:oklch(100% 0 0/.10);
+    --color-text-primary:var(--neutral-05);--color-text-secondary:var(--neutral-40);--color-text-tertiary:var(--neutral-50);--color-text-placeholder:var(--neutral-60);--color-text-disabled:var(--neutral-70);--color-text-link:var(--blue-30);--color-text-link-hover:var(--blue-20);
+    --color-border-default:var(--neutral-80);--color-border-strong:var(--neutral-70);--color-border-input:var(--neutral-70);--color-border-input-focus:var(--blue-40);
+    --color-action-default:var(--blue-40);--color-action-hover:var(--blue-30);--color-action-active:var(--blue-20);--color-action-subtle:oklch(22% .045 264);--color-action-text:var(--blue-30);
+    --color-success-subtle:oklch(18% .050 145);--color-success-text:var(--green-20);--color-success-border:oklch(30% .090 145);
+    --color-warning-subtle:oklch(20% .055 75);--color-warning-text:var(--amber-20);--color-warning-border:oklch(32% .100 75);
+    --color-destructive-subtle:oklch(18% .055 28);--color-destructive-text:var(--red-20);--color-destructive-border:oklch(28% .100 28);
+    --color-info-subtle:oklch(18% .045 195);--color-info-text:var(--teal-10);--color-info-border:oklch(28% .080 195);
+    --elevation-xs:0 1px 2px oklch(0% 0 0/.30);--elevation-sm:0 1px 3px oklch(0% 0 0/.40),0 1px 2px oklch(0% 0 0/.30);--elevation-md:0 4px 6px oklch(0% 0 0/.40),0 2px 4px oklch(0% 0 0/.30);--elevation-lg:0 10px 15px oklch(0% 0 0/.50),0 4px 6px oklch(0% 0 0/.30);--elevation-xl:0 20px 25px oklch(0% 0 0/.60),0 8px 10px oklch(0% 0 0/.35);--elevation-sticky:0 1px 4px oklch(0% 0 0/.50);
+  }
+  @media (prefers-reduced-motion:reduce) {
+    :root { --duration-instant:0ms;--duration-fast:0ms;--duration-normal:0ms;--duration-deliberate:0ms;--duration-slow:0ms; }
+  }
+}
+
+/* ─── Elements ───────────────────────────────────────────────────── */
+@layer elements {
+  body { font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-text-primary);background-color:var(--color-bg-default);font-feature-settings:var(--font-feature-default); }
+  h1,h2,h3,h4,h5,h6 { font-family:var(--font-display);color:var(--color-text-primary);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight); }
+  h1 { font-size:var(--text-xxxxxl);font-weight:var(--weight-regular);margin-block-end:var(--space-24); }
+  h2 { font-size:var(--text-xxxxl);font-weight:var(--weight-regular);margin-block-end:var(--space-20); }
+  h3 { font-size:var(--text-xxxl);font-weight:var(--weight-regular);margin-block-end:var(--space-16); }
+  h4 { font-size:var(--text-xxl);font-weight:var(--weight-regular);margin-block-end:var(--space-12); }
+  h5 { font-size:var(--text-xl);font-weight:var(--weight-regular);margin-block-end:var(--space-12); }
+  h6 { font-size:var(--text-lg);font-weight:var(--weight-regular);margin-block-end:var(--space-8); }
+  p { margin-block-end:var(--space-16);max-width:var(--measure-prose); }
+  p:last-child { margin-block-end:0; }
+  a { color:var(--color-text-link);text-decoration:underline;text-underline-offset:2px;transition:var(--transition-color); }
+  a:hover { color:var(--color-text-link-hover); }
+  a:focus-visible { outline:none;box-shadow:var(--focus-ring-shadow);border-radius:var(--radius-xs); }
+  strong { font-weight:var(--weight-semibold); }
+  em { font-style:italic; }
+  code { font-family:var(--font-mono);font-size:.875em;font-feature-settings:var(--font-feature-mono);background:var(--color-surface-code);padding:.1em .4em;border-radius:var(--radius-sm);border:1px solid var(--color-border-default); }
+  pre { font-family:var(--font-mono);font-size:var(--text-sm);font-feature-settings:var(--font-feature-mono);background:var(--color-surface-code);border:1px solid var(--color-border-default);border-radius:var(--radius-md);padding:var(--space-20);overflow-x:auto;line-height:var(--leading-relaxed); }
+  pre code { background:none;border:none;padding:0;font-size:inherit; }
+  blockquote { border-inline-start:var(--border-thick) solid var(--color-action-default);padding-inline-start:var(--space-20);margin-inline:0;color:var(--color-text-secondary);font-style:italic; }
+  hr { border:none;border-top:var(--border-default) solid var(--color-border-default);margin-block:var(--space-32); }
+  ul { list-style:disc;padding-inline-start:var(--space-24); }
+  ol { list-style:decimal;padding-inline-start:var(--space-24); }
+  li { margin-block-end:var(--space-6);line-height:var(--leading-normal); }
+  dl { display:grid;grid-template-columns:max-content 1fr;gap:var(--space-8) var(--space-24); }
+  dt { font-weight:var(--weight-semibold);color:var(--color-text-secondary);font-size:var(--text-sm); }
+  dd { color:var(--color-text-primary); }
+  table { border-collapse:collapse;width:100%;font-size:var(--text-sm); }
+  thead { background:var(--color-bg-subtle); }
+  th { font-family:var(--font-body);font-weight:var(--weight-semibold);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--color-text-secondary);padding:var(--space-12) var(--space-16);text-align:start;border-bottom:1px solid var(--color-border-default); }
+  td { padding:var(--space-12) var(--space-16);border-bottom:1px solid var(--color-border-default);color:var(--color-text-primary); }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:var(--color-bg-subtle); }
+  kbd { font-family:var(--font-mono);font-size:.8em;background:var(--color-surface-default);border:1px solid var(--color-border-strong);border-bottom-width:2px;border-radius:var(--radius-sm);padding:.1em .45em; }
+  mark { background:var(--color-warning-subtle);color:var(--color-warning-text);border-radius:var(--radius-xs);padding:0 .2em; }
+  abbr[title] { text-decoration:underline dotted;cursor:help; }
+  figure { margin:0; }
+  figcaption { font-size:var(--text-sm);color:var(--color-text-secondary);margin-block-start:var(--space-12);font-style:italic; }
+  details { border:1px solid var(--color-border-default);border-radius:var(--radius-md);padding:var(--space-16); }
+  summary { font-weight:var(--weight-medium);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:var(--space-8); }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:'+';font-size:var(--text-lg);color:var(--color-text-tertiary);transition:transform var(--duration-normal) var(--ease-standard); }
+  details[open] summary::after { content:'−'; }
+  details > :not(summary) { margin-block-start:var(--space-12); }
+  progress { appearance:none;display:block;width:100%;height:6px;border-radius:var(--radius-full);border:none;background:var(--color-bg-subtle);overflow:hidden; }
+  progress::-webkit-progress-bar { background:var(--color-bg-subtle);border-radius:var(--radius-full); }
+  progress::-webkit-progress-value { background:var(--color-action-default);border-radius:var(--radius-full);transition:width var(--duration-deliberate) var(--ease-enter); }
+  progress::-moz-progress-bar { background:var(--color-action-default);border-radius:var(--radius-full); }
+  ::selection { background:oklch(54% .178 264/.20);color:var(--color-text-primary); }
+  :focus-visible { outline:none;box-shadow:var(--focus-ring-shadow);border-radius:var(--radius-sm); }
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────── */
+@layer layout {
+  .stack { display:flex;flex-direction:column;gap:var(--stack-gap,var(--space-stack-default)); }
+  .stack.tight { --stack-gap:var(--space-stack-tight); }
+  .stack.loose { --stack-gap:var(--space-stack-loose); }
+  .stack.section { --stack-gap:var(--space-stack-section); }
+  .cluster { display:flex;flex-wrap:wrap;gap:var(--cluster-gap,var(--space-inline-default));align-items:var(--cluster-align,center); }
+  .cluster.tight { --cluster-gap:var(--space-inline-tight); }
+  .cluster.loose { --cluster-gap:var(--space-32); }
+  .cluster.start { --cluster-align:flex-start; }
+  .cluster.end { justify-content:flex-end; }
+  .cluster.between { justify-content:space-between; }
+  .grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(min(var(--grid-min,16rem),100%),1fr));gap:var(--grid-gap,var(--space-24)); }
+  .grid.sm { --grid-min:12rem; }
+  .grid.md { --grid-min:18rem; }
+  .grid.lg { --grid-min:22rem; }
+  .grid.cols-2 { grid-template-columns:1fr 1fr; }
+  .grid.cols-3 { grid-template-columns:1fr 1fr 1fr; }
+  .grid.cols-4 { grid-template-columns:1fr 1fr 1fr 1fr; }
+  .with-sidebar { display:flex;flex-wrap:wrap;gap:var(--sidebar-gap,var(--space-32)); }
+  .with-sidebar > :first-child { flex-basis:var(--sidebar-basis,18rem);flex-grow:1; }
+  .with-sidebar > :last-child { flex-basis:0;flex-grow:999;min-inline-size:var(--sidebar-content-min,55%); }
+  .center { box-sizing:content-box;max-inline-size:var(--container-width,var(--container-xl));margin-inline:auto;padding-inline:var(--space-24); }
+  .center.sm { --container-width:var(--container-sm); }
+  .center.md { --container-width:var(--container-md); }
+  .center.lg { --container-width:var(--container-lg); }
+  .center.xl { --container-width:var(--container-xl); }
+  .switcher { display:flex;flex-wrap:wrap;gap:var(--switcher-gap,var(--space-24)); }
+  .switcher > * { flex-grow:1;flex-basis:calc((var(--switcher-threshold,30rem) - 100%) * 999); }
+  .reel { display:flex;overflow-x:auto;gap:var(--space-16);scroll-snap-type:x mandatory;scrollbar-width:none;padding-block-end:var(--space-8); }
+  .reel::-webkit-scrollbar { display:none; }
+  .reel > * { flex-shrink:0;scroll-snap-align:start; }
+  .frame { aspect-ratio:var(--frame-ratio,var(--ratio-video));overflow:hidden;border-radius:var(--radius-card); }
+  .frame > * { width:100%;height:100%;object-fit:cover; }
+  .frame.square { --frame-ratio:var(--ratio-square); }
+  .frame.portrait { --frame-ratio:var(--ratio-portrait); }
+  .frame.wide { --frame-ratio:var(--ratio-wide); }
+  .cover { display:flex;flex-direction:column;min-block-size:var(--cover-min,60vh); }
+  .cover > * { margin-block:auto; }
+  .cover > :first-child:not(.cover-centered) { margin-block-start:0; }
+  .cover > :last-child:not(.cover-centered) { margin-block-end:0; }
+}
+
+/* ─── Objects ────────────────────────────────────────────────────── */
+@layer objects {
+  .button { display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);padding:var(--space-component-padding-md);min-height:var(--control-height-md);border-radius:var(--radius-button);border:var(--border-default) solid transparent;font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-wide);line-height:1;cursor:pointer;user-select:none;text-decoration:none;white-space:nowrap;transition:var(--transition-color),var(--transition-shadow);position:relative; }
+  .button:focus-visible { box-shadow:var(--focus-ring-shadow);outline:none; }
+  .button:disabled,.button[aria-disabled="true"] { opacity:var(--opacity-disabled);cursor:not-allowed;pointer-events:none; }
+  .button[data-loading] { cursor:wait;pointer-events:none;color:transparent; }
+  .button[data-loading]::after { content:'';position:absolute;width:var(--icon-sm);height:var(--icon-sm);border:var(--border-thick) solid currentColor;border-top-color:transparent;border-radius:var(--radius-full);animation:spin .7s linear infinite;color:var(--color-on-action); }
+  .badge { display:inline-flex;align-items:center;gap:var(--space-4);padding:var(--space-2) var(--space-8);border-radius:var(--radius-badge);font-family:var(--font-body);font-size:var(--text-xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-wide);line-height:1.4;white-space:nowrap; }
+  .input { display:flex;align-items:center;gap:var(--space-8);background:var(--color-surface-default);border:var(--border-default) solid var(--color-border-input);border-radius:var(--radius-input);padding:var(--space-component-padding-md);min-height:var(--control-height-md);transition:var(--transition-color); }
+  .input:focus-within { border-color:var(--color-border-input-focus);box-shadow:var(--focus-ring-shadow); }
+  .input input,.input select,.input textarea { flex:1;min-width:0;background:none;border:none;outline:none;color:var(--color-text-primary);font:inherit;font-size:var(--text-base); }
+  .input input::placeholder,.input textarea::placeholder { color:var(--color-text-placeholder); }
+  .input textarea { resize:vertical;min-height:80px; }
+  .field { display:flex;flex-direction:column;gap:var(--space-6); }
+  .card { display:flex;flex-direction:column;border-radius:var(--radius-card);overflow:hidden;background:var(--color-surface-default);box-shadow:var(--elevation-sm); }
+  .alert { display:flex;gap:var(--space-16);padding:var(--space-16) var(--space-20);border-radius:var(--radius-card);border:var(--border-default) solid transparent; }
+  .toast { display:flex;align-items:flex-start;gap:var(--space-12);padding:var(--space-16);border-radius:var(--radius-card);background:var(--color-surface-default);box-shadow:var(--elevation-lg);border:var(--border-default) solid var(--color-border-default);min-width:20rem;max-width:28rem; }
+  .tabs { display:flex;flex-direction:column; }
+  [role="tablist"] { display:flex;gap:var(--space-4);border-bottom:var(--border-default) solid var(--color-border-default);padding-inline:var(--space-8); }
+  [role="tab"] { display:inline-flex;align-items:center;gap:var(--space-8);padding:var(--space-10) var(--space-16);font-size:var(--text-sm);font-weight:var(--weight-medium);color:var(--color-text-secondary);border-radius:var(--radius-sm) var(--radius-sm) 0 0;border-bottom:var(--border-thick) solid transparent;margin-bottom:-1px;cursor:pointer;transition:var(--transition-color);background:none;border-top:none;border-left:none;border-right:none;font-family:inherit; }
+  [role="tab"]:hover { color:var(--color-text-primary);background:var(--color-bg-subtle); }
+  [role="tab"][aria-selected="true"] { color:var(--color-action-text);border-bottom-color:var(--color-action-default);font-weight:var(--weight-semibold); }
+  [role="tab"]:focus-visible { box-shadow:var(--focus-ring-shadow);outline:none; }
+  [role="tabpanel"] { padding:var(--space-24); }
+  [role="tabpanel"]:focus { outline:none; }
+  .accordion { border:var(--border-default) solid var(--color-border-default);border-radius:var(--radius-card);overflow:hidden; }
+  .accordion > details { border:none;border-radius:0;border-bottom:var(--border-default) solid var(--color-border-default);padding:0; }
+  .accordion > details:last-child { border-bottom:none; }
+  .accordion > details > summary { padding:var(--space-16) var(--space-20);font-weight:var(--weight-medium); }
+  .accordion > details > :not(summary) { padding:0 var(--space-20) var(--space-16);margin:0;color:var(--color-text-secondary); }
+  .avatar { display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-full);background:var(--color-action-subtle);color:var(--color-action-text);font-weight:var(--weight-semibold);font-size:var(--text-sm);width:var(--control-height-md);height:var(--control-height-md);flex-shrink:0;overflow:hidden;font-family:var(--font-body); }
+  .tag { display:inline-flex;align-items:center;gap:var(--space-6);padding:var(--space-4) var(--space-12);border-radius:var(--radius-full);border:var(--border-default) solid var(--color-border-default);background:var(--color-surface-default);font-size:var(--text-xs);font-weight:var(--weight-medium);color:var(--color-text-secondary);cursor:default; }
+  .tag:hover { background:var(--color-bg-subtle); }
+  .skeleton { border-radius:var(--radius-sm);background:var(--color-bg-subtle);animation:shimmer 1.5s ease-in-out infinite; }
+  @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:.5} }
+  @media(prefers-reduced-motion:reduce){.skeleton{animation:none}}
+  .tooltip-wrap { position:relative;display:inline-flex; }
+  .tooltip-wrap [role="tooltip"] { position:absolute;bottom:calc(100% + var(--space-8));left:50%;transform:translateX(-50%);background:var(--neutral-90);color:var(--neutral-00);font-size:var(--text-xs);font-weight:var(--weight-medium);white-space:nowrap;padding:var(--space-6) var(--space-12);border-radius:var(--radius-md);pointer-events:none;opacity:0;transition:opacity var(--duration-fast) var(--ease-standard);z-index:var(--layer-tooltip); }
+  [data-theme="dark"] .tooltip-wrap [role="tooltip"] { background:var(--neutral-00);color:var(--neutral-90); }
+  .tooltip-wrap:hover [role="tooltip"],.tooltip-wrap:focus-within [role="tooltip"] { opacity:1; }
+  .nav-item { display:flex;align-items:center;gap:var(--space-12);padding:var(--space-10) var(--space-12);border-radius:var(--radius-md);color:var(--color-text-secondary);font-weight:var(--weight-medium);font-size:var(--text-sm);text-decoration:none;transition:var(--transition-color);cursor:pointer;background:none;border:none;font-family:inherit;width:100%;text-align:left; }
+  .nav-item:hover { background:var(--color-action-subtle);color:var(--color-action-text); }
+  .nav-item[aria-current="page"] { background:var(--color-action-subtle);color:var(--color-action-text);font-weight:var(--weight-semibold);border-inline-start:var(--border-thick) solid var(--color-action-default);padding-inline-start:calc(var(--space-12) - var(--border-thick)); }
+  .breadcrumb { display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap;font-size:var(--text-sm);color:var(--color-text-secondary); }
+  .breadcrumb a { text-decoration:none;color:var(--color-text-secondary); }
+  .breadcrumb a:hover { color:var(--color-text-primary);text-decoration:underline; }
+  .breadcrumb [aria-current="page"] { color:var(--color-text-primary);font-weight:var(--weight-medium); }
+  .breadcrumb-sep { color:var(--color-text-tertiary);font-size:var(--text-xs); }
+  .stepper { display:flex;align-items:center; }
+  .step { display:flex;align-items:center;gap:var(--space-8);font-size:var(--text-sm);color:var(--color-text-tertiary); }
+  .step-number { display:flex;align-items:center;justify-content:center;width:var(--control-height-sm);height:var(--control-height-sm);border-radius:var(--radius-full);border:var(--border-thick) solid var(--color-border-default);font-weight:var(--weight-semibold);font-size:var(--text-xs);flex-shrink:0;background:var(--color-surface-default);font-family:var(--font-body); }
+  .step[aria-current="step"] { color:var(--color-text-primary); }
+  .step[aria-current="step"] .step-number { border-color:var(--color-action-default);color:var(--color-action-default); }
+  .step[data-complete] { color:var(--color-success-text); }
+  .step[data-complete] .step-number { background:var(--color-success-subtle);border-color:var(--color-success-default);color:var(--color-success-default); }
+  .step-connector { height:var(--border-default);flex:1;background:var(--color-border-default);min-width:var(--space-32); }
+  .toggle { display:inline-flex;align-items:center;width:2.75rem;height:1.5rem;border-radius:var(--radius-full);background:var(--color-border-default);cursor:pointer;transition:background var(--duration-normal) var(--ease-standard);position:relative;flex-shrink:0;border:none;padding:2px; }
+  .toggle[aria-checked="true"] { background:var(--color-action-default); }
+  .toggle .indicator { width:1.25rem;height:1.25rem;border-radius:var(--radius-full);background:white;box-shadow:var(--elevation-xs);transition:transform var(--duration-normal) var(--ease-spring);position:absolute;left:2px; }
+  .toggle[aria-checked="true"] .indicator { transform:translateX(1.25rem); }
+  .toggle:focus-visible { box-shadow:var(--focus-ring-shadow);outline:none; }
+  .checkbox,.radio-btn { appearance:none;width:1.125rem;height:1.125rem;border:var(--border-thick) solid var(--color-border-strong);background:var(--color-surface-default);cursor:pointer;transition:var(--transition-color),var(--transition-shadow);flex-shrink:0;margin:0; }
+  .checkbox { border-radius:var(--radius-sm); }
+  .radio-btn { border-radius:var(--radius-full); }
+  .checkbox:checked { background:var(--color-action-default);border-color:var(--color-action-default);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center; }
+  .radio-btn:checked { border-color:var(--color-action-default);background:radial-gradient(circle,var(--color-action-default) 45%,transparent 46%); }
+  .checkbox:focus-visible,.radio-btn:focus-visible { box-shadow:var(--focus-ring-shadow);outline:none; }
+  input[type="range"] { appearance:none;width:100%;height:4px;background:var(--color-bg-subtle);border-radius:var(--radius-full);cursor:pointer;border:none; }
+  input[type="range"]::-webkit-slider-thumb { appearance:none;width:1.25rem;height:1.25rem;border-radius:var(--radius-full);background:var(--color-action-default);cursor:pointer;box-shadow:var(--elevation-sm); }
+  input[type="range"]:focus-visible { box-shadow:var(--focus-ring-shadow);outline:none; }
+  .modal-backdrop { position:fixed;inset:0;background:var(--color-bg-overlay);z-index:var(--layer-overlay);display:flex;align-items:center;justify-content:center;padding:var(--space-24); }
+  .modal { background:var(--color-surface-default);border-radius:var(--radius-dialog);box-shadow:var(--elevation-xl);width:100%;max-width:32rem;max-height:90vh;display:flex;flex-direction:column;overflow:hidden; }
+  .drawer { background:var(--color-surface-default);box-shadow:var(--elevation-xl);display:flex;flex-direction:column;overflow:hidden; }
+  .popover { background:var(--color-surface-default);border:var(--border-default) solid var(--color-border-default);border-radius:var(--radius-card);box-shadow:var(--elevation-lg);padding:var(--space-6);min-width:14rem; }
+  .menu-item { display:flex;align-items:center;gap:var(--space-10);padding:var(--space-8) var(--space-12);border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--color-text-primary);cursor:pointer;transition:var(--transition-color);text-decoration:none;background:none;border:none;font-family:inherit;width:100%;text-align:left; }
+  .menu-item:hover { background:var(--color-bg-subtle); }
+  .menu-item.destructive { color:var(--color-destructive-text); }
+  .menu-item.destructive:hover { background:var(--color-destructive-subtle); }
+  .menu-divider { height:var(--border-default);background:var(--color-border-default);margin:var(--space-6) 0; }
+  .pagination { display:flex;align-items:center;gap:var(--space-4); }
+  .page-btn { display:inline-flex;align-items:center;justify-content:center;width:var(--control-height-sm);height:var(--control-height-sm);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:var(--weight-medium);color:var(--color-text-secondary);cursor:pointer;background:none;border:var(--border-default) solid transparent;font-family:inherit;transition:var(--transition-color); }
+  .page-btn:hover { background:var(--color-bg-subtle);color:var(--color-text-primary); }
+  .page-btn[aria-current="page"] { background:var(--color-action-default);color:var(--color-on-action);border-color:var(--color-action-default); }
+  .page-btn:disabled { opacity:var(--opacity-disabled);cursor:not-allowed; }
+}
+
+/* ─── Qualities ──────────────────────────────────────────────────── */
+@layer qualities {
+  .button.primary { background:var(--color-action-default);color:var(--color-on-action);border-color:var(--color-action-default); }
+  .button.primary:hover:not(:disabled):not([data-loading]) { background:var(--color-action-hover);border-color:var(--color-action-hover); }
+  .button.primary:active:not(:disabled) { background:var(--color-action-active); }
+  .button.secondary { background:transparent;color:var(--color-action-text);border-color:var(--color-action-default); }
+  .button.secondary:hover:not(:disabled) { background:var(--color-action-subtle); }
+  .button.ghost { background:transparent;color:var(--color-action-text);border-color:transparent; }
+  .button.ghost:hover:not(:disabled) { background:var(--color-action-subtle); }
+  .button.soft { background:var(--color-action-subtle);color:var(--color-action-text);border-color:transparent; }
+  .button.destructive { background:var(--color-destructive-default);color:var(--color-on-destructive);border-color:var(--color-destructive-default); }
+  .button.destructive:hover:not(:disabled) { background:var(--red-70);border-color:var(--red-70); }
+  .button.destructive:focus-visible { box-shadow:var(--focus-ring-shadow-destructive); }
+  .button.ghost.destructive { background:transparent;color:var(--color-destructive-text);border-color:transparent; }
+  .button.ghost.destructive:hover:not(:disabled) { background:var(--color-destructive-subtle); }
+  .button.xs { padding:var(--space-component-padding-xs);font-size:var(--text-xs);min-height:var(--control-height-xs); }
+  .button.sm { padding:var(--space-component-padding-sm);font-size:var(--text-xs);min-height:var(--control-height-sm); }
+  .button.lg { padding:var(--space-component-padding-lg);font-size:var(--text-base);min-height:var(--control-height-lg); }
+  .button.xl { padding:var(--space-component-padding-xl);font-size:var(--text-md);min-height:var(--control-height-xl); }
+  .button.pill { border-radius:var(--radius-full); }
+  .button.square { aspect-ratio:1;padding:var(--space-10); }
+  .button.square.sm { padding:var(--space-6); }
+  .button.square.lg { padding:var(--space-16); }
+  .badge.primary { background:var(--color-action-subtle);color:var(--color-action-text); }
+  .badge.success { background:var(--color-success-subtle);color:var(--color-success-text); }
+  .badge.warning { background:var(--color-warning-subtle);color:var(--color-warning-text); }
+  .badge.destructive { background:var(--color-destructive-subtle);color:var(--color-destructive-text); }
+  .badge.info { background:var(--color-info-subtle);color:var(--color-info-text); }
+  .badge.neutral { background:var(--color-bg-subtle);color:var(--color-text-secondary);border:1px solid var(--color-border-default); }
+  .card.flat { background:transparent;box-shadow:none; }
+  .card.bordered { box-shadow:none;border:1px solid var(--color-border-default); }
+  .card.interactive { cursor:pointer;transition:var(--transition-shadow),var(--transition-transform); }
+  .card.interactive:hover { box-shadow:var(--elevation-md);transform:translateY(-2px); }
+  .card.selected { border:var(--border-thick) solid var(--color-action-default);box-shadow:var(--focus-ring-shadow); }
+  .alert.info { background:var(--color-info-subtle);border-color:var(--color-info-border);color:var(--color-info-text); }
+  .alert.success { background:var(--color-success-subtle);border-color:var(--color-success-border);color:var(--color-success-text); }
+  .alert.warning { background:var(--color-warning-subtle);border-color:var(--color-warning-border);color:var(--color-warning-text); }
+  .alert.destructive { background:var(--color-destructive-subtle);border-color:var(--color-destructive-border);color:var(--color-destructive-text); }
+  .input.sm { padding:var(--space-component-padding-sm);min-height:var(--control-height-sm); }
+  .input.lg { padding:var(--space-component-padding-lg);min-height:var(--control-height-lg); }
+  .field[aria-invalid="true"] .input,.input[aria-invalid="true"] { border-color:var(--color-border-destructive); }
+  .field[aria-invalid="true"] .input:focus-within { box-shadow:var(--focus-ring-shadow-destructive); }
+  .avatar.xs { width:var(--control-height-xs);height:var(--control-height-xs);font-size:var(--text-xs); }
+  .avatar.sm { width:var(--control-height-sm);height:var(--control-height-sm);font-size:var(--text-xs); }
+  .avatar.lg { width:var(--control-height-lg);height:var(--control-height-lg);font-size:var(--text-base); }
+  .avatar.xl { width:var(--control-height-xl);height:var(--control-height-xl);font-size:var(--text-lg); }
+  .avatar.xxl { width:5rem;height:5rem;font-size:var(--text-xl); }
+}
+
+/* ─── Roles ──────────────────────────────────────────────────────── */
+@layer roles {
+  .header { display:flex;align-items:center;gap:var(--space-12);flex-shrink:0; }
+  .body { flex:1;min-height:0; }
+  .footer { display:flex;align-items:center;gap:var(--space-8);flex-shrink:0; }
+  .actions { display:flex;align-items:center;gap:var(--space-8);justify-content:flex-end; }
+  .title { font-family:var(--font-display);font-weight:var(--weight-regular);color:var(--color-text-primary);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);margin:0;font-size:var(--text-xl); }
+  .subtitle { font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-text-secondary);margin:0;line-height:var(--leading-normal); }
+  .label { font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-semibold);color:var(--color-text-secondary);letter-spacing:var(--tracking-wide);margin:0; }
+  .caption { font-size:var(--text-xs);color:var(--color-text-tertiary);line-height:var(--leading-snug);margin:0; }
+  .description { font-size:var(--text-base);color:var(--color-text-secondary);line-height:var(--leading-normal);max-width:var(--measure-prose);margin:0; }
+  .leading { flex-shrink:0;display:flex;align-items:center;color:var(--color-text-tertiary); }
+  .trailing { flex-shrink:0;display:flex;align-items:center;margin-inline-start:auto; }
+  .muted { color:var(--color-text-tertiary); }
+  .card > .header { padding:var(--space-20) var(--space-24);border-bottom:1px solid var(--color-border-default);justify-content:space-between; }
+  .card > .body { padding:var(--space-20) var(--space-24); }
+  .card > .footer { padding:var(--space-16) var(--space-24);border-top:1px solid var(--color-border-default);background:var(--color-bg-subtle);justify-content:flex-end; }
+  .card .title { font-size:var(--text-lg); }
+  .card .subtitle { font-size:var(--text-xs); }
+  .modal > .header { padding:var(--space-24) var(--space-32);border-bottom:1px solid var(--color-border-default);justify-content:space-between;position:sticky;top:0;background:var(--color-surface-default);z-index:1; }
+  .modal > .body { padding:var(--space-24) var(--space-32);overflow-y:auto;flex:1; }
+  .modal > .footer,.modal > .actions { padding:var(--space-20) var(--space-32);border-top:1px solid var(--color-border-default);position:sticky;bottom:0;background:var(--color-surface-default); }
+  .modal .title { font-size:var(--text-xl); }
+  .toast .title { font-family:var(--font-body);font-weight:var(--weight-semibold);font-size:var(--text-sm); }
+  .toast .description { font-size:var(--text-sm); }
+  .alert .title { font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-semibold);color:inherit; }
+  .alert .description { font-size:var(--text-sm);color:inherit;opacity:var(--opacity-muted);margin-block-start:var(--space-2); }
+}
+
+/* ─── States ─────────────────────────────────────────────────────── */
+@layer states {
+  [data-selected] { background:var(--color-action-subtle); }
+  [aria-invalid="true"] .input { border-color:var(--color-border-destructive); }
+  [aria-disabled="true"],:disabled { opacity:var(--opacity-disabled);cursor:not-allowed;pointer-events:none; }
+  [aria-pressed="true"] { background:var(--color-action-subtle);color:var(--color-action-text); }
+  .field[aria-invalid="true"] .caption { color:var(--color-destructive-text); }
+  .field[aria-invalid="true"] .label { color:var(--color-destructive-text); }
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────── */
+@layer utilities {
+  .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0; }
+  .not-sr-only { position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal; }
+  .truncate { overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+  .numeric { text-align:right;font-variant-numeric:tabular-nums;font-feature-settings:var(--font-feature-tabular); }
+  .balance { text-wrap:balance; }
+  .pretty { text-wrap:pretty; }
+  .flow > * + * { margin-block-start:var(--flow-gap,var(--space-stack-default)); }
+  .pointer { cursor:pointer; }
+  .no-select { user-select:none; }
+  .invisible { visibility:hidden; }
+  .clip-hidden { overflow:hidden; }
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────────── */
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)} }
+@keyframes slideUp { from{opacity:0;transform:translateY(var(--space-16))}to{opacity:1;transform:translateY(0)} }
+@keyframes slideDown { from{opacity:0;transform:translateY(calc(-1 * var(--space-16)))}to{opacity:1;transform:translateY(0)} }
+@keyframes scaleIn { from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)} }
+
+
+/* ════════════════════════════════════════════════════════════════════
+   SPECIMEN PAGE CHROME
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ─── Shell ──────────────────────────────────────────────────────── */
+.l-shell { display:grid;grid-template-columns:var(--sidebar-width) 1fr;min-height:100dvh; }
+.l-sidebar { position:sticky;top:0;height:100dvh;overflow-y:auto;background-color:var(--color-surface-default);border-right:1px solid var(--color-border-default);display:flex;flex-direction:column;z-index:var(--layer-sticky);box-shadow:var(--elevation-sticky); }
+.sidebar-hd { padding:var(--space-24) var(--space-24) var(--space-16);border-bottom:1px solid var(--color-border-default); }
+.sidebar-wordmark { font-family:var(--font-display);font-size:var(--text-md);line-height:var(--leading-tight);color:var(--color-text-primary);letter-spacing:var(--tracking-tight); }
+.sidebar-meta { font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-4);font-family:var(--font-mono);letter-spacing:var(--tracking-wide);text-transform:uppercase; }
+.sidebar-nav { padding:var(--space-16) 0;flex:1; }
+.nav-group { margin-bottom:var(--space-4); }
+.nav-group-label { font-size:var(--text-xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-text-tertiary);padding:var(--space-8) var(--space-24) var(--space-4); }
+.nav-link { display:flex;align-items:center;gap:var(--space-8);padding:var(--space-6) var(--space-24);font-size:var(--text-sm);color:var(--color-text-secondary);text-decoration:none;transition:color var(--duration-fast) var(--ease-standard),background-color var(--duration-fast) var(--ease-standard); }
+.nav-link:hover { color:var(--color-text-primary);background-color:var(--color-bg-subtle); }
+.nav-link.active { color:var(--color-action-text);background-color:var(--color-action-subtle);font-weight:var(--weight-medium); }
+.nav-dot { width:6px;height:6px;border-radius:var(--radius-full);background:currentColor;opacity:var(--opacity-subtle);flex-shrink:0; }
+.sidebar-ft { padding:var(--space-16) var(--space-24);border-top:1px solid var(--color-border-default); }
+
+/* ─── Theme toggle ───────────────────────────────────────────────── */
+.theme-toggle { display:flex;align-items:center;gap:var(--space-10);font-size:var(--text-xs);color:var(--color-text-secondary);cursor:pointer;background:none;border:1px solid var(--color-border-default);border-radius:var(--radius-full);padding:var(--space-6) var(--space-12);width:100%;font-family:var(--font-body);transition:background-color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard); }
+.theme-toggle:hover { background-color:var(--color-bg-subtle);border-color:var(--color-border-strong);color:var(--color-text-primary); }
+.toggle-track { width:28px;height:16px;border-radius:var(--radius-full);background:var(--color-border-strong);position:relative;flex-shrink:0;transition:background-color var(--duration-normal) var(--ease-standard); }
+[data-theme="dark"] .toggle-track { background:var(--color-action-default); }
+.toggle-thumb { position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:var(--radius-full);background:white;transition:transform var(--duration-normal) var(--ease-spring); }
+[data-theme="dark"] .toggle-thumb { transform:translateX(12px); }
+
+/* ─── Main / sections ────────────────────────────────────────────── */
+.l-main { min-width:0; }
+
+.s-hero { background-color:var(--color-surface-default);border-bottom:1px solid var(--color-border-default);padding:var(--space-80) var(--space-64) var(--space-64); }
+.hero-eyebrow { font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-action-text);margin-bottom:var(--space-16); }
+.hero-title { font-family:var(--font-display);font-size:var(--text-xxxxxl);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);color:var(--color-text-primary);margin-bottom:var(--space-24);max-width:14ch; }
+.hero-desc { font-size:var(--text-lg);color:var(--color-text-secondary);line-height:var(--leading-relaxed);max-width:var(--measure-tight); }
+.hero-stats { display:flex;gap:var(--space-48);margin-top:var(--space-48);padding-top:var(--space-40);border-top:1px solid var(--color-border-default); }
+.hero-stat-value { font-family:var(--font-display);font-size:var(--text-xxl);color:var(--color-text-primary);line-height:1; }
+.hero-stat-label { font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-6);letter-spacing:var(--tracking-wide);text-transform:uppercase; }
+
+.specimen-section { padding:var(--space-64);border-bottom:1px solid var(--color-border-default); }
+.specimen-section:last-child { border-bottom:none; }
+
+.section-header { display:flex;align-items:baseline;gap:var(--space-16);margin-bottom:var(--space-48);padding-bottom:var(--space-24);border-bottom:1px solid var(--color-border-default); }
+.section-number { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-tertiary);letter-spacing:var(--tracking-wider); }
+.section-title { font-family:var(--font-display);font-size:var(--text-xxl);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight);color:var(--color-text-primary); }
+.section-desc { font-size:var(--text-sm);color:var(--color-text-secondary);margin-left:auto;max-width:32ch;text-align:right;line-height:var(--leading-normal); }
+
+.subsection { margin-top:var(--space-48); }
+.subsection-title { font-size:var(--text-sm);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-20); }
+
+.token-name { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-tertiary); }
+.token-value { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-secondary); }
+
+/* ─── Token section helpers (reused from previous) ───────────────── */
+.color-ramps { display:flex;flex-direction:column;gap:var(--space-8); }
+.color-ramp { display:grid;grid-template-columns:6rem repeat(13,1fr);gap:0; }
+.color-ramp-label { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-tertiary);display:flex;align-items:center;padding-right:var(--space-12);letter-spacing:var(--tracking-wide); }
+.color-swatch { aspect-ratio:1;position:relative;cursor:default; }
+.color-swatch:first-of-type { border-radius:var(--radius-sm) 0 0 var(--radius-sm); }
+.color-swatch:last-of-type { border-radius:0 var(--radius-sm) var(--radius-sm) 0; }
+.color-swatch::after { content:attr(data-step);position:absolute;bottom:4px;left:0;right:0;text-align:center;font-family:var(--font-mono);font-size:9px;opacity:0;transition:opacity var(--duration-fast) var(--ease-standard); }
+.color-swatch:hover::after { opacity:1; }
+.color-swatch[data-step="00"]::after,.color-swatch[data-step="05"]::after,.color-swatch[data-step="10"]::after,.color-swatch[data-step="20"]::after,.color-swatch[data-step="30"]::after { color:oklch(30% 0 0); }
+.color-swatch[data-step="40"]::after,.color-swatch[data-step="50"]::after,.color-swatch[data-step="60"]::after,.color-swatch[data-step="70"]::after,.color-swatch[data-step="80"]::after,.color-swatch[data-step="90"]::after,.color-swatch[data-step="95"]::after,.color-swatch[data-step="99"]::after { color:oklch(80% 0 0); }
+
+.semantic-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-2); }
+.semantic-card { border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--color-border-default); }
+.semantic-swatch { height:4rem; }
+.semantic-info { padding:var(--space-10) var(--space-12);background:var(--color-surface-default); }
+.semantic-info .token-name { display:block;margin-bottom:var(--space-2); }
+
+.status-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-16); }
+.status-card { border-radius:var(--radius-card);border-width:1px;border-style:solid;overflow:hidden; }
+.status-card-body { padding:var(--space-16); }
+.status-card-label { font-size:var(--text-xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-wide);text-transform:uppercase;margin-bottom:var(--space-6); }
+.status-card-desc { font-size:var(--text-sm);line-height:var(--leading-snug); }
+.status-card.success { border-color:var(--color-success-border);background:var(--color-success-subtle);color:var(--color-success-text); }
+.status-card.warning { border-color:var(--color-warning-border);background:var(--color-warning-subtle);color:var(--color-warning-text); }
+.status-card.destructive { border-color:var(--color-destructive-border);background:var(--color-destructive-subtle);color:var(--color-destructive-text); }
+.status-card.info { border-color:var(--color-info-border);background:var(--color-info-subtle);color:var(--color-info-text); }
+.status-dot { display:inline-block;width:8px;height:8px;border-radius:var(--radius-full);background:currentColor;margin-right:var(--space-6);vertical-align:middle; }
+
+.type-scale { display:flex;flex-direction:column;gap:var(--space-2); }
+.type-row { display:grid;grid-template-columns:7rem 1fr 8rem;align-items:baseline;padding:var(--space-12) 0;border-bottom:1px solid var(--color-border-default);gap:var(--space-24); }
+.type-row:last-child { border-bottom:none; }
+.type-meta { display:flex;flex-direction:column;gap:var(--space-4); }
+.type-size-value { font-size:var(--text-xs);color:var(--color-text-tertiary);font-family:var(--font-mono); }
+
+.type-families { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-24);margin-top:var(--space-40); }
+.type-family-card { padding:var(--space-32);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card); }
+.type-family-tag { font-size:var(--text-xs);font-family:var(--font-mono);color:var(--color-text-tertiary);letter-spacing:var(--tracking-wide);text-transform:uppercase;margin-bottom:var(--space-16); }
+
+.type-weights { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-16);margin-top:var(--space-32); }
+.type-weight-card { padding:var(--space-20);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-md); }
+
+.tracking-row { display:flex;flex-direction:column;gap:var(--space-12);margin-top:var(--space-32); }
+.tracking-item { display:grid;grid-template-columns:9rem 1fr 6rem;align-items:center;gap:var(--space-24);padding:var(--space-12) 0;border-bottom:1px solid var(--color-border-default); }
+.tracking-item:last-child { border-bottom:none; }
+
+.spacing-grid { display:flex;flex-direction:column;gap:var(--space-4); }
+.space-row { display:grid;grid-template-columns:7rem auto 1fr 5rem;align-items:center;gap:var(--space-16);padding:var(--space-8) 0; }
+.space-bar-wrap { display:flex;align-items:center; }
+.space-bar { height:20px;background:var(--color-action-default);border-radius:0 var(--radius-xs) var(--radius-xs) 0;opacity:.7;min-width:var(--space-px); }
+
+.radius-grid { display:grid;grid-template-columns:repeat(7,1fr);gap:var(--space-24); }
+.radius-card { display:flex;flex-direction:column;gap:var(--space-16);align-items:center; }
+.radius-demo { width:100%;aspect-ratio:1;background:var(--color-action-subtle);border:2px solid var(--color-action-default); }
+
+.elevation-grid { display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-32);align-items:end;padding:var(--space-40) var(--space-32) var(--space-32);background:var(--color-bg-subtle);border-radius:var(--radius-card); }
+.elevation-card { background:var(--color-surface-default);border-radius:var(--radius-card);padding:var(--space-24) var(--space-20);display:flex;flex-direction:column;align-items:center;gap:var(--space-16);text-align:center; }
+
+.motion-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-24);margin-bottom:var(--space-48); }
+.duration-card { padding:var(--space-20);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-md);display:flex;flex-direction:column;gap:var(--space-16);cursor:pointer; }
+.duration-bar-track { height:4px;background:var(--color-border-default);border-radius:var(--radius-full);overflow:hidden; }
+.duration-bar-fill { height:100%;width:0%;background:var(--color-action-default);border-radius:var(--radius-full);transition-property:width;transition-timing-function:linear; }
+.duration-card:hover .duration-bar-fill,.duration-card:focus .duration-bar-fill { width:100%; }
+.easing-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-24); }
+.easing-card { padding:var(--space-20);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-md);cursor:pointer;overflow:hidden; }
+.easing-dot-track { height:40px;position:relative;margin:var(--space-16) 0; }
+.easing-dot { width:12px;height:12px;border-radius:var(--radius-full);background:var(--color-action-default);position:absolute;top:50%;left:0;transform:translateY(-50%);transition:left var(--duration-deliberate) var(--ease-standard); }
+.easing-card[data-ease="standard"]:hover .easing-dot { left:calc(100% - 12px);transition-timing-function:var(--ease-standard); }
+.easing-card[data-ease="enter"]:hover .easing-dot { left:calc(100% - 12px);transition-timing-function:var(--ease-enter); }
+.easing-card[data-ease="exit"]:hover .easing-dot { left:calc(100% - 12px);transition-timing-function:var(--ease-exit); }
+.easing-card[data-ease="spring"]:hover .easing-dot { left:calc(100% - 12px);transition-timing-function:var(--ease-spring); }
+
+.opacity-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-24); }
+.opacity-card { border:1px solid var(--color-border-default);border-radius:var(--radius-card);overflow:hidden; }
+.opacity-demo { height:6rem;background:var(--color-surface-default);display:flex;align-items:center;justify-content:center;font-size:var(--text-lg);font-family:var(--font-display); }
+.opacity-info { padding:var(--space-12) var(--space-16);background:var(--color-surface-sunken); }
+
+.focus-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-32); }
+.focus-demo-wrap { padding:var(--space-32);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);display:flex;flex-direction:column;gap:var(--space-16); }
+.focus-demo-btn { padding:var(--space-10) var(--space-20);border-radius:var(--radius-button);border:1px solid var(--color-border-input);background:var(--color-surface-default);font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-text-primary);cursor:pointer;box-shadow:var(--focus-ring-shadow); }
+.focus-demo-btn.destructive { border-color:var(--color-border-destructive);color:var(--color-destructive-text);box-shadow:var(--focus-ring-shadow-destructive); }
+
+.control-grid { display:flex;flex-direction:column;gap:var(--space-16); }
+.control-row { display:grid;grid-template-columns:10rem 1fr 6rem;align-items:center;gap:var(--space-24); }
+.control-demo { background:var(--color-action-default);border-radius:var(--radius-button);display:flex;align-items:center;justify-content:center; }
+.control-demo span { font-size:var(--text-xs);color:var(--color-text-inverse);font-family:var(--font-mono); }
+
+.icon-grid { display:flex;align-items:flex-end;gap:var(--space-40); }
+.icon-item { display:flex;flex-direction:column;align-items:center;gap:var(--space-12); }
+.icon-demo { background:var(--color-bg-subtle);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--color-action-default); }
+
+.layer-stack { position:relative;height:14rem;margin-top:var(--space-16); }
+.layer-chip { position:absolute;left:0;height:2.5rem;border-radius:var(--radius-md);border:1px solid var(--color-border-default);background:var(--color-surface-default);display:flex;align-items:center;padding:0 var(--space-16);gap:var(--space-12);font-size:var(--text-xs);box-shadow:var(--elevation-sm);transition:transform var(--duration-normal) var(--ease-standard); }
+.layer-chip:hover { transform:translateX(var(--space-8)); }
+.layer-z { font-family:var(--font-mono);color:var(--color-action-text);font-weight:var(--weight-semibold);min-width:3ch;text-align:right; }
+
+.container-viz { display:flex;flex-direction:column;gap:var(--space-8); }
+.container-row { display:grid;grid-template-columns:4rem 1fr 6rem;align-items:center;gap:var(--space-16); }
+.container-bar-wrap { position:relative;height:28px; }
+.container-bar { position:absolute;top:0;left:0;height:100%;background:var(--color-action-subtle);border:1px solid var(--color-action-default);border-radius:var(--radius-xs);opacity:.7; }
+
+.ratio-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-16);align-items:end; }
+.ratio-card { display:flex;flex-direction:column;gap:var(--space-12); }
+.ratio-demo { background:var(--color-bg-subtle);border:1px solid var(--color-border-default);border-radius:var(--radius-md);width:100%; }
+
+/* ─── Component specimen chrome ──────────────────────────────────── */
+.demo-canvas { background:var(--color-bg-subtle);border-radius:var(--radius-card);padding:var(--space-32);border:1px solid var(--color-border-default); }
+.demo-row { display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-16);padding:var(--space-20) 0;border-bottom:1px solid var(--color-border-default); }
+.demo-row:last-child { border-bottom:none;padding-bottom:0; }
+.demo-row-label { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-tertiary);width:7rem;flex-shrink:0; }
+.demo-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-24); }
+.demo-pair { display:flex;flex-direction:column;gap:var(--space-8); }
+
+.anatomy-chip { display:inline-block;background:var(--color-action-subtle);color:var(--color-action-text);font-family:var(--font-mono);font-size:var(--text-xs);padding:var(--space-2) var(--space-8);border-radius:var(--radius-sm);margin:var(--space-2); }
+
+/* ─── Layout demo helpers ────────────────────────────────────────── */
+.layout-box { background:var(--color-action-subtle);border:1px solid var(--color-action-default);border-radius:var(--radius-md);padding:var(--space-16);font-size:var(--text-xs);font-family:var(--font-mono);color:var(--color-action-text);text-align:center; }
+.layout-box.alt { background:var(--color-success-subtle);border-color:var(--color-success-default);color:var(--color-success-text); }
+.layout-box.tall { min-height:6rem;display:flex;align-items:center;justify-content:center; }
+
+/* ─── Form demo helpers ──────────────────────────────────────────── */
+.form-row { display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) 0;border-bottom:1px solid var(--color-border-default); }
+.form-row:last-child { border-bottom:none; }
+.form-row-label { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-tertiary);min-width:7rem; }
+
+/* ─── Element specimen resets ────────────────────────────────────── */
+.element-demo p { max-width:none; }
+.element-demo ul { list-style:disc; }
+.element-demo ol { list-style:decimal; }
+
+  </style>
+</head>
+<body>
+<div class="l-shell">
+
+<!-- ═══════ SIDEBAR ══════════════════════════════════════════════ -->
+<aside class="l-sidebar">
+  <div class="sidebar-hd">
+    <div class="sidebar-wordmark">Design System</div>
+    <div class="sidebar-meta">v1.0 — Specimen</div>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Specimen sections">
+    <div class="nav-group">
+      <div class="nav-group-label">Tokens</div>
+      <a href="#color-primitives" class="nav-link"><span class="nav-dot"></span>Color Ramps</a>
+      <a href="#color-semantic" class="nav-link"><span class="nav-dot"></span>Semantic Color</a>
+      <a href="#color-status" class="nav-link"><span class="nav-dot"></span>Status Colors</a>
+      <a href="#type-scale" class="nav-link"><span class="nav-dot"></span>Type Scale</a>
+      <a href="#type-families" class="nav-link"><span class="nav-dot"></span>Typefaces</a>
+      <a href="#type-weights" class="nav-link"><span class="nav-dot"></span>Weights &amp; Tracking</a>
+      <a href="#spacing" class="nav-link"><span class="nav-dot"></span>Spacing</a>
+      <a href="#radius" class="nav-link"><span class="nav-dot"></span>Radius</a>
+      <a href="#elevation" class="nav-link"><span class="nav-dot"></span>Elevation</a>
+      <a href="#motion" class="nav-link"><span class="nav-dot"></span>Motion</a>
+      <a href="#focus" class="nav-link"><span class="nav-dot"></span>Focus</a>
+      <a href="#opacity" class="nav-link"><span class="nav-dot"></span>Opacity</a>
+      <a href="#controls" class="nav-link"><span class="nav-dot"></span>Control Heights</a>
+      <a href="#icons" class="nav-link"><span class="nav-dot"></span>Icon Sizes</a>
+      <a href="#layers" class="nav-link"><span class="nav-dot"></span>Z-Index Layers</a>
+      <a href="#containers" class="nav-link"><span class="nav-dot"></span>Containers</a>
+      <a href="#ratios" class="nav-link"><span class="nav-dot"></span>Aspect Ratios</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Elements</div>
+      <a href="#elements-type" class="nav-link"><span class="nav-dot"></span>Typography</a>
+      <a href="#elements-inline" class="nav-link"><span class="nav-dot"></span>Inline &amp; Lists</a>
+      <a href="#elements-table" class="nav-link"><span class="nav-dot"></span>Table</a>
+      <a href="#elements-misc" class="nav-link"><span class="nav-dot"></span>Misc Elements</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Layout</div>
+      <a href="#layout-stack" class="nav-link"><span class="nav-dot"></span>Stack &amp; Cluster</a>
+      <a href="#layout-grid" class="nav-link"><span class="nav-dot"></span>Grid &amp; Switcher</a>
+      <a href="#layout-frame" class="nav-link"><span class="nav-dot"></span>Frame &amp; Reel</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Components</div>
+      <a href="#comp-buttons" class="nav-link"><span class="nav-dot"></span>Buttons</a>
+      <a href="#comp-badges" class="nav-link"><span class="nav-dot"></span>Badges &amp; Tags</a>
+      <a href="#comp-forms" class="nav-link"><span class="nav-dot"></span>Form Controls</a>
+      <a href="#comp-cards" class="nav-link"><span class="nav-dot"></span>Cards</a>
+      <a href="#comp-alerts" class="nav-link"><span class="nav-dot"></span>Alerts &amp; Toast</a>
+      <a href="#comp-tabs" class="nav-link"><span class="nav-dot"></span>Tabs &amp; Accordion</a>
+      <a href="#comp-nav" class="nav-link"><span class="nav-dot"></span>Navigation</a>
+      <a href="#comp-overlays" class="nav-link"><span class="nav-dot"></span>Overlays</a>
+      <a href="#comp-misc" class="nav-link"><span class="nav-dot"></span>Avatar &amp; Skeleton</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">System</div>
+      <a href="#roles" class="nav-link"><span class="nav-dot"></span>Roles</a>
+      <a href="#states" class="nav-link"><span class="nav-dot"></span>States</a>
+      <a href="#utilities" class="nav-link"><span class="nav-dot"></span>Utilities</a>
+      <a href="#keyframes" class="nav-link"><span class="nav-dot"></span>Keyframes</a>
+    </div>
+  </nav>
+
+  <div class="sidebar-ft">
+    <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+      <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      <span id="themeLabel">Dark mode</span>
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════ MAIN ════════════════════════════════════════════════ -->
+<main class="l-main">
+
+<!-- Hero -->
+<section class="s-hero">
+  <p class="hero-eyebrow">design-system.css — Complete System</p>
+  <h1 class="hero-title">System Specimen</h1>
+  <p class="hero-desc">Visual reference for every layer of the CSS architecture — tokens, element defaults, layout primitives, components, roles, states, and utilities.</p>
+  <div class="hero-stats">
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Cascade layers</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Color ramps</div></div>
+    <div><div class="hero-stat-value">20+</div><div class="hero-stat-label">Components</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Layout patterns</div></div>
+    <div><div class="hero-stat-value">OKLCH</div><div class="hero-stat-label">Color space</div></div>
+  </div>
+</section>
+
+<!-- ── 01 COLOR RAMPS ─────────────────────────────────────────── -->
+<section class="specimen-section" id="color-primitives">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Color Primitives</h2>
+    <p class="section-desc">Identical L/C values across all hues. Only the OKLCH angle rotates. Hover to reveal step.</p>
+  </div>
+  <div class="color-ramps">
+    <div class="color-ramp">
+      <div class="color-ramp-label"></div>
+      <div class="token-name" style="text-align:center;font-size:9px">00</div><div class="token-name" style="text-align:center;font-size:9px">05</div><div class="token-name" style="text-align:center;font-size:9px">10</div><div class="token-name" style="text-align:center;font-size:9px">20</div><div class="token-name" style="text-align:center;font-size:9px">30</div><div class="token-name" style="text-align:center;font-size:9px">40</div><div class="token-name" style="text-align:center;font-size:9px">50</div><div class="token-name" style="text-align:center;font-size:9px">60</div><div class="token-name" style="text-align:center;font-size:9px">70</div><div class="token-name" style="text-align:center;font-size:9px">80</div><div class="token-name" style="text-align:center;font-size:9px">90</div><div class="token-name" style="text-align:center;font-size:9px">95</div><div class="token-name" style="text-align:center;font-size:9px">99</div>
+    </div>
+    <div class="color-ramp"><div class="color-ramp-label">Blue</div><div class="color-swatch" data-step="00" style="background:var(--blue-00)"></div><div class="color-swatch" data-step="05" style="background:var(--blue-05)"></div><div class="color-swatch" data-step="10" style="background:var(--blue-10)"></div><div class="color-swatch" data-step="20" style="background:var(--blue-20)"></div><div class="color-swatch" data-step="30" style="background:var(--blue-30)"></div><div class="color-swatch" data-step="40" style="background:var(--blue-40)"></div><div class="color-swatch" data-step="50" style="background:var(--blue-50)"></div><div class="color-swatch" data-step="60" style="background:var(--blue-60)"></div><div class="color-swatch" data-step="70" style="background:var(--blue-70)"></div><div class="color-swatch" data-step="80" style="background:var(--blue-80)"></div><div class="color-swatch" data-step="90" style="background:var(--blue-90)"></div><div class="color-swatch" data-step="95" style="background:var(--blue-95)"></div><div class="color-swatch" data-step="99" style="background:var(--blue-99)"></div></div>
+    <div class="color-ramp"><div class="color-ramp-label">Green</div><div class="color-swatch" data-step="00" style="background:var(--green-00)"></div><div class="color-swatch" data-step="05" style="background:var(--green-05)"></div><div class="color-swatch" data-step="10" style="background:var(--green-10)"></div><div class="color-swatch" data-step="20" style="background:var(--green-20)"></div><div class="color-swatch" data-step="30" style="background:var(--green-30)"></div><div class="color-swatch" data-step="40" style="background:var(--green-40)"></div><div class="color-swatch" data-step="50" style="background:var(--green-50)"></div><div class="color-swatch" data-step="60" style="background:var(--green-60)"></div><div class="color-swatch" data-step="70" style="background:var(--green-70)"></div><div class="color-swatch" data-step="80" style="background:var(--green-80)"></div><div class="color-swatch" data-step="90" style="background:var(--green-90)"></div><div class="color-swatch" data-step="95" style="background:var(--green-95)"></div><div class="color-swatch" data-step="99" style="background:var(--green-99)"></div></div>
+    <div class="color-ramp"><div class="color-ramp-label">Amber</div><div class="color-swatch" data-step="00" style="background:var(--amber-00)"></div><div class="color-swatch" data-step="05" style="background:var(--amber-05)"></div><div class="color-swatch" data-step="10" style="background:var(--amber-10)"></div><div class="color-swatch" data-step="20" style="background:var(--amber-20)"></div><div class="color-swatch" data-step="30" style="background:var(--amber-30)"></div><div class="color-swatch" data-step="40" style="background:var(--amber-40)"></div><div class="color-swatch" data-step="50" style="background:var(--amber-50)"></div><div class="color-swatch" data-step="60" style="background:var(--amber-60)"></div><div class="color-swatch" data-step="70" style="background:var(--amber-70)"></div><div class="color-swatch" data-step="80" style="background:var(--amber-80)"></div><div class="color-swatch" data-step="90" style="background:var(--amber-90)"></div><div class="color-swatch" data-step="95" style="background:var(--amber-95)"></div><div class="color-swatch" data-step="99" style="background:var(--amber-99)"></div></div>
+    <div class="color-ramp"><div class="color-ramp-label">Red</div><div class="color-swatch" data-step="00" style="background:var(--red-00)"></div><div class="color-swatch" data-step="05" style="background:var(--red-05)"></div><div class="color-swatch" data-step="10" style="background:var(--red-10)"></div><div class="color-swatch" data-step="20" style="background:var(--red-20)"></div><div class="color-swatch" data-step="30" style="background:var(--red-30)"></div><div class="color-swatch" data-step="40" style="background:var(--red-40)"></div><div class="color-swatch" data-step="50" style="background:var(--red-50)"></div><div class="color-swatch" data-step="60" style="background:var(--red-60)"></div><div class="color-swatch" data-step="70" style="background:var(--red-70)"></div><div class="color-swatch" data-step="80" style="background:var(--red-80)"></div><div class="color-swatch" data-step="90" style="background:var(--red-90)"></div><div class="color-swatch" data-step="95" style="background:var(--red-95)"></div><div class="color-swatch" data-step="99" style="background:var(--red-99)"></div></div>
+    <div class="color-ramp"><div class="color-ramp-label">Teal</div><div class="color-swatch" data-step="00" style="background:var(--teal-00)"></div><div class="color-swatch" data-step="05" style="background:var(--teal-05)"></div><div class="color-swatch" data-step="10" style="background:var(--teal-10)"></div><div class="color-swatch" data-step="20" style="background:var(--teal-20)"></div><div class="color-swatch" data-step="30" style="background:var(--teal-30)"></div><div class="color-swatch" data-step="40" style="background:var(--teal-40)"></div><div class="color-swatch" data-step="50" style="background:var(--teal-50)"></div><div class="color-swatch" data-step="60" style="background:var(--teal-60)"></div><div class="color-swatch" data-step="70" style="background:var(--teal-70)"></div><div class="color-swatch" data-step="80" style="background:var(--teal-80)"></div><div class="color-swatch" data-step="90" style="background:var(--teal-90)"></div><div class="color-swatch" data-step="95" style="background:var(--teal-95)"></div><div class="color-swatch" data-step="99" style="background:var(--teal-99)"></div></div>
+    <div class="color-ramp"><div class="color-ramp-label">Neutral</div><div class="color-swatch" data-step="00" style="background:var(--neutral-00)"></div><div class="color-swatch" data-step="05" style="background:var(--neutral-05)"></div><div class="color-swatch" data-step="10" style="background:var(--neutral-10)"></div><div class="color-swatch" data-step="20" style="background:var(--neutral-20)"></div><div class="color-swatch" data-step="30" style="background:var(--neutral-30)"></div><div class="color-swatch" data-step="40" style="background:var(--neutral-40)"></div><div class="color-swatch" data-step="50" style="background:var(--neutral-50)"></div><div class="color-swatch" data-step="60" style="background:var(--neutral-60)"></div><div class="color-swatch" data-step="70" style="background:var(--neutral-70)"></div><div class="color-swatch" data-step="80" style="background:var(--neutral-80)"></div><div class="color-swatch" data-step="90" style="background:var(--neutral-90)"></div><div class="color-swatch" data-step="95" style="background:var(--neutral-95)"></div><div class="color-swatch" data-step="99" style="background:var(--neutral-99)"></div></div>
+  </div>
+</section>
+
+<!-- ── 02 SEMANTIC COLOR ───────────────────────────────────────── -->
+<section class="specimen-section" id="color-semantic">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Semantic Color</h2>
+    <p class="section-desc">Named by role. Dark mode overrides without touching consumer code.</p>
+  </div>
+  <div class="subsection"><p class="subsection-title">Backgrounds &amp; Surfaces</p>
+  <div class="semantic-grid">
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-bg-default)"></div><div class="semantic-info"><code class="token-name">--color-bg-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-bg-subtle)"></div><div class="semantic-info"><code class="token-name">--color-bg-subtle</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-default)"></div><div class="semantic-info"><code class="token-name">--color-surface-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-sunken)"></div><div class="semantic-info"><code class="token-name">--color-surface-sunken</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-code)"></div><div class="semantic-info"><code class="token-name">--color-surface-code</code></div></div>
+  </div></div>
+  <div class="subsection"><p class="subsection-title">Text</p>
+  <div class="semantic-grid">
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-primary)"></div><div class="semantic-info"><code class="token-name">--color-text-primary</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-secondary)"></div><div class="semantic-info"><code class="token-name">--color-text-secondary</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-tertiary)"></div><div class="semantic-info"><code class="token-name">--color-text-tertiary</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-placeholder)"></div><div class="semantic-info"><code class="token-name">--color-text-placeholder</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-link)"></div><div class="semantic-info"><code class="token-name">--color-text-link</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-link-hover)"></div><div class="semantic-info"><code class="token-name">--color-text-link-hover</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-inverse)"></div><div class="semantic-info"><code class="token-name">--color-text-inverse</code></div></div>
+  </div></div>
+  <div class="subsection"><p class="subsection-title">Actions &amp; Borders</p>
+  <div class="semantic-grid">
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-default)"></div><div class="semantic-info"><code class="token-name">--color-action-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-hover)"></div><div class="semantic-info"><code class="token-name">--color-action-hover</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-active)"></div><div class="semantic-info"><code class="token-name">--color-action-active</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-subtle)"></div><div class="semantic-info"><code class="token-name">--color-action-subtle</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-default)"></div><div class="semantic-info"><code class="token-name">--color-border-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-strong)"></div><div class="semantic-info"><code class="token-name">--color-border-strong</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-input-focus)"></div><div class="semantic-info"><code class="token-name">--color-border-input-focus</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-destructive)"></div><div class="semantic-info"><code class="token-name">--color-border-destructive</code></div></div>
+  </div></div>
+</section>
+
+<!-- ── 03 STATUS ──────────────────────────────────────────────── -->
+<section class="specimen-section" id="color-status">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Status Colors</h2>
+    <p class="section-desc">Four semantic states with default, subtle, text, and border tokens each.</p>
+  </div>
+  <div class="status-grid">
+    <div class="status-card success"><div class="status-card-body"><div class="status-card-label"><span class="status-dot"></span>Success</div><div class="status-card-desc">Operation completed successfully.</div></div></div>
+    <div class="status-card warning"><div class="status-card-body"><div class="status-card-label"><span class="status-dot"></span>Warning</div><div class="status-card-desc">Attention required before continuing.</div></div></div>
+    <div class="status-card destructive"><div class="status-card-body"><div class="status-card-label"><span class="status-dot"></span>Destructive</div><div class="status-card-desc">This action cannot be undone.</div></div></div>
+    <div class="status-card info"><div class="status-card-body"><div class="status-card-label"><span class="status-dot"></span>Info</div><div class="status-card-desc">An update is available for review.</div></div></div>
+  </div>
+  <div class="semantic-grid" style="margin-top:var(--space-24)">
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-success-default)"></div><div class="semantic-info"><code class="token-name">--color-success-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-success-subtle)"></div><div class="semantic-info"><code class="token-name">--color-success-subtle</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-warning-default)"></div><div class="semantic-info"><code class="token-name">--color-warning-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-warning-subtle)"></div><div class="semantic-info"><code class="token-name">--color-warning-subtle</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-destructive-default)"></div><div class="semantic-info"><code class="token-name">--color-destructive-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-destructive-subtle)"></div><div class="semantic-info"><code class="token-name">--color-destructive-subtle</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-info-default)"></div><div class="semantic-info"><code class="token-name">--color-info-default</code></div></div>
+    <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-info-subtle)"></div><div class="semantic-info"><code class="token-name">--color-info-subtle</code></div></div>
+  </div>
+</section>
+
+<!-- ── 04 TYPE SCALE ──────────────────────────────────────────── -->
+<section class="specimen-section" id="type-scale">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Type Scale</h2>
+    <p class="section-desc">10 steps. Base corrected for Instrument Sans x-height.</p>
+  </div>
+  <div class="type-scale">
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xxxxxl</span><span class="type-size-value">3.75rem / 60px</span></div><div style="font-family:var(--font-display);font-size:var(--text-xxxxxl);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight)">The quick fox</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xxxxl</span><span class="type-size-value">2.875rem / 46px</span></div><div style="font-family:var(--font-display);font-size:var(--text-xxxxl);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight)">The quick brown fox</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xxxl</span><span class="type-size-value">2.25rem / 36px</span></div><div style="font-size:var(--text-xxxl);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight)">The quick brown fox jumps</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xxl</span><span class="type-size-value">1.875rem / 30px</span></div><div style="font-size:var(--text-xxl);line-height:var(--leading-snug)">The quick brown fox jumps over</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xl</span><span class="type-size-value">1.5rem / 24px</span></div><div style="font-size:var(--text-xl);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-lg</span><span class="type-size-value">1.25rem / 20px</span></div><div style="font-size:var(--text-lg)">The quick brown fox jumps over the lazy dog</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-md</span><span class="type-size-value">1.0625rem / 17px</span></div><div style="font-size:var(--text-md)">The quick brown fox jumps over the lazy dog. Pack my box.</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-base</span><span class="type-size-value">0.9375rem / 15px</span></div><div style="font-size:var(--text-base)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-sm</span><span class="type-size-value">0.8125rem / 13px</span></div><div style="font-size:var(--text-sm)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump!</div></div>
+    <div class="type-row"><div class="type-meta"><span class="token-name">--text-xs</span><span class="type-size-value">0.6875rem / 11px</span></div><div style="font-size:var(--text-xs)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump! The five boxing wizards jump quickly.</div></div>
+  </div>
+</section>
+
+<!-- ── 05 TYPEFACES ───────────────────────────────────────────── -->
+<section class="specimen-section" id="type-families">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Typefaces</h2>
+    <p class="section-desc">Three families loaded via @import. No HTML coupling required.</p>
+  </div>
+  <div class="type-families">
+    <div class="type-family-card"><div class="type-family-tag">--font-display</div><div style="font-family:var(--font-display);font-size:var(--text-xl);line-height:var(--leading-snug)">DM Serif Display<br><span style="font-style:italic">Italic variant</span></div><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">Display headings, hero text, pull quotes</p></div>
+    <div class="type-family-card"><div class="type-family-tag">--font-body</div><div style="font-family:var(--font-body);font-size:var(--text-lg);line-height:var(--leading-normal)">Instrument Sans<br><span style="font-style:italic;color:var(--color-text-secondary)">Italic weight 400</span></div><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">UI labels, body copy, interface text</p></div>
+    <div class="type-family-card"><div class="type-family-tag">--font-mono</div><div style="font-family:var(--font-mono);font-size:var(--text-md);line-height:var(--leading-normal)">DM Mono<br><span style="color:var(--color-text-secondary)">0O 1lI |&lt;&gt;{}</span></div><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">Code, tokens, labels, tabular data</p></div>
+  </div>
+</section>
+
+<!-- ── 06 WEIGHTS & TRACKING ──────────────────────────────────── -->
+<section class="specimen-section" id="type-weights">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title">Weights &amp; Tracking</h2>
+    <p class="section-desc">Four weights. Five letter-spacing steps from tight to widest.</p>
+  </div>
+  <div class="type-weights">
+    <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-regular / 400</p><p style="font-weight:400;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+    <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-medium / 500</p><p style="font-weight:500;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+    <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-semibold / 600</p><p style="font-weight:600;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+    <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-bold / 700</p><p style="font-weight:700;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+  </div>
+  <div class="tracking-row" style="margin-top:var(--space-40)">
+    <div class="tracking-item"><span class="token-name">--tracking-tight</span><span style="letter-spacing:var(--tracking-tight);font-size:var(--text-lg)">HEADING TEXT TIGHT</span><span class="token-value">-0.025em</span></div>
+    <div class="tracking-item"><span class="token-name">--tracking-normal</span><span style="letter-spacing:var(--tracking-normal);font-size:var(--text-lg)">Body text normal</span><span class="token-value">0</span></div>
+    <div class="tracking-item"><span class="token-name">--tracking-wide</span><span style="letter-spacing:var(--tracking-wide);font-size:var(--text-base)">Slightly spaced out</span><span class="token-value">0.025em</span></div>
+    <div class="tracking-item"><span class="token-name">--tracking-wider</span><span style="letter-spacing:var(--tracking-wider);font-size:var(--text-sm)">UPPERCASE LABEL</span><span class="token-value">0.06em</span></div>
+    <div class="tracking-item"><span class="token-name">--tracking-widest</span><span style="letter-spacing:var(--tracking-widest);font-size:var(--text-xs)">SECTION EYEBROW</span><span class="token-value">0.12em</span></div>
+  </div>
+</section>
+
+<!-- ── 07 SPACING ─────────────────────────────────────────────── -->
+<section class="specimen-section" id="spacing">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2 class="section-title">Spacing</h2>
+    <p class="section-desc">4pt grid, named by px equivalent. No decimal names.</p>
+  </div>
+  <div class="spacing-grid">
+    <div class="space-row"><span class="token-name">--space-px</span><div class="space-bar-wrap"><div class="space-bar" style="width:1px"></div></div><span class="token-value">1px</span></div>
+    <div class="space-row"><span class="token-name">--space-2</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-2)"></div></div><span class="token-value">0.125rem</span></div>
+    <div class="space-row"><span class="token-name">--space-4</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-4)"></div></div><span class="token-value">0.25rem</span></div>
+    <div class="space-row"><span class="token-name">--space-6</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-6)"></div></div><span class="token-value">0.375rem</span></div>
+    <div class="space-row"><span class="token-name">--space-8</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-8)"></div></div><span class="token-value">0.5rem</span></div>
+    <div class="space-row"><span class="token-name">--space-10</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-10)"></div></div><span class="token-value">0.625rem</span></div>
+    <div class="space-row"><span class="token-name">--space-12</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-12)"></div></div><span class="token-value">0.75rem</span></div>
+    <div class="space-row"><span class="token-name">--space-16</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-16)"></div></div><span class="token-value">1rem</span></div>
+    <div class="space-row"><span class="token-name">--space-20</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-20)"></div></div><span class="token-value">1.25rem</span></div>
+    <div class="space-row"><span class="token-name">--space-24</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-24)"></div></div><span class="token-value">1.5rem</span></div>
+    <div class="space-row"><span class="token-name">--space-32</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-32)"></div></div><span class="token-value">2rem</span></div>
+    <div class="space-row"><span class="token-name">--space-40</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-40)"></div></div><span class="token-value">2.5rem</span></div>
+    <div class="space-row"><span class="token-name">--space-48</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-48)"></div></div><span class="token-value">3rem</span></div>
+    <div class="space-row"><span class="token-name">--space-64</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-64)"></div></div><span class="token-value">4rem</span></div>
+    <div class="space-row"><span class="token-name">--space-80</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-80)"></div></div><span class="token-value">5rem</span></div>
+    <div class="space-row"><span class="token-name">--space-96</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-96)"></div></div><span class="token-value">6rem</span></div>
+    <div class="space-row"><span class="token-name">--space-128</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-128)"></div></div><span class="token-value">8rem</span></div>
+  </div>
+</section>
+
+<!-- ── 08 RADIUS ──────────────────────────────────────────────── -->
+<section class="specimen-section" id="radius">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2 class="section-title">Border Radius</h2>
+    <p class="section-desc">rem-based so radii scale with root font size. --radius-full stays in px.</p>
+  </div>
+  <div class="radius-grid">
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-none)"></div><span class="token-name" style="text-align:center">none / 0</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-xs)"></div><span class="token-name" style="text-align:center">xs / 0.125rem</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-sm)"></div><span class="token-name" style="text-align:center">sm / 0.25rem</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-md)"></div><span class="token-name" style="text-align:center">md / 0.375rem</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-lg)"></div><span class="token-name" style="text-align:center">lg / 0.625rem</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-xl)"></div><span class="token-name" style="text-align:center">xl / 1rem</span></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-full)"></div><span class="token-name" style="text-align:center">full / 9999px</span></div>
+  </div>
+  <div class="subsection"><p class="subsection-title">Semantic Aliases</p>
+  <div style="display:flex;gap:var(--space-16);flex-wrap:wrap;align-items:center">
+    <div style="padding:var(--space-10) var(--space-20);background:var(--color-action-default);color:white;border-radius:var(--radius-button);font-size:var(--text-sm)">--radius-button</div>
+    <div style="padding:var(--space-16) var(--space-24);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);font-size:var(--text-sm)">--radius-card</div>
+    <div style="padding:var(--space-10) var(--space-16);background:var(--color-surface-default);border:1px solid var(--color-border-input);border-radius:var(--radius-input);font-size:var(--text-sm)">--radius-input</div>
+    <div style="padding:var(--space-4) var(--space-12);background:var(--color-action-subtle);color:var(--color-action-text);border-radius:var(--radius-badge);font-size:var(--text-xs);font-weight:var(--weight-semibold)">--radius-badge</div>
+    <div style="padding:var(--space-16) var(--space-24);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-dialog);font-size:var(--text-sm)">--radius-dialog</div>
+  </div></div>
+</section>
+
+<!-- ── 09 ELEVATION ───────────────────────────────────────────── -->
+<section class="specimen-section" id="elevation">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2 class="section-title">Elevation</h2>
+    <p class="section-desc">Six shadow levels. Dark mode uses deeper opacity.</p>
+  </div>
+  <div class="elevation-grid">
+    <div class="elevation-card" style="box-shadow:var(--elevation-xs)"><span class="token-name">xs</span><span class="token-value" style="font-size:var(--text-xs)">Hairline</span></div>
+    <div class="elevation-card" style="box-shadow:var(--elevation-sm)"><span class="token-name">sm</span><span class="token-value" style="font-size:var(--text-xs)">Card</span></div>
+    <div class="elevation-card" style="box-shadow:var(--elevation-md)"><span class="token-name">md</span><span class="token-value" style="font-size:var(--text-xs)">Dropdown</span></div>
+    <div class="elevation-card" style="box-shadow:var(--elevation-lg)"><span class="token-name">lg</span><span class="token-value" style="font-size:var(--text-xs)">Drawer</span></div>
+    <div class="elevation-card" style="box-shadow:var(--elevation-xl)"><span class="token-name">xl</span><span class="token-value" style="font-size:var(--text-xs)">Modal</span></div>
+    <div class="elevation-card" style="box-shadow:var(--elevation-sticky)"><span class="token-name">sticky</span><span class="token-value" style="font-size:var(--text-xs)">Header</span></div>
+  </div>
+</section>
+
+<!-- ── 10 MOTION ──────────────────────────────────────────────── -->
+<section class="specimen-section" id="motion">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2 class="section-title">Motion</h2>
+    <p class="section-desc">Hover duration cards to play. Hover easing cards to preview the curve.</p>
+  </div>
+  <p class="subsection-title">Durations — hover to play</p>
+  <div class="motion-grid">
+    <div class="duration-card" tabindex="0"><span class="token-name">--duration-instant</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:50ms"></div></div><span class="token-value">50ms</span></div>
+    <div class="duration-card" tabindex="0"><span class="token-name">--duration-fast</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:100ms"></div></div><span class="token-value">100ms</span></div>
+    <div class="duration-card" tabindex="0"><span class="token-name">--duration-normal</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:200ms"></div></div><span class="token-value">200ms</span></div>
+    <div class="duration-card" tabindex="0"><span class="token-name">--duration-deliberate</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:300ms"></div></div><span class="token-value">300ms</span></div>
+    <div class="duration-card" tabindex="0"><span class="token-name">--duration-slow</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:500ms"></div></div><span class="token-value">500ms</span></div>
+  </div>
+  <p class="subsection-title">Easing — hover to animate</p>
+  <div class="easing-grid">
+    <div class="easing-card" data-ease="standard"><span class="token-name">--ease-standard</span><div class="easing-dot-track"><div class="easing-dot"></div></div><span class="token-value" style="font-size:var(--text-xs)">cubic-bezier(.4,0,.2,1)</span><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-8)">General state changes</p></div>
+    <div class="easing-card" data-ease="enter"><span class="token-name">--ease-enter</span><div class="easing-dot-track"><div class="easing-dot"></div></div><span class="token-value" style="font-size:var(--text-xs)">cubic-bezier(0,0,.2,1)</span><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-8)">Entering the screen</p></div>
+    <div class="easing-card" data-ease="exit"><span class="token-name">--ease-exit</span><div class="easing-dot-track"><div class="easing-dot"></div></div><span class="token-value" style="font-size:var(--text-xs)">cubic-bezier(.4,0,1,1)</span><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-8)">Leaving the screen</p></div>
+    <div class="easing-card" data-ease="spring"><span class="token-name">--ease-spring</span><div class="easing-dot-track"><div class="easing-dot"></div></div><span class="token-value" style="font-size:var(--text-xs)">cubic-bezier(.34,1.56,.64,1)</span><p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-8)">Playful bounce</p></div>
+  </div>
+</section>
+
+<!-- ── 11 FOCUS ───────────────────────────────────────────────── -->
+<section class="specimen-section" id="focus">
+  <div class="section-header">
+    <span class="section-number">11</span>
+    <h2 class="section-title">Focus Rings</h2>
+    <p class="section-desc">3px offset ring at 30% opacity. Destructive variant in red.</p>
+  </div>
+  <div class="focus-grid">
+    <div class="focus-demo-wrap"><p class="token-name" style="margin-bottom:var(--space-8)">--focus-ring-shadow</p><button class="focus-demo-btn">Focused element</button><p style="font-size:var(--text-xs);color:var(--color-text-tertiary)">0 0 0 3px oklch(54% .178 264 / 0.30)</p></div>
+    <div class="focus-demo-wrap"><p class="token-name" style="margin-bottom:var(--space-8)">--focus-ring-shadow-destructive</p><button class="focus-demo-btn destructive">Destructive focus</button><p style="font-size:var(--text-xs);color:var(--color-text-tertiary)">0 0 0 3px oklch(46% .186 28 / 0.30)</p></div>
+  </div>
+</section>
+
+<!-- ── 12 OPACITY ─────────────────────────────────────────────── -->
+<section class="specimen-section" id="opacity">
+  <div class="section-header">
+    <span class="section-number">12</span>
+    <h2 class="section-title">Opacity</h2>
+    <p class="section-desc">Three named levels for disabled, muted, and subtle.</p>
+  </div>
+  <div class="opacity-grid">
+    <div class="opacity-card"><div class="opacity-demo" style="opacity:1">Enabled</div><div class="opacity-info"><span class="token-name">—</span><span class="token-value"> 1.0</span></div></div>
+    <div class="opacity-card"><div class="opacity-demo" style="opacity:var(--opacity-muted)">Muted</div><div class="opacity-info"><span class="token-name">--opacity-muted</span><span class="token-value"> 0.80</span></div></div>
+    <div class="opacity-card"><div class="opacity-demo" style="opacity:var(--opacity-subtle)">Subtle</div><div class="opacity-info"><span class="token-name">--opacity-subtle</span><span class="token-value"> 0.60</span></div></div>
+    <div class="opacity-card"><div class="opacity-demo" style="opacity:var(--opacity-disabled)">Disabled</div><div class="opacity-info"><span class="token-name">--opacity-disabled</span><span class="token-value"> 0.45</span></div></div>
+  </div>
+</section>
+
+<!-- ── 13 CONTROL HEIGHTS ─────────────────────────────────────── -->
+<section class="specimen-section" id="controls">
+  <div class="section-header">
+    <span class="section-number">13</span>
+    <h2 class="section-title">Control Heights</h2>
+    <p class="section-desc">Five steps for consistent interactive element sizing.</p>
+  </div>
+  <div class="control-grid">
+    <div class="control-row"><span class="token-name">--control-height-xs</span><div class="control-demo" style="height:var(--control-height-xs);width:8rem"><span>24px</span></div><span class="token-value">1.5rem</span></div>
+    <div class="control-row"><span class="token-name">--control-height-sm</span><div class="control-demo" style="height:var(--control-height-sm);width:10rem"><span>32px</span></div><span class="token-value">2rem</span></div>
+    <div class="control-row"><span class="token-name">--control-height-md</span><div class="control-demo" style="height:var(--control-height-md);width:12rem"><span>40px</span></div><span class="token-value">2.5rem</span></div>
+    <div class="control-row"><span class="token-name">--control-height-lg</span><div class="control-demo" style="height:var(--control-height-lg);width:14rem"><span>48px</span></div><span class="token-value">3rem</span></div>
+    <div class="control-row"><span class="token-name">--control-height-xl</span><div class="control-demo" style="height:var(--control-height-xl);width:16rem"><span>56px</span></div><span class="token-value">3.5rem</span></div>
+  </div>
+</section>
+
+<!-- ── 14 ICON SIZES ──────────────────────────────────────────── -->
+<section class="specimen-section" id="icons">
+  <div class="section-header">
+    <span class="section-number">14</span>
+    <h2 class="section-title">Icon Sizes</h2>
+    <p class="section-desc">Five steps from compact labels to large illustrative icons.</p>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-item"><div class="icon-demo" style="width:var(--icon-xs);height:var(--icon-xs)"><svg width="100%" height="100%" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name" style="text-align:center">xs / 12px</span></div>
+    <div class="icon-item"><div class="icon-demo" style="width:var(--icon-sm);height:var(--icon-sm)"><svg width="100%" height="100%" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name" style="text-align:center">sm / 16px</span></div>
+    <div class="icon-item"><div class="icon-demo" style="width:var(--icon-md);height:var(--icon-md)"><svg width="100%" height="100%" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name" style="text-align:center">md / 20px</span></div>
+    <div class="icon-item"><div class="icon-demo" style="width:var(--icon-lg);height:var(--icon-lg)"><svg width="100%" height="100%" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name" style="text-align:center">lg / 24px</span></div>
+    <div class="icon-item"><div class="icon-demo" style="width:var(--icon-xl);height:var(--icon-xl)"><svg width="100%" height="100%" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name" style="text-align:center">xl / 32px</span></div>
+  </div>
+</section>
+
+<!-- ── 15 Z-INDEX ─────────────────────────────────────────────── -->
+<section class="specimen-section" id="layers">
+  <div class="section-header">
+    <span class="section-number">15</span>
+    <h2 class="section-title">Z-Index Layers</h2>
+    <p class="section-desc">Named stacking contexts. Hover each chip to reveal its level.</p>
+  </div>
+  <div class="layer-stack">
+    <div class="layer-chip" style="top:0rem;width:80%"><span class="layer-z">600</span><span class="token-name">--layer-tooltip</span><span class="token-value" style="font-size:var(--text-xs)">Tooltips, popovers</span></div>
+    <div class="layer-chip" style="top:2rem;width:75%"><span class="layer-z">500</span><span class="token-name">--layer-toast</span><span class="token-value" style="font-size:var(--text-xs)">Notifications</span></div>
+    <div class="layer-chip" style="top:4rem;width:70%"><span class="layer-z">400</span><span class="token-name">--layer-modal</span><span class="token-value" style="font-size:var(--text-xs)">Dialogs, sheets</span></div>
+    <div class="layer-chip" style="top:6rem;width:65%"><span class="layer-z">300</span><span class="token-name">--layer-overlay</span><span class="token-value" style="font-size:var(--text-xs)">Backdrop, scrim</span></div>
+    <div class="layer-chip" style="top:8rem;width:60%"><span class="layer-z">200</span><span class="token-name">--layer-sticky</span><span class="token-value" style="font-size:var(--text-xs)">Sticky header</span></div>
+    <div class="layer-chip" style="top:10rem;width:55%"><span class="layer-z">100</span><span class="token-name">--layer-dropdown</span><span class="token-value" style="font-size:var(--text-xs)">Menus, comboboxes</span></div>
+    <div class="layer-chip" style="top:12rem;width:50%"><span class="layer-z">10</span><span class="token-name">--layer-raised</span><span class="token-value" style="font-size:var(--text-xs)">Badges, indicators</span></div>
+  </div>
+</section>
+
+<!-- ── 16 CONTAINERS ──────────────────────────────────────────── -->
+<section class="specimen-section" id="containers">
+  <div class="section-header">
+    <span class="section-number">16</span>
+    <h2 class="section-title">Container Widths</h2>
+    <p class="section-desc">Five breakpoint-aligned max-widths for layout constraint.</p>
+  </div>
+  <div class="container-viz">
+    <div class="container-row"><span class="token-name">sm</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-sm)*.5)"></div></div><span class="token-value">36rem / 576px</span></div>
+    <div class="container-row"><span class="token-name">md</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-md)*.5)"></div></div><span class="token-value">48rem / 768px</span></div>
+    <div class="container-row"><span class="token-name">lg</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-lg)*.5)"></div></div><span class="token-value">64rem / 1024px</span></div>
+    <div class="container-row"><span class="token-name">xl</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-xl)*.5)"></div></div><span class="token-value">80rem / 1280px</span></div>
+    <div class="container-row"><span class="token-name">xxl</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-xxl)*.5)"></div></div><span class="token-value">96rem / 1536px</span></div>
+  </div>
+</section>
+
+<!-- ── 17 ASPECT RATIOS ───────────────────────────────────────── -->
+<section class="specimen-section" id="ratios">
+  <div class="section-header">
+    <span class="section-number">17</span>
+    <h2 class="section-title">Aspect Ratios</h2>
+    <p class="section-desc">Five canonical ratios for media, cards, and containers.</p>
+  </div>
+  <div class="ratio-grid">
+    <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-portrait)"></div><span class="token-name">--ratio-portrait</span><span class="token-value">3 / 4</span></div>
+    <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-square)"></div><span class="token-name">--ratio-square</span><span class="token-value">1 / 1</span></div>
+    <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-photo)"></div><span class="token-name">--ratio-photo</span><span class="token-value">4 / 3</span></div>
+    <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-video)"></div><span class="token-name">--ratio-video</span><span class="token-value">16 / 9</span></div>
+    <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-wide)"></div><span class="token-name">--ratio-wide</span><span class="token-value">21 / 9</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     ELEMENTS LAYER
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ── 18 TYPOGRAPHY ELEMENTS ────────────────────────────────── -->
+<section class="specimen-section" id="elements-type">
+  <div class="section-header">
+    <span class="section-number">18</span>
+    <h2 class="section-title">Typography Elements</h2>
+    <p class="section-desc">Bare HTML heading and paragraph defaults from @layer elements.</p>
+  </div>
+  <div class="demo-canvas element-demo" style="background:var(--color-surface-default)">
+    <h1>Heading Level 1</h1>
+    <h2>Heading Level 2</h2>
+    <h3>Heading Level 3</h3>
+    <h4>Heading Level 4</h4>
+    <h5>Heading Level 5</h5>
+    <h6>Heading Level 6</h6>
+    <hr>
+    <p>This is a paragraph of body text at <code>--text-base</code> (15px). The typeface is Instrument Sans, x-height corrected. <a href="#">Inline links</a> use <code>--color-text-link</code> and transition to <code>--color-text-link-hover</code> on hover. <strong>Bold text</strong> uses <code>--weight-semibold</code>, and <em>italic text</em> uses the native italic.</p>
+    <blockquote>A blockquote uses a 2px left border in <code>--color-action-default</code>, italic weight, and <code>--color-text-secondary</code> for the text color.</blockquote>
+    <p>Inline semantics: <mark>mark highlights in warning-subtle</mark>, keyboard shortcuts like <kbd>⌘K</kbd> use the mono font with a bottom border, and <abbr title="Cascading Style Sheets">CSS</abbr> abbreviations get a dotted underline.</p>
+  </div>
+</section>
+
+<!-- ── 19 INLINE & LISTS ──────────────────────────────────────── -->
+<section class="specimen-section" id="elements-inline">
+  <div class="section-header">
+    <span class="section-number">19</span>
+    <h2 class="section-title">Inline &amp; Lists</h2>
+    <p class="section-desc">Code blocks, lists, and definition lists.</p>
+  </div>
+  <div class="demo-grid">
+    <div class="demo-pair">
+      <p class="subsection-title">Unordered List</p>
+      <div class="demo-canvas" style="background:var(--color-surface-default)">
+        <ul class="element-demo" style="list-style:disc;padding-inline-start:var(--space-24)">
+          <li>First list item</li>
+          <li>Second list item</li>
+          <li>Third list item with more content wrapping to a new line</li>
+        </ul>
+      </div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Ordered List</p>
+      <div class="demo-canvas" style="background:var(--color-surface-default)">
+        <ol class="element-demo" style="list-style:decimal;padding-inline-start:var(--space-24)">
+          <li>Step one</li>
+          <li>Step two</li>
+          <li>Step three</li>
+        </ol>
+      </div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Code Block</p>
+      <pre><code>const theme = getComputedStyle(root)
+  .getPropertyValue('--color-action-default');
+
+// Returns: oklch(46% 0.186 264)</code></pre>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Definition List</p>
+      <div class="demo-canvas" style="background:var(--color-surface-default)">
+        <dl>
+          <dt>Token</dt><dd>A named design decision stored as a CSS custom property.</dd>
+          <dt>Primitive</dt><dd>A raw value ramp with no semantic meaning attached.</dd>
+          <dt>Semantic</dt><dd>An alias that assigns meaning and role to a primitive.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 20 TABLE ───────────────────────────────────────────────── -->
+<section class="specimen-section" id="elements-table">
+  <div class="section-header">
+    <span class="section-number">20</span>
+    <h2 class="section-title">Table</h2>
+    <p class="section-desc">Styled entirely through @layer elements. Hover rows to see the subtle background.</p>
+  </div>
+  <div class="demo-canvas" style="padding:0;overflow:hidden;background:var(--color-surface-default)">
+    <table>
+      <thead><tr><th>Token</th><th>Layer</th><th>Value</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>--color-action-default</code></td><td>tokens</td><td><code>var(--blue-60)</code></td><td>Primary interactive surface</td></tr>
+        <tr><td><code>--radius-card</code></td><td>tokens</td><td><code>var(--radius-lg)</code></td><td>Card corner rounding</td></tr>
+        <tr><td><code>--elevation-sm</code></td><td>tokens</td><td>Two-layer shadow</td><td>Card resting state</td></tr>
+        <tr><td><code>.button.primary</code></td><td>qualities</td><td>—</td><td>Filled action button</td></tr>
+        <tr><td><code>.card.interactive</code></td><td>qualities</td><td>—</td><td>Hoverable card variant</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── 21 MISC ELEMENTS ───────────────────────────────────────── -->
+<section class="specimen-section" id="elements-misc">
+  <div class="section-header">
+    <span class="section-number">21</span>
+    <h2 class="section-title">Misc Elements</h2>
+    <p class="section-desc">Details/summary, progress, figure/caption, and text selection.</p>
+  </div>
+  <div class="demo-grid">
+    <div class="demo-pair">
+      <p class="subsection-title">Details / Summary</p>
+      <details>
+        <summary>Click to expand this section</summary>
+        <p style="color:var(--color-text-secondary);font-size:var(--text-sm)">Content revealed on open. The <code>summary::after</code> pseudo-element changes from + to − using CSS.</p>
+      </details>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Progress</p>
+      <div style="display:flex;flex-direction:column;gap:var(--space-12)">
+        <progress value="25" max="100"></progress>
+        <progress value="60" max="100"></progress>
+        <progress value="90" max="100"></progress>
+      </div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Figure / Figcaption</p>
+      <figure style="background:var(--color-bg-subtle);border-radius:var(--radius-card);overflow:hidden">
+        <div style="height:8rem;background:linear-gradient(135deg,var(--blue-20),var(--blue-40))"></div>
+        <figcaption style="padding:var(--space-12) var(--space-16)">A placeholder figure with a descriptive caption below it.</figcaption>
+      </figure>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">Text Selection</p>
+      <div class="demo-canvas" style="background:var(--color-surface-default)">
+        <p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin:0">Drag to select this text — the selection background uses <code>oklch(54% .178 264 / .20)</code> for a subtle brand-tinted highlight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     LAYOUT LAYER
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ── 22 STACK & CLUSTER ─────────────────────────────────────── -->
+<section class="specimen-section" id="layout-stack">
+  <div class="section-header">
+    <span class="section-number">22</span>
+    <h2 class="section-title">Stack &amp; Cluster</h2>
+    <p class="section-desc">Intrinsic vertical and horizontal spacing via gap. Configured through CSS custom properties.</p>
+  </div>
+  <div class="demo-grid">
+    <div class="demo-pair">
+      <p class="subsection-title">.stack.tight</p>
+      <div class="stack tight"><div class="layout-box">Item A</div><div class="layout-box">Item B</div><div class="layout-box">Item C</div></div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">.stack (default)</p>
+      <div class="stack"><div class="layout-box">Item A</div><div class="layout-box">Item B</div><div class="layout-box">Item C</div></div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">.cluster (default)</p>
+      <div class="cluster"><div class="layout-box">Alpha</div><div class="layout-box">Beta</div><div class="layout-box">Gamma</div><div class="layout-box">Delta</div><div class="layout-box">Epsilon</div></div>
+    </div>
+    <div class="demo-pair">
+      <p class="subsection-title">.cluster.between</p>
+      <div class="cluster between" style="background:var(--color-bg-subtle);padding:var(--space-16);border-radius:var(--radius-card)"><div class="layout-box">Left</div><div class="layout-box">Right</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 23 GRID & SWITCHER ─────────────────────────────────────── -->
+<section class="specimen-section" id="layout-grid">
+  <div class="section-header">
+    <span class="section-number">23</span>
+    <h2 class="section-title">Grid &amp; Switcher</h2>
+    <p class="section-desc">.grid uses auto-fill with configurable min-width. .switcher wraps at a threshold breakpoint.</p>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">.grid.sm — auto-fill, min 12rem</p>
+    <div class="grid sm"><div class="layout-box tall">1</div><div class="layout-box tall">2</div><div class="layout-box tall">3</div><div class="layout-box tall">4</div><div class="layout-box tall">5</div></div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">.grid.cols-3</p>
+    <div class="grid cols-3"><div class="layout-box tall">A</div><div class="layout-box tall alt">B</div><div class="layout-box tall">C</div></div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">.switcher — wraps below 30rem threshold</p>
+    <div class="switcher"><div class="layout-box tall">Primary content area, wider side</div><div class="layout-box tall alt">Secondary content, narrower</div></div>
+  </div>
+</section>
+
+<!-- ── 24 FRAME & REEL ────────────────────────────────────────── -->
+<section class="specimen-section" id="layout-frame">
+  <div class="section-header">
+    <span class="section-number">24</span>
+    <h2 class="section-title">Frame &amp; Reel</h2>
+    <p class="section-desc">.frame enforces an aspect ratio. .reel enables horizontal scroll.</p>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">Frame variants — all contain the same inner element</p>
+    <div class="grid cols-4" style="--grid-gap:var(--space-16)">
+      <div>
+        <p class="token-name" style="margin-bottom:var(--space-8)">.frame.square</p>
+        <div class="frame square"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--blue-20),var(--blue-50));display:flex;align-items:center;justify-content:center;color:var(--blue-80);font-family:var(--font-mono);font-size:var(--text-xs)">1:1</div></div>
+      </div>
+      <div>
+        <p class="token-name" style="margin-bottom:var(--space-8)">.frame.portrait</p>
+        <div class="frame portrait"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--green-20),var(--green-50));display:flex;align-items:center;justify-content:center;color:var(--green-80);font-family:var(--font-mono);font-size:var(--text-xs)">3:4</div></div>
+      </div>
+      <div>
+        <p class="token-name" style="margin-bottom:var(--space-8)">.frame (video)</p>
+        <div class="frame"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--amber-20),var(--amber-50));display:flex;align-items:center;justify-content:center;color:var(--amber-80);font-family:var(--font-mono);font-size:var(--text-xs)">16:9</div></div>
+      </div>
+      <div>
+        <p class="token-name" style="margin-bottom:var(--space-8)">.frame.wide</p>
+        <div class="frame wide"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--teal-20),var(--teal-50));display:flex;align-items:center;justify-content:center;color:var(--teal-80);font-family:var(--font-mono);font-size:var(--text-xs)">21:9</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">.reel — horizontal scroll, snap</p>
+    <div class="reel" style="padding-block:var(--space-8)">
+      <div class="layout-box" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 1</div>
+      <div class="layout-box alt" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 2</div>
+      <div class="layout-box" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 3</div>
+      <div class="layout-box alt" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 4</div>
+      <div class="layout-box" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 5</div>
+      <div class="layout-box alt" style="width:14rem;min-height:7rem;display:flex;align-items:center;justify-content:center">Card 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     COMPONENTS — OBJECTS + QUALITIES LAYERS
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ── 25 BUTTONS ────────────────────────────────────────────── -->
+<section class="specimen-section" id="comp-buttons">
+  <div class="section-header">
+    <span class="section-number">25</span>
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-desc">Five variants × five sizes + shapes + loading + disabled states.</p>
+  </div>
+
+  <p class="subsection-title">Variants</p>
+  <div class="demo-canvas">
+    <div class="demo-row"><span class="demo-row-label">primary</span><button class="button primary">Primary</button></div>
+    <div class="demo-row"><span class="demo-row-label">secondary</span><button class="button secondary">Secondary</button></div>
+    <div class="demo-row"><span class="demo-row-label">ghost</span><button class="button ghost">Ghost</button></div>
+    <div class="demo-row"><span class="demo-row-label">soft</span><button class="button soft">Soft</button></div>
+    <div class="demo-row"><span class="demo-row-label">destructive</span><button class="button destructive">Destructive</button><button class="button ghost destructive">Ghost Destructive</button></div>
+  </div>
+
+  <div class="subsection">
+    <p class="subsection-title">Sizes — primary variant</p>
+    <div class="demo-canvas">
+      <div class="demo-row">
+        <span class="demo-row-label">xs</span><button class="button primary xs">Extra Small</button>
+        <span class="demo-row-label" style="margin-left:var(--space-32)">sm</span><button class="button primary sm">Small</button>
+        <span class="demo-row-label" style="margin-left:var(--space-32)">md</span><button class="button primary">Medium</button>
+        <span class="demo-row-label" style="margin-left:var(--space-32)">lg</span><button class="button primary lg">Large</button>
+        <span class="demo-row-label" style="margin-left:var(--space-32)">xl</span><button class="button primary xl">Extra Large</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="subsection-title">Shapes &amp; States</p>
+    <div class="demo-canvas">
+      <div class="demo-row"><span class="demo-row-label">pill</span><button class="button primary pill">Pill Shape</button><button class="button secondary pill">Outlined Pill</button></div>
+      <div class="demo-row"><span class="demo-row-label">square</span>
+        <button class="button primary square sm" aria-label="Small square">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="button primary square" aria-label="Square">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="button primary square lg" aria-label="Large square">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="demo-row"><span class="demo-row-label">loading</span><button class="button primary" data-loading aria-busy="true">Loading</button><button class="button secondary" data-loading aria-busy="true">Loading</button></div>
+      <div class="demo-row"><span class="demo-row-label">disabled</span><button class="button primary" disabled>Disabled</button><button class="button secondary" disabled>Disabled</button><button class="button ghost" disabled>Disabled</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 26 BADGES & TAGS ───────────────────────────────────────── -->
+<section class="specimen-section" id="comp-badges">
+  <div class="section-header">
+    <span class="section-number">26</span>
+    <h2 class="section-title">Badges &amp; Tags</h2>
+    <p class="section-desc">Six badge variants. Tags as interactive chips.</p>
+  </div>
+  <p class="subsection-title">Badge variants</p>
+  <div class="demo-canvas">
+    <div class="demo-row" style="flex-wrap:wrap">
+      <span class="badge primary">Primary</span>
+      <span class="badge success">Success</span>
+      <span class="badge warning">Warning</span>
+      <span class="badge destructive">Destructive</span>
+      <span class="badge info">Info</span>
+      <span class="badge neutral">Neutral</span>
+    </div>
+    <div class="demo-row">
+      <span style="font-size:var(--text-sm);color:var(--color-text-secondary)">With dot:</span>
+      <span class="badge success"><span style="width:6px;height:6px;border-radius:var(--radius-full);background:currentColor;display:inline-block"></span>Online</span>
+      <span class="badge destructive"><span style="width:6px;height:6px;border-radius:var(--radius-full);background:currentColor;display:inline-block"></span>Offline</span>
+      <span class="badge warning"><span style="width:6px;height:6px;border-radius:var(--radius-full);background:currentColor;display:inline-block"></span>Degraded</span>
+    </div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">Tags / Chips</p>
+    <div class="demo-canvas">
+      <div class="demo-row">
+        <span class="tag">Design System</span>
+        <span class="tag">OKLCH</span>
+        <span class="tag">CSS Layers</span>
+        <span class="tag">Tokens</span>
+        <span class="tag">Components</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 27 FORM CONTROLS ───────────────────────────────────────── -->
+<section class="specimen-section" id="comp-forms">
+  <div class="section-header">
+    <span class="section-number">27</span>
+    <h2 class="section-title">Form Controls</h2>
+    <p class="section-desc">.input wrapper, .field composition, checkbox, radio, toggle, range.</p>
+  </div>
+
+  <div class="demo-grid">
+    <div>
+      <p class="subsection-title">.input sizes</p>
+      <div class="stack tight">
+        <div class="input sm"><input type="text" placeholder="Small input…"></div>
+        <div class="input"><input type="text" placeholder="Default input…"></div>
+        <div class="input lg"><input type="text" placeholder="Large input…"></div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">.field composition</p>
+      <div class="stack tight">
+        <div class="field">
+          <label class="label">Email address</label>
+          <div class="input"><input type="email" placeholder="you@example.com"></div>
+          <span class="caption">We'll never share your email.</span>
+        </div>
+        <div class="field" aria-invalid="true">
+          <label class="label">Password</label>
+          <div class="input"><input type="password" placeholder="Enter password"></div>
+          <span class="caption">Password must be at least 8 characters.</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Textarea &amp; Select</p>
+      <div class="stack tight">
+        <div class="input" style="align-items:flex-start;padding-top:var(--space-10)"><textarea placeholder="Write a message…" rows="3" style="min-height:0"></textarea></div>
+        <div class="input">
+          <select style="width:100%"><option>Choose an option</option><option>Option A</option><option>Option B</option></select>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Checkbox &amp; Radio</p>
+      <div class="stack tight">
+        <div class="form-row"><input type="checkbox" class="checkbox" id="c1"><label for="c1" style="font-size:var(--text-sm);cursor:pointer">Unchecked</label></div>
+        <div class="form-row"><input type="checkbox" class="checkbox" id="c2" checked><label for="c2" style="font-size:var(--text-sm);cursor:pointer">Checked</label></div>
+        <div class="form-row"><input type="checkbox" class="checkbox" id="c3" disabled><label for="c3" style="font-size:var(--text-sm);opacity:var(--opacity-disabled)">Disabled</label></div>
+        <div class="form-row"><input type="radio" class="radio-btn" id="r1" name="r"><label for="r1" style="font-size:var(--text-sm);cursor:pointer">Radio A</label></div>
+        <div class="form-row"><input type="radio" class="radio-btn" id="r2" name="r" checked><label for="r2" style="font-size:var(--text-sm);cursor:pointer">Radio B (selected)</label></div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Toggle / Switch</p>
+      <div class="stack tight">
+        <div class="form-row">
+          <button class="toggle" role="switch" aria-checked="false" id="tog1" onclick="this.setAttribute('aria-checked',this.getAttribute('aria-checked')==='true'?'false':'true')"><div class="indicator"></div></button>
+          <label for="tog1" style="font-size:var(--text-sm)">Notifications</label>
+        </div>
+        <div class="form-row">
+          <button class="toggle" role="switch" aria-checked="true" id="tog2" onclick="this.setAttribute('aria-checked',this.getAttribute('aria-checked')==='true'?'false':'true')"><div class="indicator"></div></button>
+          <label for="tog2" style="font-size:var(--text-sm)">Dark mode</label>
+        </div>
+        <div class="form-row">
+          <button class="toggle" role="switch" aria-checked="false" aria-disabled="true" disabled><div class="indicator"></div></button>
+          <span style="font-size:var(--text-sm);opacity:var(--opacity-disabled)">Disabled</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Range</p>
+      <div class="stack" style="gap:var(--space-24);padding:var(--space-20) 0">
+        <div>
+          <label class="label" style="margin-bottom:var(--space-12);display:block">Volume — 60%</label>
+          <input type="range" value="60">
+        </div>
+        <div>
+          <label class="label" style="margin-bottom:var(--space-12);display:block">Brightness — 30%</label>
+          <input type="range" value="30">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 28 CARDS ───────────────────────────────────────────────── -->
+<section class="specimen-section" id="comp-cards">
+  <div class="section-header">
+    <span class="section-number">28</span>
+    <h2 class="section-title">Cards</h2>
+    <p class="section-desc">Structure from .card object. Visual variants from @layer qualities.</p>
+  </div>
+  <div class="grid cols-3" style="--grid-gap:var(--space-24)">
+    <div>
+      <p class="subsection-title">.card (default)</p>
+      <div class="card">
+        <div class="header"><span class="title">Default Card</span></div>
+        <div class="body"><p class="description">Default card with elevation-sm shadow and a structured header/body via role classes.</p></div>
+        <div class="footer actions"><button class="button ghost sm">Cancel</button><button class="button primary sm">Confirm</button></div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">.card.bordered</p>
+      <div class="card bordered">
+        <div class="header"><span class="title">Bordered Card</span></div>
+        <div class="body"><p class="description">No shadow. A 1px border instead for subtle containment.</p></div>
+        <div class="footer actions"><button class="button secondary sm">Action</button></div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">.card.flat</p>
+      <div class="card flat" style="background:var(--color-bg-subtle);border-radius:var(--radius-card)">
+        <div class="header"><span class="title">Flat Card</span></div>
+        <div class="body"><p class="description">Transparent background, no shadow. Works inside already-elevated surfaces.</p></div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">.card.interactive</p>
+      <div class="card interactive bordered">
+        <div class="body" style="padding:var(--space-24)">
+          <p class="title" style="font-size:var(--text-lg);margin-bottom:var(--space-8)">Interactive Card</p>
+          <p class="description">Hover this card to see the lift + shadow transition. Cursor becomes pointer.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">.card.selected</p>
+      <div class="card selected">
+        <div class="body" style="padding:var(--space-24)">
+          <p class="title" style="font-size:var(--text-lg);margin-bottom:var(--space-8)">Selected Card</p>
+          <p class="description">2px border in action-default with focus-ring shadow. Used for selection states.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Card with image</p>
+      <div class="card bordered">
+        <div style="height:8rem;background:linear-gradient(135deg,var(--blue-20),var(--blue-40))"></div>
+        <div class="header"><span class="title">Media Card</span><span class="badge success">New</span></div>
+        <div class="body"><p class="description">Image above the header/body role regions.</p></div>
+        <div class="footer actions"><button class="button primary sm">Open</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 29 ALERTS & TOAST ──────────────────────────────────────── -->
+<section class="specimen-section" id="comp-alerts">
+  <div class="section-header">
+    <span class="section-number">29</span>
+    <h2 class="section-title">Alerts &amp; Toast</h2>
+    <p class="section-desc">.alert uses role slots. .toast is position-agnostic — fixed placement is the consumer's concern.</p>
+  </div>
+  <div class="stack">
+    <div class="alert success">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><p class="title">Deployment succeeded</p><p class="description">Version 2.4.1 is now live in production.</p></div>
+    </div>
+    <div class="alert warning">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><path d="M8 2L14 13H2L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3M8 11v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div><p class="title">Approaching rate limit</p><p class="description">Your API usage is at 80% of the monthly quota.</p></div>
+    </div>
+    <div class="alert destructive">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M6 6l4 4M10 6l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div><p class="title">Payment failed</p><p class="description">We couldn't charge the card on file. Please update your billing details.</p></div>
+    </div>
+    <div class="alert info">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div><p class="title">Maintenance window scheduled</p><p class="description">The system will be offline briefly on Saturday 02:00–04:00 UTC.</p></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="subsection-title">.toast</p>
+    <div class="toast" style="max-width:100%">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;color:var(--color-success-default)"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="flex:1">
+        <p class="title">Changes saved</p>
+        <p class="description">Your settings have been updated.</p>
+      </div>
+      <button class="button ghost square sm" aria-label="Dismiss" style="color:var(--color-text-tertiary)">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── 30 TABS & ACCORDION ────────────────────────────────────── -->
+<section class="specimen-section" id="comp-tabs">
+  <div class="section-header">
+    <span class="section-number">30</span>
+    <h2 class="section-title">Tabs &amp; Accordion</h2>
+    <p class="section-desc">Tabs use ARIA role attributes. Accordion uses native HTML details/summary with .accordion override.</p>
+  </div>
+  <div class="demo-grid">
+    <div style="grid-column:1/-1">
+      <p class="subsection-title">Tabs</p>
+      <div class="tabs" style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);overflow:hidden">
+        <div role="tablist" aria-label="Example tabs">
+          <button role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1">Overview</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2">Details</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3">History</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-4" id="tab-4" disabled>Disabled</button>
+        </div>
+        <div role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1" tabindex="0">
+          <p style="color:var(--color-text-secondary);font-size:var(--text-sm)">This is the Overview tab panel. The active tab uses <code>--color-action-default</code> for its bottom border and <code>--color-action-text</code> for its color.</p>
+        </div>
+      </div>
+    </div>
+    <div style="grid-column:1/-1">
+      <p class="subsection-title">Accordion (.accordion wrapping details elements)</p>
+      <div class="accordion">
+        <details open>
+          <summary>What is a design token?</summary>
+          <p>A design token is a named design decision stored as a CSS custom property. Tokens live in @layer tokens and every other layer references them by name.</p>
+        </details>
+        <details>
+          <summary>Why OKLCH for color?</summary>
+          <p>OKLCH provides perceptual uniformity — equal numeric steps look visually equal. This makes building harmonious, accessible color scales much more predictable than HSL or sRGB.</p>
+        </details>
+        <details>
+          <summary>What is the cascade layer order?</summary>
+          <p>reset → tokens → elements → layout → objects → qualities → roles → states → utilities. Later layers win over earlier ones for the same specificity.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 31 NAVIGATION ──────────────────────────────────────────── -->
+<section class="specimen-section" id="comp-nav">
+  <div class="section-header">
+    <span class="section-number">31</span>
+    <h2 class="section-title">Navigation</h2>
+    <p class="section-desc">.nav-item, .breadcrumb, .stepper, .pagination.</p>
+  </div>
+  <div class="demo-grid">
+    <div>
+      <p class="subsection-title">.nav-item</p>
+      <nav style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-8) 0;width:14rem">
+        <a class="nav-item" href="#"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--color-text-tertiary)"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>Dashboard</a>
+        <a class="nav-item" aria-current="page" href="#"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:currentColor"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg>Tokens</a>
+        <a class="nav-item" href="#"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--color-text-tertiary)"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Components</a>
+        <a class="nav-item" href="#" style="opacity:var(--opacity-disabled);pointer-events:none"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--color-text-tertiary)"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Profile</a>
+      </nav>
+    </div>
+    <div>
+      <p class="subsection-title">.breadcrumb</p>
+      <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-20)">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="#">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <a href="#">Design System</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <a href="#">Components</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Navigation</span>
+        </nav>
+      </div>
+    </div>
+    <div style="grid-column:1/-1">
+      <p class="subsection-title">.stepper</p>
+      <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24)">
+        <div class="stepper">
+          <div class="step" data-complete>
+            <div class="step-number">✓</div>
+            <span>Account</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step" data-complete>
+            <div class="step-number">✓</div>
+            <span>Details</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step" aria-current="step">
+            <div class="step-number">3</div>
+            <span>Review</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <span>Confirm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="grid-column:1/-1">
+      <p class="subsection-title">.pagination</p>
+      <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-20);display:flex;justify-content:center">
+        <nav class="pagination" aria-label="Pagination">
+          <button class="page-btn" disabled aria-label="Previous">‹</button>
+          <button class="page-btn">1</button>
+          <button class="page-btn" aria-current="page">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <button class="page-btn">5</button>
+          <button class="page-btn" aria-label="Next">›</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 32 OVERLAYS ────────────────────────────────────────────── -->
+<section class="specimen-section" id="comp-overlays">
+  <div class="section-header">
+    <span class="section-number">32</span>
+    <h2 class="section-title">Overlays</h2>
+    <p class="section-desc">.tooltip-wrap (CSS-only), .popover with .menu-item, and .modal anatomy.</p>
+  </div>
+  <div class="demo-grid">
+    <div>
+      <p class="subsection-title">Tooltip — hover to reveal</p>
+      <div style="padding:var(--space-40) var(--space-32);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;gap:var(--space-24)">
+        <div class="tooltip-wrap">
+          <button class="button secondary sm">Hover me</button>
+          <div role="tooltip">Appears above on hover</div>
+        </div>
+        <div class="tooltip-wrap">
+          <button class="button ghost sm">Info</button>
+          <div role="tooltip">Token: --layer-tooltip: 600</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="subsection-title">Popover / Dropdown</p>
+      <div class="popover" style="position:relative">
+        <button class="menu-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          New project
+        </button>
+        <button class="menu-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Duplicate
+        </button>
+        <button class="menu-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1012 0A6 6 0 002 8zm6-2v4m0-6v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Settings
+        </button>
+        <div class="menu-divider"></div>
+        <button class="menu-item destructive">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10m-4 0V3H7v1M6 7v5m4-5v5M4 4l.8 9h6.4L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Delete
+        </button>
+      </div>
+    </div>
+    <div style="grid-column:1/-1">
+      <p class="subsection-title">.modal anatomy (static, non-interactive)</p>
+      <div style="background:var(--color-bg-overlay);border-radius:var(--radius-card);padding:var(--space-32);display:flex;align-items:center;justify-content:center">
+        <div class="modal" style="position:relative;max-height:none">
+          <div class="header">
+            <div>
+              <p class="title">Confirm deletion</p>
+              <p class="subtitle">This action is permanent</p>
+            </div>
+            <button class="button ghost square sm" aria-label="Close">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="body">
+            <p style="color:var(--color-text-secondary);font-size:var(--text-sm)">Are you sure you want to delete <strong>Project Alpha</strong>? This will permanently remove all associated files and data. This action cannot be undone.</p>
+          </div>
+          <div class="footer actions">
+            <button class="button ghost">Cancel</button>
+            <button class="button destructive">Delete project</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 33 AVATAR & SKELETON ───────────────────────────────────── -->
+<section class="specimen-section" id="comp-misc">
+  <div class="section-header">
+    <span class="section-number">33</span>
+    <h2 class="section-title">Avatar &amp; Skeleton</h2>
+    <p class="section-desc">Avatar size scale keyed to --control-height-*. Skeleton uses shimmer keyframe.</p>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">Avatar sizes</p>
+    <div class="demo-canvas">
+      <div class="demo-row" style="align-items:flex-end;gap:var(--space-24)">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar xs">AX</div><span class="token-name">xs</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar sm">SM</div><span class="token-name">sm</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar">MD</div><span class="token-name">md</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar lg">LG</div><span class="token-name">lg</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar xl">XL</div><span class="token-name">xl</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar xxl">XX</div><span class="token-name">xxl</span></div>
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-8)"><div class="avatar lg" style="background:var(--color-success-subtle);color:var(--color-success-text)">JD</div><span class="token-name">custom</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">Avatar group</p>
+    <div class="demo-canvas">
+      <div style="display:flex">
+        <div class="avatar" style="border:2px solid var(--color-surface-default);margin-left:0">AB</div>
+        <div class="avatar" style="border:2px solid var(--color-surface-default);margin-left:-0.75rem;background:var(--color-success-subtle);color:var(--color-success-text)">CD</div>
+        <div class="avatar" style="border:2px solid var(--color-surface-default);margin-left:-0.75rem;background:var(--color-warning-subtle);color:var(--color-warning-text)">EF</div>
+        <div class="avatar" style="border:2px solid var(--color-surface-default);margin-left:-0.75rem;background:var(--color-bg-subtle);color:var(--color-text-secondary)">+4</div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection">
+    <p class="subsection-title">Skeleton loading states</p>
+    <div class="demo-canvas" style="background:var(--color-surface-default)">
+      <div style="display:flex;gap:var(--space-16);align-items:flex-start">
+        <div class="skeleton" style="width:3rem;height:3rem;border-radius:var(--radius-full);flex-shrink:0"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:var(--space-8)">
+          <div class="skeleton" style="height:1rem;width:60%"></div>
+          <div class="skeleton" style="height:0.75rem;width:90%"></div>
+          <div class="skeleton" style="height:0.75rem;width:75%"></div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-16);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-12)">
+        <div class="skeleton" style="height:7rem;border-radius:var(--radius-card)"></div>
+        <div class="skeleton" style="height:7rem;border-radius:var(--radius-card)"></div>
+        <div class="skeleton" style="height:7rem;border-radius:var(--radius-card)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SYSTEM LAYERS
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ── 34 ROLES ───────────────────────────────────────────────── -->
+<section class="specimen-section" id="roles">
+  <div class="section-header">
+    <span class="section-number">34</span>
+    <h2 class="section-title">Roles</h2>
+    <p class="section-desc">Semantic slot classes that adapt to their parent context. Same class, different behaviour inside .card vs .modal vs .alert.</p>
+  </div>
+
+  <div class="subsection">
+    <p class="subsection-title">Role classes in isolation</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-16)">
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.title</p><p class="title">Section Title</p></div>
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.subtitle</p><p class="subtitle">A supporting subtitle line</p></div>
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.label</p><p class="label">Form Label</p></div>
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.caption</p><p class="caption">Helper text and captions</p></div>
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.description</p><p class="description">A longer description paragraph using color-text-secondary.</p></div>
+      <div class="demo-pair"><p class="token-name" style="margin-bottom:var(--space-8)">.muted</p><p class="muted" style="font-size:var(--text-sm)">Muted / tertiary text</p></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <p class="subsection-title">Roles in card context — padding and size adapt automatically</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="header">
+          <div>
+            <p class="title">Card Title</p>
+            <p class="subtitle">Subtitle role in .card context</p>
+          </div>
+          <span class="badge primary">Badge</span>
+        </div>
+        <div class="body">
+          <p class="description">The .header, .body, and .footer roles pick up context-specific padding from .card > .header and siblings in @layer roles.</p>
+        </div>
+        <div class="footer">
+          <span class="caption">Last updated 2 hours ago</span>
+          <div class="actions">
+            <button class="button ghost sm">Cancel</button>
+            <button class="button primary sm">Save</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-8)">
+        <div class="header" style="background:var(--color-bg-subtle);padding:var(--space-16);border-radius:var(--radius-md)"><span class="token-name">.header</span><span class="muted" style="font-size:var(--text-xs);margin-left:auto">flex, space-between</span></div>
+        <div class="body" style="background:var(--color-bg-subtle);padding:var(--space-16);border-radius:var(--radius-md)"><span class="token-name">.body</span><span class="muted" style="font-size:var(--text-xs);margin-left:auto">flex:1, scrollable</span></div>
+        <div class="footer" style="background:var(--color-bg-subtle);padding:var(--space-16);border-radius:var(--radius-md)"><span class="token-name">.footer</span><div class="trailing"><span class="muted" style="font-size:var(--text-xs)">.actions → flex-end</span></div></div>
+        <div style="background:var(--color-bg-subtle);padding:var(--space-16);border-radius:var(--radius-md);display:flex;align-items:center;gap:var(--space-8)"><div class="leading"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="token-name">.leading</span><div class="trailing"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="token-name">.trailing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 35 STATES ──────────────────────────────────────────────── -->
+<section class="specimen-section" id="states">
+  <div class="section-header">
+    <span class="section-number">35</span>
+    <h2 class="section-title">States</h2>
+    <p class="section-desc">Attribute-driven. States layer sits above qualities so a state attribute always wins.</p>
+  </div>
+  <div class="demo-canvas">
+    <div class="demo-row">
+      <span class="demo-row-label">[data-selected]</span>
+      <div data-selected style="padding:var(--space-12) var(--space-16);border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--color-action-text)">This element has data-selected → action-subtle background</div>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">[aria-pressed]</span>
+      <button class="button secondary" aria-pressed="true">Bold</button>
+      <button class="button secondary" aria-pressed="false">Italic</button>
+      <span style="font-size:var(--text-xs);color:var(--color-text-tertiary)">"Bold" has aria-pressed="true"</span>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">[aria-disabled]</span>
+      <button class="button primary" aria-disabled="true">Disabled via ARIA</button>
+      <button class="button primary" disabled>Disabled via attr</button>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">[aria-invalid]</span>
+      <div class="field" aria-invalid="true" style="min-width:16rem">
+        <label class="label">Username</label>
+        <div class="input"><input type="text" value="john@" placeholder="Enter username"></div>
+        <span class="caption">Invalid format — label and caption turn destructive-text</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 36 UTILITIES ───────────────────────────────────────────── -->
+<section class="specimen-section" id="utilities">
+  <div class="section-header">
+    <span class="section-number">36</span>
+    <h2 class="section-title">Utilities</h2>
+    <p class="section-desc">Single-purpose escape hatches in @layer utilities. Highest cascade priority below !important.</p>
+  </div>
+  <div class="demo-canvas">
+    <div class="demo-row">
+      <span class="demo-row-label">.truncate</span>
+      <div class="truncate" style="max-width:20rem;background:var(--color-bg-subtle);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);font-size:var(--text-sm)">This is a very long string of text that will be truncated with an ellipsis because the truncate utility is applied.</div>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">.numeric</span>
+      <div class="numeric" style="font-size:var(--text-sm);font-family:var(--font-mono);background:var(--color-bg-subtle);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm)">
+        1,234,567.89<br>
+        0,098,765.43<br>
+        9,999,999.00
+      </div>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">.balance</span>
+      <p class="balance" style="max-width:30ch;font-size:var(--text-md);line-height:var(--leading-snug)">This heading text uses text-wrap: balance for even line lengths.</p>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">.flow</span>
+      <div class="flow" style="--flow-gap:var(--space-12);max-width:24rem">
+        <div style="background:var(--color-action-subtle);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);font-size:var(--text-sm);color:var(--color-action-text)">Block A</div>
+        <div style="background:var(--color-action-subtle);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);font-size:var(--text-sm);color:var(--color-action-text)">Block B (margin-block-start via .flow > * + *)</div>
+        <div style="background:var(--color-action-subtle);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);font-size:var(--text-sm);color:var(--color-action-text)">Block C</div>
+      </div>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">.sr-only</span>
+      <div style="position:relative;display:inline-block">
+        <button class="button primary sm">
+          <span class="sr-only">Visually hidden accessible label</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <span style="font-size:var(--text-xs);color:var(--color-text-tertiary)">Button has screen-reader label via .sr-only, icon only visible</span>
+    </div>
+    <div class="demo-row">
+      <span class="demo-row-label">.invisible</span>
+      <div style="display:flex;gap:var(--space-8);align-items:center">
+        <div style="width:3rem;height:2rem;background:var(--color-action-subtle);border-radius:var(--radius-sm)"></div>
+        <div class="invisible" style="width:3rem;height:2rem;background:var(--color-action-default);border-radius:var(--radius-sm)"></div>
+        <div style="width:3rem;height:2rem;background:var(--color-action-subtle);border-radius:var(--radius-sm)"></div>
+        <span style="font-size:var(--text-xs);color:var(--color-text-tertiary)">Middle box is .invisible — takes space but not rendered</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 37 KEYFRAMES ───────────────────────────────────────────── -->
+<section class="specimen-section" id="keyframes">
+  <div class="section-header">
+    <span class="section-number">37</span>
+    <h2 class="section-title">Keyframes</h2>
+    <p class="section-desc">Five named animations. Hover each card to trigger a replay.</p>
+  </div>
+  <div class="grid cols-3" style="--grid-gap:var(--space-24)">
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24);cursor:pointer" onclick="replayAnimation(this,'spin')">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes spin</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center">
+        <div data-anim="spin" style="width:1.5rem;height:1.5rem;border:2px solid var(--color-action-default);border-top-color:transparent;border-radius:var(--radius-full)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Spinner / loading indicator</p>
+    </div>
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24);cursor:pointer" onclick="replayAnimation(this,'fadeIn')">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes fadeIn</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center">
+        <div data-anim="fadeIn" style="width:3rem;height:1.5rem;background:var(--color-action-default);border-radius:var(--radius-sm)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Fade + slight upward rise</p>
+    </div>
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24);cursor:pointer" onclick="replayAnimation(this,'slideUp')">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes slideUp</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center;overflow:hidden">
+        <div data-anim="slideUp" style="width:3rem;height:1.5rem;background:var(--color-success-default);border-radius:var(--radius-sm)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Slide up from below (toasts, sheets)</p>
+    </div>
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24);cursor:pointer" onclick="replayAnimation(this,'slideDown')">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes slideDown</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center;overflow:hidden">
+        <div data-anim="slideDown" style="width:3rem;height:1.5rem;background:var(--color-warning-default);border-radius:var(--radius-sm)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Slide down from above (menus)</p>
+    </div>
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24);cursor:pointer" onclick="replayAnimation(this,'scaleIn')">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes scaleIn</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center">
+        <div data-anim="scaleIn" style="width:3rem;height:1.5rem;background:var(--color-info-default);border-radius:var(--radius-sm)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Scale from 95% (modals, dialogs)</p>
+    </div>
+    <div style="background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);padding:var(--space-24)">
+      <p class="label" style="margin-bottom:var(--space-16)">@keyframes shimmer</p>
+      <div style="display:flex;justify-content:center;height:3rem;align-items:center">
+        <div class="skeleton" style="width:6rem;height:1.5rem;border-radius:var(--radius-sm)"></div>
+      </div>
+      <p class="caption" style="text-align:center;margin-top:var(--space-12)">Opacity pulse for loading states</p>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- /.l-shell -->
+
+<script>
+/* ── Theme toggle ──────────────────────────────────────────────── */
+const html  = document.documentElement;
+const btn   = document.getElementById('themeBtn');
+const label = document.getElementById('themeLabel');
+
+const stored = localStorage.getItem('theme');
+if (stored) html.setAttribute('data-theme', stored);
+updateLabel();
+
+btn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateLabel();
+});
+
+function updateLabel() {
+  label.textContent = html.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode';
+}
+
+/* ── Active nav on scroll ──────────────────────────────────────── */
+const sections = document.querySelectorAll('.specimen-section, .s-hero');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { threshold: 0.25 });
+
+sections.forEach(s => io.observe(s));
+
+/* ── Tabs ──────────────────────────────────────────────────────── */
+document.querySelectorAll('[role="tablist"]').forEach(list => {
+  list.querySelectorAll('[role="tab"]').forEach(tab => {
+    tab.addEventListener('click', () => {
+      list.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+    });
+  });
+});
+
+/* ── Keyframe replay ───────────────────────────────────────────── */
+function replayAnimation(card, name) {
+  const el = card.querySelector('[data-anim]');
+  if (!el) return;
+  const duration = name === 'spin' ? '1s' : '0.4s';
+  const iterCount = name === 'spin' ? 'infinite' : '1';
+  el.style.animation = 'none';
+  void el.offsetWidth; // reflow
+  el.style.animation = `${name} ${duration} ${name === 'spin' ? 'linear' : 'var(--ease-enter)'} ${iterCount}`;
+}
+
+// Auto-play spin on page load
+document.querySelectorAll('[data-anim="spin"]').forEach(el => {
+  el.style.animation = 'spin 1s linear infinite';
+});
+</script>
+</body>
+</html>
