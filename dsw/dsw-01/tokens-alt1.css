@@ -1,0 +1,313 @@
+@layer tokens {
+
+  :root {
+    /* ── Primitive color ramp: Brand Gold (OKLCH-derived) ── */
+    --gold-50:  oklch(98% 0.014 82);
+    --gold-100: oklch(95% 0.032 82);
+    --gold-200: oklch(89% 0.064 80);
+    --gold-300: oklch(82% 0.098 78);
+    --gold-400: oklch(74% 0.128 76);
+    --gold-500: oklch(65% 0.148 74);
+    --gold-600: oklch(55% 0.140 72);
+    --gold-700: oklch(44% 0.118 70);
+    --gold-800: oklch(34% 0.088 68);
+    --gold-900: oklch(24% 0.058 66);
+    --gold-950: oklch(15% 0.034 64);
+
+    /* ── Primitive: Warm Wine / Burgundy ── */
+    --wine-50:  oklch(97% 0.010 12);
+    --wine-100: oklch(93% 0.024 12);
+    --wine-200: oklch(84% 0.054 14);
+    --wine-300: oklch(72% 0.094 16);
+    --wine-400: oklch(58% 0.140 18);
+    --wine-500: oklch(46% 0.172 20);
+    --wine-600: oklch(37% 0.162 22);
+    --wine-700: oklch(30% 0.138 22);
+    --wine-800: oklch(22% 0.105 22);
+    --wine-900: oklch(16% 0.070 22);
+    --wine-950: oklch(10% 0.042 22);
+
+    /* ── Primitive: Neutral (warm ivory) ── */
+    --neutral-0:   oklch(100% 0 0);
+    --neutral-50:  oklch(98%  0.006 75);
+    --neutral-100: oklch(95%  0.008 75);
+    --neutral-200: oklch(90%  0.010 72);
+    --neutral-300: oklch(82%  0.010 70);
+    --neutral-400: oklch(69%  0.010 68);
+    --neutral-500: oklch(55%  0.009 66);
+    --neutral-600: oklch(42%  0.009 64);
+    --neutral-700: oklch(32%  0.008 62);
+    --neutral-800: oklch(22%  0.007 60);
+    --neutral-900: oklch(14%  0.006 58);
+    --neutral-950: oklch(9%   0.004 58);
+
+    /* ── Primitive: Semantic hues ── */
+    --green-100: oklch(94% 0.038 148); --green-200: oklch(86% 0.072 148);
+    --green-600: oklch(46% 0.140 148); --green-700: oklch(37% 0.112 148);
+    --green-800: oklch(28% 0.086 148); --green-900: oklch(20% 0.058 148);
+
+    --amber-100: oklch(96% 0.055 78);  --amber-200: oklch(90% 0.100 78);
+    --amber-600: oklch(64% 0.165 70);  --amber-700: oklch(52% 0.148 70);
+    --amber-800: oklch(40% 0.115 70);  --amber-900: oklch(28% 0.082 70);
+
+    --red-100: oklch(96% 0.034 24);    --red-200: oklch(89% 0.072 24);
+    --red-600: oklch(48% 0.188 22);    --red-700: oklch(38% 0.162 22);
+    --red-800: oklch(28% 0.128 22);    --red-900: oklch(20% 0.090 22);
+
+    --sage-100: oklch(94% 0.030 152);
+    --sage-600: oklch(46% 0.100 152);  --sage-700: oklch(36% 0.080 152);
+
+    /* ── Semantic: Light mode ── */
+    --color-bg-default:          var(--neutral-50);
+    --color-bg-subtle:           var(--neutral-100);
+    --color-surface-default:     var(--neutral-0);
+    --color-surface-sunken:      var(--neutral-100);
+    --color-surface-code:        var(--neutral-100);
+
+    --color-text-primary:        var(--neutral-900);
+    --color-text-secondary:      var(--neutral-600);
+    --color-text-tertiary:       var(--neutral-400);
+    --color-text-link:           var(--gold-700);
+    --color-text-link-hover:     var(--wine-700);
+    --color-text-inverse:        var(--neutral-0);
+    --color-text-on-action:      var(--neutral-0);
+
+    --color-border-default:      var(--neutral-200);
+    --color-border-strong:       var(--neutral-300);
+    --color-border-input:        var(--neutral-300);
+    --color-border-input-focus:  var(--gold-500);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--gold-700);
+    --color-action-hover:        var(--wine-600);
+    --color-action-active:       var(--wine-700);
+    --color-action-subtle:       var(--gold-50);
+    --color-action-text:         var(--gold-800);
+
+    --color-success-default:     var(--green-600);
+    --color-success-subtle:      var(--green-100);
+    --color-success-text:        var(--green-700);
+    --color-success-border:      var(--green-200);
+
+    --color-warning-default:     var(--amber-600);
+    --color-warning-subtle:      var(--amber-100);
+    --color-warning-text:        var(--amber-800);
+    --color-warning-border:      var(--amber-200);
+
+    --color-destructive-default: var(--red-600);
+    --color-destructive-subtle:  var(--red-100);
+    --color-destructive-text:    var(--red-700);
+    --color-destructive-border:  var(--red-200);
+
+    --color-info-default:        var(--sage-600);
+    --color-info-subtle:         var(--sage-100);
+    --color-info-text:           var(--sage-700);
+    --color-info-border:         oklch(86% 0.050 152);
+
+    --color-on-action:           var(--neutral-0);
+    --color-on-destructive:      var(--neutral-0);
+
+    /* ── Elevation — warmer, more diffused shadows ── */
+    --elevation-xs:      0 1px 3px oklch(18% 0.040 64 / 0.08);
+    --elevation-sm:      0 2px 4px oklch(18% 0.040 64 / 0.10), 0 1px 2px oklch(18% 0.040 64 / 0.07);
+    --elevation-md:      0 5px 10px oklch(18% 0.040 64 / 0.09), 0 2px 4px oklch(18% 0.040 64 / 0.06);
+    --elevation-lg:      0 12px 20px oklch(18% 0.040 64 / 0.10), 0 5px 8px oklch(18% 0.040 64 / 0.07);
+    --elevation-xl:      0 24px 32px oklch(18% 0.040 64 / 0.13), 0 10px 14px oklch(18% 0.040 64 / 0.08);
+    --elevation-sticky:  0 2px 6px oklch(18% 0.040 64 / 0.12);
+
+    /* ── Typography — refined, editorial ── */
+    --font-display:  'Cormorant Garamond', 'Garamond', Georgia, serif;
+    --font-body:     'Jost', 'Gill Sans', system-ui, sans-serif;
+    --font-mono:     'Courier Prime', 'Courier New', monospace;
+
+    --text-xs:   0.6875rem;  /* 11px */
+    --text-sm:   0.8125rem;  /* 13px */
+    --text-base: 1rem;       /* 16px */
+    --text-md:   1.125rem;   /* 18px */
+    --text-lg:   1.3125rem;  /* 21px */
+    --text-xl:   1.625rem;   /* 26px */
+    --text-2xl:  2rem;       /* 32px */
+    --text-3xl:  2.625rem;   /* 42px */
+    --text-4xl:  3.375rem;   /* 54px */
+    --text-5xl:  4.5rem;     /* 72px — display headings feel grand */
+
+    --leading-tight:   1.12;   /* tighter for large display serifs */
+    --leading-snug:    1.30;
+    --leading-normal:  1.60;
+    --leading-relaxed: 1.80;   /* generous for body copy legibility */
+
+    --weight-regular:   400;
+    --weight-medium:    500;
+    --weight-semibold:  600;
+    --weight-bold:      700;
+
+    --tracking-tight:  -0.030em;
+    --tracking-normal:  0;
+    --tracking-wide:    0.040em;
+    --tracking-wider:   0.090em;  /* wider spacing for elegant caps labels */
+    --tracking-widest:  0.160em;
+
+    --measure-prose:   64ch;
+    --measure-tight:   46ch;
+
+    /* ── Spacing — slightly more generous cadence ── */
+    --space-px:   1px;
+    --space-0-5:  0.125rem;
+    --space-1:    0.25rem;
+    --space-1-5:  0.375rem;
+    --space-2:    0.5rem;
+    --space-2-5:  0.625rem;
+    --space-3:    0.75rem;
+    --space-4:    1rem;
+    --space-5:    1.25rem;
+    --space-6:    1.5rem;
+    --space-7:    1.75rem;
+    --space-8:    2rem;
+    --space-10:   2.5rem;
+    --space-12:   3rem;
+    --space-14:   3.5rem;
+    --space-16:   4rem;
+    --space-20:   5rem;
+    --space-24:   6rem;
+    --space-32:   8rem;
+
+    --space-stack-tight:   var(--space-4);    /* one step looser than SaaS */
+    --space-stack-default: var(--space-8);
+    --space-stack-loose:   var(--space-14);
+    --space-stack-section: var(--space-24);   /* dramatic section rhythm */
+    --space-inline-tight:  var(--space-2);
+    --space-inline-default:var(--space-5);
+
+    --space-component-padding-xs: var(--space-1)   var(--space-2-5);
+    --space-component-padding-sm: var(--space-2)   var(--space-4);
+    --space-component-padding-md: var(--space-3)   var(--space-6);
+    --space-component-padding-lg: var(--space-5)   var(--space-8);
+    --space-component-padding-xl: var(--space-7)   var(--space-12);
+
+    /* ── Radius — near-flat: classic luxury avoids aggressive rounding ── */
+    --radius-none: 0;
+    --radius-xs:   1px;
+    --radius-sm:   2px;
+    --radius-md:   3px;
+    --radius-lg:   6px;
+    --radius-xl:   10px;
+    --radius-full: 9999px;
+    --radius-button: var(--radius-sm);  /* crisp, composed buttons */
+    --radius-card:   var(--radius-md);
+    --radius-input:  var(--radius-sm);
+
+    /* ── Motion — slower, considered; luxury never rushes ── */
+    --duration-instant:    80ms;
+    --duration-fast:       150ms;
+    --duration-normal:     300ms;
+    --duration-deliberate: 500ms;
+    --duration-slow:       800ms;
+
+    --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-enter:     cubic-bezier(0, 0, 0.2, 1);
+    --ease-exit:      cubic-bezier(0.4, 0, 1, 1);
+    --ease-spring:    cubic-bezier(0.22, 1.00, 0.36, 1); /* softer spring */
+
+    --transition-color:   background-color var(--duration-normal) var(--ease-standard),
+                          color var(--duration-normal) var(--ease-standard),
+                          border-color var(--duration-normal) var(--ease-standard);
+    --transition-shadow:  box-shadow var(--duration-deliberate) var(--ease-standard);
+    --transition-transform: transform var(--duration-deliberate) var(--ease-standard);
+
+    /* ── Focus ── */
+    --focus-ring-color:  var(--gold-500);
+    --focus-ring-shadow: 0 0 0 3px oklch(65% 0.148 74 / 0.28);
+    --focus-ring-shadow-destructive: 0 0 0 3px oklch(48% 0.188 22 / 0.28);
+
+    /* ── Borders ── */
+    --border-thin:    1px;
+    --border-default: 1px;
+    --border-thick:   2px;
+
+    /* ── Opacity ── */
+    --opacity-disabled: 0.40;
+    --opacity-subtle:   0.55;
+
+    /* ── Z-index ── */
+    --layer-base:     0;
+    --layer-raised:   10;
+    --layer-dropdown: 100;
+    --layer-sticky:   200;
+    --layer-overlay:  300;
+    --layer-modal:    400;
+    --layer-toast:    500;
+    --layer-tooltip:  600;
+
+    /* ── Container ── */
+    --container-sm:  36rem;
+    --container-md:  48rem;
+    --container-lg:  64rem;
+    --container-xl:  80rem;
+    --container-2xl: 96rem;
+
+    /* ── Sidebar / Shell ── */
+    --sidebar-width:   17rem;   /* slightly wider for a more spacious nav */
+    --header-height:   4rem;
+  }
+
+  /* ── Dark mode — deep velvet, candlelit ── */
+  [data-theme="dark"] {
+    --color-bg-default:          var(--neutral-950);
+    --color-bg-subtle:           var(--neutral-900);
+    --color-surface-default:     oklch(11% 0.012 58);  /* very dark warm brown */
+    --color-surface-sunken:      var(--neutral-950);
+    --color-surface-code:        var(--neutral-800);
+
+    --color-text-primary:        oklch(96% 0.010 75);  /* warm off-white */
+    --color-text-secondary:      var(--neutral-400);
+    --color-text-tertiary:       var(--neutral-500);
+    --color-text-link:           var(--gold-300);
+    --color-text-link-hover:     var(--gold-200);
+
+    --color-border-default:      oklch(20% 0.012 64);
+    --color-border-strong:       oklch(28% 0.014 64);
+    --color-border-input:        oklch(28% 0.014 64);
+    --color-border-input-focus:  var(--gold-500);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--gold-400);
+    --color-action-hover:        var(--gold-300);
+    --color-action-active:       var(--gold-200);
+    --color-action-subtle:       oklch(18% 0.040 72);
+    --color-action-text:         var(--gold-300);
+
+    --color-success-subtle:      oklch(16% 0.044 148);
+    --color-success-text:        var(--green-200);
+    --color-success-border:      oklch(26% 0.080 148);
+
+    --color-warning-subtle:      oklch(18% 0.052 76);
+    --color-warning-text:        var(--amber-200);
+    --color-warning-border:      oklch(30% 0.095 76);
+
+    --color-destructive-subtle:  oklch(17% 0.052 22);
+    --color-destructive-text:    var(--red-200);
+    --color-destructive-border:  oklch(26% 0.095 22);
+
+    --color-info-subtle:         oklch(16% 0.038 152);
+    --color-info-text:           var(--sage-100);
+    --color-info-border:         oklch(26% 0.070 152);
+
+    /* Deeper, more dramatic shadows for dark interiors */
+    --elevation-xs:  0 1px 3px oklch(0% 0 0 / 0.40);
+    --elevation-sm:  0 2px 5px oklch(0% 0 0 / 0.50), 0 1px 2px oklch(0% 0 0 / 0.36);
+    --elevation-md:  0 5px 10px oklch(0% 0 0 / 0.52), 0 2px 4px oklch(0% 0 0 / 0.38);
+    --elevation-lg:  0 12px 20px oklch(0% 0 0 / 0.60), 0 5px 8px oklch(0% 0 0 / 0.40);
+    --elevation-xl:  0 24px 32px oklch(0% 0 0 / 0.70), 0 10px 14px oklch(0% 0 0 / 0.45);
+    --elevation-sticky: 0 2px 6px oklch(0% 0 0 / 0.60);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --duration-instant:    0ms;
+      --duration-fast:       0ms;
+      --duration-normal:     0ms;
+      --duration-deliberate: 0ms;
+      --duration-slow:       0ms;
+    }
+  }
+}

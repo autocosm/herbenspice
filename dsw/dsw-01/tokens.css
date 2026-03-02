@@ -1,0 +1,299 @@
+@layer tokens {
+
+  :root {
+    /* ── Primitive color ramp: Brand Blue (OKLCH-derived) ── */
+    --blue-50:  oklch(97% 0.012 264);
+    --blue-100: oklch(93% 0.032 264);
+    --blue-200: oklch(86% 0.062 264);
+    --blue-300: oklch(76% 0.100 264);
+    --blue-400: oklch(64% 0.145 264);
+    --blue-500: oklch(54% 0.178 264);
+    --blue-600: oklch(46% 0.186 264);
+    --blue-700: oklch(38% 0.168 264);
+    --blue-800: oklch(30% 0.130 264);
+    --blue-900: oklch(22% 0.090 264);
+    --blue-950: oklch(15% 0.055 264);
+
+    /* ── Primitive: Neutral (warm-cool blend) ── */
+    --neutral-0:   oklch(100% 0 0);
+    --neutral-50:  oklch(98%  0.003 245);
+    --neutral-100: oklch(95%  0.004 245);
+    --neutral-200: oklch(90%  0.006 245);
+    --neutral-300: oklch(82%  0.007 245);
+    --neutral-400: oklch(70%  0.008 245);
+    --neutral-500: oklch(57%  0.009 245);
+    --neutral-600: oklch(45%  0.009 245);
+    --neutral-700: oklch(34%  0.008 245);
+    --neutral-800: oklch(24%  0.007 245);
+    --neutral-900: oklch(16%  0.006 245);
+    --neutral-950: oklch(10%  0.004 245);
+
+    /* ── Primitive: Semantic hues ── */
+    --green-100: oklch(94% 0.040 145); --green-200: oklch(85% 0.090 145);
+    --green-600: oklch(48% 0.155 145); --green-700: oklch(38% 0.130 145);
+    --green-800: oklch(30% 0.100 145); --green-900: oklch(22% 0.070 145);
+
+    --amber-100: oklch(95% 0.060 75);  --amber-200: oklch(88% 0.110 75);
+    --amber-600: oklch(62% 0.175 68);  --amber-700: oklch(50% 0.155 68);
+    --amber-800: oklch(38% 0.120 68);  --amber-900: oklch(28% 0.090 68);
+
+    --red-100: oklch(95% 0.040 28);    --red-200: oklch(88% 0.090 28);
+    --red-600: oklch(50% 0.200 28);    --red-700: oklch(40% 0.175 28);
+    --red-800: oklch(30% 0.140 28);    --red-900: oklch(22% 0.100 28);
+
+    --teal-100: oklch(94% 0.040 195);
+    --teal-600: oklch(48% 0.140 195);  --teal-700: oklch(38% 0.115 195);
+
+    /* ── Semantic: Light mode ── */
+    --color-bg-default:          var(--neutral-50);
+    --color-bg-subtle:           var(--neutral-100);
+    --color-surface-default:     var(--neutral-0);
+    --color-surface-sunken:      var(--neutral-100);
+    --color-surface-code:        var(--neutral-100);
+
+    --color-text-primary:        var(--neutral-900);
+    --color-text-secondary:      var(--neutral-600);
+    --color-text-tertiary:       var(--neutral-500);
+    --color-text-link:           var(--blue-700);
+    --color-text-link-hover:     var(--blue-900);
+    --color-text-inverse:        var(--neutral-0);
+    --color-text-on-action:      var(--neutral-0);
+
+    --color-border-default:      var(--neutral-200);
+    --color-border-strong:       var(--neutral-300);
+    --color-border-input:        var(--neutral-300);
+    --color-border-input-focus:  var(--blue-500);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--blue-600);
+    --color-action-hover:        var(--blue-700);
+    --color-action-active:       var(--blue-800);
+    --color-action-subtle:       var(--blue-50);
+    --color-action-text:         var(--blue-700);
+
+    --color-success-default:     var(--green-600);
+    --color-success-subtle:      var(--green-100);
+    --color-success-text:        var(--green-700);
+    --color-success-border:      var(--green-200);
+
+    --color-warning-default:     var(--amber-600);
+    --color-warning-subtle:      var(--amber-100);
+    --color-warning-text:        var(--amber-800);
+    --color-warning-border:      var(--amber-200);
+
+    --color-destructive-default: var(--red-600);
+    --color-destructive-subtle:  var(--red-100);
+    --color-destructive-text:    var(--red-700);
+    --color-destructive-border:  var(--red-200);
+
+    --color-info-default:        var(--teal-600);
+    --color-info-subtle:         var(--teal-100);
+    --color-info-text:           var(--teal-700);
+    --color-info-border:         oklch(88% 0.060 195);
+
+    --color-on-action:           var(--neutral-0);
+    --color-on-destructive:      var(--neutral-0);
+
+    /* ── Elevation ── */
+    --elevation-xs:      0 1px 2px oklch(10% 0 0 / 0.06);
+    --elevation-sm:      0 1px 3px oklch(10% 0 0 / 0.08), 0 1px 2px oklch(10% 0 0 / 0.06);
+    --elevation-md:      0 4px 6px oklch(10% 0 0 / 0.07), 0 2px 4px oklch(10% 0 0 / 0.06);
+    --elevation-lg:      0 10px 15px oklch(10% 0 0 / 0.08), 0 4px 6px oklch(10% 0 0 / 0.05);
+    --elevation-xl:      0 20px 25px oklch(10% 0 0 / 0.10), 0 8px 10px oklch(10% 0 0 / 0.06);
+    --elevation-sticky:  0 1px 4px oklch(10% 0 0 / 0.10);
+
+    /* ── Typography ── */
+    --font-display:  'DM Serif Display', Georgia, serif;
+    --font-body:     'Instrument Sans', system-ui, sans-serif;
+    --font-mono:     'DM Mono', 'Fira Code', monospace;
+
+    --text-xs:   0.6875rem;  /* 11px */
+    --text-sm:   0.8125rem;  /* 13px */
+    --text-base: 0.9375rem;  /* 15px — x-height corrected for Instrument Sans */
+    --text-md:   1.0625rem;  /* 17px */
+    --text-lg:   1.25rem;    /* 20px */
+    --text-xl:   1.5rem;     /* 24px */
+    --text-2xl:  1.875rem;   /* 30px */
+    --text-3xl:  2.25rem;    /* 36px */
+    --text-4xl:  2.875rem;   /* 46px */
+    --text-5xl:  3.75rem;    /* 60px */
+
+    --leading-tight:   1.20;
+    --leading-snug:    1.35;
+    --leading-normal:  1.55;
+    --leading-relaxed: 1.70;
+
+    --weight-regular:   400;
+    --weight-medium:    500;
+    --weight-semibold:  600;
+    --weight-bold:      700;
+
+    --tracking-tight:  -0.025em;
+    --tracking-normal:  0;
+    --tracking-wide:    0.025em;
+    --tracking-wider:   0.06em;
+    --tracking-widest:  0.12em;
+
+    --measure-prose:   62ch;
+    --measure-tight:   45ch;
+
+    /* ── Spacing ── */
+    --space-px:   1px;
+    --space-0-5:  0.125rem;
+    --space-1:    0.25rem;
+    --space-1-5:  0.375rem;
+    --space-2:    0.5rem;
+    --space-2-5:  0.625rem;
+    --space-3:    0.75rem;
+    --space-4:    1rem;
+    --space-5:    1.25rem;
+    --space-6:    1.5rem;
+    --space-7:    1.75rem;
+    --space-8:    2rem;
+    --space-10:   2.5rem;
+    --space-12:   3rem;
+    --space-14:   3.5rem;
+    --space-16:   4rem;
+    --space-20:   5rem;
+    --space-24:   6rem;
+    --space-32:   8rem;
+
+    --space-stack-tight:   var(--space-3);
+    --space-stack-default: var(--space-6);
+    --space-stack-loose:   var(--space-10);
+    --space-stack-section: var(--space-16);
+    --space-inline-tight:  var(--space-2);
+    --space-inline-default:var(--space-4);
+
+    --space-component-padding-xs: var(--space-1)   var(--space-2);
+    --space-component-padding-sm: var(--space-1-5) var(--space-3);
+    --space-component-padding-md: var(--space-2-5) var(--space-5);
+    --space-component-padding-lg: var(--space-4)   var(--space-6);
+    --space-component-padding-xl: var(--space-5)   var(--space-8);
+
+    /* ── Radius ── */
+    --radius-none: 0;
+    --radius-xs:   2px;
+    --radius-sm:   4px;
+    --radius-md:   6px;
+    --radius-lg:   10px;
+    --radius-xl:   16px;
+    --radius-full: 9999px;
+    --radius-button: var(--radius-md);
+    --radius-card:   var(--radius-lg);
+    --radius-input:  var(--radius-md);
+
+    /* ── Motion ── */
+    --duration-instant:    50ms;
+    --duration-fast:       100ms;
+    --duration-normal:     200ms;
+    --duration-deliberate: 300ms;
+    --duration-slow:       500ms;
+
+    --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-enter:     cubic-bezier(0, 0, 0.2, 1);
+    --ease-exit:      cubic-bezier(0.4, 0, 1, 1);
+    --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --transition-color:   background-color var(--duration-normal) var(--ease-standard),
+                          color var(--duration-normal) var(--ease-standard),
+                          border-color var(--duration-fast) var(--ease-standard);
+    --transition-shadow:  box-shadow var(--duration-normal) var(--ease-standard);
+    --transition-transform: transform var(--duration-normal) var(--ease-standard);
+
+    /* ── Focus ── */
+    --focus-ring-color:  var(--blue-500);
+    --focus-ring-shadow: 0 0 0 3px oklch(54% 0.178 264 / 0.30);
+    --focus-ring-shadow-destructive: 0 0 0 3px oklch(50% 0.200 28 / 0.30);
+
+    /* ── Borders ── */
+    --border-thin:    1px;
+    --border-default: 1px;
+    --border-thick:   2px;
+
+    /* ── Opacity ── */
+    --opacity-disabled: 0.45;
+    --opacity-subtle:   0.60;
+
+    /* ── Z-index ── */
+    --layer-base:     0;
+    --layer-raised:   10;
+    --layer-dropdown: 100;
+    --layer-sticky:   200;
+    --layer-overlay:  300;
+    --layer-modal:    400;
+    --layer-toast:    500;
+    --layer-tooltip:  600;
+
+    /* ── Container ── */
+    --container-sm:  36rem;
+    --container-md:  48rem;
+    --container-lg:  64rem;
+    --container-xl:  80rem;
+    --container-2xl: 96rem;
+
+    /* ── Sidebar / Shell ── */
+    --sidebar-width:   16rem;
+    --header-height:   3.5rem;
+  }
+
+  /* ── Dark mode semantic overrides ── */
+  [data-theme="dark"] {
+    --color-bg-default:          var(--neutral-950);
+    --color-bg-subtle:           var(--neutral-900);
+    --color-surface-default:     var(--neutral-900);
+    --color-surface-sunken:      var(--neutral-950);
+    --color-surface-code:        var(--neutral-800);
+
+    --color-text-primary:        var(--neutral-50);
+    --color-text-secondary:      var(--neutral-400);
+    --color-text-tertiary:       var(--neutral-500);
+    --color-text-link:           var(--blue-300);
+    --color-text-link-hover:     var(--blue-200);
+
+    --color-border-default:      var(--neutral-800);
+    --color-border-strong:       var(--neutral-700);
+    --color-border-input:        var(--neutral-700);
+    --color-border-input-focus:  var(--blue-400);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--blue-400);
+    --color-action-hover:        var(--blue-300);
+    --color-action-active:       var(--blue-200);
+    --color-action-subtle:       oklch(22% 0.045 264);
+    --color-action-text:         var(--blue-300);
+
+    --color-success-subtle:      oklch(18% 0.050 145);
+    --color-success-text:        var(--green-200);
+    --color-success-border:      oklch(30% 0.090 145);
+
+    --color-warning-subtle:      oklch(20% 0.055 75);
+    --color-warning-text:        var(--amber-200);
+    --color-warning-border:      oklch(32% 0.100 75);
+
+    --color-destructive-subtle:  oklch(18% 0.055 28);
+    --color-destructive-text:    var(--red-200);
+    --color-destructive-border:  oklch(28% 0.100 28);
+
+    --color-info-subtle:         oklch(18% 0.045 195);
+    --color-info-text:           var(--teal-100);
+    --color-info-border:         oklch(28% 0.080 195);
+
+    --elevation-xs:  0 1px 2px oklch(0% 0 0 / 0.30);
+    --elevation-sm:  0 1px 3px oklch(0% 0 0 / 0.40), 0 1px 2px oklch(0% 0 0 / 0.30);
+    --elevation-md:  0 4px 6px oklch(0% 0 0 / 0.40), 0 2px 4px oklch(0% 0 0 / 0.30);
+    --elevation-lg:  0 10px 15px oklch(0% 0 0 / 0.50), 0 4px 6px oklch(0% 0 0 / 0.30);
+    --elevation-xl:  0 20px 25px oklch(0% 0 0 / 0.60), 0 8px 10px oklch(0% 0 0 / 0.35);
+    --elevation-sticky: 0 1px 4px oklch(0% 0 0 / 0.50);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --duration-instant:    0ms;
+      --duration-fast:       0ms;
+      --duration-normal:     0ms;
+      --duration-deliberate: 0ms;
+      --duration-slow:       0ms;
+    }
+  }
+}

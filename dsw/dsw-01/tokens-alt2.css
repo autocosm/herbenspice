@@ -1,0 +1,312 @@
+@layer tokens {
+
+  :root {
+    /* ── Primitive color ramp: Brand Navy (OKLCH-derived) ── */
+    --navy-50:  oklch(97% 0.008 240);
+    --navy-100: oklch(93% 0.018 240);
+    --navy-200: oklch(86% 0.038 240);
+    --navy-300: oklch(74% 0.068 240);
+    --navy-400: oklch(60% 0.104 240);
+    --navy-500: oklch(48% 0.136 240);
+    --navy-600: oklch(38% 0.148 240);
+    --navy-700: oklch(30% 0.130 240);
+    --navy-800: oklch(22% 0.096 240);
+    --navy-900: oklch(15% 0.064 240);
+    --navy-950: oklch(10% 0.038 240);
+
+    /* ── Primitive: Slate (cool authority tone) ── */
+    --slate-50:  oklch(97.5% 0.004 230);
+    --slate-100: oklch(94%   0.007 230);
+    --slate-200: oklch(88%   0.010 230);
+    --slate-300: oklch(79%   0.012 230);
+    --slate-400: oklch(66%   0.013 230);
+    --slate-500: oklch(52%   0.013 230);
+    --slate-600: oklch(40%   0.012 230);
+    --slate-700: oklch(30%   0.010 230);
+    --slate-800: oklch(21%   0.008 230);
+    --slate-900: oklch(14%   0.006 230);
+    --slate-950: oklch(9%    0.004 230);
+
+    /* ── Primitive: Neutral (pure cool-gray) ── */
+    --neutral-0:   oklch(100% 0 0);
+    --neutral-50:  oklch(98.5% 0.002 230);
+    --neutral-100: oklch(96%   0.003 230);
+    --neutral-200: oklch(91%   0.004 230);
+    --neutral-300: oklch(83%   0.005 230);
+    --neutral-400: oklch(70%   0.006 230);
+    --neutral-500: oklch(56%   0.006 230);
+    --neutral-600: oklch(43%   0.006 230);
+    --neutral-700: oklch(32%   0.005 230);
+    --neutral-800: oklch(22%   0.005 230);
+    --neutral-900: oklch(14%   0.004 230);
+    --neutral-950: oklch(9%    0.003 230);
+
+    /* ── Primitive: Semantic hues ── */
+    --green-100: oklch(95% 0.032 152); --green-200: oklch(87% 0.068 152);
+    --green-600: oklch(46% 0.138 152); --green-700: oklch(37% 0.112 152);
+    --green-800: oklch(28% 0.086 152); --green-900: oklch(20% 0.058 152);
+
+    --amber-100: oklch(96% 0.050 80);  --amber-200: oklch(90% 0.095 80);
+    --amber-600: oklch(63% 0.162 72);  --amber-700: oklch(51% 0.145 72);
+    --amber-800: oklch(38% 0.112 72);  --amber-900: oklch(28% 0.080 72);
+
+    --red-100: oklch(96% 0.032 25);    --red-200: oklch(89% 0.074 25);
+    --red-600: oklch(49% 0.195 25);    --red-700: oklch(39% 0.168 25);
+    --red-800: oklch(29% 0.132 25);    --red-900: oklch(21% 0.094 25);
+
+    --steel-100: oklch(94% 0.022 220);
+    --steel-600: oklch(45% 0.072 220); --steel-700: oklch(36% 0.060 220);
+
+    /* ── Semantic: Light mode ── */
+    --color-bg-default:          var(--neutral-50);
+    --color-bg-subtle:           var(--neutral-100);
+    --color-surface-default:     var(--neutral-0);
+    --color-surface-sunken:      var(--neutral-100);
+    --color-surface-code:        var(--slate-100);
+
+    --color-text-primary:        var(--slate-900);
+    --color-text-secondary:      var(--slate-600);
+    --color-text-tertiary:       var(--slate-500);
+    --color-text-link:           var(--navy-700);
+    --color-text-link-hover:     var(--navy-900);
+    --color-text-inverse:        var(--neutral-0);
+    --color-text-on-action:      var(--neutral-0);
+
+    --color-border-default:      var(--neutral-200);
+    --color-border-strong:       var(--neutral-300);
+    --color-border-input:        var(--slate-300);
+    --color-border-input-focus:  var(--navy-500);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--navy-700);
+    --color-action-hover:        var(--navy-800);
+    --color-action-active:       var(--navy-900);
+    --color-action-subtle:       var(--navy-50);
+    --color-action-text:         var(--navy-700);
+
+    --color-success-default:     var(--green-600);
+    --color-success-subtle:      var(--green-100);
+    --color-success-text:        var(--green-700);
+    --color-success-border:      var(--green-200);
+
+    --color-warning-default:     var(--amber-600);
+    --color-warning-subtle:      var(--amber-100);
+    --color-warning-text:        var(--amber-800);
+    --color-warning-border:      var(--amber-200);
+
+    --color-destructive-default: var(--red-600);
+    --color-destructive-subtle:  var(--red-100);
+    --color-destructive-text:    var(--red-700);
+    --color-destructive-border:  var(--red-200);
+
+    --color-info-default:        var(--steel-600);
+    --color-info-subtle:         var(--steel-100);
+    --color-info-text:           var(--steel-700);
+    --color-info-border:         oklch(88% 0.036 220);
+
+    --color-on-action:           var(--neutral-0);
+    --color-on-destructive:      var(--neutral-0);
+
+    /* ── Elevation — tight and controlled; no warmth, no drama ── */
+    --elevation-xs:      0 1px 2px oklch(9% 0 0 / 0.06);
+    --elevation-sm:      0 1px 3px oklch(9% 0 0 / 0.08), 0 1px 2px oklch(9% 0 0 / 0.05);
+    --elevation-md:      0 3px 6px oklch(9% 0 0 / 0.07), 0 2px 3px oklch(9% 0 0 / 0.05);
+    --elevation-lg:      0 8px 14px oklch(9% 0 0 / 0.08), 0 3px 5px oklch(9% 0 0 / 0.05);
+    --elevation-xl:      0 16px 22px oklch(9% 0 0 / 0.09), 0 6px 9px oklch(9% 0 0 / 0.06);
+    --elevation-sticky:  0 1px 3px oklch(9% 0 0 / 0.10);
+
+    /* ── Typography — authoritative and legible ── */
+    --font-display:  'Libre Baskerville', 'Book Antiqua', Georgia, serif;
+    --font-body:     'IBM Plex Sans', 'Helvetica Neue', system-ui, sans-serif;
+    --font-mono:     'IBM Plex Mono', 'Fira Code', monospace;
+
+    --text-xs:   0.6875rem;  /* 11px */
+    --text-sm:   0.8125rem;  /* 13px */
+    --text-base: 0.9375rem;  /* 15px */
+    --text-md:   1.0625rem;  /* 17px */
+    --text-lg:   1.25rem;    /* 20px */
+    --text-xl:   1.5rem;     /* 24px */
+    --text-2xl:  1.875rem;   /* 30px */
+    --text-3xl:  2.25rem;    /* 36px */
+    --text-4xl:  2.875rem;   /* 46px */
+    --text-5xl:  3.5rem;     /* 56px — restrained; legality doesn't shout */
+
+    --leading-tight:   1.22;
+    --leading-snug:    1.38;
+    --leading-normal:  1.60;   /* generous for dense legal/financial copy */
+    --leading-relaxed: 1.75;
+
+    --weight-regular:   400;
+    --weight-medium:    500;
+    --weight-semibold:  600;
+    --weight-bold:      700;
+
+    --tracking-tight:  -0.018em;
+    --tracking-normal:  0;
+    --tracking-wide:    0.018em;
+    --tracking-wider:   0.055em;
+    --tracking-widest:  0.100em;  /* used for ALL-CAPS section labels */
+
+    --measure-prose:   68ch;   /* legal copy is dense; wider measure is fine */
+    --measure-tight:   48ch;
+
+    /* ── Spacing — compact and structured; efficiency signals competence ── */
+    --space-px:   1px;
+    --space-0-5:  0.125rem;
+    --space-1:    0.25rem;
+    --space-1-5:  0.375rem;
+    --space-2:    0.5rem;
+    --space-2-5:  0.625rem;
+    --space-3:    0.75rem;
+    --space-4:    1rem;
+    --space-5:    1.25rem;
+    --space-6:    1.5rem;
+    --space-7:    1.75rem;
+    --space-8:    2rem;
+    --space-10:   2.5rem;
+    --space-12:   3rem;
+    --space-14:   3.5rem;
+    --space-16:   4rem;
+    --space-20:   5rem;
+    --space-24:   6rem;
+    --space-32:   8rem;
+
+    --space-stack-tight:   var(--space-2);   /* tighter than SaaS or hospitality */
+    --space-stack-default: var(--space-5);
+    --space-stack-loose:   var(--space-8);
+    --space-stack-section: var(--space-14);
+    --space-inline-tight:  var(--space-1-5);
+    --space-inline-default:var(--space-3);
+
+    --space-component-padding-xs: var(--space-1)   var(--space-2);
+    --space-component-padding-sm: var(--space-1-5) var(--space-3);
+    --space-component-padding-md: var(--space-2)   var(--space-4);   /* deliberately compact */
+    --space-component-padding-lg: var(--space-3)   var(--space-5);
+    --space-component-padding-xl: var(--space-4)   var(--space-7);
+
+    /* ── Radius — sharp rectangles; law is about lines, not curves ── */
+    --radius-none: 0;
+    --radius-xs:   1px;
+    --radius-sm:   2px;
+    --radius-md:   3px;
+    --radius-lg:   4px;
+    --radius-xl:   6px;
+    --radius-full: 9999px;
+    --radius-button: var(--radius-none);  /* flat-cornered buttons: serious, institutional */
+    --radius-card:   var(--radius-sm);
+    --radius-input:  var(--radius-xs);
+
+    /* ── Motion — brisk and purposeful; no frivolity ── */
+    --duration-instant:    40ms;
+    --duration-fast:       80ms;
+    --duration-normal:     160ms;   /* faster than SaaS; snappiness signals competence */
+    --duration-deliberate: 240ms;
+    --duration-slow:       400ms;
+
+    --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-enter:     cubic-bezier(0, 0, 0.2, 1);
+    --ease-exit:      cubic-bezier(0.4, 0, 1, 1);
+    --ease-spring:    cubic-bezier(0.4, 0, 0.2, 1);  /* no spring; purely standard */
+
+    --transition-color:   background-color var(--duration-fast) var(--ease-standard),
+                          color var(--duration-fast) var(--ease-standard),
+                          border-color var(--duration-fast) var(--ease-standard);
+    --transition-shadow:  box-shadow var(--duration-normal) var(--ease-standard);
+    --transition-transform: transform var(--duration-normal) var(--ease-standard);
+
+    /* ── Focus ── */
+    --focus-ring-color:  var(--navy-500);
+    --focus-ring-shadow: 0 0 0 3px oklch(48% 0.136 240 / 0.28);
+    --focus-ring-shadow-destructive: 0 0 0 3px oklch(49% 0.195 25 / 0.28);
+
+    /* ── Borders ── */
+    --border-thin:    1px;
+    --border-default: 1px;
+    --border-thick:   2px;
+
+    /* ── Opacity ── */
+    --opacity-disabled: 0.42;
+    --opacity-subtle:   0.58;
+
+    /* ── Z-index ── */
+    --layer-base:     0;
+    --layer-raised:   10;
+    --layer-dropdown: 100;
+    --layer-sticky:   200;
+    --layer-overlay:  300;
+    --layer-modal:    400;
+    --layer-toast:    500;
+    --layer-tooltip:  600;
+
+    /* ── Container ── */
+    --container-sm:  36rem;
+    --container-md:  48rem;
+    --container-lg:  64rem;
+    --container-xl:  80rem;
+    --container-2xl: 96rem;
+
+    /* ── Sidebar / Shell ── */
+    --sidebar-width:   15.5rem;  /* slightly narrower; dense nav, no wasted space */
+    --header-height:   3.25rem;
+  }
+
+  /* ── Dark mode — dark charcoal, no warmth; boardroom after hours ── */
+  [data-theme="dark"] {
+    --color-bg-default:          var(--slate-950);
+    --color-bg-subtle:           var(--slate-900);
+    --color-surface-default:     oklch(12% 0.006 230);
+    --color-surface-sunken:      var(--slate-950);
+    --color-surface-code:        var(--slate-800);
+
+    --color-text-primary:        var(--neutral-50);
+    --color-text-secondary:      var(--slate-400);
+    --color-text-tertiary:       var(--slate-500);
+    --color-text-link:           var(--navy-300);
+    --color-text-link-hover:     var(--navy-200);
+
+    --color-border-default:      var(--slate-800);
+    --color-border-strong:       var(--slate-700);
+    --color-border-input:        var(--slate-700);
+    --color-border-input-focus:  var(--navy-400);
+    --color-border-destructive:  var(--red-600);
+
+    --color-action-default:      var(--navy-400);
+    --color-action-hover:        var(--navy-300);
+    --color-action-active:       var(--navy-200);
+    --color-action-subtle:       oklch(16% 0.048 240);
+    --color-action-text:         var(--navy-300);
+
+    --color-success-subtle:      oklch(14% 0.040 152);
+    --color-success-text:        var(--green-200);
+    --color-success-border:      oklch(24% 0.078 152);
+
+    --color-warning-subtle:      oklch(16% 0.050 78);
+    --color-warning-text:        var(--amber-200);
+    --color-warning-border:      oklch(28% 0.092 78);
+
+    --color-destructive-subtle:  oklch(15% 0.050 25);
+    --color-destructive-text:    var(--red-200);
+    --color-destructive-border:  oklch(24% 0.092 25);
+
+    --color-info-subtle:         oklch(14% 0.032 220);
+    --color-info-text:           oklch(88% 0.040 220);
+    --color-info-border:         oklch(24% 0.055 220);
+
+    --elevation-xs:  0 1px 2px oklch(0% 0 0 / 0.32);
+    --elevation-sm:  0 1px 3px oklch(0% 0 0 / 0.44), 0 1px 2px oklch(0% 0 0 / 0.30);
+    --elevation-md:  0 3px 6px oklch(0% 0 0 / 0.46), 0 2px 3px oklch(0% 0 0 / 0.32);
+    --elevation-lg:  0 8px 14px oklch(0% 0 0 / 0.54), 0 3px 5px oklch(0% 0 0 / 0.36);
+    --elevation-xl:  0 16px 22px oklch(0% 0 0 / 0.64), 0 6px 9px oklch(0% 0 0 / 0.40);
+    --elevation-sticky: 0 1px 3px oklch(0% 0 0 / 0.52);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --duration-instant:    0ms;
+      --duration-fast:       0ms;
+      --duration-normal:     0ms;
+      --duration-deliberate: 0ms;
+      --duration-slow:       0ms;
+    }
+  }
+}

@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-density="comfortable">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System Specimen — Style Audit</title>
+
+  <!-- FOIT prevention — must be first, synchronous -->
+  <script src="foit-prevention.js"></script>
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="design-system.css" />
+
+  <!-- Specimen-specific overrides (layout chrome only, no design decisions) -->
+  <link rel="stylesheet" href="specimen.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SPECIMEN CHROME
+     Not part of the design system. Controls for auditing the
+     system across themes, densities, and motion settings.
+     Styled entirely by specimen.css, not design-system.css.
+     ============================================================ -->
+
+<div class="specimen-bar" role="toolbar" aria-label="Specimen controls">
+  <span class="specimen-logo">DSW Specimen</span>
+
+  <div class="specimen-controls">
+
+    <fieldset>
+      <legend>Theme</legend>
+      <label>
+        <input type="radio" name="theme" value="light" checked />
+        Light
+      </label>
+      <label>
+        <input type="radio" name="theme" value="dark" />
+        Dark
+      </label>
+      <label>
+        <input type="radio" name="theme" value="system" />
+        System
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Density</legend>
+      <label>
+        <input type="radio" name="density" value="compact" />
+        Compact
+      </label>
+      <label>
+        <input type="radio" name="density" value="comfortable" checked />
+        Comfortable
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Motion</legend>
+      <label>
+        <input type="checkbox" id="reduce-motion" />
+        Reduce
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contrast</legend>
+      <label>
+        <input type="checkbox" id="force-colors" />
+        Forced Colors
+      </label>
+    </fieldset>
+
+  </div>
+
+  <nav class="specimen-jumpnav" aria-label="Jump to section">
+    <a href="#tokens">Tokens</a>
+    <a href="#html-elements">HTML</a>
+    <a href="#layout">Layout</a>
+    <a href="#objects">Objects</a>
+    <a href="#qualities">Qualities</a>
+    <a href="#roles">Roles</a>
+    <a href="#states">States</a>
+    <a href="#compositions">Compositions</a>
+  </nav>
+</div>
+
+
+<!-- ============================================================
+     MAIN SPECIMEN CONTENT
+     Sections are wrapped in .specimen-section (specimen.css only).
+     All inner content uses design-system.css classes exclusively.
+     ============================================================ -->
+
+<main id="specimen-main">
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 1 · DESIGN TOKENS
+       Show computed values. Proves tokens are resolving.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="tokens">
+    <h2 class="specimen-heading">Design Tokens</h2>
+    <p class="specimen-note">
+      All values below are rendered by the browser from CSS custom properties.
+      Inspect any swatch to verify the resolved value.
+    </p>
+
+    <!-- 1A · Color — Primitives -->
+    <h3 class="specimen-subheading">Color · Primitives (Blue Ramp)</h3>
+    <div class="specimen-swatches">
+      <div class="specimen-swatch" style="background:var(--blue-50)">  <span>50</span>  </div>
+      <div class="specimen-swatch" style="background:var(--blue-100)"> <span>100</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-200)"> <span>200</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-300)"> <span>300</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-400)"> <span>400</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-500)"> <span>500</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-600)"> <span>600</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-700)"> <span>700</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-800)"> <span>800</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-900)"> <span>900</span> </div>
+      <div class="specimen-swatch" style="background:var(--blue-950)"> <span>950</span> </div>
+    </div>
+
+    <!-- 1B · Color — Semantic -->
+    <h3 class="specimen-subheading">Color · Semantic</h3>
+    <div class="specimen-swatches">
+      <div class="specimen-swatch" style="background:var(--color-bg-default)">            <span>bg-default</span>        </div>
+      <div class="specimen-swatch" style="background:var(--color-bg-subtle)">             <span>bg-subtle</span>         </div>
+      <div class="specimen-swatch" style="background:var(--color-surface-default)">       <span>surface-default</span>   </div>
+      <div class="specimen-swatch" style="background:var(--color-surface-raised)">        <span>surface-raised</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-surface-sunken)">        <span>surface-sunken</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-border-default)">        <span>border-default</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-border-strong)">         <span>border-strong</span>     </div>
+      <div class="specimen-swatch" style="background:var(--color-text-primary)">          <span>text-primary</span>      </div>
+      <div class="specimen-swatch" style="background:var(--color-text-secondary)">        <span>text-secondary</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-text-tertiary)">         <span>text-tertiary</span>     </div>
+      <div class="specimen-swatch" style="background:var(--color-text-link)">             <span>text-link</span>         </div>
+      <div class="specimen-swatch" style="background:var(--color-action-default)">        <span>action-default</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-action-hover)">          <span>action-hover</span>      </div>
+      <div class="specimen-swatch" style="background:var(--color-action-subtle)">         <span>action-subtle</span>     </div>
+      <div class="specimen-swatch" style="background:var(--color-on-action)">             <span>on-action</span>         </div>
+      <div class="specimen-swatch" style="background:var(--color-success-default)">       <span>success-default</span>   </div>
+      <div class="specimen-swatch" style="background:var(--color-success-subtle)">        <span>success-subtle</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-success-text)">          <span>success-text</span>      </div>
+      <div class="specimen-swatch" style="background:var(--color-warning-default)">       <span>warning-default</span>   </div>
+      <div class="specimen-swatch" style="background:var(--color-warning-subtle)">        <span>warning-subtle</span>    </div>
+      <div class="specimen-swatch" style="background:var(--color-warning-text)">          <span>warning-text</span>      </div>
+      <div class="specimen-swatch" style="background:var(--color-destructive-default)">   <span>destructive-default</span></div>
+      <div class="specimen-swatch" style="background:var(--color-destructive-subtle)">    <span>destructive-subtle</span></div>
+      <div class="specimen-swatch" style="background:var(--color-destructive-text)">      <span>destructive-text</span>  </div>
+      <div class="specimen-swatch" style="background:var(--color-info-default)">          <span>info-default</span>      </div>
+      <div class="specimen-swatch" style="background:var(--color-info-subtle)">           <span>info-subtle</span>       </div>
+      <div class="specimen-swatch" style="background:var(--color-info-text)">             <span>info-text</span>         </div>
+    </div>
+
+    <!-- 1C · Typography Scale -->
+    <h3 class="specimen-subheading">Typography · Scale</h3>
+    <div class="specimen-type-scale">
+      <div class="specimen-type-row"><span class="specimen-label">--text-xs    </span><span style="font-size:var(--text-xs)">The quick brown fox jumps over the lazy dog</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-sm    </span><span style="font-size:var(--text-sm)">The quick brown fox jumps over the lazy dog</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-base  </span><span style="font-size:var(--text-base)">The quick brown fox jumps over the lazy dog</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-md    </span><span style="font-size:var(--text-md)">The quick brown fox jumps over the lazy dog</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-lg    </span><span style="font-size:var(--text-lg)">The quick brown fox jumps</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-xl    </span><span style="font-size:var(--text-xl)">The quick brown fox</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-2xl   </span><span style="font-size:var(--text-2xl)">The quick brown fox</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-3xl   </span><span style="font-size:var(--text-3xl)">The quick brown</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-4xl   </span><span style="font-size:var(--text-4xl)">The quick</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--text-5xl   </span><span style="font-size:var(--text-5xl)">Design</span></div>
+    </div>
+
+    <!-- 1D · Named Type Roles -->
+    <h3 class="specimen-subheading">Typography · Named Roles</h3>
+    <div class="specimen-type-scale">
+      <div class="specimen-type-row"><span class="specimen-label">--type-h1          </span><span style="font:var(--type-h1)">Portfolio Overview</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-h2          </span><span style="font:var(--type-h2)">Holdings by Sector</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-h3          </span><span style="font:var(--type-h3)">Recent Transactions</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-h4          </span><span style="font:var(--type-h4)">Account Summary</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-body        </span><span style="font:var(--type-body)">Your portfolio gained 8.4% year to date, outperforming the benchmark.</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-label-strong</span><span style="font:var(--type-label-strong)">MARKET VALUE</span></div>
+      <div class="specimen-type-row"><span class="specimen-label">--type-caption     </span><span style="font:var(--type-caption)">Last updated 3 minutes ago · Data delayed 15 minutes</span></div>
+    </div>
+
+    <!-- 1E · Spacing Scale -->
+    <h3 class="specimen-subheading">Spacing · Scale</h3>
+    <div class="specimen-spacing">
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-1  </span><div class="specimen-spacing-bar" style="width:var(--space-1)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-2  </span><div class="specimen-spacing-bar" style="width:var(--space-2)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-3  </span><div class="specimen-spacing-bar" style="width:var(--space-3)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-4  </span><div class="specimen-spacing-bar" style="width:var(--space-4)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-6  </span><div class="specimen-spacing-bar" style="width:var(--space-6)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-8  </span><div class="specimen-spacing-bar" style="width:var(--space-8)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-12 </span><div class="specimen-spacing-bar" style="width:var(--space-12)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-16 </span><div class="specimen-spacing-bar" style="width:var(--space-16)"></div></div>
+      <div class="specimen-spacing-row"><span class="specimen-label">--space-24 </span><div class="specimen-spacing-bar" style="width:var(--space-24)"></div></div>
+    </div>
+
+    <!-- 1F · Radius Scale -->
+    <h3 class="specimen-subheading">Radius · Scale</h3>
+    <div class="specimen-swatches">
+      <div class="specimen-radius-swatch" style="border-radius:var(--radius-sm)"><span>sm</span></div>
+      <div class="specimen-radius-swatch" style="border-radius:var(--radius-md)"><span>md</span></div>
+      <div class="specimen-radius-swatch" style="border-radius:var(--radius-lg)"><span>lg</span></div>
+      <div class="specimen-radius-swatch" style="border-radius:var(--radius-card)"><span>card</span></div>
+      <div class="specimen-radius-swatch" style="border-radius:var(--radius-full)"><span>full</span></div>
+    </div>
+
+    <!-- 1G · Elevation / Shadow -->
+    <h3 class="specimen-subheading">Elevation · Shadow</h3>
+    <div class="specimen-swatches">
+      <div class="specimen-elevation-swatch" style="box-shadow:var(--elevation-flat)"><span>flat</span></div>
+      <div class="specimen-elevation-swatch" style="box-shadow:var(--elevation-raised)"><span>raised</span></div>
+      <div class="specimen-elevation-swatch" style="box-shadow:var(--elevation-floating)"><span>floating</span></div>
+      <div class="specimen-elevation-swatch" style="box-shadow:var(--elevation-sticky)"><span>sticky</span></div>
+      <div class="specimen-elevation-swatch" style="box-shadow:var(--elevation-overlay)"><span>overlay</span></div>
+    </div>
+
+    <!-- 1H · Motion / Duration -->
+    <h3 class="specimen-subheading">Motion · Duration &amp; Easing</h3>
+    <div class="specimen-motion">
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--duration-instant    </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-instant) var(--ease-enter)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--duration-fast       </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-fast) var(--ease-enter)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--duration-normal     </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-normal) var(--ease-enter)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--duration-deliberate </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-deliberate) var(--ease-enter)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--ease-enter          </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-normal) var(--ease-enter)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--ease-exit           </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-normal) var(--ease-exit)"></div>
+      </div>
+      <div class="specimen-motion-row">
+        <span class="specimen-label">--ease-spring         </span>
+        <div class="specimen-motion-ball" style="transition:transform var(--duration-deliberate) var(--ease-spring)"></div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 2 · HTML ELEMENT STYLES
+       All raw, unclassed HTML. Proves the elements @layer works.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="html-elements">
+    <h2 class="specimen-heading">HTML Element Styles</h2>
+    <p class="specimen-note">
+      No classes applied. All styling comes from the elements @layer.
+    </p>
+
+    <!-- 2A · Headings -->
+    <h3 class="specimen-subheading">Headings</h3>
+    <div class="specimen-example">
+      <h1>Heading Level 1</h1>
+      <h2>Heading Level 2</h2>
+      <h3>Heading Level 3</h3>
+      <h4>Heading Level 4</h4>
+      <h5>Heading Level 5</h5>
+      <h6>Heading Level 6</h6>
+    </div>
+
+    <!-- 2B · Body copy -->
+    <h3 class="specimen-subheading">Body Copy</h3>
+    <div class="specimen-example">
+      <p>
+        A paragraph of body text demonstrating the base reading size, line-height, and
+        color. The measure is constrained by <code>--measure-prose</code> when inside
+        a prose context. This sentence extends the example to show how the text reflows
+        at the prose maximum line length, which should sit between 55 and 75 characters
+        for optimal reading comfort.
+      </p>
+      <p>
+        A second paragraph shows the paragraph spacing. The gap between paragraphs
+        is derived from the typographic rhythm — one baseline unit — not an arbitrary margin.
+      </p>
+    </div>
+
+    <!-- 2C · Inline elements -->
+    <h3 class="specimen-subheading">Inline Elements</h3>
+    <div class="specimen-example">
+      <p>
+        Text with <a href="#">a hyperlink</a>, some <strong>bold text</strong>,
+        some <em>italic text</em>, <strong><em>bold italic</em></strong>,
+        <code>inline code</code>, a <kbd>keyboard shortcut</kbd>,
+        <mark>highlighted text</mark>, <del>deleted text</del>,
+        <ins>inserted text</ins>, a <abbr title="Design System Workspace">DSW</abbr> abbreviation,
+        and a superscript footnote reference.<sup>1</sup>
+      </p>
+    </div>
+
+    <!-- 2D · Lists -->
+    <h3 class="specimen-subheading">Lists</h3>
+    <div class="specimen-example">
+      <ul>
+        <li>Unordered list item one</li>
+        <li>Unordered list item two
+          <ul>
+            <li>Nested item one</li>
+            <li>Nested item two</li>
+          </ul>
+        </li>
+        <li>Unordered list item three</li>
+      </ul>
+
+      <ol>
+        <li>Ordered list item one</li>
+        <li>Ordered list item two
+          <ol>
+            <li>Nested ordered item</li>
+            <li>Nested ordered item two</li>
+          </ol>
+        </li>
+        <li>Ordered list item three</li>
+      </ol>
+
+      <dl>
+        <dt>Definition term</dt>
+        <dd>Definition description follows the term with appropriate indent and spacing.</dd>
+        <dt>Second term</dt>
+        <dd>Second definition with the same treatment.</dd>
+      </dl>
+    </div>
+
+    <!-- 2E · Blockquote and rules -->
+    <h3 class="specimen-subheading">Blockquote, Pre, HR</h3>
+    <div class="specimen-example">
+      <blockquote>
+        <p>A design system is not a deliverable. It is an ongoing commitment to a
+        shared visual language, expressed in code, that survives the people who built it.</p>
+        <cite>— Design System Workspace, Design Philosophy</cite>
+      </blockquote>
+
+      <hr />
+
+      <pre><code>/* Example of preformatted code */
+.button.primary {
+  background-color: var(--color-action-default);
+  color: var(--color-on-action);
+}</code></pre>
+    </div>
+
+    <!-- 2F · Details / Summary -->
+    <h3 class="specimen-subheading">Details / Summary</h3>
+    <div class="specimen-example">
+      <details>
+        <summary>View technical notes</summary>
+        <p>This is the disclosure content. It is hidden by default and revealed
+        when the summary is activated. The animation uses <code>grid-row</code>
+        from 0fr to 1fr to avoid height-to-auto issues.</p>
+      </details>
+    </div>
+
+    <!-- 2G · Table (naked) -->
+    <h3 class="specimen-subheading">Table (no classes)</h3>
+    <div class="specimen-example">
+      <table>
+        <caption>Token category summary</caption>
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Token count</th>
+            <th scope="col">Output layers</th>
+            <th scope="col">Depends on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Color primitives</td>
+            <td>110</td>
+            <td>primitives</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Color semantic</td>
+            <td>64</td>
+            <td>semantic-light, dark</td>
+            <td>Color primitives</td>
+          </tr>
+          <tr>
+            <td>Typography</td>
+            <td>44</td>
+            <td>primitives, semantic-light</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Spacing</td>
+            <td>38</td>
+            <td>primitives</td>
+            <td>Typography</td>
+          </tr>
+          <tr>
+            <td>Motion</td>
+            <td>18</td>
+            <td>primitives, transitions</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>312</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- 2H · Form elements (base, no class) -->
+    <h3 class="specimen-subheading">Form Elements (base, no classes)</h3>
+    <div class="specimen-example">
+      <fieldset>
+        <legend>Basic fieldset</legend>
+        <label for="bare-text">Text input</label>
+        <input type="text" id="bare-text" placeholder="Placeholder text" />
+        <label for="bare-select">Select</label>
+        <select id="bare-select">
+          <option>Option one</option>
+          <option>Option two</option>
+          <option>Option three</option>
+        </select>
+        <label for="bare-textarea">Textarea</label>
+        <textarea id="bare-textarea" rows="3" placeholder="Textarea placeholder"></textarea>
+      </fieldset>
+    </div>
+
+    <!-- 2I · Figure / Figcaption -->
+    <h3 class="specimen-subheading">Figure / Figcaption</h3>
+    <div class="specimen-example">
+      <figure>
+        <div class="specimen-placeholder-image" aria-hidden="true">
+          [image placeholder — 16:9]
+        </div>
+        <figcaption>
+          Figure caption: OKLCH colorspace ramp showing 11 perceptually uniform steps.
+          Source: Design System Workspace color engine output.
+        </figcaption>
+      </figure>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 3 · LAYOUT PRIMITIVES
+       Each primitive shown with representative content.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="layout">
+    <h2 class="specimen-heading">Layout Primitives</h2>
+    <p class="specimen-note">
+      Layout primitives make no visual design statements.
+      Colored outlines added by specimen.css only to reveal structure.
+    </p>
+
+    <!-- 3A · Stack -->
+    <h3 class="specimen-subheading">Stack <code>.stack</code></h3>
+    <div class="specimen-example outlined">
+      <div class="stack">
+        <div class="specimen-block">Stack child one</div>
+        <div class="specimen-block">Stack child two</div>
+        <div class="specimen-block">Stack child three</div>
+      </div>
+    </div>
+
+    <h4 class="specimen-subheading-sm">Stack variants</h4>
+    <div class="specimen-example outlined">
+      <div class="stack tight">
+        <div class="specimen-block">Tight — one</div>
+        <div class="specimen-block">Tight — two</div>
+        <div class="specimen-block">Tight — three</div>
+      </div>
+    </div>
+    <div class="specimen-example outlined">
+      <div class="stack loose">
+        <div class="specimen-block">Loose — one</div>
+        <div class="specimen-block">Loose — two</div>
+        <div class="specimen-block">Loose — three</div>
+      </div>
+    </div>
+
+    <!-- 3B · Cluster -->
+    <h3 class="specimen-subheading">Cluster <code>.cluster</code></h3>
+    <div class="specimen-example outlined">
+      <div class="cluster">
+        <div class="specimen-block">One</div>
+        <div class="specimen-block">Two</div>
+        <div class="specimen-block">Three</div>
+        <div class="specimen-block">Four</div>
+        <div class="specimen-block">Five — wraps here when container is narrow</div>
+        <div class="specimen-block">Six</div>
+      </div>
+    </div>
+
+    <!-- 3C · Grid -->
+    <h3 class="specimen-subheading">Grid <code>.grid</code></h3>
+    <div class="specimen-example outlined">
+      <div class="grid">
+        <div class="specimen-block">Auto-fill item A</div>
+        <div class="specimen-block">Auto-fill item B</div>
+        <div class="specimen-block">Auto-fill item C</div>
+        <div class="specimen-block">Auto-fill item D</div>
+        <div class="specimen-block">Auto-fill item E</div>
+      </div>
+    </div>
+    <h4 class="specimen-subheading-sm">Grid — cards variant</h4>
+    <div class="specimen-example outlined">
+      <div class="grid cards">
+        <div class="specimen-block tall">Card A</div>
+        <div class="specimen-block tall">Card B</div>
+        <div class="specimen-block tall">Card C</div>
+      </div>
+    </div>
+
+    <!-- 3D · Sidebar -->
+    <h3 class="specimen-subheading">Sidebar <code>.with-sidebar</code></h3>
+    <div class="specimen-example outlined">
+      <div class="with-sidebar">
+        <div class="specimen-block tall">Sidebar (fixed basis)</div>
+        <div class="specimen-block tall">Content (fills remaining space — min 60% before wrapping)</div>
+      </div>
+    </div>
+
+    <!-- 3E · Center -->
+    <h3 class="specimen-subheading">Center <code>.center</code></h3>
+    <div class="specimen-example outlined">
+      <div class="center" style="--container-width: 32rem">
+        <div class="specimen-block">
+          Centered container — max-width constrained, margin-inline auto,
+          padding-inline from token.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3F · Cover -->
+    <h3 class="specimen-subheading">Cover <code>.cover</code></h3>
+    <div class="specimen-example outlined" style="height: 20rem">
+      <div class="cover" style="min-block-size: 100%">
+        <div class="specimen-block">Top — stays at top (first child)</div>
+        <div class="specimen-block cover-centered">Center — vertically centered</div>
+        <div class="specimen-block">Bottom — stays at bottom (last child)</div>
+      </div>
+    </div>
+
+    <!-- 3G · Reel -->
+    <h3 class="specimen-subheading">Reel <code>.reel</code></h3>
+    <div class="specimen-example outlined" style="max-width: 32rem">
+      <div class="reel">
+        <div class="specimen-block wide">Reel A — scroll right →</div>
+        <div class="specimen-block wide">Reel B</div>
+        <div class="specimen-block wide">Reel C</div>
+        <div class="specimen-block wide">Reel D</div>
+        <div class="specimen-block wide">Reel E</div>
+      </div>
+    </div>
+
+    <!-- 3H · Switcher -->
+    <h3 class="specimen-subheading">Switcher <code>.switcher</code></h3>
+    <div class="specimen-example outlined">
+      <div class="switcher">
+        <div class="specimen-block">Column A — switches to stack below threshold</div>
+        <div class="specimen-block">Column B</div>
+      </div>
+    </div>
+
+    <!-- 3I · Frame -->
+    <h3 class="specimen-subheading">Frame <code>.frame</code></h3>
+    <div class="specimen-example outlined">
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4)">
+        <div class="frame">
+          <div class="specimen-placeholder-image">16:9</div>
+        </div>
+        <div class="frame square">
+          <div class="specimen-placeholder-image">1:1</div>
+        </div>
+        <div class="frame portrait">
+          <div class="specimen-placeholder-image">3:4</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 4 · OBJECTS
+       Each object class shown bare — no quality classes applied yet.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="objects">
+    <h2 class="specimen-heading">Object Classes</h2>
+    <p class="specimen-note">
+      Object classes define structural skeletons. No visual expression
+      (color, background) is produced by an object class alone.
+      Quality classes in Section 5 complete the appearance.
+    </p>
+
+    <!-- 4A · Button -->
+    <h3 class="specimen-subheading">Button <code>.button</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button primary" type="button">Primary</button>
+        <button class="button secondary" type="button">Secondary</button>
+        <button class="button ghost" type="button">Ghost</button>
+        <button class="button soft" type="button">Soft</button>
+        <button class="button destructive" type="button">Destructive</button>
+        <button class="button ghost destructive" type="button">Ghost Destructive</button>
+      </div>
+    </div>
+
+    <!-- 4B · Card -->
+    <h3 class="specimen-subheading">Card <code>.card</code></h3>
+    <div class="specimen-example">
+      <div class="grid" style="--grid-min: 16rem">
+        <article class="card">
+          <div class="body">
+            <p class="description">A basic card. No quality classes — defaults to raised elevation, white background.</p>
+          </div>
+        </article>
+        <article class="card bordered">
+          <div class="body">
+            <p class="description">Bordered card — explicit border, no shadow.</p>
+          </div>
+        </article>
+        <article class="card flat">
+          <div class="body">
+            <p class="description">Flat card — no background, no shadow. Pure container.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 4C · Input -->
+    <h3 class="specimen-subheading">Input <code>.input</code></h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <div class="input">
+          <input type="text" placeholder="Default input" />
+        </div>
+        <div class="input sm">
+          <input type="text" placeholder="Small input" />
+        </div>
+        <div class="input lg">
+          <input type="text" placeholder="Large input" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 4D · Alert -->
+    <h3 class="specimen-subheading">Alert <code>.alert</code></h3>
+    <div class="specimen-example">
+      <div class="stack tight">
+        <div class="alert info"    role="status">Info alert message</div>
+        <div class="alert success" role="status">Success alert message</div>
+        <div class="alert warning" role="status">Warning alert message</div>
+        <div class="alert destructive" role="alert">Destructive alert message</div>
+      </div>
+    </div>
+
+    <!-- 4E · Badge -->
+    <h3 class="specimen-subheading">Badge <code>.badge</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <span class="badge primary">Primary</span>
+        <span class="badge success">Success</span>
+        <span class="badge warning">Warning</span>
+        <span class="badge destructive">Destructive</span>
+        <span class="badge neutral">Neutral</span>
+        <span class="badge info">Info</span>
+        <span class="badge primary dot" aria-label="New notification"></span>
+        <span class="badge success dot" aria-label="Online"></span>
+        <span class="badge destructive dot" aria-label="Error"></span>
+      </div>
+    </div>
+
+    <!-- 4F · Tag -->
+    <h3 class="specimen-subheading">Tag <code>.tag</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <span class="tag">Technology</span>
+        <span class="tag">Healthcare</span>
+        <span class="tag">Finance</span>
+        <button class="tag dismissible" type="button">
+          Removable
+          <svg aria-hidden="true" class="icon trailing"><!-- × --></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4G · Avatar -->
+    <h3 class="specimen-subheading">Avatar <code>.avatar</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <div class="avatar xs">JD</div>
+        <div class="avatar sm">JD</div>
+        <div class="avatar md">JD</div>
+        <div class="avatar lg">JD</div>
+        <div class="avatar xl">JD</div>
+        <!-- Image avatar -->
+        <div class="avatar lg">
+          <img src="https://via.placeholder.com/64" alt="Jane Doe" />
+        </div>
+        <!-- Status indicator -->
+        <div class="avatar lg">
+          JD
+          <span class="badge success dot indicator" aria-label="Online"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4H · Progress -->
+    <h3 class="specimen-subheading">Progress <code>progress</code> (HTML element styled)</h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <progress class="progress" value="25" max="100" aria-label="25% complete"></progress>
+        <progress class="progress" value="62" max="100" aria-label="62% complete"></progress>
+        <progress class="progress" value="90" max="100" aria-label="90% complete"></progress>
+        <progress class="progress" aria-label="Indeterminate progress"></progress>
+      </div>
+    </div>
+
+    <!-- 4I · Skeleton -->
+    <h3 class="specimen-subheading">Skeleton <code>.skeleton</code></h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <div class="skeleton" style="height: var(--text-2xl); width: 50%"></div>
+        <div class="skeleton" style="height: var(--text-base)"></div>
+        <div class="skeleton" style="height: var(--text-base); width: 80%"></div>
+        <div class="skeleton" style="height: var(--text-base); width: 65%"></div>
+      </div>
+    </div>
+
+    <!-- 4J · Spinner -->
+    <h3 class="specimen-subheading">Spinner <code>.spinner</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <div class="spinner sm" aria-label="Loading" role="status"></div>
+        <div class="spinner"    aria-label="Loading" role="status"></div>
+        <div class="spinner lg" aria-label="Loading" role="status"></div>
+      </div>
+    </div>
+
+    <!-- 4K · Toggle / Switch -->
+    <h3 class="specimen-subheading">Toggle <code>.toggle</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="toggle" role="switch" aria-checked="false" type="button"
+                aria-label="Enable notifications">
+          <span class="indicator"></span>
+        </button>
+        <button class="toggle" role="switch" aria-checked="true" type="button"
+                aria-label="Enable dark mode">
+          <span class="indicator"></span>
+        </button>
+        <button class="toggle sm" role="switch" aria-checked="false" type="button"
+                aria-label="Compact mode">
+          <span class="indicator"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4L · Tabs -->
+    <h3 class="specimen-subheading">Tabs <code>.tabs</code></h3>
+    <div class="specimen-example">
+      <div class="tabs" role="tablist" aria-label="Portfolio views">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="tab-panel-overview" id="tab-overview" type="button">Overview</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-panel-holdings" id="tab-holdings" type="button">Holdings</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-panel-history"  id="tab-history"  type="button">History</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-panel-reports"  id="tab-reports"  type="button" disabled>Reports</button>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="tab-panel-overview" aria-labelledby="tab-overview">
+        <p>Overview panel content</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="tab-panel-holdings" aria-labelledby="tab-holdings" hidden>
+        <p>Holdings panel content</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="tab-panel-history"  aria-labelledby="tab-history"  hidden>
+        <p>History panel content</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="tab-panel-reports"  aria-labelledby="tab-reports"  hidden>
+        <p>Reports panel content</p>
+      </div>
+    </div>
+
+    <!-- Vertical tabs variant -->
+    <h4 class="specimen-subheading-sm">Tabs — vertical</h4>
+    <div class="specimen-example">
+      <div class="tabs vertical">
+        <div role="tablist" aria-label="Settings sections" aria-orientation="vertical">
+          <button class="tab" role="tab" aria-selected="true"  type="button">Profile</button>
+          <button class="tab" role="tab" aria-selected="false" type="button">Security</button>
+          <button class="tab" role="tab" aria-selected="false" type="button">Billing</button>
+          <button class="tab" role="tab" aria-selected="false" type="button">Notifications</button>
+        </div>
+        <div class="tab-panel" role="tabpanel">
+          <p>Profile settings content</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4M · Accordion -->
+    <h3 class="specimen-subheading">Accordion <code>.accordion</code></h3>
+    <div class="specimen-example">
+      <div class="accordion">
+        <details class="accordion-item" open>
+          <summary class="accordion-trigger">
+            What is a design token?
+            <svg class="icon trailing" aria-hidden="true"><!-- chevron --></svg>
+          </summary>
+          <div class="accordion-content">
+            <p>A design token is a named, platform-agnostic representation of a design decision — a color, a spacing value, a typeface — stored as a key-value pair that can be transformed into any output format.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-trigger">
+            What is OKLCH?
+            <svg class="icon trailing" aria-hidden="true"><!-- chevron --></svg>
+          </summary>
+          <div class="accordion-content">
+            <p>OKLCH is a perceptually uniform polar colorspace. Equal numerical distances in OKLCH correspond to equal perceived differences in color — unlike HSL or RGB, where the same numerical step produces perceptually unequal results at different points in the space.</p>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-trigger">
+            What is APCA?
+            <svg class="icon trailing" aria-hidden="true"><!-- chevron --></svg>
+          </summary>
+          <div class="accordion-content">
+            <p>The Advanced Perceptual Contrast Algorithm is a contrast calculation method that accounts for spatial frequency, polarity, and font weight — giving more accurate predictions of readability than the WCAG 2.x relative luminance ratio.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 4N · Table (component) -->
+    <h3 class="specimen-subheading">Table <code>.table</code> (component)</h3>
+    <div class="specimen-example">
+      <div class="table interactive" role="region" aria-label="Holdings data table">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none">
+                <button class="button ghost sm" type="button">Ticker</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button class="button ghost sm" type="button">Company</button>
+              </th>
+              <th scope="col" aria-sort="ascending" class="numeric">
+                <button class="button ghost sm" type="button">Market Value</button>
+              </th>
+              <th scope="col" aria-sort="none" class="numeric">
+                <button class="button ghost sm" type="button">Gain / Loss</button>
+              </th>
+              <th scope="col"><span class="sr-only">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong class="label">AAPL</strong></td>
+              <td>Apple Inc.</td>
+              <td class="numeric"><strong>$7,670.46</strong></td>
+              <td class="numeric"><span class="delta positive">+19.3%</span></td>
+              <td class="actions">
+                <button class="button ghost square sm" type="button" aria-label="Actions">
+                  <svg aria-hidden="true"><!-- ellipsis --></svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong class="label">MSFT</strong></td>
+              <td>Microsoft Corporation</td>
+              <td class="numeric"><strong>$5,210.00</strong></td>
+              <td class="numeric"><span class="delta positive">+11.4%</span></td>
+              <td class="actions">
+                <button class="button ghost square sm" type="button" aria-label="Actions">
+                  <svg aria-hidden="true"><!-- ellipsis --></svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong class="label">META</strong></td>
+              <td>Meta Platforms Inc.</td>
+              <td class="numeric"><strong>$7,261.50</strong></td>
+              <td class="numeric"><span class="delta negative">-10.9%</span></td>
+              <td class="actions">
+                <button class="button ghost square sm" type="button" aria-label="Actions">
+                  <svg aria-hidden="true"><!-- ellipsis --></svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4O · Form (component) -->
+    <h3 class="specimen-subheading">Form / Field <code>.form .field .input</code></h3>
+    <div class="specimen-example">
+      <form class="form" novalidate style="max-width: 32rem">
+        <div class="stack">
+
+          <div class="field">
+            <label class="label" for="s-email">Email address</label>
+            <div class="input">
+              <input type="email" id="s-email" placeholder="you@example.com"
+                     autocomplete="email" />
+            </div>
+            <span class="caption">Used for account notifications only.</span>
+          </div>
+
+          <div class="field">
+            <label class="label" for="s-password">Password</label>
+            <div class="input">
+              <input type="password" id="s-password" autocomplete="current-password" />
+              <button class="button ghost square sm trailing" type="button"
+                      aria-label="Show password">
+                <svg aria-hidden="true"><!-- eye --></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Error state -->
+          <div class="field" aria-invalid="true">
+            <label class="label" for="s-ticker">Ticker symbol</label>
+            <div class="input" aria-invalid="true">
+              <input type="text" id="s-ticker" aria-describedby="s-ticker-error"
+                     aria-invalid="true" value="XXXXX" />
+            </div>
+            <span class="caption" id="s-ticker-error" role="alert">
+              No security found for ticker "XXXXX".
+            </span>
+          </div>
+
+          <!-- Select -->
+          <div class="field">
+            <label class="label" for="s-account">Account</label>
+            <div class="input">
+              <select id="s-account">
+                <option value="">Select an account</option>
+                <option>Brokerage Account</option>
+                <option>Roth IRA</option>
+                <option>401(k)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Checkbox group -->
+          <fieldset class="fieldset">
+            <legend class="label">Notification preferences</legend>
+            <div class="stack tight">
+              <label class="check-label">
+                <input type="checkbox" class="checkbox" checked />
+                <span>Email on trade confirmation</span>
+              </label>
+              <label class="check-label">
+                <input type="checkbox" class="checkbox" />
+                <span>Weekly portfolio summary</span>
+              </label>
+              <label class="check-label">
+                <input type="checkbox" class="checkbox" />
+                <span>Price alerts</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Radio group -->
+          <fieldset class="fieldset">
+            <legend class="label">Sort holdings by</legend>
+            <div class="stack tight">
+              <label class="check-label">
+                <input type="radio" class="radio" name="sort" value="value" checked />
+                <span>Market value</span>
+              </label>
+              <label class="check-label">
+                <input type="radio" class="radio" name="sort" value="gain" />
+                <span>Gain / loss</span>
+              </label>
+              <label class="check-label">
+                <input type="radio" class="radio" name="sort" value="ticker" />
+                <span>Ticker (A–Z)</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Textarea -->
+          <div class="field">
+            <label class="label" for="s-notes">Notes</label>
+            <div class="input">
+              <textarea id="s-notes" rows="4"
+                        placeholder="Optional notes about this transaction…"></textarea>
+            </div>
+            <span class="caption" id="s-notes-count">0 / 500</span>
+          </div>
+
+          <div class="cluster">
+            <button class="button ghost" type="reset">Cancel</button>
+            <button class="button primary" type="submit">Save changes</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <!-- 4P · Tooltip / Popover -->
+    <h3 class="specimen-subheading">Tooltip <code>.tooltip</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <div class="tooltip-wrapper">
+          <button class="button ghost sm" type="button" aria-describedby="tip-1">
+            Hover me
+          </button>
+          <div class="tooltip" role="tooltip" id="tip-1">
+            This is a tooltip with helpful context
+          </div>
+        </div>
+
+        <div class="tooltip-wrapper">
+          <button class="button secondary sm" type="button" aria-describedby="tip-2">
+            APCA
+          </button>
+          <div class="tooltip lg" role="tooltip" id="tip-2">
+            <strong class="title">Advanced Perceptual Contrast Algorithm</strong>
+            <p class="description">A modern contrast calculation that accounts for font size, weight, and polarity to predict readability more accurately than WCAG 2.x.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4Q · Modal (static preview — open class applied) -->
+    <h3 class="specimen-subheading">Modal <code>.modal</code> (static open preview)</h3>
+    <div class="specimen-example" style="position:relative; min-height: 22rem; overflow: hidden">
+      <div class="modal" role="dialog" aria-modal="true"
+           aria-labelledby="specimen-modal-title"
+           style="position:absolute; transform:none; max-width:28rem">
+        <div class="header">
+          <h3 class="title" id="specimen-modal-title">Confirm transaction</h3>
+          <button class="button ghost square sm trailing" type="button" aria-label="Close">
+            <svg aria-hidden="true"><!-- × --></svg>
+          </button>
+        </div>
+        <div class="body">
+          <p>You are about to purchase <strong>42 shares of AAPL</strong> at
+          <strong>$182.63</strong> per share for a total of <strong>$7,670.46</strong>.
+          This action cannot be undone.</p>
+        </div>
+        <div class="footer actions">
+          <button class="button ghost" type="button">Cancel</button>
+          <button class="button primary" type="button">Confirm purchase</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4R · Drawer (static preview) -->
+    <h3 class="specimen-subheading">Drawer <code>.drawer</code> (static open preview)</h3>
+    <div class="specimen-example" style="position:relative; min-height: 20rem; overflow: hidden">
+      <div class="drawer open" role="dialog" aria-modal="true"
+           aria-labelledby="specimen-drawer-title"
+           style="position:absolute; right:0; top:0; height:100%; width:20rem; max-width:100%">
+        <div class="header">
+          <h3 class="title" id="specimen-drawer-title">Filters</h3>
+          <button class="button ghost square sm trailing" type="button" aria-label="Close">
+            <svg aria-hidden="true"><!-- × --></svg>
+          </button>
+        </div>
+        <div class="body">
+          <div class="stack">
+            <div class="field">
+              <label class="label" for="drawer-date-from">Date from</label>
+              <div class="input"><input type="date" id="drawer-date-from" /></div>
+            </div>
+            <div class="field">
+              <label class="label" for="drawer-date-to">Date to</label>
+              <div class="input"><input type="date" id="drawer-date-to" /></div>
+            </div>
+            <div class="field">
+              <label class="label" for="drawer-type">Transaction type</label>
+              <div class="input">
+                <select id="drawer-type">
+                  <option>All types</option>
+                  <option>Buy</option>
+                  <option>Sell</option>
+                  <option>Dividend</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer actions">
+          <button class="button ghost" type="button">Clear</button>
+          <button class="button primary" type="button">Apply filters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4S · Menu / Dropdown -->
+    <h3 class="specimen-subheading">Menu <code>.menu</code></h3>
+    <div class="specimen-example">
+      <div class="menu" role="menu" aria-label="Account actions" style="max-width: 14rem">
+        <button class="menu-item" role="menuitem" type="button">View profile</button>
+        <button class="menu-item" role="menuitem" type="button">Account settings</button>
+        <button class="menu-item" role="menuitem" type="button">Export data</button>
+        <hr class="divider" />
+        <button class="menu-item destructive" role="menuitem" type="button">Sign out</button>
+      </div>
+    </div>
+
+    <!-- 4T · Navigation -->
+    <h3 class="specimen-subheading">Navigation <code>.nav .nav-item</code></h3>
+    <div class="specimen-example">
+      <nav aria-label="Specimen primary navigation" style="width: 14rem">
+        <ul class="nav" role="list">
+          <li>
+            <a href="#" class="nav-item" aria-current="page">
+              <svg class="icon leading" aria-hidden="true"><!-- chart --></svg>
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item">
+              <svg class="icon leading" aria-hidden="true"><!-- list --></svg>
+              Transactions
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item">
+              <svg class="icon leading" aria-hidden="true"><!-- target --></svg>
+              Goals
+            </a>
+          </li>
+          <li role="separator"><hr class="divider" /></li>
+          <li>
+            <a href="#" class="nav-item">
+              <svg class="icon leading" aria-hidden="true"><!-- gear --></svg>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- 4U · Breadcrumb -->
+    <h3 class="specimen-subheading">Breadcrumb <code>.breadcrumb</code></h3>
+    <div class="specimen-example">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Holdings</a></li>
+          <li aria-current="page">Apple Inc.</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- 4V · Pagination -->
+    <h3 class="specimen-subheading">Pagination <code>.pagination</code></h3>
+    <div class="specimen-example">
+      <nav aria-label="Transaction history pages">
+        <div class="pagination">
+          <button class="button ghost sm" type="button" aria-label="Previous page" disabled>
+            <svg aria-hidden="true"><!-- ← --></svg>
+          </button>
+          <button class="button ghost sm" type="button" aria-label="Page 1" aria-current="page">1</button>
+          <button class="button ghost sm" type="button" aria-label="Page 2">2</button>
+          <button class="button ghost sm" type="button" aria-label="Page 3">3</button>
+          <span class="pagination-ellipsis" aria-hidden="true">…</span>
+          <button class="button ghost sm" type="button" aria-label="Page 12">12</button>
+          <button class="button ghost sm" type="button" aria-label="Next page">
+            <svg aria-hidden="true"><!-- → --></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- 4W · Stepper -->
+    <h3 class="specimen-subheading">Stepper <code>.stepper</code></h3>
+    <div class="specimen-example">
+      <ol class="stepper" aria-label="Onboarding progress">
+        <li class="step complete" aria-label="Step 1: Connect account — complete">
+          <span class="step-indicator">✓</span>
+          <span class="step-label">Connect account</span>
+        </li>
+        <li class="step active" aria-current="step" aria-label="Step 2: Import holdings — current">
+          <span class="step-indicator">2</span>
+          <span class="step-label">Import holdings</span>
+        </li>
+        <li class="step" aria-label="Step 3: Set goals — upcoming">
+          <span class="step-indicator">3</span>
+          <span class="step-label">Set goals</span>
+        </li>
+        <li class="step" aria-label="Step 4: Review — upcoming">
+          <span class="step-indicator">4</span>
+          <span class="step-label">Review</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 4X · Toast (static preview) -->
+    <h3 class="specimen-subheading">Toast <code>.toast</code></h3>
+    <div class="specimen-example">
+      <div class="stack tight">
+        <div class="toast info" role="status" aria-live="polite">
+          <svg class="icon leading" aria-hidden="true"><!-- info --></svg>
+          <div class="content">
+            <strong class="title">Price alert</strong>
+            <p class="description">AAPL crossed your target of $180.</p>
+          </div>
+          <button class="button ghost square sm trailing" type="button" aria-label="Dismiss">
+            <svg aria-hidden="true"><!-- × --></svg>
+          </button>
+        </div>
+        <div class="toast success" role="status" aria-live="polite">
+          <svg class="icon leading" aria-hidden="true"><!-- check --></svg>
+          <div class="content">
+            <strong class="title">Trade confirmed</strong>
+            <p class="description">42 shares of AAPL purchased at $182.63.</p>
+          </div>
+          <button class="button ghost square sm trailing" type="button" aria-label="Dismiss">
+            <svg aria-hidden="true"><!-- × --></svg>
+          </button>
+        </div>
+        <div class="toast warning" role="status" aria-live="polite">
+          <svg class="icon leading" aria-hidden="true"><!-- warning --></svg>
+          <span class="content">Market data is delayed by 15 minutes.</span>
+        </div>
+        <div class="toast destructive" role="alert" aria-live="assertive">
+          <svg class="icon leading" aria-hidden="true"><!-- error --></svg>
+          <span class="content">Unable to fetch portfolio data. Retrying…</span>
+          <button class="button ghost sm trailing" type="button">Retry</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4Y · Rating -->
+    <h3 class="specimen-subheading">Rating <code>.rating</code></h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <div class="rating" aria-label="Risk rating: 3 out of 5">
+          <span class="rating-star filled" aria-hidden="true">★</span>
+          <span class="rating-star filled" aria-hidden="true">★</span>
+          <span class="rating-star filled" aria-hidden="true">★</span>
+          <span class="rating-star" aria-hidden="true">★</span>
+          <span class="rating-star" aria-hidden="true">★</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 5 · QUALITY CLASSES
+       Qualities composing on objects. Each variant systematically.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="qualities">
+    <h2 class="specimen-heading">Quality Classes</h2>
+    <p class="specimen-note">
+      Quality classes produce no output alone.
+      Each is shown composed with the object it most commonly modifies.
+    </p>
+
+    <!-- 5A · Button sizes -->
+    <h3 class="specimen-subheading">Button · Sizes</h3>
+    <div class="specimen-example">
+      <div class="cluster" style="align-items: center">
+        <button class="button primary xs" type="button">Extra small</button>
+        <button class="button primary sm" type="button">Small</button>
+        <button class="button primary"    type="button">Default (md)</button>
+        <button class="button primary lg" type="button">Large</button>
+        <button class="button primary xl" type="button">Extra large</button>
+      </div>
+    </div>
+
+    <!-- 5B · Button shapes -->
+    <h3 class="specimen-subheading">Button · Shapes</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button primary" type="button">Default</button>
+        <button class="button primary pill" type="button">Pill</button>
+        <button class="button primary square" type="button">
+          <svg aria-hidden="true"><!-- + --></svg>
+        </button>
+        <button class="button primary square pill" type="button">
+          <svg aria-hidden="true"><!-- + --></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 5C · Card qualities -->
+    <h3 class="specimen-subheading">Card · Qualities</h3>
+    <div class="specimen-example">
+      <div class="grid" style="--grid-min: 14rem">
+        <article class="card">Default (raised)</article>
+        <article class="card bordered">Bordered</article>
+        <article class="card flat">Flat</article>
+        <article class="card interactive">Interactive (hover)</article>
+        <article class="card selectable" role="option" aria-selected="false">Selectable</article>
+        <article class="card compact">Compact</article>
+        <article class="card horizontal">Horizontal</article>
+      </div>
+    </div>
+
+    <!-- 5D · States as qualities -->
+    <h3 class="specimen-subheading">Button · Explicit State Qualities</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button primary" type="button">Default</button>
+        <button class="button primary" type="button" data-loading aria-busy="true">Loading</button>
+        <button class="button primary" type="button" disabled>Disabled</button>
+        <button class="button primary" type="button" aria-pressed="true">Pressed</button>
+      </div>
+    </div>
+
+    <!-- 5E · Input qualities -->
+    <h3 class="specimen-subheading">Input · Qualities</h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <div class="input"><input type="text" placeholder="Default" /></div>
+        <div class="input" aria-invalid="true"><input type="text" value="Invalid value" aria-invalid="true" /></div>
+        <div class="input" aria-disabled="true"><input type="text" value="Disabled" disabled /></div>
+        <div class="input subtle"><input type="text" placeholder="Subtle variant" /></div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 6 · ROLE CLASSES
+       Show each role class in its common object contexts.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="roles">
+    <h2 class="specimen-heading">Role Classes</h2>
+    <p class="specimen-note">
+      Role classes describe structural positions. The same role class
+      (.header, .title, .actions) adjusts per object context.
+    </p>
+
+    <!-- 6A · Header / Body / Footer in card context -->
+    <h3 class="specimen-subheading">header · body · footer (in card)</h3>
+    <div class="specimen-example">
+      <div class="grid" style="--grid-min: 18rem">
+        <article class="card bordered">
+          <div class="header">
+            <div class="content">
+              <h4 class="title">Card title</h4>
+              <span class="subtitle">Optional subtitle</span>
+            </div>
+            <span class="badge success">Active</span>
+          </div>
+          <div class="body">
+            <p class="description">Card body with a description. The body is flex:1 and fills available height in equal-height grid layouts.</p>
+          </div>
+          <div class="footer actions">
+            <button class="button ghost sm" type="button">Secondary</button>
+            <button class="button primary sm" type="button">Primary</button>
+          </div>
+        </article>
+
+        <!-- Same roles in modal context — different visual expression -->
+        <article class="card bordered">
+          <div class="media">
+            <div class="specimen-placeholder-image" style="height: 8rem">media role</div>
+          </div>
+          <div class="header">
+            <div class="content">
+              <h4 class="title">With media role</h4>
+            </div>
+          </div>
+          <div class="body">
+            <p class="description">.media above header. The card has no fixed media slot — structure is flexible.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 6B · Typographic roles -->
+    <h3 class="specimen-subheading">Typographic Roles</h3>
+    <div class="specimen-example">
+      <div class="stack tight">
+        <span class="title">Title role — primary heading in context</span>
+        <span class="subtitle">Subtitle role — secondary identifier</span>
+        <span class="label">Label role — field or category label</span>
+        <span class="description">Description role — supporting body text, secondary color, prose-constrained width</span>
+        <span class="caption">Caption role — small supporting metadata, tertiary color</span>
+        <span class="meta">Meta role — timestamp, attribution, provenance</span>
+      </div>
+    </div>
+
+    <!-- 6C · Leading / Trailing / Content in input context -->
+    <h3 class="specimen-subheading">leading · trailing · content (in input)</h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <div class="input">
+          <svg class="icon leading" aria-hidden="true"><!-- search --></svg>
+          <input type="search" placeholder="Search holdings…" />
+          <button class="button ghost square sm trailing" type="button" aria-label="Clear">
+            <svg aria-hidden="true"><!-- × --></svg>
+          </button>
+        </div>
+        <div class="input">
+          <span class="leading muted" aria-hidden="true">$</span>
+          <input type="number" placeholder="0.00" />
+          <span class="trailing muted" aria-hidden="true">USD</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6D · Actions role -->
+    <h3 class="specimen-subheading">actions role</h3>
+    <div class="specimen-example">
+      <div class="stack tight">
+        <div class="actions">
+          <button class="button ghost sm" type="button">Cancel</button>
+          <button class="button primary sm" type="button">Save</button>
+        </div>
+        <div class="actions" style="justify-content: flex-start">
+          <button class="button ghost sm" type="button">← Back</button>
+          <div style="margin-inline-start: auto" class="cluster">
+            <button class="button ghost sm" type="button">Skip</button>
+            <button class="button primary sm" type="button">Continue →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6E · sr-only -->
+    <h3 class="specimen-subheading">Utilities: sr-only · truncate · visually-hidden</h3>
+    <div class="specimen-example">
+      <p>
+        The following icon button has a visible icon and a
+        <span class="sr-only">visually hidden</span>
+        accessible label only screen readers can see:
+        <button class="button ghost square sm" type="button">
+          <svg aria-hidden="true"><!-- edit --></svg>
+          <span class="sr-only">Edit transaction</span>
+        </button>
+      </p>
+      <p class="truncate" style="max-width: 20rem">
+        This text is very long and will be truncated with an ellipsis at the container edge without wrapping onto a new line regardless of content length.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 7 · STATES
+       Prove that data-attribute and ARIA-attribute CSS selectors work.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="states">
+    <h2 class="specimen-heading">States</h2>
+    <p class="specimen-note">
+      All states are driven by HTML attributes — data-* or ARIA attributes.
+      JavaScript sets the attribute. CSS observes it. No state classes.
+    </p>
+
+    <!-- 7A · aria-invalid -->
+    <h3 class="specimen-subheading">aria-invalid (field error)</h3>
+    <div class="specimen-example">
+      <div class="stack tight" style="max-width: 28rem">
+        <div class="field" aria-invalid="true">
+          <label class="label" for="state-invalid">Ticker symbol</label>
+          <div class="input" aria-invalid="true">
+            <input type="text" id="state-invalid" value="XXXXX"
+                   aria-invalid="true" aria-describedby="state-invalid-err" />
+          </div>
+          <span class="caption" id="state-invalid-err" role="alert">
+            No security found for "XXXXX".
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7B · aria-disabled -->
+    <h3 class="specimen-subheading">aria-disabled / disabled</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button primary" type="button" disabled>Disabled native</button>
+        <button class="button primary" type="button" aria-disabled="true">Disabled ARIA</button>
+        <button class="button ghost" type="button" disabled>Ghost disabled</button>
+      </div>
+    </div>
+
+    <!-- 7C · data-loading -->
+    <h3 class="specimen-subheading">data-loading</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button primary" type="button" data-loading aria-busy="true">
+          Saving changes
+        </button>
+        <button class="button secondary" type="button" data-loading aria-busy="true">
+          Processing
+        </button>
+        <button class="button ghost" type="button" data-loading aria-busy="true">
+          Loading
+        </button>
+      </div>
+    </div>
+
+    <!-- 7D · aria-expanded -->
+    <h3 class="specimen-subheading">aria-expanded</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button ghost sm" type="button" aria-expanded="false"
+                aria-controls="expand-demo">
+          Collapsed ▸
+        </button>
+        <button class="button ghost sm" type="button" aria-expanded="true"
+                aria-controls="expand-demo-2">
+          Expanded ▾
+        </button>
+      </div>
+    </div>
+
+    <!-- 7E · aria-pressed -->
+    <h3 class="specimen-subheading">aria-pressed (toggle button)</h3>
+    <div class="specimen-example">
+      <div class="cluster">
+        <button class="button ghost sm" type="button" aria-pressed="false">Bookmark</button>
+        <button class="button ghost sm" type="button" aria-pressed="true">Bookmarked ✓</button>
+        <button class="button ghost sm" type="button" aria-pressed="false">Follow</button>
+        <button class="button ghost sm" type="button" aria-pressed="true">Following ✓</button>
+      </div>
+    </div>
+
+    <!-- 7F · aria-selected -->
+    <h3 class="specimen-subheading">aria-selected (selectable cards)</h3>
+    <div class="specimen-example">
+      <div class="cluster" role="listbox" aria-label="Select account">
+        <div class="card selectable bordered sm" role="option" aria-selected="false">
+          <div class="body"><strong class="label">Brokerage</strong></div>
+        </div>
+        <div class="card selectable bordered sm" role="option" aria-selected="true">
+          <div class="body"><strong class="label">Roth IRA</strong></div>
+        </div>
+        <div class="card selectable bordered sm" role="option" aria-selected="false">
+          <div class="body"><strong class="label">401(k)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7G · aria-current="page" -->
+    <h3 class="specimen-subheading">aria-current (navigation)</h3>
+    <div class="specimen-example">
+      <nav aria-label="Aria-current demo">
+        <ul class="nav" role="list" style="width: 12rem">
+          <li><a href="#" class="nav-item" aria-current="page">Portfolio</a></li>
+          <li><a href="#" class="nav-item">Transactions</a></li>
+          <li><a href="#" class="nav-item">Goals</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- 7H · data-selected (table row) -->
+    <h3 class="specimen-subheading">data-selected (table rows)</h3>
+    <div class="specimen-example">
+      <div class="table" role="region" aria-label="Selection demo">
+        <table>
+          <thead><tr><th>Ticker</th><th>Company</th><th class="numeric">Value</th></tr></thead>
+          <tbody>
+            <tr data-selected="true" aria-selected="true">
+              <td><strong class="label">AAPL</strong></td><td>Apple Inc.</td><td class="numeric">$7,670</td>
+            </tr>
+            <tr>
+              <td><strong class="label">MSFT</strong></td><td>Microsoft</td><td class="numeric">$5,210</td>
+            </tr>
+            <tr data-selected="true" aria-selected="true">
+              <td><strong class="label">GOOGL</strong></td><td>Alphabet</td><td class="numeric">$4,882</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 7I · Focus rings -->
+    <h3 class="specimen-subheading">Focus rings (tab to verify)</h3>
+    <div class="specimen-example">
+      <p class="caption">Tab through these elements to verify focus ring rendering:</p>
+      <div class="cluster">
+        <button class="button primary" type="button">Button</button>
+        <a href="#">Hyperlink</a>
+        <div class="input" style="max-width: 12rem">
+          <input type="text" placeholder="Input" />
+        </div>
+        <div class="input" style="max-width: 8rem">
+          <select>
+            <option>Select</option>
+          </select>
+        </div>
+        <button class="button ghost square" type="button">
+          <svg aria-hidden="true"><!-- icon --></svg>
+          <span class="sr-only">Icon button</span>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────
+       SECTION 8 · COMPOSITIONS
+       Show the system working together. Content patterns,
+       page regions, and a representative page template fragment.
+       ────────────────────────────────────────────────────────── -->
+
+  <section class="specimen-section" id="compositions">
+    <h2 class="specimen-heading">Compositions</h2>
+
+    <!-- 8A · Prose block -->
+    <h3 class="specimen-subheading">Prose context <code>.prose</code></h3>
+    <div class="specimen-example">
+      <article class="prose">
+        <h2>Understanding Portfolio Rebalancing</h2>
+        <p>
+          Portfolio rebalancing is the process of realigning the weights of your portfolio's assets
+          to maintain your desired level of <a href="#">asset allocation</a> and risk. Over time,
+          as different assets grow at different rates, your portfolio can drift from its target allocation.
+        </p>
+        <h3>When to rebalance</h3>
+        <p>
+          Most financial advisors recommend rebalancing when your portfolio deviates more than
+          <strong>5 percentage points</strong> from your target allocation, or on a regular
+          calendar schedule — typically quarterly or annually.
+        </p>
+        <blockquote>
+          <p>The best rebalancing strategy is the one you will actually execute consistently.</p>
+        </blockquote>
+        <ul>
+          <li>Threshold-based: rebalance when allocation drifts beyond a set percentage</li>
+          <li>Calendar-based: rebalance on a fixed schedule regardless of drift</li>
+          <li>Hybrid: use calendar triggers with drift thresholds as guardrails</li>
+        </ul>
+        <p>
+          Consider tax implications when rebalancing a taxable account. Selling appreciated
+          assets triggers capital gains. <code>tax-loss harvesting</code> can offset some of
+          this liability.
+        </p>
+      </article>
+    </div>
+
+    <!-- 8B · KPI / Stat block pattern -->
+    <h3 class="specimen-subheading">KPI Stat Block pattern</h3>
+    <div class="specimen-example">
+      <div class="cluster loose" role="list" aria-label="Portfolio summary">
+        <div class="stat-block" role="listitem">
+          <span class="label">Total Value</span>
+          <strong class="title" aria-label="Total portfolio value: 124,382 dollars">$124,382</strong>
+          <span class="delta positive caption" aria-label="Up 8.4% year to date">
+            <svg class="icon leading" aria-hidden="true"><!-- ↑ --></svg>
+            +8.4% YTD
+          </span>
+        </div>
+        <div class="stat-block" role="listitem">
+          <span class="label">Unrealized Gain</span>
+          <strong class="title" aria-label="Unrealized gain: 18,204 dollars">$18,204</strong>
+          <span class="delta positive caption">+17.2%</span>
+        </div>
+        <div class="stat-block" role="listitem">
+          <span class="label">Day's Change</span>
+          <strong class="title" aria-label="Today's change: negative 312 dollars">-$312</strong>
+          <span class="delta negative caption" aria-label="Down 0.25 percent today">
+            <svg class="icon leading" aria-hidden="true"><!-- ↓ --></svg>
+            -0.25%
+          </span>
+        </div>
+        <div class="stat-block" role="listitem">
+          <span class="label">Cash Position</span>
+          <strong class="title">$4,210</strong>
+          <span class="caption muted">3.4% of portfolio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8C · Section header group pattern -->
+    <h3 class="specimen-subheading">Section Header Group pattern</h3>
+    <div class="specimen-example">
+      <div class="switcher" style="--switcher-threshold: 30rem">
+        <div class="stack tight">
+          <h3 class="title">Holdings</h3>
+          <p class="description">42 positions across 8 sectors</p>
+        </div>
+        <div class="actions trailing">
+          <button class="button ghost sm" type="button">Export</button>
+          <button class="button secondary sm" type="button">Add holding</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8D · Media object pattern -->
+    <h3 class="specimen-subheading">Media Object pattern</h3>
+    <div class="specimen-example">
+      <div class="stack tight">
+        <div class="cluster">
+          <div class="avatar md">AB</div>
+          <div class="content">
+            <span class="label">Account connected</span>
+            <p class="caption">Fidelity Brokerage — 3 accounts synced</p>
+          </div>
+          <span class="meta trailing">2m ago</span>
+        </div>
+        <div class="cluster">
+          <div class="avatar md">CD</div>
+          <div class="content">
+            <span class="label">Trade executed</span>
+            <p class="caption">Bought 42 AAPL @ $182.63</p>
+          </div>
+          <span class="meta trailing">1h ago</span>
+        </div>
+        <div class="cluster">
+          <div class="avatar md">EF</div>
+          <div class="content">
+            <span class="label">Goal reached</span>
+            <p class="caption">Emergency Fund target achieved</p>
+          </div>
+          <span class="meta trailing">Yesterday</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8E · Full card with all anatomy roles -->
+    <h3 class="specimen-subheading">Full card composition</h3>
+    <div class="specimen-example">
+      <div class="grid" style="--grid-min: 20rem">
+
+        <article class="card interactive" aria-labelledby="goal-card-title">
+          <div class="header">
+            <div class="content">
+              <h4 class="title" id="goal-card-title">Emergency Fund</h4>
+              <span class="subtitle">Target: $10,000 · Due: June 2026</span>
+            </div>
+            <span class="badge warning">In Progress</span>
+          </div>
+          <div class="body">
+            <div class="stack tight">
+              <div class="cluster">
+                <strong class="title" aria-label="Current savings 6240 dollars">$6,240</strong>
+                <span class="label trailing">62.4%</span>
+              </div>
+              <progress class="progress" value="6240" max="10000"
+                        aria-label="Emergency fund progress, 62.4% of 10000 dollar goal">
+              </progress>
+              <div class="cluster tight">
+                <svg class="icon leading subtle" aria-hidden="true"><!-- calendar --></svg>
+                <span class="caption">4 months remaining · $3,760 to go</span>
+              </div>
+            </div>
+          </div>
+          <div class="footer actions">
+            <button class="button primary sm" type="button">Add Funds</button>
+            <button class="button ghost square sm" type="button" aria-label="Edit goal">
+              <svg aria-hidden="true"><!-- edit --></svg>
+            </button>
+            <button class="button ghost square sm destructive" type="button" aria-label="Delete goal">
+              <svg aria-hidden="true"><!-- trash --></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="card interactive" aria-labelledby="goal-card-2-title">
+          <div class="header">
+            <div class="content">
+              <h4 class="title" id="goal-card-2-title">House Down Payment</h4>
+              <span class="subtitle">Target: $80,000 · Due: Dec 2027</span>
+            </div>
+            <span class="badge info">On Track</span>
+          </div>
+          <div class="body">
+            <div class="stack tight">
+              <div class="cluster">
+                <strong class="title" aria-label="Current savings 31200 dollars">$31,200</strong>
+                <span class="label trailing">39%</span>
+              </div>
+              <progress class="progress" value="31200" max="80000"
+                        aria-label="House down payment progress, 39% of 80000 dollar goal">
+              </progress>
+              <div class="cluster tight">
+                <svg class="icon leading subtle" aria-hidden="true"><!-- calendar --></svg>
+                <span class="caption">22 months remaining · $48,800 to go</span>
+              </div>
+            </div>
+          </div>
+          <div class="footer actions">
+            <button class="button primary sm" type="button">Add Funds</button>
+            <button class="button ghost square sm" type="button" aria-label="Edit goal">
+              <svg aria-hidden="true"><!-- edit --></svg>
+            </button>
+            <button class="button ghost square sm destructive" type="button" aria-label="Delete goal">
+              <svg aria-hidden="true"><!-- trash --></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 8F · Empty state pattern -->
+    <h3 class="specimen-subheading">Empty State pattern</h3>
+    <div class="specimen-example">
+      <div class="cover" style="min-block-size: 20rem">
+        <div class="stack" style="align-items: center; text-align: center; max-width: 24rem; margin: auto">
+          <div class="specimen-placeholder-image" style="width:6rem;height:6rem;border-radius:var(--radius-lg)">
+            [illustration]
+          </div>
+          <div class="stack tight">
+            <h4 class="title">No transactions yet</h4>
+            <p class="description">
+              Add your first transaction to start tracking your portfolio performance
+              and gain insights into your investments.
+            </p>
+          </div>
+          <button class="button primary" type="button">
+            Add your first transaction
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8G · App shell region preview -->
+    <h3 class="specimen-subheading">App Shell region structure</h3>
+    <p class="specimen-note">
+      Scaled-down representation of the <code>.app-shell</code> grid regions.
+      Structural only — not an interactive layout.
+    </p>
+    <div class="specimen-example">
+      <div class="specimen-app-shell-preview" aria-hidden="true">
+        <div class="specimen-region header">Header region (.region-header)</div>
+        <div class="specimen-region sidenav">
+          Sidebar region<br/>(.region-sidenav)
+        </div>
+        <div class="specimen-region main">
+          Main content region (.region-main)
+          <div class="specimen-region-inner">
+            <div class="specimen-subregion">Page heading zone</div>
+            <div class="specimen-subregion grow">Content area</div>
+          </div>
+        </div>
+        <div class="specimen-region footer">Footer region (.region-footer)</div>
+      </div>
+    </div>
+
+  </section>
+
+
+</main><!-- end #specimen-main -->
+
+
+<!-- ============================================================
+     CUSTOM ELEMENTS
+     Load after HTML is parsed. Enhance existing markup.
+     ============================================================ -->
+<script type="module" src="design-system-elements.js"></script>
+
+<!-- Specimen control behavior only — no design system logic -->
+<script src="specimen.js"></script>
+
+</body>
+</html>
