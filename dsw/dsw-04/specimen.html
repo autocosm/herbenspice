@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Specimen</title>
+  <link rel="stylesheet" href="design-system.css" />
+  <link rel="stylesheet" href="specimen-chrome.css" />
+</head>
+<body>
+<div class="l-shell">
+
+  <!-- ═══════════════════════════════════════════════════════
+       SIDEBAR
+  ════════════════════════════════════════════════════════ -->
+  <aside class="l-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-wordmark">Design System</div>
+      <div class="sidebar-meta">v1.0 — Specimen</div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Token sections">
+
+      <div class="nav-group">
+        <div class="nav-group-label">Color</div>
+        <a href="#color-primitives" class="nav-link"><span class="nav-dot"></span>Color Ramps</a>
+        <a href="#color-semantic"   class="nav-link"><span class="nav-dot"></span>Semantic Color</a>
+        <a href="#color-status"     class="nav-link"><span class="nav-dot"></span>Status Colors</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Typography</div>
+        <a href="#type-scale"    class="nav-link"><span class="nav-dot"></span>Type Scale</a>
+        <a href="#type-families" class="nav-link"><span class="nav-dot"></span>Families</a>
+        <a href="#type-weights"  class="nav-link"><span class="nav-dot"></span>Weights &amp; Tracking</a>
+        <a href="#font-features" class="nav-link"><span class="nav-dot"></span>Font Features</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Spatial</div>
+        <a href="#spacing"   class="nav-link"><span class="nav-dot"></span>Spacing</a>
+        <a href="#radius"    class="nav-link"><span class="nav-dot"></span>Border Radius</a>
+        <a href="#elevation" class="nav-link"><span class="nav-dot"></span>Elevation</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Interaction</div>
+        <a href="#motion"      class="nav-link"><span class="nav-dot"></span>Motion</a>
+        <a href="#transitions" class="nav-link"><span class="nav-dot"></span>Transitions</a>
+        <a href="#focus"       class="nav-link"><span class="nav-dot"></span>Focus Rings</a>
+        <a href="#opacity"     class="nav-link"><span class="nav-dot"></span>Opacity</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Component</div>
+        <a href="#control-heights" class="nav-link"><span class="nav-dot"></span>Control Heights</a>
+        <a href="#icon-sizes"      class="nav-link"><span class="nav-dot"></span>Icon Sizes</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Layout</div>
+        <a href="#layers"       class="nav-link"><span class="nav-dot"></span>Z-Index</a>
+        <a href="#containers"   class="nav-link"><span class="nav-dot"></span>Containers</a>
+        <a href="#breakpoints"  class="nav-link"><span class="nav-dot"></span>Breakpoints</a>
+        <a href="#shell-tokens" class="nav-link"><span class="nav-dot"></span>Shell Tokens</a>
+        <a href="#ratios"       class="nav-link"><span class="nav-dot"></span>Aspect Ratios</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Objects</div>
+        <a href="#o-layout"    class="nav-link"><span class="nav-dot"></span>Layout Primitives</a>
+        <a href="#o-buttons"   class="nav-link"><span class="nav-dot"></span>Buttons</a>
+        <a href="#o-badges"    class="nav-link"><span class="nav-dot"></span>Badges</a>
+        <a href="#o-inputs"    class="nav-link"><span class="nav-dot"></span>Inputs &amp; Fields</a>
+        <a href="#o-cards"     class="nav-link"><span class="nav-dot"></span>Cards</a>
+        <a href="#o-alerts"    class="nav-link"><span class="nav-dot"></span>Alerts &amp; Toasts</a>
+        <a href="#o-tabs"      class="nav-link"><span class="nav-dot"></span>Tabs &amp; Accordion</a>
+        <a href="#o-nav"       class="nav-link"><span class="nav-dot"></span>Navigation</a>
+        <a href="#o-controls"  class="nav-link"><span class="nav-dot"></span>Form Controls</a>
+        <a href="#o-identity"  class="nav-link"><span class="nav-dot"></span>Avatar &amp; Tag</a>
+        <a href="#o-skeleton"  class="nav-link"><span class="nav-dot"></span>Skeleton</a>
+        <a href="#o-overlays"  class="nav-link"><span class="nav-dot"></span>Overlays</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">System</div>
+        <a href="#s-roles"      class="nav-link"><span class="nav-dot"></span>Roles</a>
+        <a href="#s-states"     class="nav-link"><span class="nav-dot"></span>States</a>
+        <a href="#s-utilities"  class="nav-link"><span class="nav-dot"></span>Utilities</a>
+        <a href="#s-animations" class="nav-link"><span class="nav-dot"></span>Animations</a>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+    </div>
+  </aside>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════════════════ -->
+  <main class="l-main">
+
+    <!-- HERO ─────────────────────────────────────────────── -->
+    <section class="s-hero">
+      <p class="hero-eyebrow">design-system.css — 8-layer cascade</p>
+      <h1 class="hero-title">Token Specimen</h1>
+      <p class="hero-desc">A complete visual and interactive reference for every design decision captured as a CSS custom property, layout primitive, or object class. Two-tier token architecture: raw primitives feed semantic aliases that power component styles across eight cascade layers.</p>
+
+      <div class="hero-stats">
+        <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Color ramps</div></div>
+        <div><div class="hero-stat-value">13</div><div class="hero-stat-label">Steps per ramp</div></div>
+        <div><div class="hero-stat-value">10</div><div class="hero-stat-label">Type sizes</div></div>
+        <div><div class="hero-stat-value">19</div><div class="hero-stat-label">Spacing steps</div></div>
+        <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Cascade layers</div></div>
+        <div><div class="hero-stat-value">OKLCH</div><div class="hero-stat-label">Color space</div></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         01 · COLOR RAMPS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="color-primitives">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Color Ramps</h2>
+        <p class="section-desc">All chromatic ramps share identical L/C values from Blue. Only the OKLCH hue angle rotates per palette. Hover a swatch to reveal its step number.</p>
+      </div>
+
+      <div class="color-ramps">
+        <!-- Step header -->
+        <div class="color-ramp">
+          <div class="color-ramp-label"></div>
+          <div class="swatch-step-label">00</div><div class="swatch-step-label">05</div>
+          <div class="swatch-step-label">10</div><div class="swatch-step-label">20</div>
+          <div class="swatch-step-label">30</div><div class="swatch-step-label">40</div>
+          <div class="swatch-step-label">50</div><div class="swatch-step-label">60</div>
+          <div class="swatch-step-label">70</div><div class="swatch-step-label">80</div>
+          <div class="swatch-step-label">90</div><div class="swatch-step-label">95</div>
+          <div class="swatch-step-label">99</div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Blue · 264°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--blue-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--blue-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--blue-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--blue-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--blue-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--blue-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--blue-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--blue-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--blue-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--blue-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--blue-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--blue-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--blue-99)"></div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Green · 145°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--green-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--green-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--green-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--green-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--green-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--green-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--green-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--green-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--green-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--green-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--green-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--green-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--green-99)"></div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Amber · 75°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--amber-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--amber-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--amber-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--amber-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--amber-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--amber-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--amber-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--amber-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--amber-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--amber-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--amber-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--amber-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--amber-99)"></div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Red · 28°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--red-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--red-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--red-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--red-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--red-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--red-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--red-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--red-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--red-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--red-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--red-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--red-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--red-99)"></div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Teal · 195°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--teal-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--teal-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--teal-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--teal-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--teal-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--teal-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--teal-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--teal-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--teal-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--teal-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--teal-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--teal-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--teal-99)"></div>
+        </div>
+
+        <div class="color-ramp">
+          <div class="color-ramp-label">Neutral · 245°</div>
+          <div class="color-swatch" data-step="00" style="background:var(--neutral-00)"></div>
+          <div class="color-swatch" data-step="05" style="background:var(--neutral-05)"></div>
+          <div class="color-swatch" data-step="10" style="background:var(--neutral-10)"></div>
+          <div class="color-swatch" data-step="20" style="background:var(--neutral-20)"></div>
+          <div class="color-swatch" data-step="30" style="background:var(--neutral-30)"></div>
+          <div class="color-swatch" data-step="40" style="background:var(--neutral-40)"></div>
+          <div class="color-swatch" data-step="50" style="background:var(--neutral-50)"></div>
+          <div class="color-swatch" data-step="60" style="background:var(--neutral-60)"></div>
+          <div class="color-swatch" data-step="70" style="background:var(--neutral-70)"></div>
+          <div class="color-swatch" data-step="80" style="background:var(--neutral-80)"></div>
+          <div class="color-swatch" data-step="90" style="background:var(--neutral-90)"></div>
+          <div class="color-swatch" data-step="95" style="background:var(--neutral-95)"></div>
+          <div class="color-swatch" data-step="99" style="background:var(--neutral-99)"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         02 · SEMANTIC COLOR
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="color-semantic">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Semantic Color</h2>
+        <p class="section-desc">Named by role, not value. Overridden wholesale in <code>[data-theme="dark"]</code> without touching any consumer code.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Backgrounds</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-bg-default)"></div><div class="semantic-info"><code class="token-name">--color-bg-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-bg-subtle)"></div><div class="semantic-info"><code class="token-name">--color-bg-subtle</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch checkered" style="background:var(--color-bg-overlay)"></div><div class="semantic-info"><code class="token-name">--color-bg-overlay</code><span class="token-value">alpha</span></div></div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Surfaces</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-default)"></div><div class="semantic-info"><code class="token-name">--color-surface-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-sunken)"></div><div class="semantic-info"><code class="token-name">--color-surface-sunken</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-surface-code)"></div><div class="semantic-info"><code class="token-name">--color-surface-code</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch checkered" style="background:var(--color-surface-overlay-hover)"></div><div class="semantic-info"><code class="token-name">--color-surface-overlay-hover</code><span class="token-value">alpha</span></div></div>
+          <div class="semantic-card"><div class="semantic-swatch checkered" style="background:var(--color-surface-overlay-press)"></div><div class="semantic-info"><code class="token-name">--color-surface-overlay-press</code><span class="token-value">alpha</span></div></div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Text</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-primary)"></div><div class="semantic-info"><code class="token-name">--color-text-primary</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-secondary)"></div><div class="semantic-info"><code class="token-name">--color-text-secondary</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-tertiary)"></div><div class="semantic-info"><code class="token-name">--color-text-tertiary</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-placeholder)"></div><div class="semantic-info"><code class="token-name">--color-text-placeholder</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-disabled)"></div><div class="semantic-info"><code class="token-name">--color-text-disabled</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-link)"></div><div class="semantic-info"><code class="token-name">--color-text-link</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-link-hover)"></div><div class="semantic-info"><code class="token-name">--color-text-link-hover</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-text-inverse);border:1px solid var(--color-border-default)"></div><div class="semantic-info"><code class="token-name">--color-text-inverse</code></div></div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Borders</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-default)"></div><div class="semantic-info"><code class="token-name">--color-border-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-strong)"></div><div class="semantic-info"><code class="token-name">--color-border-strong</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-input)"></div><div class="semantic-info"><code class="token-name">--color-border-input</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-input-focus)"></div><div class="semantic-info"><code class="token-name">--color-border-input-focus</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-border-destructive)"></div><div class="semantic-info"><code class="token-name">--color-border-destructive</code></div></div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Actions</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-default)"></div><div class="semantic-info"><code class="token-name">--color-action-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-hover)"></div><div class="semantic-info"><code class="token-name">--color-action-hover</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-active)"></div><div class="semantic-info"><code class="token-name">--color-action-active</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-subtle)"></div><div class="semantic-info"><code class="token-name">--color-action-subtle</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-action-text)"></div><div class="semantic-info"><code class="token-name">--color-action-text</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-on-action)"></div><div class="semantic-info"><code class="token-name">--color-on-action</code></div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         03 · STATUS COLORS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="color-status">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Status Colors</h2>
+        <p class="section-desc">Four semantic states — each with a <code>default</code>, <code>subtle</code>, <code>text</code>, and <code>border</code> token.</p>
+      </div>
+
+      <!-- Live alert demos using actual design system classes -->
+      <div class="demo-canvas">
+        <div class="stack tight">
+          <div class="alert success">
+            <div>
+              <p class="title">Success</p>
+              <p class="description">Operation completed. Your changes have been saved.</p>
+            </div>
+          </div>
+          <div class="alert warning">
+            <div>
+              <p class="title">Warning</p>
+              <p class="description">Attention required. Review before continuing.</p>
+            </div>
+          </div>
+          <div class="alert destructive">
+            <div>
+              <p class="title">Destructive</p>
+              <p class="description">This action is irreversible. Deleted data cannot be recovered.</p>
+            </div>
+          </div>
+          <div class="alert info">
+            <div>
+              <p class="title">Info</p>
+              <p class="description">A new version is available. Update at your convenience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Raw tokens</p>
+        <div class="semantic-grid">
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-success-default)"></div><div class="semantic-info"><code class="token-name">--color-success-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-success-subtle)"></div><div class="semantic-info"><code class="token-name">--color-success-subtle</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-warning-default)"></div><div class="semantic-info"><code class="token-name">--color-warning-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-warning-subtle)"></div><div class="semantic-info"><code class="token-name">--color-warning-subtle</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-destructive-default)"></div><div class="semantic-info"><code class="token-name">--color-destructive-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-destructive-subtle)"></div><div class="semantic-info"><code class="token-name">--color-destructive-subtle</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-info-default)"></div><div class="semantic-info"><code class="token-name">--color-info-default</code></div></div>
+          <div class="semantic-card"><div class="semantic-swatch" style="background:var(--color-info-subtle)"></div><div class="semantic-info"><code class="token-name">--color-info-subtle</code></div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         04 · TYPE SCALE
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="type-scale">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Type Scale</h2>
+        <p class="section-desc">10 steps on a modular scale. Base size x-height corrected for Instrument Sans at 15px.</p>
+      </div>
+
+      <div class="type-scale">
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xxxxxl</span><span class="type-size-value">3.75rem / 60px</span></div>
+          <div style="font-family:var(--font-display);font-size:var(--text-xxxxxl);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight)">The quick fox</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xxxxl</span><span class="type-size-value">2.875rem / 46px</span></div>
+          <div style="font-family:var(--font-display);font-size:var(--text-xxxxl);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight)">The quick brown fox</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xxxl</span><span class="type-size-value">2.25rem / 36px</span></div>
+          <div style="font-size:var(--text-xxxl);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight)">The quick brown fox jumps</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xxl</span><span class="type-size-value">1.875rem / 30px</span></div>
+          <div style="font-size:var(--text-xxl);line-height:var(--leading-snug)">The quick brown fox jumps over</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xl</span><span class="type-size-value">1.5rem / 24px</span></div>
+          <div style="font-size:var(--text-xl);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-lg</span><span class="type-size-value">1.25rem / 20px</span></div>
+          <div style="font-size:var(--text-lg)">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-md</span><span class="type-size-value">1.0625rem / 17px</span></div>
+          <div style="font-size:var(--text-md)">The quick brown fox jumps over the lazy dog. Pack my box with five.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-base</span><span class="type-size-value">0.9375rem / 15px</span></div>
+          <div style="font-size:var(--text-base)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-sm</span><span class="type-size-value">0.8125rem / 13px</span></div>
+          <div style="font-size:var(--text-sm)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump!</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="token-name">--text-xs</span><span class="type-size-value">0.6875rem / 11px</span></div>
+          <div style="font-size:var(--text-xs)">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump! The five boxing wizards jump quickly.</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Line heights</p>
+        <div class="leading-grid">
+          <div class="leading-card"><div class="leading-demo" style="line-height:var(--leading-tight)">The quick brown fox jumps over the lazy dog and keeps on running.</div><code class="token-name">--leading-tight · 1.20</code></div>
+          <div class="leading-card"><div class="leading-demo" style="line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog and keeps on running.</div><code class="token-name">--leading-snug · 1.35</code></div>
+          <div class="leading-card"><div class="leading-demo" style="line-height:var(--leading-normal)">The quick brown fox jumps over the lazy dog and keeps on running.</div><code class="token-name">--leading-normal · 1.55</code></div>
+          <div class="leading-card"><div class="leading-demo" style="line-height:var(--leading-relaxed)">The quick brown fox jumps over the lazy dog and keeps on running.</div><code class="token-name">--leading-relaxed · 1.70</code></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         05 · TYPEFACES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="type-families">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Typefaces</h2>
+        <p class="section-desc">Three purposeful families — display, body, and mono — loaded via <code>@import</code> in the CSS, not the HTML.</p>
+      </div>
+
+      <div class="type-families">
+        <div class="type-family-card">
+          <div class="type-family-tag">--font-display</div>
+          <div class="type-family-specimen" style="font-family:var(--font-display);font-size:var(--text-xl);line-height:var(--leading-snug)">
+            DM Serif Display<br>
+            <span style="font-style:italic">Italic variant</span>
+          </div>
+          <p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">Display headings, hero text, pull quotes</p>
+        </div>
+        <div class="type-family-card">
+          <div class="type-family-tag">--font-body</div>
+          <div class="type-family-specimen" style="font-family:var(--font-body);font-size:var(--text-lg);line-height:var(--leading-normal)">
+            Instrument Sans<br>
+            <span style="font-style:italic;color:var(--color-text-secondary)">Italic 400</span>
+          </div>
+          <p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">UI labels, body copy, interface text</p>
+        </div>
+        <div class="type-family-card">
+          <div class="type-family-tag">--font-mono</div>
+          <div class="type-family-specimen" style="font-family:var(--font-mono);font-size:var(--text-md);line-height:var(--leading-normal)">
+            DM Mono<br>
+            <span style="color:var(--color-text-secondary)">0O 1lI fi fl →</span>
+          </div>
+          <p style="font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:var(--space-16);font-family:var(--font-mono)">Code, tokens, labels, tabular data</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         06 · WEIGHTS & TRACKING
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="type-weights">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Weights &amp; Tracking</h2>
+        <p class="section-desc">Four weights mapped to purpose. Letter spacing from tight headings to widest eyebrows.</p>
+      </div>
+
+      <div class="type-weights">
+        <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-regular / 400</p><p style="font-weight:400;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+        <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-medium / 500</p><p style="font-weight:500;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+        <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-semibold / 600</p><p style="font-weight:600;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+        <div class="type-weight-card"><p class="token-name" style="margin-bottom:var(--space-10)">--weight-bold / 700</p><p style="font-weight:700;font-size:var(--text-lg)">Aa Bb Cc</p></div>
+      </div>
+
+      <div class="tracking-rows" style="margin-top:var(--space-40)">
+        <div class="tracking-row"><span class="token-name">--tracking-tight</span><span style="letter-spacing:var(--tracking-tight);font-size:var(--text-lg)">HEADING TEXT TIGHT</span><span class="token-value">-0.025em</span></div>
+        <div class="tracking-row"><span class="token-name">--tracking-normal</span><span style="letter-spacing:var(--tracking-normal);font-size:var(--text-lg)">Body text normal</span><span class="token-value">0</span></div>
+        <div class="tracking-row"><span class="token-name">--tracking-wide</span><span style="letter-spacing:var(--tracking-wide);font-size:var(--text-base)">Slightly spaced out</span><span class="token-value">0.025em</span></div>
+        <div class="tracking-row"><span class="token-name">--tracking-wider</span><span style="letter-spacing:var(--tracking-wider);font-size:var(--text-sm)">UPPERCASE LABEL</span><span class="token-value">0.06em</span></div>
+        <div class="tracking-row"><span class="token-name">--tracking-widest</span><span style="letter-spacing:var(--tracking-widest);font-size:var(--text-xs)">SECTION EYEBROW</span><span class="token-value">0.12em</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         07 · FONT FEATURES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="font-features">
+      <div class="section-header">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Font Features</h2>
+        <p class="section-desc">Four named <code>font-feature-settings</code> presets for common typographic scenarios.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <code class="token-name">--font-feature-default</code>
+          <div class="feature-specimen" style="font-feature-settings:var(--font-feature-default)">
+            <div style="font-size:var(--text-xl)">fi fl ffi ffl</div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-top:var(--space-8)">kern · liga · calt — ligatures active</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <code class="token-name">--font-feature-tabular</code>
+          <div class="feature-specimen" style="font-feature-settings:var(--font-feature-tabular);font-family:var(--font-mono)">
+            <div style="font-size:var(--text-lg)">1,234.56</div>
+            <div style="font-size:var(--text-lg)">9,876.54</div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-top:var(--space-8)">tnum — columns align</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <code class="token-name">--font-feature-mono</code>
+          <div class="feature-specimen" style="font-feature-settings:var(--font-feature-mono);font-family:var(--font-mono)">
+            <div style="font-size:var(--text-lg)">fi fl === --></div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-top:var(--space-8)">kern 0 · liga 0 — raw glyphs</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <code class="token-name">--font-feature-oldstyle</code>
+          <div class="feature-specimen" style="font-feature-settings:var(--font-feature-oldstyle)">
+            <div style="font-size:var(--text-xl)">0123456789</div>
+            <div style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-top:var(--space-8)">onum — old-style figures</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         08 · SPACING
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="spacing">
+      <div class="section-header">
+        <span class="section-number">08</span>
+        <h2 class="section-title">Spacing</h2>
+        <p class="section-desc">4pt grid. Token names are the px equivalent at 1rem = 16px. No decimal names.</p>
+      </div>
+
+      <div class="spacing-grid">
+        <div class="space-row"><span class="token-name">--space-px</span><div class="space-bar-wrap"><div class="space-bar" style="width:1px"></div></div><span class="token-value">1px</span></div>
+        <div class="space-row"><span class="token-name">--space-2</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-2)"></div></div><span class="token-value">0.125rem</span></div>
+        <div class="space-row"><span class="token-name">--space-4</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-4)"></div></div><span class="token-value">0.25rem</span></div>
+        <div class="space-row"><span class="token-name">--space-6</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-6)"></div></div><span class="token-value">0.375rem</span></div>
+        <div class="space-row"><span class="token-name">--space-8</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-8)"></div></div><span class="token-value">0.5rem</span></div>
+        <div class="space-row"><span class="token-name">--space-10</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-10)"></div></div><span class="token-value">0.625rem</span></div>
+        <div class="space-row"><span class="token-name">--space-12</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-12)"></div></div><span class="token-value">0.75rem</span></div>
+        <div class="space-row"><span class="token-name">--space-16</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-16)"></div></div><span class="token-value">1rem</span></div>
+        <div class="space-row"><span class="token-name">--space-20</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-20)"></div></div><span class="token-value">1.25rem</span></div>
+        <div class="space-row"><span class="token-name">--space-24</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-24)"></div></div><span class="token-value">1.5rem</span></div>
+        <div class="space-row"><span class="token-name">--space-28</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-28)"></div></div><span class="token-value">1.75rem</span></div>
+        <div class="space-row"><span class="token-name">--space-32</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-32)"></div></div><span class="token-value">2rem</span></div>
+        <div class="space-row"><span class="token-name">--space-40</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-40)"></div></div><span class="token-value">2.5rem</span></div>
+        <div class="space-row"><span class="token-name">--space-48</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-48)"></div></div><span class="token-value">3rem</span></div>
+        <div class="space-row"><span class="token-name">--space-56</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-56)"></div></div><span class="token-value">3.5rem</span></div>
+        <div class="space-row"><span class="token-name">--space-64</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-64)"></div></div><span class="token-value">4rem</span></div>
+        <div class="space-row"><span class="token-name">--space-80</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-80)"></div></div><span class="token-value">5rem</span></div>
+        <div class="space-row"><span class="token-name">--space-96</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-96)"></div></div><span class="token-value">6rem</span></div>
+        <div class="space-row"><span class="token-name">--space-128</span><div class="space-bar-wrap"><div class="space-bar" style="width:var(--space-128)"></div></div><span class="token-value">8rem</span></div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Semantic aliases</p>
+        <div class="alias-table">
+          <div class="alias-row"><code class="token-name">--space-stack-tight</code><span class="alias-arrow">→</span><code class="token-value">--space-12</code></div>
+          <div class="alias-row"><code class="token-name">--space-stack-default</code><span class="alias-arrow">→</span><code class="token-value">--space-24</code></div>
+          <div class="alias-row"><code class="token-name">--space-stack-loose</code><span class="alias-arrow">→</span><code class="token-value">--space-40</code></div>
+          <div class="alias-row"><code class="token-name">--space-stack-section</code><span class="alias-arrow">→</span><code class="token-value">--space-64</code></div>
+          <div class="alias-row"><code class="token-name">--space-inline-tight</code><span class="alias-arrow">→</span><code class="token-value">--space-8</code></div>
+          <div class="alias-row"><code class="token-name">--space-inline-default</code><span class="alias-arrow">→</span><code class="token-value">--space-16</code></div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Component padding (block inline)</p>
+        <div class="padding-grid">
+          <div class="padding-card"><div class="padding-demo" style="padding:var(--space-component-padding-xs)">xs</div><code class="token-name">--space-component-padding-xs</code><span class="token-value">4px 8px</span></div>
+          <div class="padding-card"><div class="padding-demo" style="padding:var(--space-component-padding-sm)">sm</div><code class="token-name">--space-component-padding-sm</code><span class="token-value">6px 12px</span></div>
+          <div class="padding-card"><div class="padding-demo" style="padding:var(--space-component-padding-md)">md</div><code class="token-name">--space-component-padding-md</code><span class="token-value">10px 20px</span></div>
+          <div class="padding-card"><div class="padding-demo" style="padding:var(--space-component-padding-lg)">lg</div><code class="token-name">--space-component-padding-lg</code><span class="token-value">16px 24px</span></div>
+          <div class="padding-card"><div class="padding-demo" style="padding:var(--space-component-padding-xl)">xl</div><code class="token-name">--space-component-padding-xl</code><span class="token-value">20px 32px</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         09 · BORDER RADIUS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="radius">
+      <div class="section-header">
+        <span class="section-number">09</span>
+        <h2 class="section-title">Border Radius</h2>
+        <p class="section-desc">rem-based so radii scale with root font size. <code>--radius-full</code> stays in px — it is an overflow-clip trick, not a visual radius.</p>
+      </div>
+
+      <div class="radius-grid">
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-none)"></div><span class="token-name">none</span><span class="token-value">0</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-xs)"></div><span class="token-name">xs</span><span class="token-value">0.125rem</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-sm)"></div><span class="token-name">sm</span><span class="token-value">0.25rem</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-md)"></div><span class="token-name">md</span><span class="token-value">0.375rem</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-lg)"></div><span class="token-name">lg</span><span class="token-value">0.625rem</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-xl)"></div><span class="token-name">xl</span><span class="token-value">1rem</span></div>
+        <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-full)"></div><span class="token-name">full</span><span class="token-value">9999px</span></div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Semantic aliases</p>
+        <div class="cluster loose" style="align-items:flex-end">
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);align-items:center">
+            <div style="padding:var(--space-10) var(--space-20);background:var(--color-action-default);color:white;border-radius:var(--radius-button);font-size:var(--text-sm)">Button</div>
+            <code class="token-name">--radius-button</code>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);align-items:center">
+            <div style="padding:var(--space-20) var(--space-24);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card);font-size:var(--text-sm)">Card</div>
+            <code class="token-name">--radius-card</code>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);align-items:center">
+            <div style="padding:var(--space-10) var(--space-16);background:var(--color-surface-default);border:1px solid var(--color-border-input);border-radius:var(--radius-input);font-size:var(--text-sm)">Input</div>
+            <code class="token-name">--radius-input</code>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);align-items:center">
+            <div class="badge primary" style="border-radius:var(--radius-badge)">Badge</div>
+            <code class="token-name">--radius-badge</code>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);align-items:center">
+            <div style="padding:var(--space-16) var(--space-24);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-dialog);font-size:var(--text-sm)">Dialog</div>
+            <code class="token-name">--radius-dialog</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         10 · ELEVATION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="elevation">
+      <div class="section-header">
+        <span class="section-number">10</span>
+        <h2 class="section-title">Elevation</h2>
+        <p class="section-desc">Six shadow levels. Dark mode uses deeper opacity values to maintain perceptual hierarchy against dark surfaces.</p>
+      </div>
+
+      <div class="elevation-grid">
+        <div class="elevation-card" style="box-shadow:var(--elevation-xs)"><span class="token-name">xs</span><span class="token-value">Hairline</span></div>
+        <div class="elevation-card" style="box-shadow:var(--elevation-sm)"><span class="token-name">sm</span><span class="token-value">Card</span></div>
+        <div class="elevation-card" style="box-shadow:var(--elevation-md)"><span class="token-name">md</span><span class="token-value">Dropdown</span></div>
+        <div class="elevation-card" style="box-shadow:var(--elevation-lg)"><span class="token-name">lg</span><span class="token-value">Drawer</span></div>
+        <div class="elevation-card" style="box-shadow:var(--elevation-xl)"><span class="token-name">xl</span><span class="token-value">Modal</span></div>
+        <div class="elevation-card" style="box-shadow:var(--elevation-sticky)"><span class="token-name">sticky</span><span class="token-value">Header</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         11 · MOTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="motion">
+      <div class="section-header">
+        <span class="section-number">11</span>
+        <h2 class="section-title">Motion</h2>
+        <p class="section-desc">Five durations and four easing curves. All durations collapse to 0ms when <code>prefers-reduced-motion: reduce</code> is set.</p>
+      </div>
+
+      <p class="subsection-title">Durations — hover to play</p>
+      <div class="motion-grid">
+        <div class="duration-card" tabindex="0"><span class="token-name">--duration-instant</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:50ms"></div></div><span class="token-value">50ms</span></div>
+        <div class="duration-card" tabindex="0"><span class="token-name">--duration-fast</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:100ms"></div></div><span class="token-value">100ms</span></div>
+        <div class="duration-card" tabindex="0"><span class="token-name">--duration-normal</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:200ms"></div></div><span class="token-value">200ms</span></div>
+        <div class="duration-card" tabindex="0"><span class="token-name">--duration-deliberate</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:300ms"></div></div><span class="token-value">300ms</span></div>
+        <div class="duration-card" tabindex="0"><span class="token-name">--duration-slow</span><div class="duration-bar-track"><div class="duration-bar-fill" style="transition-duration:500ms"></div></div><span class="token-value">500ms</span></div>
+      </div>
+
+      <p class="subsection-title" style="margin-top:var(--space-40)">Easing curves — hover to animate</p>
+      <div class="easing-grid">
+        <div class="easing-card" data-ease="standard">
+          <span class="token-name">--ease-standard</span>
+          <div class="easing-dot-track"><div class="easing-dot"></div></div>
+          <span class="token-value">0.4, 0, 0.2, 1</span>
+          <p class="easing-note">General state changes</p>
+        </div>
+        <div class="easing-card" data-ease="enter">
+          <span class="token-name">--ease-enter</span>
+          <div class="easing-dot-track"><div class="easing-dot"></div></div>
+          <span class="token-value">0, 0, 0.2, 1</span>
+          <p class="easing-note">Elements entering</p>
+        </div>
+        <div class="easing-card" data-ease="exit">
+          <span class="token-name">--ease-exit</span>
+          <div class="easing-dot-track"><div class="easing-dot"></div></div>
+          <span class="token-value">0.4, 0, 1, 1</span>
+          <p class="easing-note">Elements leaving</p>
+        </div>
+        <div class="easing-card" data-ease="spring">
+          <span class="token-name">--ease-spring</span>
+          <div class="easing-dot-track"><div class="easing-dot"></div></div>
+          <span class="token-value">0.34, 1.56, 0.64, 1</span>
+          <p class="easing-note">Playful bounce</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         12 · TRANSITIONS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="transitions">
+      <div class="section-header">
+        <span class="section-number">12</span>
+        <h2 class="section-title">Transitions</h2>
+        <p class="section-desc">Four named transition shorthand tokens. Apply directly to the <code>transition</code> property; combine with a comma for multiple. Hover each card to see it in action.</p>
+      </div>
+
+      <div class="transition-grid">
+        <div class="transition-card" id="tc-color">
+          <code class="token-name">--transition-color</code>
+          <div class="transition-demo-target" data-transition="color">
+            <div class="transition-block" style="background:var(--color-action-default);color:white;transition:var(--transition-color)">Hover me</div>
+          </div>
+          <p class="transition-desc">background-color · color · border-color</p>
+        </div>
+        <div class="transition-card" id="tc-shadow">
+          <code class="token-name">--transition-shadow</code>
+          <div class="transition-demo-target" data-transition="shadow">
+            <div class="transition-block" style="background:var(--color-surface-default);border:1px solid var(--color-border-default);transition:var(--transition-shadow)">Hover me</div>
+          </div>
+          <p class="transition-desc">box-shadow</p>
+        </div>
+        <div class="transition-card" id="tc-transform">
+          <code class="token-name">--transition-transform</code>
+          <div class="transition-demo-target" data-transition="transform">
+            <div class="transition-block" style="background:var(--color-surface-default);border:1px solid var(--color-border-default);transition:var(--transition-transform)">Hover me</div>
+          </div>
+          <p class="transition-desc">transform</p>
+        </div>
+        <div class="transition-card" id="tc-opacity">
+          <code class="token-name">--transition-opacity</code>
+          <div class="transition-demo-target" data-transition="opacity">
+            <div class="transition-block" style="background:var(--color-action-default);color:white;transition:var(--transition-opacity)">Hover me</div>
+          </div>
+          <p class="transition-desc">opacity</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         13 · FOCUS RINGS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="focus">
+      <div class="section-header">
+        <span class="section-number">13</span>
+        <h2 class="section-title">Focus Rings</h2>
+        <p class="section-desc">3px offset ring at 30% opacity — visible enough for accessibility, subtle enough for aesthetics. Destructive variant uses red.</p>
+      </div>
+
+      <div class="focus-grid">
+        <div class="focus-demo-wrap">
+          <p class="token-name" style="margin-bottom:var(--space-12)">--focus-ring-shadow</p>
+          <button class="button secondary" style="box-shadow:var(--focus-ring-shadow)">Focused element</button>
+          <p class="focus-desc">0 0 0 3px oklch(54% 0.178 264 / 0.30)</p>
+        </div>
+        <div class="focus-demo-wrap">
+          <p class="token-name" style="margin-bottom:var(--space-12)">--focus-ring-shadow-destructive</p>
+          <button class="button destructive" style="box-shadow:var(--focus-ring-shadow-destructive)">Destructive element</button>
+          <p class="focus-desc">0 0 0 3px oklch(46% 0.186 28 / 0.30)</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         14 · OPACITY
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="opacity">
+      <div class="section-header">
+        <span class="section-number">14</span>
+        <h2 class="section-title">Opacity</h2>
+        <p class="section-desc">Three named opacity levels for disabled, muted, and subtle states — graduated from full presence to clearly unavailable.</p>
+      </div>
+
+      <div class="opacity-grid">
+        <div class="opacity-card">
+          <div class="opacity-demo" style="opacity:1">Full — enabled</div>
+          <div class="opacity-info"><span class="token-name">—</span><span class="token-value">opacity: 1</span></div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-demo" style="opacity:var(--opacity-muted)">Muted content</div>
+          <div class="opacity-info"><span class="token-name">--opacity-muted</span><span class="token-value">0.80</span></div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-demo" style="opacity:var(--opacity-subtle)">Subtle / hint</div>
+          <div class="opacity-info"><span class="token-name">--opacity-subtle</span><span class="token-value">0.60</span></div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-demo" style="opacity:var(--opacity-disabled)">Disabled state</div>
+          <div class="opacity-info"><span class="token-name">--opacity-disabled</span><span class="token-value">0.45</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         15 · CONTROL HEIGHTS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="control-heights">
+      <div class="section-header">
+        <span class="section-number">15</span>
+        <h2 class="section-title">Control Heights</h2>
+        <p class="section-desc">Consistent vertical rhythm across all interactive elements. Applied via <code>min-height</code> on buttons and inputs.</p>
+      </div>
+
+      <div class="control-grid">
+        <div class="control-row"><span class="token-name">--control-height-xs</span><div class="control-demo" style="height:var(--control-height-xs);width:8rem"><span>24px</span></div><span class="token-value">1.5rem</span></div>
+        <div class="control-row"><span class="token-name">--control-height-sm</span><div class="control-demo" style="height:var(--control-height-sm);width:10rem"><span>32px</span></div><span class="token-value">2rem</span></div>
+        <div class="control-row"><span class="token-name">--control-height-md</span><div class="control-demo" style="height:var(--control-height-md);width:12rem"><span>40px</span></div><span class="token-value">2.5rem</span></div>
+        <div class="control-row"><span class="token-name">--control-height-lg</span><div class="control-demo" style="height:var(--control-height-lg);width:14rem"><span>48px</span></div><span class="token-value">3rem</span></div>
+        <div class="control-row"><span class="token-name">--control-height-xl</span><div class="control-demo" style="height:var(--control-height-xl);width:16rem"><span>56px</span></div><span class="token-value">3.5rem</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         16 · ICON SIZES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="icon-sizes">
+      <div class="section-header">
+        <span class="section-number">16</span>
+        <h2 class="section-title">Icon Sizes</h2>
+        <p class="section-desc">Five steps from compact UI labels to large illustrative icons. Use <code>width</code> and <code>height</code> on <code>&lt;svg&gt;</code> elements.</p>
+      </div>
+
+      <div class="icon-grid">
+        <div class="icon-item">
+          <div class="icon-demo" style="width:var(--icon-xs);height:var(--icon-xs)"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <span class="token-name" style="text-align:center">--icon-xs<br>12px</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-demo" style="width:var(--icon-sm);height:var(--icon-sm)"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <span class="token-name" style="text-align:center">--icon-sm<br>16px</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-demo" style="width:var(--icon-md);height:var(--icon-md)"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <span class="token-name" style="text-align:center">--icon-md<br>20px</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-demo" style="width:var(--icon-lg);height:var(--icon-lg)"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <span class="token-name" style="text-align:center">--icon-lg<br>24px</span>
+        </div>
+        <div class="icon-item">
+          <div class="icon-demo" style="width:var(--icon-xl);height:var(--icon-xl)"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <span class="token-name" style="text-align:center">--icon-xl<br>32px</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         17 · Z-INDEX LAYERS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="layers">
+      <div class="section-header">
+        <span class="section-number">17</span>
+        <h2 class="section-title">Z-Index Layers</h2>
+        <p class="section-desc">Named stacking contexts. Hover a chip to see its corresponding index value.</p>
+      </div>
+
+      <div class="layer-stack">
+        <div class="layer-chip" style="top:0rem;width:80%"><span class="layer-z">600</span><span class="token-name">--layer-tooltip</span><span class="layer-note">Tooltips, popovers</span></div>
+        <div class="layer-chip" style="top:2rem;width:75%"><span class="layer-z">500</span><span class="token-name">--layer-toast</span><span class="layer-note">Notifications</span></div>
+        <div class="layer-chip" style="top:4rem;width:70%"><span class="layer-z">400</span><span class="token-name">--layer-modal</span><span class="layer-note">Dialogs, sheets</span></div>
+        <div class="layer-chip" style="top:6rem;width:65%"><span class="layer-z">300</span><span class="token-name">--layer-overlay</span><span class="layer-note">Backdrop, scrim</span></div>
+        <div class="layer-chip" style="top:8rem;width:60%"><span class="layer-z">200</span><span class="token-name">--layer-sticky</span><span class="layer-note">Sticky header</span></div>
+        <div class="layer-chip" style="top:10rem;width:55%"><span class="layer-z">100</span><span class="token-name">--layer-dropdown</span><span class="layer-note">Menus, comboboxes</span></div>
+        <div class="layer-chip" style="top:12rem;width:50%"><span class="layer-z">10</span><span class="token-name">--layer-raised</span><span class="layer-note">Badges, indicators</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         18 · CONTAINERS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="containers">
+      <div class="section-header">
+        <span class="section-number">18</span>
+        <h2 class="section-title">Containers</h2>
+        <p class="section-desc">Five breakpoint-aligned max-width values. Use via <code>.center</code> layout primitive or directly as <code>max-inline-size</code>.</p>
+      </div>
+
+      <div class="container-viz">
+        <div class="container-row"><span class="token-name">--container-sm</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-sm) * 0.45)"></div></div><span class="token-value">36rem / 576px</span></div>
+        <div class="container-row"><span class="token-name">--container-md</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-md) * 0.45)"></div></div><span class="token-value">48rem / 768px</span></div>
+        <div class="container-row"><span class="token-name">--container-lg</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-lg) * 0.45)"></div></div><span class="token-value">64rem / 1024px</span></div>
+        <div class="container-row"><span class="token-name">--container-xl</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-xl) * 0.45)"></div></div><span class="token-value">80rem / 1280px</span></div>
+        <div class="container-row"><span class="token-name">--container-xxl</span><div class="container-bar-wrap"><div class="container-bar" style="width:calc(var(--container-xxl) * 0.45)"></div></div><span class="token-value">96rem / 1536px</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         19 · BREAKPOINTS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="breakpoints">
+      <div class="section-header">
+        <span class="section-number">19</span>
+        <h2 class="section-title">Breakpoints</h2>
+        <p class="section-desc">Reference values only — CSS custom properties cannot be interpolated inside <code>@media</code> queries. Use these as documentation anchors or consume via PostCSS / JS.</p>
+      </div>
+
+      <div class="container-viz">
+        <div class="container-row"><span class="token-name">--breakpoint-sm</span><div class="container-bar-wrap"><div class="container-bar breakpoint-bar" style="width:calc(var(--breakpoint-sm) * 0.45)"></div></div><span class="token-value">36rem / 576px</span></div>
+        <div class="container-row"><span class="token-name">--breakpoint-md</span><div class="container-bar-wrap"><div class="container-bar breakpoint-bar" style="width:calc(var(--breakpoint-md) * 0.45)"></div></div><span class="token-value">48rem / 768px</span></div>
+        <div class="container-row"><span class="token-name">--breakpoint-lg</span><div class="container-bar-wrap"><div class="container-bar breakpoint-bar" style="width:calc(var(--breakpoint-lg) * 0.45)"></div></div><span class="token-value">64rem / 1024px</span></div>
+        <div class="container-row"><span class="token-name">--breakpoint-xl</span><div class="container-bar-wrap"><div class="container-bar breakpoint-bar" style="width:calc(var(--breakpoint-xl) * 0.45)"></div></div><span class="token-value">80rem / 1280px</span></div>
+        <div class="container-row"><span class="token-name">--breakpoint-xxl</span><div class="container-bar-wrap"><div class="container-bar breakpoint-bar" style="width:calc(var(--breakpoint-xxl) * 0.45)"></div></div><span class="token-value">96rem / 1536px</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         20 · SHELL TOKENS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="shell-tokens">
+      <div class="section-header">
+        <span class="section-number">20</span>
+        <h2 class="section-title">Shell Tokens</h2>
+        <p class="section-desc">Named dimensions for the application chrome. Keep all structural measurements here so resizing a shell element is a single token change.</p>
+      </div>
+
+      <div class="shell-diagram">
+        <!-- Header bar -->
+        <div class="shell-header-bar">
+          <span class="shell-dim-label">--header-height · 3.5rem</span>
+        </div>
+        <!-- Body row -->
+        <div class="shell-body-row">
+          <div class="shell-sidebar-full">
+            <span class="shell-dim-label rotated">--sidebar-width · 16rem</span>
+          </div>
+          <div class="shell-sidebar-collapsed">
+            <span class="shell-dim-label rotated">--sidebar-width-collapsed · 3.5rem</span>
+          </div>
+          <div class="shell-content">
+            <span class="shell-dim-label">--content-max-width = --container-lg · 64rem</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="alias-table" style="margin-top:var(--space-32)">
+        <div class="alias-row"><code class="token-name">--sidebar-width</code><span class="token-value">16rem / 256px</span></div>
+        <div class="alias-row"><code class="token-name">--sidebar-width-collapsed</code><span class="token-value">3.5rem / 56px</span></div>
+        <div class="alias-row"><code class="token-name">--header-height</code><span class="token-value">3.5rem / 56px</span></div>
+        <div class="alias-row"><code class="token-name">--content-max-width</code><span class="alias-arrow">→</span><code class="token-value">--container-lg</code></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         21 · ASPECT RATIOS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="ratios">
+      <div class="section-header">
+        <span class="section-number">21</span>
+        <h2 class="section-title">Aspect Ratios</h2>
+        <p class="section-desc">Five canonical ratios for media, cards, and layout containers. Used via <code>aspect-ratio</code> or the <code>.frame</code> layout primitive.</p>
+      </div>
+
+      <div class="ratio-grid">
+        <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-portrait)"></div><span class="token-name">--ratio-portrait</span><span class="token-value">3 / 4</span></div>
+        <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-square)"></div><span class="token-name">--ratio-square</span><span class="token-value">1 / 1</span></div>
+        <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-photo)"></div><span class="token-name">--ratio-photo</span><span class="token-value">4 / 3</span></div>
+        <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-video)"></div><span class="token-name">--ratio-video</span><span class="token-value">16 / 9</span></div>
+        <div class="ratio-card"><div class="ratio-demo" style="aspect-ratio:var(--ratio-wide)"></div><span class="token-name">--ratio-wide</span><span class="token-value">21 / 9</span></div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         22 · LAYOUT PRIMITIVES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-layout">
+      <div class="section-header">
+        <span class="section-number">22</span>
+        <h2 class="section-title">Layout Primitives</h2>
+        <p class="section-desc">Intrinsic layout patterns. All are modifier-driven via custom properties — not breakpoints. Mix and compose freely.</p>
+      </div>
+
+      <!-- Stack -->
+      <div class="subsection">
+        <p class="subsection-title">.stack — vertical flow</p>
+        <div class="demo-canvas">
+          <div class="layout-demo-row">
+            <div>
+              <p class="demo-caption">Default</p>
+              <div class="stack" style="--stack-gap:var(--space-stack-default);width:8rem">
+                <div class="layout-block">A</div>
+                <div class="layout-block">B</div>
+                <div class="layout-block">C</div>
+              </div>
+            </div>
+            <div>
+              <p class="demo-caption">.tight</p>
+              <div class="stack tight" style="width:8rem">
+                <div class="layout-block">A</div>
+                <div class="layout-block">B</div>
+                <div class="layout-block">C</div>
+              </div>
+            </div>
+            <div>
+              <p class="demo-caption">.loose</p>
+              <div class="stack loose" style="width:8rem">
+                <div class="layout-block">A</div>
+                <div class="layout-block">B</div>
+                <div class="layout-block">C</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cluster -->
+      <div class="subsection">
+        <p class="subsection-title">.cluster — horizontal wrap</p>
+        <div class="demo-canvas">
+          <div class="cluster">
+            <div class="layout-block">Alpha</div>
+            <div class="layout-block">Beta</div>
+            <div class="layout-block">Gamma</div>
+            <div class="layout-block">Delta</div>
+            <div class="layout-block">Epsilon</div>
+          </div>
+          <div class="cluster between" style="margin-top:var(--space-16);border-top:1px solid var(--color-border-default);padding-top:var(--space-16)">
+            <div class="layout-block">Leading content</div>
+            <div class="layout-block">Trailing content</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="subsection">
+        <p class="subsection-title">.grid — auto-responsive columns</p>
+        <div class="demo-canvas">
+          <div class="grid sm">
+            <div class="layout-block tall">A</div>
+            <div class="layout-block tall">B</div>
+            <div class="layout-block tall">C</div>
+            <div class="layout-block tall">D</div>
+            <div class="layout-block tall">E</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Switcher -->
+      <div class="subsection">
+        <p class="subsection-title">.switcher — breaks below threshold</p>
+        <div class="demo-canvas">
+          <div class="switcher" style="--switcher-threshold:40rem">
+            <div class="layout-block tall">Main content area grows to fill space</div>
+            <div class="layout-block tall" style="max-width:12rem">Sidebar wraps below 40rem</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- With-sidebar -->
+      <div class="subsection">
+        <p class="subsection-title">.with-sidebar — fixed sidebar + fluid content</p>
+        <div class="demo-canvas">
+          <div class="with-sidebar" style="--sidebar-basis:8rem">
+            <div class="layout-block tall" style="justify-content:center">Sidebar<br>8rem fixed</div>
+            <div class="layout-block tall" style="min-height:5rem">Content area grows to fill the remaining width</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel -->
+      <div class="subsection">
+        <p class="subsection-title">.reel — horizontal scroll</p>
+        <div class="demo-canvas">
+          <div class="reel">
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 1</div>
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 2</div>
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 3</div>
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 4</div>
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 5</div>
+            <div class="layout-block" style="width:10rem;flex-shrink:0">Item 6</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame -->
+      <div class="subsection">
+        <p class="subsection-title">.frame — aspect-ratio wrapper</p>
+        <div class="demo-canvas">
+          <div class="layout-demo-row">
+            <div style="width:10rem">
+              <p class="demo-caption">.square</p>
+              <div class="frame square" style="background:var(--color-bg-subtle)"></div>
+            </div>
+            <div style="width:12rem">
+              <p class="demo-caption">default (16/9)</p>
+              <div class="frame" style="background:var(--color-bg-subtle)"></div>
+            </div>
+            <div style="width:8rem">
+              <p class="demo-caption">.portrait</p>
+              <div class="frame portrait" style="background:var(--color-bg-subtle)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         23 · BUTTONS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-buttons">
+      <div class="section-header">
+        <span class="section-number">23</span>
+        <h2 class="section-title">Buttons</h2>
+        <p class="section-desc">Base class <code>.button</code> plus variant, size, and shape modifiers from <code>@layer qualities</code>.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Variants</p>
+        <div class="demo-canvas">
+          <div class="cluster">
+            <button class="button primary">Primary</button>
+            <button class="button secondary">Secondary</button>
+            <button class="button ghost">Ghost</button>
+            <button class="button soft">Soft</button>
+            <button class="button destructive">Destructive</button>
+            <button class="button ghost destructive">Ghost Destructive</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Sizes</p>
+        <div class="demo-canvas">
+          <div class="cluster" style="align-items:center">
+            <button class="button primary xs">xs</button>
+            <button class="button primary sm">sm</button>
+            <button class="button primary">md (default)</button>
+            <button class="button primary lg">lg</button>
+            <button class="button primary xl">xl</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Shapes</p>
+        <div class="demo-canvas">
+          <div class="cluster" style="align-items:center">
+            <button class="button primary pill">Pill shape</button>
+            <button class="button primary pill sm">Pill sm</button>
+            <button class="button secondary square" title="Icon button">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <button class="button ghost square sm" title="Small icon button">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">States</p>
+        <div class="demo-canvas">
+          <div class="cluster">
+            <button class="button primary" disabled>Disabled</button>
+            <button class="button secondary" disabled>Disabled secondary</button>
+            <button class="button primary" data-loading aria-busy="true">Loading</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         24 · BADGES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-badges">
+      <div class="section-header">
+        <span class="section-number">24</span>
+        <h2 class="section-title">Badges</h2>
+        <p class="section-desc">Six semantic variants. Use for status indicators, counts, and labels. <code>--radius-badge</code> is always <code>full</code>.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="cluster">
+          <span class="badge primary">Primary</span>
+          <span class="badge success">Success</span>
+          <span class="badge warning">Warning</span>
+          <span class="badge destructive">Destructive</span>
+          <span class="badge info">Info</span>
+          <span class="badge neutral">Neutral</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         25 · INPUTS & FIELDS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-inputs">
+      <div class="section-header">
+        <span class="section-number">25</span>
+        <h2 class="section-title">Inputs &amp; Fields</h2>
+        <p class="section-desc"><code>.input</code> wraps the native element and handles focus ring. <code>.field</code> composes the full label / input / caption group.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="stack" style="max-width:28rem">
+
+          <!-- Sizes -->
+          <div>
+            <p class="demo-caption">.input.sm</p>
+            <div class="input sm"><input type="text" placeholder="Small input…" /></div>
+          </div>
+          <div>
+            <p class="demo-caption">.input (default md)</p>
+            <div class="input"><input type="text" placeholder="Default input…" /></div>
+          </div>
+          <div>
+            <p class="demo-caption">.input.lg</p>
+            <div class="input lg"><input type="text" placeholder="Large input…" /></div>
+          </div>
+
+          <!-- With icon -->
+          <div>
+            <p class="demo-caption">With leading icon</p>
+            <div class="input">
+              <span class="leading" style="color:var(--color-text-tertiary)">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span>
+              <input type="text" placeholder="Search…" />
+            </div>
+          </div>
+
+          <!-- Full field -->
+          <div class="field">
+            <label class="label" for="demo-field">Email address</label>
+            <div class="input">
+              <input id="demo-field" type="email" placeholder="you@example.com" />
+            </div>
+            <p class="caption">We'll only use this to send account notifications.</p>
+          </div>
+
+          <!-- Invalid field -->
+          <div class="field" aria-invalid="true">
+            <label class="label" for="demo-invalid">Username</label>
+            <div class="input">
+              <input id="demo-invalid" type="text" value="taken_name" aria-invalid="true" />
+            </div>
+            <p class="caption">This username is already taken. Please choose another.</p>
+          </div>
+
+          <!-- Textarea -->
+          <div class="field">
+            <label class="label" for="demo-textarea">Message</label>
+            <div class="input">
+              <textarea id="demo-textarea" placeholder="Write something…" rows="3"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         26 · CARDS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-cards">
+      <div class="section-header">
+        <span class="section-number">26</span>
+        <h2 class="section-title">Cards</h2>
+        <p class="section-desc"><code>.card</code> defines structure. Variant classes from <code>@layer qualities</code> control appearance. Slot roles (<code>.header</code>, <code>.body</code>, <code>.footer</code>) control internal layout.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="grid cols-2" style="gap:var(--space-24)">
+
+          <!-- Default card -->
+          <div class="card">
+            <div class="header">
+              <div>
+                <p class="title">Default card</p>
+                <p class="subtitle">elevation-sm shadow</p>
+              </div>
+            </div>
+            <div class="body">
+              <p class="description">Cards organize related content into a contained surface. The default variant uses a subtle drop shadow.</p>
+            </div>
+            <div class="footer">
+              <div class="actions">
+                <button class="button ghost sm">Cancel</button>
+                <button class="button primary sm">Confirm</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bordered -->
+          <div class="card bordered">
+            <div class="header">
+              <div>
+                <p class="title">Bordered</p>
+                <p class="subtitle">border, no shadow</p>
+              </div>
+            </div>
+            <div class="body">
+              <p class="description">Bordered cards sit flush with the background and use a border for delineation. Good for content-heavy layouts.</p>
+            </div>
+            <div class="footer">
+              <div class="actions">
+                <button class="button secondary sm">Learn more</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive -->
+          <div class="card bordered interactive" tabindex="0">
+            <div class="header">
+              <div>
+                <p class="title">Interactive</p>
+                <p class="subtitle">hover to see lift</p>
+              </div>
+            </div>
+            <div class="body">
+              <p class="description">Interactive cards respond to hover with a shadow elevation change and a subtle translateY lift.</p>
+            </div>
+          </div>
+
+          <!-- Selected -->
+          <div class="card selected">
+            <div class="header">
+              <div>
+                <p class="title">Selected</p>
+                <p class="subtitle">active selection state</p>
+              </div>
+            </div>
+            <div class="body">
+              <p class="description">A 2px action-colored border plus a focus ring shadow signals that this card is the current selection.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         27 · ALERTS & TOASTS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-alerts">
+      <div class="section-header">
+        <span class="section-number">27</span>
+        <h2 class="section-title">Alerts &amp; Toasts</h2>
+        <p class="section-desc">Inline contextual messages (<code>.alert</code>) and temporary notification overlays (<code>.toast</code>). Both use the same four status variants.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Alerts — inline, four variants</p>
+        <div class="demo-canvas">
+          <div class="stack tight">
+            <div class="alert info">
+              <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 5.5v.5M8 8v3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><p class="title">Information</p><p class="description">A new version of the application is available.</p></div>
+            </div>
+            <div class="alert success">
+              <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 8l2.5 2.5L11 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><p class="title">Success</p><p class="description">Your profile changes have been saved successfully.</p></div>
+            </div>
+            <div class="alert warning">
+              <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><path d="M8 2L14.5 13.5H1.5L8 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 6.5V9M8 11v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><p class="title">Warning</p><p class="description">Your session expires in 5 minutes. Save your work.</p></div>
+            </div>
+            <div class="alert destructive">
+              <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div><p class="title">Error</p><p class="description">Unable to process payment. Please check your card details.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Toast — temporary overlay notification</p>
+        <div class="demo-canvas">
+          <div class="toast">
+            <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;color:var(--color-success-default)"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 8l2.5 2.5L11 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="flex:1">
+              <p class="title">Draft saved</p>
+              <p class="description">Your changes have been saved automatically.</p>
+            </div>
+            <button class="button ghost square sm" aria-label="Dismiss">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         28 · TABS & ACCORDION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-tabs">
+      <div class="section-header">
+        <span class="section-number">28</span>
+        <h2 class="section-title">Tabs &amp; Accordion</h2>
+        <p class="section-desc">Tabs use WAI-ARIA roles directly. Accordion is built on native <code>&lt;details&gt;/&lt;summary&gt;</code> inside the <code>.accordion</code> wrapper.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Tabs</p>
+        <div class="demo-canvas" style="padding:0">
+          <div class="tabs" id="demo-tabs">
+            <div role="tablist" aria-label="Demo tabs">
+              <button role="tab" aria-selected="true"  aria-controls="tab-panel-1" id="tab-1">Overview</button>
+              <button role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2">Settings</button>
+              <button role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3">Activity</button>
+            </div>
+            <div role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1">
+              <p style="color:var(--color-text-secondary)">This is the <strong>Overview</strong> tab panel. Content is revealed when the corresponding tab is active.</p>
+            </div>
+            <div role="tabpanel" id="tab-panel-2" aria-labelledby="tab-2" hidden>
+              <p style="color:var(--color-text-secondary)">This is the <strong>Settings</strong> panel. Switch between tabs without a page reload.</p>
+            </div>
+            <div role="tabpanel" id="tab-panel-3" aria-labelledby="tab-3" hidden>
+              <p style="color:var(--color-text-secondary)">This is the <strong>Activity</strong> panel. Recent actions would appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Accordion</p>
+        <div class="demo-canvas" style="padding:0">
+          <div class="accordion">
+            <details>
+              <summary>What is a design token?</summary>
+              <p>Design tokens are named entities that store visual design attributes. They are the single source of truth for values like colour, spacing, and typography across a design system.</p>
+            </details>
+            <details open>
+              <summary>How does the cascade layering work?</summary>
+              <p>The <code>@layer</code> declaration at the top of the file establishes explicit layer priority. Later layers win over earlier ones when specificity is equal, making the order predictable without resorting to <code>!important</code>.</p>
+            </details>
+            <details>
+              <summary>Why OKLCH for color?</summary>
+              <p>OKLCH is a perceptually uniform color space. When you set a lightness value, it actually looks that light to the human eye — unlike HSL which has wildly different perceived brightness at the same L value depending on hue.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         29 · NAVIGATION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-nav">
+      <div class="section-header">
+        <span class="section-number">29</span>
+        <h2 class="section-title">Navigation</h2>
+        <p class="section-desc">Three navigation patterns: <code>.nav-item</code> for sidebar menus, <code>.breadcrumb</code> for wayfinding, and <code>.stepper</code> for multi-step flows.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">.nav-item</p>
+        <div class="demo-canvas" style="max-width:16rem">
+          <div class="stack tight">
+            <a href="#" class="nav-item" onclick="return false">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
+              Dashboard
+            </a>
+            <a href="#" class="nav-item" aria-current="page" onclick="return false">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
+              Design Tokens
+              <span class="badge primary" style="margin-left:auto">New</span>
+            </a>
+            <a href="#" class="nav-item" onclick="return false">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 7h6M5 9.5h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Documentation
+            </a>
+            <a href="#" class="nav-item" onclick="return false" aria-disabled="true">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><rect x="3" y="5" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M5 5V4a3 3 0 0 1 6 0v1" stroke="currentColor" stroke-width="1.3"/></svg>
+              Locked section
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">.breadcrumb</p>
+        <div class="demo-canvas">
+          <nav aria-label="Breadcrumb" class="breadcrumb">
+            <a href="#" onclick="return false">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">/</span>
+            <a href="#" onclick="return false">Design System</a>
+            <span class="breadcrumb-sep" aria-hidden="true">/</span>
+            <a href="#" onclick="return false">Tokens</a>
+            <span class="breadcrumb-sep" aria-hidden="true">/</span>
+            <span aria-current="page">Color</span>
+          </nav>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">.stepper</p>
+        <div class="demo-canvas">
+          <div class="stepper">
+            <div class="step" data-complete aria-label="Step 1: Account, complete">
+              <div class="step-number">✓</div>
+              <span>Account</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" aria-current="step" aria-label="Step 2: Profile, current">
+              <div class="step-number">2</div>
+              <span>Profile</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" aria-label="Step 3: Review, pending">
+              <div class="step-number">3</div>
+              <span>Review</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" aria-label="Step 4: Confirm, pending">
+              <div class="step-number">4</div>
+              <span>Confirm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         30 · FORM CONTROLS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-controls">
+      <div class="section-header">
+        <span class="section-number">30</span>
+        <h2 class="section-title">Form Controls</h2>
+        <p class="section-desc">Toggle, checkbox, radio button, and range slider. All styled via appearance overrides using system tokens.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="grid cols-2" style="gap:var(--space-40)">
+
+          <!-- Toggle -->
+          <div>
+            <p class="demo-caption">Toggle switch</p>
+            <div class="stack tight">
+              <div style="display:flex;align-items:center;gap:var(--space-12)">
+                <button class="toggle" role="switch" aria-checked="false" id="demo-toggle-off" aria-label="Notifications off">
+                  <div class="indicator"></div>
+                </button>
+                <span style="font-size:var(--text-sm);color:var(--color-text-secondary)">Notifications off</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-12)">
+                <button class="toggle" role="switch" aria-checked="true" id="demo-toggle-on" aria-label="Dark mode on">
+                  <div class="indicator"></div>
+                </button>
+                <span style="font-size:var(--text-sm);color:var(--color-text-secondary)">Dark mode on</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div>
+            <p class="demo-caption">Checkbox</p>
+            <div class="stack tight">
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="checkbox" id="cb1" class="checkbox">
+                <label for="cb1" style="font-size:var(--text-sm)">Unchecked option</label>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="checkbox" id="cb2" class="checkbox" checked>
+                <label for="cb2" style="font-size:var(--text-sm)">Checked option</label>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="checkbox" id="cb3" class="checkbox" disabled>
+                <label for="cb3" style="font-size:var(--text-sm);opacity:var(--opacity-disabled)">Disabled option</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Radio -->
+          <div>
+            <p class="demo-caption">Radio buttons</p>
+            <div class="stack tight">
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="radio" id="r1" name="demo-radio" class="radio-btn">
+                <label for="r1" style="font-size:var(--text-sm)">Option Alpha</label>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="radio" id="r2" name="demo-radio" class="radio-btn" checked>
+                <label for="r2" style="font-size:var(--text-sm)">Option Beta (selected)</label>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--space-10)">
+                <input type="radio" id="r3" name="demo-radio" class="radio-btn">
+                <label for="r3" style="font-size:var(--text-sm)">Option Gamma</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Range -->
+          <div>
+            <p class="demo-caption">Range slider</p>
+            <div class="stack tight">
+              <input type="range" min="0" max="100" value="40" aria-label="Volume">
+              <input type="range" min="0" max="100" value="75" disabled aria-label="Brightness (disabled)">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         31 · AVATAR & TAG
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-identity">
+      <div class="section-header">
+        <span class="section-number">31</span>
+        <h2 class="section-title">Avatar &amp; Tag</h2>
+        <p class="section-desc">Avatar supports initials, images, and five size variants keyed to control-height tokens. Tags are dismissible inline chips.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Avatar sizes</p>
+        <div class="demo-canvas">
+          <div class="cluster" style="align-items:flex-end">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar xs">TS</div>
+              <code class="token-name">xs</code>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar sm">TS</div>
+              <code class="token-name">sm</code>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar">TS</div>
+              <code class="token-name">md</code>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar lg">TS</div>
+              <code class="token-name">lg</code>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar xl">TS</div>
+              <code class="token-name">xl</code>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8)">
+              <div class="avatar xxl">TS</div>
+              <code class="token-name">xxl</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Tags</p>
+        <div class="demo-canvas">
+          <div class="cluster">
+            <div class="tag">Design systems</div>
+            <div class="tag">Tokens</div>
+            <div class="tag">OKLCH</div>
+            <div class="tag">CSS layers</div>
+            <div class="tag">Typography</div>
+            <div class="tag">Accessibility</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         32 · SKELETON
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-skeleton">
+      <div class="section-header">
+        <span class="section-number">32</span>
+        <h2 class="section-title">Skeleton</h2>
+        <p class="section-desc"><code>.skeleton</code> pulses between 1 and 0.5 opacity. The animation collapses to static under <code>prefers-reduced-motion</code>.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="grid cols-2" style="gap:var(--space-24)">
+          <!-- Skeleton card -->
+          <div class="card bordered" style="padding:var(--space-20)">
+            <div style="display:flex;gap:var(--space-12);align-items:center;margin-bottom:var(--space-16)">
+              <div class="skeleton" style="width:2.5rem;height:2.5rem;border-radius:var(--radius-full)"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:var(--space-8)">
+                <div class="skeleton" style="height:0.875rem;width:60%;border-radius:var(--radius-sm)"></div>
+                <div class="skeleton" style="height:0.75rem;width:40%;border-radius:var(--radius-sm)"></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-8)">
+              <div class="skeleton" style="height:0.75rem;width:100%;border-radius:var(--radius-sm)"></div>
+              <div class="skeleton" style="height:0.75rem;width:90%;border-radius:var(--radius-sm)"></div>
+              <div class="skeleton" style="height:0.75rem;width:70%;border-radius:var(--radius-sm)"></div>
+            </div>
+          </div>
+
+          <!-- Skeleton image card -->
+          <div class="card bordered" style="overflow:hidden">
+            <div class="skeleton" style="height:8rem;border-radius:0"></div>
+            <div style="padding:var(--space-16);display:flex;flex-direction:column;gap:var(--space-8)">
+              <div class="skeleton" style="height:1rem;width:55%;border-radius:var(--radius-sm)"></div>
+              <div class="skeleton" style="height:0.75rem;width:80%;border-radius:var(--radius-sm)"></div>
+              <div class="skeleton" style="height:0.75rem;width:65%;border-radius:var(--radius-sm)"></div>
+              <div style="display:flex;gap:var(--space-8);margin-top:var(--space-8)">
+                <div class="skeleton" style="height:2rem;width:5rem;border-radius:var(--radius-button)"></div>
+                <div class="skeleton" style="height:2rem;width:5rem;border-radius:var(--radius-button)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         33 · OVERLAYS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="o-overlays">
+      <div class="section-header">
+        <span class="section-number">33</span>
+        <h2 class="section-title">Overlays</h2>
+        <p class="section-desc">Tooltip, dropdown menu, popover, and pagination. Modal and drawer follow the same token conventions but are full-viewport; see documentation for usage.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Tooltip — CSS-only, hover/focus-within</p>
+        <div class="demo-canvas">
+          <div class="cluster">
+            <div class="tooltip-wrap">
+              <button class="button secondary">Hover for tip</button>
+              <div role="tooltip">Opens in a new tab</div>
+            </div>
+            <div class="tooltip-wrap">
+              <button class="button ghost">More info</button>
+              <div role="tooltip">Last updated 3 hours ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Popover / Dropdown menu</p>
+        <div class="demo-canvas">
+          <div class="popover" style="max-width:16rem">
+            <div class="menu-item">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M2 13.5c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              View profile
+            </div>
+            <div class="menu-item">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Zm6-2v2l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Account settings
+            </div>
+            <div class="menu-item">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
+              Switch workspace
+            </div>
+            <div class="menu-divider"></div>
+            <div class="menu-item destructive">
+              <svg width="var(--icon-sm)" height="var(--icon-sm)" viewBox="0 0 16 16" fill="none"><path d="M6 2h4M2 4h12M5 4l.5 8.5M11 4l-.5 8.5M4 4.5h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Delete account
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Pagination</p>
+        <div class="demo-canvas">
+          <nav aria-label="Pagination" class="pagination">
+            <button class="page-btn" disabled aria-label="Previous page">‹</button>
+            <button class="page-btn" aria-label="Page 1">1</button>
+            <button class="page-btn" aria-current="page" aria-label="Page 2, current">2</button>
+            <button class="page-btn" aria-label="Page 3">3</button>
+            <button class="page-btn" aria-label="Page 4">4</button>
+            <button class="page-btn" aria-label="Page 5">5</button>
+            <button class="page-btn" aria-label="Next page">›</button>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         34 · ROLES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="s-roles">
+      <div class="section-header">
+        <span class="section-number">34</span>
+        <h2 class="section-title">Roles</h2>
+        <p class="section-desc">Semantic slot classes from <code>@layer roles</code>. The same class names adapt their size and spacing depending on the parent component context.</p>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Typography roles — standalone</p>
+        <div class="demo-canvas">
+          <div class="stack">
+            <p class="title">Title — display font, tight tracking</p>
+            <p class="subtitle">Subtitle — body font, secondary color</p>
+            <p class="label">Label — semibold, wide tracking</p>
+            <p class="description">Description — body font, secondary color, constrained to measure-prose. Used for explanatory copy under headings.</p>
+            <p class="caption">Caption — xs, tertiary color. Used for timestamps, footnotes, and supporting metadata.</p>
+            <p class="muted">Muted — inherits size, applies tertiary color</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Roles in card context — sizes and spacing adapt</p>
+        <div class="demo-canvas" style="padding:0">
+          <div class="card bordered" style="max-width:28rem">
+            <div class="header">
+              <div>
+                <p class="title">Card title</p>
+                <p class="subtitle">Subtitle with supporting context</p>
+              </div>
+              <span class="badge success">Active</span>
+            </div>
+            <div class="body">
+              <p class="description">Card body description. Title is smaller here than standalone; subtitle is xs.</p>
+            </div>
+            <div class="footer">
+              <p class="caption">Updated 2 hours ago</p>
+              <div class="actions">
+                <button class="button ghost sm">Cancel</button>
+                <button class="button primary sm">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <p class="subsection-title">Leading / Trailing slots</p>
+        <div class="demo-canvas">
+          <div class="stack tight" style="max-width:28rem">
+            <div style="display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) var(--space-16);background:var(--color-surface-default);border:1px solid var(--color-border-default);border-radius:var(--radius-card)">
+              <span class="leading">
+                <svg width="var(--icon-md)" height="var(--icon-md)" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M2 13.5c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </span>
+              <div style="flex:1">
+                <p class="title" style="font-size:var(--text-base)">Taylor Sinclair</p>
+                <p class="subtitle">taylor@example.com</p>
+              </div>
+              <span class="trailing">
+                <span class="badge success">Admin</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         35 · STATES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="s-states">
+      <div class="section-header">
+        <span class="section-number">35</span>
+        <h2 class="section-title">States</h2>
+        <p class="section-desc">State classes and ARIA attributes from <code>@layer states</code>. These sit above qualities in the cascade, so a state attribute always wins over a variant modifier.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="grid cols-2" style="gap:var(--space-32)">
+
+          <div>
+            <p class="demo-caption">[data-selected]</p>
+            <div style="display:flex;flex-direction:column;gap:var(--space-4);border:1px solid var(--color-border-default);border-radius:var(--radius-card);overflow:hidden">
+              <div style="padding:var(--space-12) var(--space-16);font-size:var(--text-sm)">Option Alpha</div>
+              <div style="padding:var(--space-12) var(--space-16);font-size:var(--text-sm)" data-selected>Option Beta — selected</div>
+              <div style="padding:var(--space-12) var(--space-16);font-size:var(--text-sm)">Option Gamma</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="demo-caption">[aria-pressed="true"]</p>
+            <div class="cluster">
+              <button class="button soft" aria-pressed="false">Normal</button>
+              <button class="button soft" aria-pressed="true">Pressed</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="demo-caption">[aria-invalid="true"] on .field</p>
+            <div class="field" aria-invalid="true">
+              <label class="label" for="state-invalid">Password</label>
+              <div class="input">
+                <input id="state-invalid" type="password" value="short" aria-invalid="true" />
+              </div>
+              <p class="caption">Must be at least 8 characters.</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="demo-caption">[aria-disabled="true"]</p>
+            <div class="cluster">
+              <button class="button primary" aria-disabled="true">Disabled primary</button>
+              <div class="input" style="opacity:var(--opacity-disabled)"><input type="text" placeholder="Disabled input" disabled /></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         36 · UTILITIES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="s-utilities">
+      <div class="section-header">
+        <span class="section-number">36</span>
+        <h2 class="section-title">Utilities</h2>
+        <p class="section-desc">Single-purpose escape hatches from <code>@layer utilities</code>. Highest specificity layer — use sparingly.</p>
+      </div>
+
+      <div class="demo-canvas">
+        <div class="stack">
+
+          <div>
+            <p class="demo-caption">.truncate — overflow hidden with ellipsis</p>
+            <div style="max-width:18rem;border:1px solid var(--color-border-default);border-radius:var(--radius-md);padding:var(--space-10) var(--space-16)">
+              <p class="truncate" style="font-size:var(--text-sm)">This is a very long piece of text that will be truncated with an ellipsis when it exceeds the container width.</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="demo-caption">.numeric — right-aligned tabular figures</p>
+            <table style="width:16rem;font-size:var(--text-sm)">
+              <thead>
+                <tr>
+                  <th style="text-align:left">Item</th>
+                  <th class="numeric">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Revenue</td><td class="numeric">$1,234.56</td></tr>
+                <tr><td>Expenses</td><td class="numeric">$987.00</td></tr>
+                <tr><td>Profit</td><td class="numeric">$247.56</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <p class="demo-caption">.balance — even text wrapping</p>
+            <div style="max-width:22rem">
+              <p class="balance" style="font-size:var(--text-lg);line-height:var(--leading-snug)">A heading that wraps to multiple lines in a balanced, visually even way.</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="demo-caption">.flow > * + * — intrinsic vertical spacing</p>
+            <div class="flow" style="--flow-gap:var(--space-24);max-width:28rem;padding:var(--space-20);background:var(--color-bg-subtle);border-radius:var(--radius-card)">
+              <p style="font-size:var(--text-sm)">First paragraph of prose. The .flow utility applies margin-block-start to every sibling after the first.</p>
+              <p style="font-size:var(--text-sm)">Second paragraph. No class needed on each element — the gap is controlled by --flow-gap on the parent.</p>
+              <p style="font-size:var(--text-sm)">Third paragraph. Swap the token value to change all spacing in one place.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════
+         37 · ANIMATIONS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="specimen-section" id="s-animations">
+      <div class="section-header">
+        <span class="section-number">37</span>
+        <h2 class="section-title">Animations</h2>
+        <p class="section-desc">Five named keyframe sets. Click a card to replay. All use duration and easing tokens — swap a token, update every animation that uses it.</p>
+      </div>
+
+      <div class="animation-grid">
+
+        <div class="anim-card" data-anim="spin">
+          <div class="anim-stage">
+            <div class="anim-target spin-target">
+              <svg width="28" height="28" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="var(--color-border-default)" stroke-width="2"/><path d="M8 2a6 6 0 0 1 6 6" stroke="var(--color-action-default)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <code class="token-name">spin</code>
+          <p class="anim-note">Loading indicators. <code>transform: rotate(360deg)</code></p>
+        </div>
+
+        <div class="anim-card" data-anim="fadeIn">
+          <div class="anim-stage">
+            <div class="anim-target fade-target">
+              <div style="width:3rem;height:3rem;background:var(--color-action-default);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
+          <code class="token-name">fadeIn</code>
+          <p class="anim-note">Appearing elements. <code>opacity 0→1, translateY 4px→0</code></p>
+        </div>
+
+        <div class="anim-card" data-anim="slideUp">
+          <div class="anim-stage">
+            <div class="anim-target slide-up-target">
+              <div style="width:3rem;height:3rem;background:var(--color-success-default);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
+          <code class="token-name">slideUp</code>
+          <p class="anim-note">Sheets, drawers. <code>translateY --space-16 → 0</code></p>
+        </div>
+
+        <div class="anim-card" data-anim="slideDown">
+          <div class="anim-stage">
+            <div class="anim-target slide-down-target">
+              <div style="width:3rem;height:3rem;background:var(--color-warning-default);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
+          <code class="token-name">slideDown</code>
+          <p class="anim-note">Dropdowns, menus. <code>translateY -–space-16 → 0</code></p>
+        </div>
+
+        <div class="anim-card" data-anim="scaleIn">
+          <div class="anim-stage">
+            <div class="anim-target scale-in-target">
+              <div style="width:3rem;height:3rem;background:var(--color-destructive-default);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
+          <code class="token-name">scaleIn</code>
+          <p class="anim-note">Dialogs, popovers. <code>scale(0.95)→1, opacity 0→1</code></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- /l-main -->
+</div><!-- /l-shell -->
+
+
+<script>
+  /* ── Theme toggle ──────────────────────────────────────── */
+  const html = document.documentElement;
+  const btn  = document.getElementById('themeBtn');
+  const lbl  = document.getElementById('themeLabel');
+
+  const stored = localStorage.getItem('ds-specimen-theme');
+  if (stored) html.setAttribute('data-theme', stored);
+  updateLabel();
+
+  btn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('ds-specimen-theme', next);
+    updateLabel();
+  });
+
+  function updateLabel() {
+    lbl.textContent = html.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+
+  /* ── Active nav link on scroll ─────────────────────────── */
+  const sections = document.querySelectorAll('.specimen-section, .s-hero');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const id = e.target.id;
+        const match = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(s => io.observe(s));
+
+  /* ── Tabs ──────────────────────────────────────────────── */
+  document.querySelectorAll('[role="tablist"]').forEach(tablist => {
+    const tabs   = [...tablist.querySelectorAll('[role="tab"]')];
+    const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => {
+          const selected = j === i;
+          t.setAttribute('aria-selected', selected);
+          panels[j] && (panels[j].hidden = !selected);
+        });
+      });
+    });
+  });
+
+  /* ── Toggle switches ───────────────────────────────────── */
+  document.querySelectorAll('.toggle').forEach(toggle => {
+    if (toggle.id === 'themeBtn') return;
+    toggle.addEventListener('click', () => {
+      const checked = toggle.getAttribute('aria-checked') === 'true';
+      toggle.setAttribute('aria-checked', !checked);
+    });
+  });
+
+  /* ── Animation replay on card click ───────────────────── */
+  document.querySelectorAll('.anim-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const target = card.querySelector('.anim-target');
+      target.classList.remove('playing');
+      void target.offsetWidth; /* reflow */
+      target.classList.add('playing');
+    });
+  });
+
+  /* ── Transition hover demos ────────────────────────────── */
+  document.querySelectorAll('[data-transition]').forEach(wrap => {
+    const type  = wrap.dataset.transition;
+    const block = wrap.querySelector('.transition-block');
+    wrap.addEventListener('mouseenter', () => {
+      if (type === 'color')     { block.style.background = 'var(--color-action-hover)'; }
+      if (type === 'shadow')    { block.style.boxShadow = 'var(--elevation-lg)'; }
+      if (type === 'transform') { block.style.transform = 'translateY(-4px) scale(1.02)'; }
+      if (type === 'opacity')   { block.style.opacity = '0.4'; }
+    });
+    wrap.addEventListener('mouseleave', () => {
+      if (type === 'color')     { block.style.background = ''; }
+      if (type === 'shadow')    { block.style.boxShadow = ''; }
+      if (type === 'transform') { block.style.transform = ''; }
+      if (type === 'opacity')   { block.style.opacity = ''; }
+    });
+  });
+</script>
+</body>
+</html>

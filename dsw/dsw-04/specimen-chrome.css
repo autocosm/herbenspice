@@ -1,0 +1,1359 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   specimen-chrome.css
+   All structural, layout, and presentational styles for the specimen page.
+
+   Rules:
+   · Depends on design-system.css being loaded first.
+   · Never redefines design-system objects (.button, .card, .badge …).
+   · All values reference @layer tokens custom properties; no hard-coded
+     colours, radii, or spacing values anywhere in this file.
+   · Intentionally unlayered so these rules sit above every @layer block.
+   ───────────────────────────────────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAGE SHELL
+   Two-column sticky-sidebar layout.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.l-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100dvh;
+  align-items: start;
+}
+
+.l-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-default);
+  border-right: var(--border-default) solid var(--color-border-default);
+  box-shadow: var(--elevation-sticky);
+  z-index: var(--layer-sticky);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-default) transparent;
+}
+
+.l-main {
+  min-width: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Header ── */
+.sidebar-header {
+  flex-shrink: 0;
+  padding: var(--space-24) var(--space-24) var(--space-16);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.sidebar-wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.sidebar-meta {
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* ── Nav ── */
+.sidebar-nav {
+  flex: 1;
+  padding: var(--space-12) 0 var(--space-16);
+  overflow-y: auto;
+}
+
+.nav-group {
+  margin-bottom: var(--space-4);
+}
+
+.nav-group-label {
+  padding: var(--space-10) var(--space-20) var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--space-20);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-inline-start: 2px solid transparent;
+  transition: var(--transition-color);
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-subtle);
+}
+
+.nav-link.active {
+  color: var(--color-action-text);
+  background: var(--color-action-subtle);
+  font-weight: var(--weight-medium);
+  border-inline-start-color: var(--color-action-default);
+}
+
+.nav-dot {
+  width: 4px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  opacity: var(--opacity-subtle);
+}
+
+/* ── Footer / theme toggle ── */
+.sidebar-footer {
+  flex-shrink: 0;
+  padding: var(--space-16) var(--space-20);
+  border-top: var(--border-default) solid var(--color-border-default);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  background: none;
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-color);
+}
+
+.theme-toggle:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border-strong);
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+
+/* Mini toggle track — keyed on [data-theme] on <html>, not aria-checked,
+   because this button controls the page theme rather than a boolean field. */
+.toggle-track {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-strong);
+  transition: background var(--duration-normal) var(--ease-standard);
+}
+
+[data-theme="dark"] .toggle-track {
+  background: var(--color-action-default);
+}
+
+.toggle-thumb {
+  position: absolute;
+  inset-block: 2px;
+  inset-inline-start: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: white;
+  box-shadow: var(--elevation-xs);
+  transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+[data-theme="dark"] .toggle-thumb {
+  transform: translateX(12px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.s-hero {
+  padding: var(--space-80) var(--space-64) var(--space-64);
+  background: var(--color-surface-default);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--space-16);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-action-text);
+}
+
+.hero-title {
+  margin-bottom: var(--space-24);
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: var(--text-xxxxxl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.hero-desc {
+  max-width: var(--measure-tight);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-40) var(--space-56);
+  margin-top: var(--space-56);
+  padding-top: var(--space-40);
+  border-top: var(--border-default) solid var(--color-border-default);
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xxl);
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+.hero-stat-label {
+  margin-top: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION STRUCTURE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.specimen-section {
+  padding: var(--space-64);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.specimen-section:last-child {
+  border-bottom: none;
+}
+
+/* Three-column header: [number] [title] [description].
+   Number and title are on the first row; desc spans both rows on the right. */
+.section-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: var(--space-16);
+  row-gap: 0;
+  align-items: baseline;
+  margin-bottom: var(--space-48);
+  padding-bottom: var(--space-24);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.section-number {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+  align-self: center;
+}
+
+.section-title {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-xxl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.section-desc {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: start;
+  max-width: 28ch;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-tertiary);
+  text-align: right;
+}
+
+.subsection {
+  margin-top: var(--space-48);
+}
+
+.subsection + .subsection {
+  padding-top: var(--space-48);
+  border-top: var(--border-default) solid var(--color-border-default);
+}
+
+.subsection-title {
+  margin-bottom: var(--space-20);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOKEN LABEL ATOMS
+   Applied to both plain elements and <code> elements. When on <code>,
+   the design-system `code` element styles are suppressed below.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.token-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.token-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DEMO CANVAS
+   Inset well that separates live demos from the section background.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.demo-canvas {
+  background: var(--color-bg-subtle);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-32);
+}
+
+.demo-caption {
+  margin-bottom: var(--space-10);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §01 · COLOR — PRIMITIVE RAMPS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.color-ramps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Label column (8rem) + 13 equal swatch columns */
+.color-ramp {
+  display: grid;
+  grid-template-columns: 8rem repeat(13, 1fr);
+}
+
+.color-ramp-label {
+  display: flex;
+  align-items: center;
+  padding-inline-end: var(--space-12);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+}
+
+.swatch-step-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+  line-height: 1;
+  text-align: center;
+}
+
+.color-swatch {
+  aspect-ratio: var(--ratio-square);
+  position: relative;
+  cursor: default;
+}
+
+.color-swatch:first-of-type { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.color-swatch:last-of-type  { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+
+/* Step badge — appears on hover */
+.color-swatch::after {
+  content: attr(data-step);
+  position: absolute;
+  bottom: 4px;
+  inset-inline: 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.color-swatch:hover::after { opacity: 1; }
+
+/* Light steps → dark label text */
+.color-swatch[data-step="00"]::after,
+.color-swatch[data-step="05"]::after,
+.color-swatch[data-step="10"]::after,
+.color-swatch[data-step="20"]::after,
+.color-swatch[data-step="30"]::after { color: oklch(15% 0 0); }
+
+/* Dark steps → light label text */
+.color-swatch[data-step="40"]::after,
+.color-swatch[data-step="50"]::after,
+.color-swatch[data-step="60"]::after,
+.color-swatch[data-step="70"]::after,
+.color-swatch[data-step="80"]::after,
+.color-swatch[data-step="90"]::after,
+.color-swatch[data-step="95"]::after,
+.color-swatch[data-step="99"]::after { color: oklch(85% 0 0); }
+
+/* Checkerboard underlay for alpha / transparent swatches */
+.checkered {
+  background-image:
+    linear-gradient( 45deg, var(--neutral-20) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--neutral-20) 25%, transparent 25%),
+    linear-gradient( 45deg, transparent 75%,  var(--neutral-20) 75%),
+    linear-gradient(-45deg, transparent 75%,  var(--neutral-20) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §02–03 · SEMANTIC & STATUS COLOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--space-2);
+}
+
+.semantic-card {
+  overflow: hidden;
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+.semantic-swatch {
+  height: 3.5rem;
+}
+
+.semantic-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-10);
+  background: var(--color-surface-default);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §04 · TYPE SCALE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.type-scale {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Two columns: fixed meta sidebar | fluid specimen */
+.type-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  align-items: baseline;
+  gap: var(--space-24);
+  padding-block: var(--space-16);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.type-row:last-child { border-bottom: none; }
+
+.type-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-self: center;
+}
+
+.type-size-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* Line-height demos */
+.leading-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.leading-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.leading-demo {
+  flex: 1;
+  padding: var(--space-16);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §05 · TYPEFACES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.type-families {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-24);
+}
+
+.type-family-card {
+  padding: var(--space-32);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.type-family-tag {
+  margin-bottom: var(--space-20);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.type-family-specimen {
+  line-height: var(--leading-snug);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §06 · WEIGHTS & TRACKING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.type-weights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.type-weight-card {
+  padding: var(--space-20);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+/* Three columns: name | specimen | value */
+.tracking-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracking-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr 6rem;
+  align-items: center;
+  gap: var(--space-24);
+  padding-block: var(--space-12);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.tracking-row:last-child { border-bottom: none; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §07 · FONT FEATURES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.feature-specimen { flex: 1; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §08 · SPACING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.spacing-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Three columns: name | bar | value */
+.space-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr 5.5rem;
+  align-items: center;
+  gap: var(--space-16);
+  padding-block: var(--space-6);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.space-row:last-child { border-bottom: none; }
+
+.space-bar-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.space-bar {
+  height: 18px;
+  min-width: 1px;
+  /* width set inline via var(--space-*) */
+  background: var(--color-action-default);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  opacity: 0.5;
+}
+
+/* Alias table — shared by spacing and other token alias lists */
+.alias-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.alias-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding-block: var(--space-8);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.alias-row:last-child { border-bottom: none; }
+
+.alias-arrow {
+  font-family: var(--font-mono);
+  color: var(--color-text-tertiary);
+}
+
+/* Component padding demos */
+.padding-grid {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+}
+
+.padding-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.padding-demo {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-action-text);
+  background: var(--color-surface-default);
+  border: var(--border-default) dashed var(--color-action-default);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §09 · BORDER RADIUS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.radius-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-20);
+}
+
+.radius-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.radius-demo {
+  width: 100%;
+  aspect-ratio: var(--ratio-square);
+  background: var(--color-action-subtle);
+  border: var(--border-thick) solid var(--color-action-default);
+  /* border-radius set inline */
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §10 · ELEVATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.elevation-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: end;
+  gap: var(--space-32);
+  padding: var(--space-48) var(--space-32) var(--space-32);
+  background: var(--color-surface-sunken);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.elevation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-24) var(--space-12);
+  background: var(--color-surface-default);
+  border-radius: var(--radius-card);
+  text-align: center;
+  /* box-shadow set inline */
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §11 · MOTION — DURATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-16);
+}
+
+.duration-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-20);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  cursor: default;
+  user-select: none;
+}
+
+.duration-bar-track {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+  overflow: hidden;
+}
+
+.duration-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-action-default);
+  border-radius: var(--radius-full);
+  transition-property: width;
+  transition-timing-function: linear;
+  /* transition-duration set inline per card */
+}
+
+.duration-card:hover .duration-bar-fill,
+.duration-card:focus-visible .duration-bar-fill {
+  width: 100%;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §11 · MOTION — EASING CURVES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.easing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.easing-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-20);
+  overflow: hidden;
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  cursor: default;
+}
+
+.easing-dot-track {
+  position: relative;
+  height: 40px;
+  margin-block: var(--space-12);
+}
+
+.easing-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-action-default);
+  transform: translateY(-50%);
+  /* Base duration; each card overrides the timing function on hover */
+  transition: left var(--duration-deliberate) var(--ease-standard);
+}
+
+.easing-card[data-ease="standard"]:hover .easing-dot { left: calc(100% - 12px); transition-timing-function: var(--ease-standard); }
+.easing-card[data-ease="enter"]:hover    .easing-dot { left: calc(100% - 12px); transition-timing-function: var(--ease-enter);    }
+.easing-card[data-ease="exit"]:hover     .easing-dot { left: calc(100% - 12px); transition-timing-function: var(--ease-exit);     }
+.easing-card[data-ease="spring"]:hover   .easing-dot { left: calc(100% - 12px); transition-timing-function: var(--ease-spring);   }
+
+.easing-note {
+  margin-top: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §12 · TRANSITIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.transition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.transition-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-20);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+.transition-demo-target {
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+/* The block already carries the transition shorthand inline.
+   JS swaps the hover state by reading [data-transition] on the wrapper. */
+.transition-block {
+  padding: var(--space-20) var(--space-16);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-align: center;
+  user-select: none;
+}
+
+.transition-desc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §13 · FOCUS RINGS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-24);
+}
+
+.focus-demo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-32);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.focus-desc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §14 · OPACITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.opacity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.opacity-card {
+  overflow: hidden;
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.opacity-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.5rem;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  background: var(--color-surface-default);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+  /* opacity set inline */
+}
+
+.opacity-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-10) var(--space-12);
+  background: var(--color-surface-default);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §15 · CONTROL HEIGHTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.control-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Three columns: name | bar (auto-sized to inline width) | value */
+.control-row {
+  display: grid;
+  grid-template-columns: 12rem auto 1fr;
+  align-items: center;
+  gap: var(--space-24);
+  padding-block: var(--space-8);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.control-row:last-child { border-bottom: none; }
+
+.control-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-action-default);
+  border-radius: var(--radius-button);
+  /* height and width set inline per row */
+}
+
+.control-demo span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-inverse);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §16 · ICON SIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.icon-grid {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-48);
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.icon-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: var(--color-action-subtle);
+  border-radius: var(--radius-md);
+  color: var(--color-action-default);
+  /* width and height set inline via var(--icon-*) */
+}
+
+.icon-demo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §17 · Z-INDEX LAYERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.layer-stack {
+  position: relative;
+  height: 15rem;
+}
+
+.layer-chip {
+  position: absolute;
+  left: 0;
+  /* top and width set inline per chip */
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  height: 2.5rem;
+  padding-inline: var(--space-20);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-sm);
+  font-size: var(--text-xs);
+  cursor: default;
+  transition: transform var(--duration-normal) var(--ease-standard),
+              box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.layer-chip:hover {
+  transform: translateX(var(--space-8));
+  box-shadow: var(--elevation-md);
+}
+
+.layer-z {
+  min-width: 3ch;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  color: var(--color-action-text);
+  text-align: right;
+}
+
+.layer-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §18–19 · CONTAINERS & BREAKPOINTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.container-viz {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Three columns: name | bar | value */
+.container-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr 9rem;
+  align-items: center;
+  gap: var(--space-16);
+  padding-block: var(--space-8);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.container-row:last-child { border-bottom: none; }
+
+.container-bar-wrap {
+  position: relative;
+  height: 26px;
+}
+
+.container-bar {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  /* width set inline via calc(var(--container-*) * 0.45) */
+  max-width: 100%;
+  background: var(--color-action-subtle);
+  border: var(--border-default) solid var(--color-action-default);
+  border-radius: var(--radius-xs);
+}
+
+/* Dashed border distinguishes breakpoint bars from container bars */
+.breakpoint-bar {
+  background: transparent;
+  border-style: dashed;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §20 · SHELL TOKENS DIAGRAM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.shell-diagram {
+  overflow: hidden;
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+}
+
+.shell-header-bar {
+  display: flex;
+  align-items: center;
+  padding-inline: var(--space-16);
+  height: var(--header-height);
+  background: var(--color-bg-subtle);
+  border-bottom: var(--border-default) solid var(--color-border-default);
+}
+
+.shell-body-row {
+  display: flex;
+  min-height: 8rem;
+}
+
+.shell-sidebar-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--sidebar-width);
+  padding: var(--space-12);
+  background: var(--color-surface-default);
+  border-inline-end: var(--border-default) solid var(--color-border-default);
+}
+
+.shell-sidebar-collapsed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--sidebar-width-collapsed);
+  padding: var(--space-6);
+  background: var(--color-bg-subtle);
+  border-inline-end: var(--border-default) dashed var(--color-border-default);
+}
+
+.shell-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  background: var(--color-bg-default);
+}
+
+.shell-dim-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.shell-dim-label.rotated {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §21 · ASPECT RATIOS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ratio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  gap: var(--space-16);
+}
+
+.ratio-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.ratio-demo {
+  width: 100%;
+  /* aspect-ratio set inline via var(--ratio-*) */
+  background: var(--color-bg-subtle);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §22 · LAYOUT PRIMITIVE DEMOS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.layout-demo-row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-40);
+}
+
+.layout-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: var(--space-12) var(--space-16);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.layout-block.tall {
+  min-height: 5rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   §37 · ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.animation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-16);
+}
+
+.anim-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-20);
+  background: var(--color-surface-default);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition-shadow);
+}
+
+.anim-card:hover { box-shadow: var(--elevation-md); }
+
+.anim-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  overflow: hidden;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+}
+
+.anim-target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-note {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--color-text-tertiary);
+}
+
+/* ── Animation playback ──────────────────────────────────────────────────
+   JS adds .playing on click: remove → reflow → re-add.
+   Each animation runs once then holds its end-state (fill-mode: both).
+   On animationend the JS removes .playing so the card is immediately
+   re-clickable. Spin uses a finite iteration count (3 × 300ms) so it
+   also ends cleanly without an animationend listener.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.spin-target svg { display: block; }
+
+.spin-target.playing svg {
+  animation: spin 300ms linear 3 both;
+}
+
+.fade-target.playing {
+  animation: fadeIn var(--duration-deliberate) var(--ease-enter) both;
+}
+
+.slide-up-target.playing {
+  animation: slideUp var(--duration-deliberate) var(--ease-enter) both;
+}
+
+.slide-down-target.playing {
+  animation: slideDown var(--duration-deliberate) var(--ease-enter) both;
+}
+
+.scale-in-target.playing {
+  animation: scaleIn var(--duration-deliberate) var(--ease-spring) both;
+}
